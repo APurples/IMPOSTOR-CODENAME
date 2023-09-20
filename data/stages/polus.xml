@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.75" name="polus" folder="stages/polus/">
+	<sprite name="sky" x="-1084" y="-693" sprite="polus_custom_sky" />
+	<sprite name="rocks" x="-700" y="-300" sprite="polusrocks" />
+	<sprite name="hills" x="-1050" y="-181" sprite="polusHills" />
+	<sprite name="lab" x="50" y="-400" sprite="polus_custom_lab" />
+	<sprite name="floor" x="-1350" y="83" sprite="polus_custom_floor" />
+	<girlfriend  x="345" y="-71" scroll="1" />
+	<dad x="7" y="-100" />
+	<boyfriend x="864" y="-148" />
+	<sprite name="snow" x="0" y="-25" scale="2" scroll="1" sprite="snow" />
+</stage>

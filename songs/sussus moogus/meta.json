@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": false,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 150,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -4510416,
+	"displayName": "sussus moogus",
+	"icon": "impostor",
+	"name": "sussus moogus",
+	"color": "#BB2D30"
+}

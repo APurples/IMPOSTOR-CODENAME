@@ -1,0 +1,5 @@
+<!DOCTYPE codename-mod-options>
+<menu name="Impostor" desc="Options for Vs Impostor">
+	<checkbox id="flashingLights" name="Disable Flashing Lights" desc="If unchecked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
+	<checkbox id="camMove" name="Disable Cam Movement" desc="If checked, the camera will no longer move with the note's direction." />
+</menu>

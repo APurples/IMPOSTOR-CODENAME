@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": false,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 170,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -4510416,
+	"displayName": "sabotage",
+	"icon": "impostor",
+	"name": "sabotage",
+	"color": "#BB2D30"
+}
