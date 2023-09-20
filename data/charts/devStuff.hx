@@ -1,4 +1,4 @@
-function update() {
+/*function update() {
     if (startingSong || !canPause || paused || health <= 0) return;
     updateSpeed(FlxG.keys.pressed.TWO);
 }
@@ -11,4 +11,4 @@ function updateSpeed(fast:Bool) {
 
 function onGamePause() {updateSpeed(false);}
 function onSongEnd() {updateSpeed(false);}
-function destroy() {FlxG.timeScale = 1;FlxG.sound.muted = false;}
+function destroy() {FlxG.timeScale = 1;FlxG.sound.muted = false;}*/

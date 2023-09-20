@@ -41,7 +41,7 @@ function stepHit(){
         }
     }
     if (curStep > 1023 && curStep < 1121){
-        if (curStep % 16 == 0){
+        if (curStep % 32 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
