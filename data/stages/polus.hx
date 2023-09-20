@@ -30,7 +30,7 @@ function update(){
     }
     if (curSong == "meltdown"){
         add(speaker);
-       // add(crowd);
+        add(crowd);
         add(bfdead)
     }
 }
