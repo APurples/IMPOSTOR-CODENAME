@@ -1,5 +1,6 @@
 var speaker:FlxSprite;
 var crowd:FlxSprite;
+var bfdead:FlxSprite;
 
 function create(){
     speaker = new FlxSprite(300, 195);
@@ -13,6 +14,11 @@ function create(){
 	crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);
 	crowd.scrollFactor.set(1.5, 1.5);
 	crowd.antialiasing = true;
+
+    var bfdead:FlxSprite = new FlxSprite(600, 525).loadGraphic(Paths.image('stages/polus/bfdead',));
+    bfdead.setGraphicSize(Std.int(bfdead.width * .8));
+    bfdead.antialiasing = true;
+    bfdead.active = false;
 }
 
 function update(){
@@ -24,7 +30,8 @@ function update(){
     }
     if (curSong == "meltdown"){
         add(speaker);
-        add(crowd);
+       // add(crowd);
+        add(bfdead)
     }
 }
 
