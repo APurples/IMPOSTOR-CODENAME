@@ -1,5 +1,5 @@
-# impostor-codename
-A VS Impostor codename engine port! (WORK IN PROGRESS)
+# VS Impostor: Codename Engine Port
+An unoffical VS Impostor codename engine port! (WORK IN PROGRESS)
 you need codename engine to play this
 you can download yourself a build here (note: you NEED a github account to do this):
 https://github.com/FNF-CNE-Devs/CodenameEngine/actions
