@@ -7,6 +7,6 @@
 	<sprite name="floor" x="-1350" y="83" sprite="polus_custom_floor" />
 	<girlfriend  x="345" y="-71" scroll="1" />
 	<dad x="7" y="-100" />
-	<boyfriend x="864" y="-148" />
+	<boyfriend x="925" y="-124" />
 	<sprite name="snow" x="0" y="-25" scale="2" scroll="1" sprite="snow" />
 </stage>
