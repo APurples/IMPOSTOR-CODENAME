@@ -1,1 +1,3 @@
-function create(){}
+function postCreate(){
+    titleEnter.visible = false;
+}
