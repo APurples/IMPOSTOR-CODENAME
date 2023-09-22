@@ -1,3 +1,11 @@
+function onSongStart(){
+    camGame.zoom += 0.015;
+    camHUD.zoom += 0.03;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xADFF0000, .5);
+    }
+}
+
 function stepHit(){
     switch (curStep){
         case 1152:

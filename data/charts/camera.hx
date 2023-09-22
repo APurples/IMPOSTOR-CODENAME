@@ -22,4 +22,10 @@ function onCameraMove(camMoveEvent) {
     }
 }
 
+function update(){
+    if(curStage == "toogus"){
+        camMoveOffset = 18;
+    }
+}
+
 function destroy() {camFollowChars = true; camMoveOffset = 24;}

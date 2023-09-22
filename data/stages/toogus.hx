@@ -1,4 +1,6 @@
 function create(){
+    
+
     saxguy = new FlxSprite(-300, 200);
 	saxguy.frames = Paths.getSparrowAtlas('stages/toogus/cyan_toogus');
 	saxguy.animation.addByPrefix('POP OFF CYAN', 'Cyan Dancy', 24, true);
