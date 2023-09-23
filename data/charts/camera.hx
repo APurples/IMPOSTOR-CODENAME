@@ -3,22 +3,14 @@ static var camFollowChars:Bool = true;
 
 function create() {camFollowChars = true; camMoveOffset = 24;}
 
-function onCameraMove(camMoveEvent) {
+function postUpdate() {
     if (!FlxG.save.data.camMove){
-        if (camFollowChars) {
-            if (camMoveEvent.strumLine != null && camMoveEvent.strumLine?.characters[0] != null) {
-                var poseMovement:FlxPoint = switch (camMoveEvent.strumLine.characters[0].animation.name) {
-                    case "singLEFT": FlxPoint.get(-camMoveOffset, 0);
-                    case "singDOWN": FlxPoint.get(0, camMoveOffset);
-                    case "singUP": FlxPoint.get(0, -camMoveOffset);
-                    case "singRIGHT": FlxPoint.get(camMoveOffset, 0);
-                    case "singUP-alt": FlxPoint.get(0, -camMoveOffset);
-                    default: FlxPoint.get(0,0);
-                };
-                camMoveEvent.position.x += poseMovement.x; camMoveEvent.position.y += poseMovement.y;
-                poseMovement.put();
-            }
-        } else camMoveEvent.cancel();
+        switch(strumLines.members[curCameraTarget].characters[0].getAnimName()) {
+            case "singLEFT": camFollow.x -= camMoveOffset;
+            case "singDOWN": camFollow.y += camMoveOffset;
+            case "singUP": camFollow.y -= camMoveOffset;
+            case "singRIGHT": camFollow.x += camMoveOffset;
+        }
     }
 }
 
@@ -27,5 +19,3 @@ function update(){
         camMoveOffset = 18;
     }
 }
-
-function destroy() {camFollowChars = true; camMoveOffset = 24;}
