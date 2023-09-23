@@ -1,3 +1,5 @@
+canAccessDebugMenus = true;
+
 function update() {
     if (startingSong || !canPause || paused || health <= 0) return;
     updateSpeed(FlxG.keys.pressed.TWO);

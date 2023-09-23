@@ -1,1 +1,15 @@
-null
+{
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"HARD"
+	],
+	"icon": "face",
+	"parsedColor": -7179779,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"displayName": "double kill vtwo",
+	"needsVoices": true,
+	"bpm": 100,
+	"name": "double kill vtwo"
+}
