@@ -58,13 +58,15 @@ function create() {
 	vignette.scrollFactor.set();
 	add(vignette);
 
+	/*
 	glowyThing = new FlxSprite(361, 438).loadGraphic(Paths.image('menus/mainmenu/buttonglow'));
 	glowyThing.antialiasing = true;
 	glowyThing.scale.set(0.51, 0.51);
 	glowyThing.updateHitbox();
 	glowyThing.active = false;
 	glowyThing.scrollFactor.set();
-	// add(glowyThing);
+	add(glowyThing);
+	*/
 }
 
 function postCreate(){
@@ -89,12 +91,6 @@ function update() {
 		FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
 		FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
 		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
-		FlxTween.tween(spr, {alpha: 0}, 1.3, {
-			ease: FlxEase.quadOut,
-			onComplete: function(twn:FlxTween) {
-				spr.kill();
-			}
-		});
 	}
 
 	starFG.x -= 0.03;
