@@ -1,0 +1,14 @@
+{
+    "params": [
+        {
+            "name": "Jumpscare?",
+            "type": "Bool",
+            "defaultValue": true
+        },
+        {
+            "name": "Fade Out time",
+            "type": "String",
+            "defaultValue": 0.25
+        }
+    ]
+}
