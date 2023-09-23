@@ -1,6 +1,4 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="0.9" name="monochrome" folder="stages/monochrome">
+<stage zoom="0.9" name="monochrome">
 	<dad x="0" y="-100" />
-	<boyfriend x="925" y="-124" />
-	<sprite name="jumpscare" sprite="deadpostor" x="-465" y="-50" alpha="0"/>
 </stage>
