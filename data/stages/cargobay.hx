@@ -25,8 +25,14 @@ function create(){
     add(cargo);
 }
 
+// god bless you maz
 function postCreate(){
-    strumLines.members[2].characters[1].visible = false; // thanks maz
+    strumLines.members[2].characters[1].visible = false;
+}
+
+function postUpdate(){
+    cpuStrums.forEach(function(strums) strums.alpha = 0);
+    cpuStrums.notes.forEach(function(notes) notes.alpha = 0.5);
 }
 
 // the most hardcoded shit i've ever made
@@ -242,42 +248,6 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
-        }
-    
-        if (curStep > 271 && curStep < 399){
-            if (curStep % 4 == 0){
-                camGame.zoom += .015;
-                camHUD.zoom += .03;
-                camZoomingStrength = 0;
-            }
-        }
-        if (curStep > 403 && curStep < 519){
-            if (curStep % 4 == 0){
-                camGame.zoom += .015;
-                camHUD.zoom += .03;
-                camZoomingStrength = 0;
-            }
-        }
-        if (curStep > 1039 && curStep < 1281){
-            if (curStep % 4 == 0){
-                camGame.zoom += .015;
-                camHUD.zoom += .03;
-                camZoomingStrength = 0;
-            }
-        }
-        if (curStep > 2096 && curStep < 2607){
-            if (curStep % 4 == 0){
-                camGame.zoom += .015;
-                camHUD.zoom += .03;
-                camZoomingStrength = 0;
-            }
-        }
-        if (curStep > 2879 && curStep < 3119){
-            if (curStep % 4 == 0){
-                camGame.zoom += .015;
-                camHUD.zoom += .03;
-                camZoomingStrength = 0;
-            }
         }
     }
 }

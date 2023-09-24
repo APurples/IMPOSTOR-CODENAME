@@ -1,13 +1,11 @@
 <!DOCTYPE codename-titlestate >
 <titlestate>
-    <sprites folder="menus/titlescreen">
+    <sprites folder="menus/titlescreen/">
 <sprite name="starBG" sprite="starBG" x="0" y="0">
 <sprite name="starFG" sprite="starFG" x="0" y="0"></sprite>
 </sprite>
 
 <sprite name="logo" sprite="logoBumpin" scale=".85" x="225" y="-35"></sprite>
-<sprite name="start" sprite="startText" x="10" y="545"></sprite>
-      
 </sprites>
 
     <intro length="16">
@@ -23,15 +21,13 @@
         <text beat="4" />
 
         <text beat="5">
-            <line text="This" />
-            <line text="is" />
+            <line text="Not everything" />
         </text>
 
         <text beat="7">
-            <line text="This" />
-            <line text="is" />
-            <line text="not official" />
-            <sprite path="menus/titlescreen/newgrounds_logo" scale="0.8"/>
+            <line text="Not everything" />
+            <line text="will be ported in" />
+            <sprite path="menus/titlescreen/furry" scale=".8"/>
         </text>
 
         <text beat="8" />
