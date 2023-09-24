@@ -12,7 +12,7 @@ function create(){
     insert(members.indexOf(dad), flashback);
     add(flashback);
 
-    defeat = new FlxSprite(650, 50);
+    defeat = new FlxSprite(1000, 50);
     defeat.frames = Paths.getSparrowAtlas('stages/cargo bay/defeat');
     defeat.animation.addByPrefix('bop', 'defeat', 24, false);
     defeat.antialiasing = true;
@@ -38,7 +38,7 @@ function postUpdate(){
 // the most hardcoded shit i've ever made
 
 function stepHit(){
-    if (curStep % 32 == 0){
+    if (curStep % 16 == 0){
         defeat.animation.play("bop");
     }
 
