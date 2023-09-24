@@ -12,7 +12,7 @@ function create(){
     insert(members.indexOf(dad), flashback);
     add(flashback);
 
-    defeat = new FlxSprite(50, 50);
+    defeat = new FlxSprite(650, 50);
     defeat.frames = Paths.getSparrowAtlas('stages/cargo bay/defeat');
     defeat.animation.addByPrefix('bop', 'defeat', 24, false);
     defeat.antialiasing = true;
@@ -26,12 +26,16 @@ function create(){
 }
 
 function postCreate(){
-    strumLines.members[2].characters[1].alpha = 0; // thanks maz
+    strumLines.members[2].characters[1].visible = false; // thanks maz
 }
 
 // the most hardcoded shit i've ever made
 
 function stepHit(){
+    if (curStep % 32 == 0){
+        defeat.animation.play("bop");
+    }
+
     if (curSong == "double kill vtwo"){
         switch(curStep){
             case 4:
@@ -67,6 +71,8 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 520:
+                camZoomingStrength = 1;
             case 524:
                 defaultCamZoom = 1.2;
                 FlxTween.tween(camGame, {alpha:0}, .275);
@@ -78,6 +84,12 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 776:
+                defaultCamZoom = 1.1;
+            case 780:
+                defaultCamZoom = 1.2;
+            case 784:
+                defaultCamZoom = 1;
             case 800: // CAMERA ZOOMS ATTACK
                 camGame.zoom += .03;
                 camHUD.zoom += .045;
@@ -124,15 +136,18 @@ function stepHit(){
                 camGame.zoom += .06;
                 camHUD.zoom += .075;
             case 1040:
+                camZoomingStrength = 1;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 1282:
+                camZoomingStrength = 1;
             case 1296:
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 1788:
-                FlxTween.tween(camGame, {zoom: 1.2}, 1.65, {ease: FlxEase.sineIn});
+                FlxTween.tween(camGame, {zoom: 1.2}, 1.6, {ease: FlxEase.sineIn});
             case 1808:
                 camZoomingStrength = 2;
                 cargo.alpha = 0;
@@ -141,6 +156,8 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+                for (i in playerStrums.members)
+                    FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.sineInOut});
             case 1936:
                 FlxTween.tween(flashback, {alpha: .5}, 8);
             case 2062:
@@ -148,6 +165,8 @@ function stepHit(){
                 flashback.alpha = 0;
                 camHUD.alpha = 0;
                 camZoomingStrength = 1;
+                for (i in playerStrums.members)
+                    FlxTween.tween(i, {x: i.x + 320}, .001);
             case 2082:
                 FlxTween.tween(camHUD, {alpha: 1}, 1);
             case 2096:
@@ -158,6 +177,8 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 2608:
+                camZoomingStrength = 1;
             case 2640:
                 camGame.zoom += .075;
                 camHUD.zoom += .09;
@@ -203,16 +224,19 @@ function stepHit(){
             case 2876:
                 camGame.zoom += .06;
                 camHUD.zoom += .075;
+            case 3120:
+                camZoomingStrength = 1;
             case 3128:
                 FlxTween.tween(camGame, {alpha: 0}, .45);
                 FlxTween.tween(camHUD, {alpha: 0}, .45);
+                FlxTween.tween(camGame, {zoom: 1.2}, .45);
             case 3136:
+                strumLines.members[2].characters[1].visible = true;
                 camGame.alpha = 1;
                 camHUD.alpha = 1;
                 defeat.alpha = 1;
                 remove(cargo);
                 remove(gf);
-                strumLines.members[2].characters[1].alpha = 1;
                 remove(strumLines.members[0].characters[0]);
                 remove(strumLines.members[2].characters[0]);
                 if (!FlxG.save.data.flashingLights){
@@ -224,30 +248,35 @@ function stepHit(){
             if (curStep % 4 == 0){
                 camGame.zoom += .015;
                 camHUD.zoom += .03;
+                camZoomingStrength = 0;
             }
         }
         if (curStep > 403 && curStep < 519){
             if (curStep % 4 == 0){
                 camGame.zoom += .015;
                 camHUD.zoom += .03;
+                camZoomingStrength = 0;
             }
         }
         if (curStep > 1039 && curStep < 1281){
             if (curStep % 4 == 0){
                 camGame.zoom += .015;
                 camHUD.zoom += .03;
+                camZoomingStrength = 0;
             }
         }
         if (curStep > 2096 && curStep < 2607){
             if (curStep % 4 == 0){
                 camGame.zoom += .015;
                 camHUD.zoom += .03;
+                camZoomingStrength = 0;
             }
         }
         if (curStep > 2879 && curStep < 3119){
             if (curStep % 4 == 0){
                 camGame.zoom += .015;
                 camHUD.zoom += .03;
+                camZoomingStrength = 0;
             }
         }
     }

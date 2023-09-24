@@ -12,31 +12,25 @@
 
     <intro length="16">
         <text beat="1">
-            <line text="ninjamuffin99" />
-            <line text="phantomArcade" />
-            <line text="kawaisprite" />
-            <line text="evilsk8er" />
+            <line text="apurples" />
         </text>
 
         <text beat="3">
-            <line text="ninjamuffin99" />
-            <line text="phantomArcade" />
-            <line text="kawaisprite" />
-            <line text="evilsk8er" />
+            <line text="apurples" />
             <line text="presents" />
         </text>
 
         <text beat="4" />
 
         <text beat="5">
-            <line text="In association" />
-            <line text="with" />
+            <line text="This" />
+            <line text="is" />
         </text>
 
         <text beat="7">
-            <line text="In association" />
-            <line text="with" />
-            <line text="Newgrounds" />
+            <line text="This" />
+            <line text="is" />
+            <line text="not official" />
             <sprite path="menus/titlescreen/newgrounds_logo" scale="0.8"/>
         </text>
 
@@ -54,18 +48,18 @@
         <text beat="12"/>
 
         <text beat="13">
-            <line text="Friday" />
+            <line text="Vs" />
         </text>
 
         <text beat="14">
-            <line text="Friday" />
-            <line text="Night" />
+            <line text="Vs" />
+            <line text="Impostor" />
         </text>
 
         <text beat="15">
-            <line text="Friday" />
-            <line text="Night" />
-            <line text="Funkin'" />
+            <line text="Vs" />
+            <line text="Impostor" />
+            <line text="Codename Port" />
         </text>
     </intro>
 </titlestate>

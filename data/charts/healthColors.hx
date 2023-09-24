@@ -6,5 +6,8 @@ function postCreate(){
         if (curStage == "monochrome"){
             healthBar.createFilledBar(0xFFFFFFFF,0xFF31B0D1);
         }
+        if (curStage == "cargobay"){
+            healthBar.createFilledBar(0xFF6C5887,0xFF31B0D1);
+        }
     }
 }
