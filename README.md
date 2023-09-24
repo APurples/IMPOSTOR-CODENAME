@@ -1,7 +1,14 @@
 # VS Impostor: Codename Engine Port
-An unoffical VS Impostor codename engine port! (WORK IN PROGRESS)
-you need codename engine to play this
-you can download yourself a build here (note: you NEED a github account to do this):
-https://github.com/FNF-CNE-Devs/CodenameEngine/actions
-also big credits to clowfoe and his team impostorm for making vs impostor
-vs impostor: https://gamebanana.com/mods/55652
+An unoffical VS Impostor codename engine port! (W.I.P)
+
+Currently being developed by one person, which is [APurples!](https://twitter.com/fake_apurples)
+
+You need [Codename Engine](https://github.com/FNF-CNE-Devs/CodenameEngine) to play this. (duh)
+
+And you *might* need the latest commit build as well
+
+Due to the engine having some limits, and the fact that it is still in development, it's possible that i cant port everything in. So dont have high hopes of your favorite thing in the port!
+
+Also big credits to [Clowfoe](https://twitter.com/clowfoe) and his team Impostorm for making VS Impostor!
+
+[VS Impostor download](https://gamebanana.com/mods/55652)
