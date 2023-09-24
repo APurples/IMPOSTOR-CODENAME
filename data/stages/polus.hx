@@ -6,8 +6,8 @@ function create(){
     speaker.frames = Paths.getSparrowAtlas('stages/polus/speakerlonely');
     speaker.animation.addByPrefix('bop', 'speakers lonely', 24, false);
     speaker.antialiasing = true;
-
     insert(members.indexOf(gf), speaker);
+    
     crowd = new FlxSprite(-925, 250);
 	crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
 	crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);

@@ -1,8 +1,6 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="1" name="cargobay" folder="stages/cargo bay/">
-	<sprite name="cargoWall" x="250" y="350" sprite="cargowall" />
-	<sprite name="cargo" x="50" y="50" sprite="cargo" />
-	<dad x="1250" y="680" />
+<stage zoom=".85" name="cargobay">
+	<girlfriend x="1200" y="660" />
+	<dad x="1225" y="700" />
 	<boyfriend x="2550" y="650" />
-	<sprite name="overlay" x="50" y="50" sprite="overlay ass dk" />
 </stage>
