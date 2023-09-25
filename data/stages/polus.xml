@@ -10,5 +10,4 @@
 	<girlfriend  x="345" y="-71" scroll="1" />
 	<dad x="7" y="-100" />
 	<boyfriend x="925" y="-124" />
-	<sprite name="snow" x="0" y="-225" scale="2" scroll="1" sprite="snow" />
 </stage>

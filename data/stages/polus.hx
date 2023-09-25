@@ -1,4 +1,5 @@
 var speaker:FlxSprite;
+var snow:FlxSprite;
 var crowd:FlxSprite;
 
 function create(){
@@ -8,6 +9,19 @@ function create(){
     speaker.antialiasing = true;
     insert(members.indexOf(gf), speaker);
     
+    snow = new FlxSprite(0, -250);
+    snow.frames = Paths.getSparrowAtlas('stages/polus/snow');
+    snow.animation.addByPrefix('cum', 'cum', 24);
+    snow.animation.play('cum');
+    snow.scrollFactor.set(1, 1);
+    snow.antialiasing = true;
+    snow.updateHitbox();
+    snow.setGraphicSize(Std.int(snow.width * 2));
+    add(snow);
+    if (Options.lowMemoryMode){
+        remove(snow);
+    }
+
     crowd = new FlxSprite(-925, 250);
 	crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
 	crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);
@@ -27,6 +41,9 @@ function update(){
     if (curSong == "meltdown"){
         add(speaker);
         add(crowd);
+        if (Options.lowMemoryMode){
+            remove(crowd);
+        }
         bfdead.alpha = 1;
     }
 }
