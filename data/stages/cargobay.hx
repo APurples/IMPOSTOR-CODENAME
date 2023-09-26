@@ -6,13 +6,13 @@ camGame.alpha = 0;
 camHUD.alpha = 0;
 
 function create(){
-    flashback = new FlxSprite(1850, 800).loadGraphic(Paths.image('stages/cargo bay/airshipFlashback'));
+    flashback = new FlxSprite(18050, 800).loadGraphic(Paths.image('stages/cargo bay/airshipFlashback'));
     flashback.scale.x = flashback.scale.y = 1.5;
     flashback.alpha = 0;
     insert(members.indexOf(dad), flashback);
     add(flashback);
 
-    defeat = new FlxSprite(1000, 50);
+    defeat = new FlxSprite(1400, 50);
     defeat.frames = Paths.getSparrowAtlas('stages/cargo bay/defeat');
     defeat.animation.addByPrefix('bop', 'defeat', 24, false);
     defeat.antialiasing = true;
@@ -28,11 +28,17 @@ function create(){
 // god bless you maz
 function postCreate(){
     strumLines.members[2].characters[1].visible = false;
+    
+    if (curCameraTarget == 0){
+        defaultCamZoom = .9;
+    }else{
+        defaultCamZoom = 1;
+    }
 }
 
 function postUpdate(){
     cpuStrums.forEach(function(strums) strums.alpha = 0);
-    cpuStrums.notes.forEach(function(notes) notes.alpha = 0.5);
+    cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
 }
 
 // the most hardcoded shit i've ever made
