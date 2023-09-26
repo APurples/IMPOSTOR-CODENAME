@@ -1,5 +1,5 @@
 {
-	"opponentModeAllowed": false,
+	"opponentModeAllowed": true,
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"beatsPerMesure": 4,

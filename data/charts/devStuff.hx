@@ -1,4 +1,6 @@
-canAccessDebugMenus = true;
+// fast forward script by lunarcleint
+// opponent mode fix for fast forward by yasher
+// botplay by me (lol)
 
 function update() {
     if (startingSong || !canPause || paused || health <= 0) return;
@@ -10,9 +12,11 @@ function update() {
 }
 
 function updateSpeed(fast:Bool) {
-    FlxG.timeScale = inst.pitch = vocals.pitch = (player.cpu = fast) ? 10 : 1;
-    FlxG.sound.muted = fast;
-    health = !(canDie != fast) ? 2 : health;
+    if (!PlayState.opponentMode) {
+        FlxG.timeScale = inst.pitch = vocals.pitch = (player.cpu = fast) ? 10 : 1;
+        FlxG.sound.muted = fast;
+        health = !(canDie != fast) ? 2 : health;
+    }
 }
 
 function onGamePause() {updateSpeed(false);}
