@@ -4,7 +4,7 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         }
     }
@@ -13,7 +13,7 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         }
     }
@@ -22,7 +22,7 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         }
     }
@@ -32,25 +32,25 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         case 380:
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         case 1272:
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
         case 1276:
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .25);
+                camGame.flash(0xADFF0000, .35);
             }
     }
 }
