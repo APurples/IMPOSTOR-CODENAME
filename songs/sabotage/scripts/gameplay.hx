@@ -14,14 +14,14 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .5);
+                camGame.flash(0xADFF0000, .25);
             }
         }
     }
     if (curStep > 511 && curStep < 577){
         if (curStep % 64 == 0){
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .5);
+                camGame.flash(0xADFF0000, .25);
             }
         }
     }
@@ -30,7 +30,7 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .5);
+                camGame.flash(0xADFF0000, .25);
             }
         }
     }
@@ -39,7 +39,7 @@ function stepHit(){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
             if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .5);
+                camGame.flash(0xADFF0000, .25);
             }
         }
     }
