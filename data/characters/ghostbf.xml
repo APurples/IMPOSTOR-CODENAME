@@ -1,14 +1,14 @@
 <!DOCTYPE codename-engine-character>
-<character x="-62.5" icon="bf" camx="-100" y="325" isGF="false" camy="-17.5" flipX="true" isPlayer="true" gameOverChar="ghost-bf-dead" holdTime="6.1" sprite="bfghost">
-	<anim x="-5" loop="false" y="0" fps="24" anim="BF idle dance" name="idle"/>
-	<anim x="-44" loop="false" y="27" fps="24" anim="BF NOTE UP0" name="singUP"/>
-	<anim x="-38" loop="false" y="-6" fps="24" anim="BF NOTE LEFT0" name="singLEFT"/>
-	<anim x="-26" loop="false" y="-7" fps="24" anim="BF NOTE RIGHT0" name="singRIGHT"/>
-	<anim x="-20" loop="false" y="-35" fps="24" anim="BF NOTE DOWN0" name="singDOWN"/>
-	<anim x="-61" loop="false" y="28" fps="24" anim="BF NOTE UP MISS" name="singUPmiss"/>
-	<anim x="-46" loop="false" y="20" fps="24" anim="BF NOTE LEFT MISS" name="singLEFTmiss"/>
-	<anim x="-34" loop="false" y="16" fps="24" anim="BF NOTE RIGHT MISS" name="singRIGHTmiss"/>
-	<anim x="-34" loop="false" y="-1" fps="24" anim="BF NOTE DOWN MISS" name="singDOWNmiss"/>
-	<anim x="7" loop="false" y="4" fps="24" anim="BF HEY" name="hey"/>
-	<anim x="-4" loop="true" y="0" fps="24" anim="BF idle shaking" name="scared"/>
+<character isPlayer="true" icon="bf" camx="-150" flipX="true" holdTime="6.1" x="-50" y="325" sprite="bfghost">
+   <anim name="idle" anim="BF idle dance" loop="false" x="-5" y="0"/>
+   <anim name="singLEFT" anim="BF NOTE LEFT0" loop="false" x="5" y="-6"/>
+   <anim name="singDOWN" anim="BF NOTE DOWN0" loop="false" x="-10" y="-50"/>
+   <anim name="singUP" anim="BF NOTE UP0" loop="false" x="-29" y="27"/>
+   <anim name="singRIGHT" anim="BF NOTE RIGHT0" loop="false" x="-48" y="-7"/>
+   <anim name="singLEFTmiss" anim="BF NOTE LEFT MISS" loop="false" x="7" y="19"/>
+   <anim name="singDOWNmiss" anim="BF NOTE DOWN MISS" loop="false" x="-15" y="-19"/>
+   <anim name="singUPmiss" anim="BF NOTE UP MISS" loop="false" x="-36" y="27"/>
+   <anim name="singRIGHTmiss" anim="BF NOTE RIGHT MISS" loop="false" x="-44" y="22"/>
+   <anim name="hey" anim="BF HEY!!" loop="false" x="-3" y="5"/>
+   <anim name="scared" anim="BF idle shaking" x="-4" y="0"/>
 </character>
