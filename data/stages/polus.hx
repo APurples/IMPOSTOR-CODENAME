@@ -36,7 +36,6 @@ function update(){
         remove(speaker);
     }
     if (curSong == "sabotage"){
-        gf.alpha = 0;
         add(speaker);
     }
     if (curSong == "meltdown"){
