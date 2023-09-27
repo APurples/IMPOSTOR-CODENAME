@@ -93,8 +93,8 @@ function update() {
 		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
 	}
 
-	starFG.x -= 0.03;
-	starBG.x -= 0.01;
+	starFG.x -= 0.06;
+	starBG.x -= 0.03;
 
 }
 
