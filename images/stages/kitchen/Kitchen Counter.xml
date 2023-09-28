@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Kitchen Counter.png">
+<SubTexture name="Kitchen Counter idle0000" x="0" y="0" width="986" height="408" frameX="0" frameY="0" frameWidth="986" frameHeight="408" />
+</TextureAtlas>
