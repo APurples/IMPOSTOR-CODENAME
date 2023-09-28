@@ -9,7 +9,7 @@ function postCreate(){
         if (curStage == "cargobay"){
             healthBar.createFilledBar(0xFF6C5887,0xFF31B0D1);
         }
-        if (curStage == "kitchen"){
+        if (curStage == "chef"){
             healthBar.createFilledBar(0xFFC75E52,0xFF31B0D1);
         }
     }

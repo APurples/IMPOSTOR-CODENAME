@@ -50,6 +50,9 @@ function create(){
     gray.active = true;
     insert(members.indexOf(dad), gray);
     add(gray);
+    if (Options.lowMemoryMode){
+        remove(gray);
+    }
 
     saster = new FlxSprite(1300, 525);
     saster.frames = Paths.getSparrowAtlas('stages/kitchen/Boppers');
@@ -61,6 +64,9 @@ function create(){
     saster.active = true;
     insert(members.indexOf(dad), saster);
     add(saster);
+    if (Options.lowMemoryMode){
+        remove(saster);
+    }
 
     frontable = new FlxSprite(800, 700).loadGraphic(Paths.image('stages/kitchen/Kitchen Counter'));
     frontable.antialiasing = true;
@@ -73,16 +79,67 @@ function create(){
     chefBluelight.antialiasing = true;
     chefBluelight.scrollFactor.set(1, 1);
     chefBluelight.active = false;
+    add(chefBluelight);
+    if (Options.lowMemoryMode){
+        remove(chefBluelight);
+    }
 
     chefBlacklight = new FlxSprite(0, -300).loadGraphic(Paths.image('stages/kitchen/black_overhead_shadow'));
     chefBlacklight.antialiasing = true;
     chefBlacklight.scrollFactor.set(1, 1);
     chefBlacklight.active = false;
+    add(chefBlacklight);
+    if (Options.lowMemoryMode){
+        remove(chefBlacklight);
+    }
+}
+
+function onSongStart(){
+    camGame.zoom += .015;
+    camHUD.zoom += .03;
 }
 
 function beatHit(){
     if (curBeat % 2 == 0){
         gray.animation.play('bop');
         saster.animation.play('bop');
+    }
+}
+
+function stepHit(){
+    switch(curStep){
+        case 2:
+            camGame.zoom -= .015;
+            camHUD.zoom -= .03;
+        case 4:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 6:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 8:
+            camGame.zoom -= .015;
+            camHUD.zoom -= .03;
+        case 10:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 11:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 12:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 68:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 69:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 132:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
+        case 133:
+            camGame.zoom += .015;
+            camHUD.zoom += .03;
     }
 }

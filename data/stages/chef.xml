@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="0.8" name="kitchen">
+<stage zoom="0.8" name="chef">
 	<girlfriend  x="780" y="370" />
 	<dad x="500" y="425" />
 	<boyfriend x="1600" y="425" />

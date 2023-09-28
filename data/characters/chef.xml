@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-character>
+<character x="55" icon="chef" camx="250" y="-15" isGF="false" camy="165" isPlayer="false" holdTime="6.1" sprite="chefogus">
+	<anim x="60" loop="false" y="-170" fps="24" anim="Idle" name="idle"/>
+	<anim x="90" loop="false" y="-131" fps="24" anim="up" name="singUP"/>
+	<anim x="100" loop="false" y="-186" fps="24" anim="left" name="singLEFT"/>
+	<anim x="152" loop="false" y="-177" fps="24" anim="right" name="singRIGHT"/>
+	<anim x="17" loop="false" y="-211" fps="24" anim="down" name="singDOWN"/>
+	<anim x="93" loop="false" y="-175" fps="24" anim="vup" name="singUP-alt"/>
+	<anim x="27" loop="false" y="-221" fps="24" anim="Vdown" name="singDOWN-alt"/>
+</character>

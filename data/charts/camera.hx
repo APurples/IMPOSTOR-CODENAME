@@ -15,7 +15,7 @@ function postUpdate() {
 }
 
 function update(){
-    if(curStage == "toogus"){
-        camMoveOffset = 18;
+    if(curStage == "chef"){
+        camMoveOffset = 14;
     }
 }
