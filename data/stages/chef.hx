@@ -143,11 +143,11 @@ function beatHit(){
         case 291:
             defaultCamZoom = 1;
         case 293:
-            defaultCamZoom = .8;
+            defaultCamZoom = 0.8;
         case 308:
-            defaultCamZoom -= .2;
+            defaultCamZoom = 0.8;
         case 324:
-            defaultCamZoom -= .25;
+            defaultCamZoom = .75;
     }
 
     if (curBeat > 111 && curBeat < 115){
@@ -199,10 +199,10 @@ function stepHit(){
         case 171:
             defaultCamZoom = 1;
         case 176:
-            defaultCamZoom = .8;
+            defaultCamZoom = 0.8;
         case 206:
             defaultCamZoom = 1;
         case 208:
-            defaultCamZoom = .8;
+            defaultCamZoom = 0.8;
     }
 }
