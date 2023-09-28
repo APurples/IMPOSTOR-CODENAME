@@ -104,6 +104,61 @@ function beatHit(){
         gray.animation.play('bop');
         saster.animation.play('bop');
     }
+
+    switch(curBeat){
+        case 116:
+            defaultCamZoom -= .2;
+        case 145:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 147:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 161:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 163:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 177:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 179:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 193:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 195:
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        case 291:
+            defaultCamZoom = 1;
+        case 293:
+            defaultCamZoom = .8;
+        case 308:
+            defaultCamZoom -= .2;
+        case 324:
+            defaultCamZoom -= .25;
+    }
+
+    if (curBeat > 111 && curBeat < 115){
+        defaultCamZoom += .05;
+    }
+    if (curBeat > 303 && curBeat < 307){
+        defaultCamZoom += .05;
+    }
+    if (curBeat > 319 && curBeat < 323){
+        defaultCamZoom += .05;
+    }
 }
 
 function stepHit(){
@@ -141,5 +196,13 @@ function stepHit(){
         case 133:
             camGame.zoom += .015;
             camHUD.zoom += .03;
+        case 171:
+            defaultCamZoom = 1;
+        case 176:
+            defaultCamZoom = .8;
+        case 206:
+            defaultCamZoom = 1;
+        case 208:
+            defaultCamZoom = .8;
     }
 }

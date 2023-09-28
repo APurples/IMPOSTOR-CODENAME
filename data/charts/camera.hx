@@ -10,6 +10,10 @@ function postUpdate() {
             case "singDOWN": camFollow.y += camMoveOffset;
             case "singUP": camFollow.y -= camMoveOffset;
             case "singRIGHT": camFollow.x += camMoveOffset;
+            case "singLEFT-alt": camFollow.x -= camMoveOffset;
+            case "singDOWN-alt": camFollow.y += camMoveOffset;
+            case "singUP-alt": camFollow.y -= camMoveOffset;
+            case "singRIGHT-alt": camFollow.x += camMoveOffset;
         }
     }
 }
