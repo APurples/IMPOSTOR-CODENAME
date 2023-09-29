@@ -94,11 +94,6 @@ function create(){
     }
 }
 
-function onSongStart(){
-    camGame.zoom += .015;
-    camHUD.zoom += .03;
-}
-
 function beatHit(){
     if (curBeat % 2 == 0){
         gray.animation.play('bop');
@@ -163,39 +158,6 @@ function beatHit(){
 
 function stepHit(){
     switch(curStep){
-        case 2:
-            camGame.zoom -= .015;
-            camHUD.zoom -= .03;
-        case 4:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 6:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 8:
-            camGame.zoom -= .015;
-            camHUD.zoom -= .03;
-        case 10:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 11:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 12:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 68:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 69:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 132:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
-        case 133:
-            camGame.zoom += .015;
-            camHUD.zoom += .03;
         case 171:
             defaultCamZoom = 1;
         case 176:
