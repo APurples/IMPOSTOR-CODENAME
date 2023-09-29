@@ -1,6 +1,6 @@
 {
 	"opponentModeAllowed": true,
-	"coopAllowed": false,
+	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"beatsPerMesure": 4,
 	"bpm": 122,
@@ -8,9 +8,9 @@
 		"HARD"
 	],
 	"needsVoices": true,
-	"parsedColor": -3711918,
+	"parsedColor": -3712174,
 	"displayName": "sauces moogus",
 	"icon": "chef",
 	"name": "sauces moogus",
-	"color": "#C75C52"
+	"color": "#C75B52"
 }
