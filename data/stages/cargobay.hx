@@ -12,7 +12,7 @@ function create(){
     insert(members.indexOf(dad), flashback);
     add(flashback);
 
-    defeat = new FlxSprite(1400, 50);
+    defeat = new FlxSprite(1200, 50);
     defeat.frames = Paths.getSparrowAtlas('stages/cargo bay/defeat');
     defeat.animation.addByPrefix('bop', 'defeat', 24, false);
     defeat.antialiasing = true;
@@ -50,8 +50,8 @@ function stepHit(){
         switch(curStep){
             case 4:
                 FlxTween.tween(camGame, {alpha: 1}, 1.75);
-                FlxTween.tween(camHUD, {alpha:1}, 1.25);
-                FlxTween.tween(camGame, {zoom:1}, 1, {ease: FlxEase.sineIn});
+                FlxTween.tween(camHUD, {alpha: 1}, 1.25);
+                FlxTween.tween(camGame, {zoom: 1}, 1, {ease: FlxEase.sineIn});
             case 16:
                 camGame.alpha = 1;
                 camHUD.alpha = 1;
@@ -66,10 +66,10 @@ function stepHit(){
             case 274:
                 defaultCamZoom = 1;
             case 398:
-                FlxTween.tween(camGame, {zoom:1.2}, .35);
+                FlxTween.tween(camGame, {zoom: 1.2}, .35);
             case 400:
                 defaultCamZoom = 1.1;
-                FlxTween.tween(camGame, {alpha:0}, .275);
+                FlxTween.tween(camGame, {alpha: 0}, .275);
             case 404:
                 defaultCamZoom = 1;
                 camGame.alpha = 1;
@@ -77,8 +77,8 @@ function stepHit(){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 524:
-                FlxTween.tween(camGame, {alpha:0}, .275);
-                FlxTween.tween(camGame, {angle:-2}, .275);
+                FlxTween.tween(camGame, {alpha: 0}, .275);
+                FlxTween.tween(camGame, {angle: 2}, .275);
             case 528:
                 camGame.alpha = 1;
                 camGame.angle = 0;
@@ -90,6 +90,14 @@ function stepHit(){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 1296:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
+            case 1456:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
+            case 1552:
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }

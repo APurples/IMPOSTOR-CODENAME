@@ -3,12 +3,12 @@
         {
             "name": "New Zoom",
             "type": "String",
-            "defaultValue": "0.9"
+            "defaultValue": "1"
         },
         {
             "name": "Type",
-            "type": "DropDown('Add', 'Minus', 'Equals')",
-            "defaultValue": "Equals"
+            "type": "DropDown('Add', 'Subtract', 'Multiply', 'Divide', 'Set')",
+            "defaultValue": "Add"
         }
     ]
 }
