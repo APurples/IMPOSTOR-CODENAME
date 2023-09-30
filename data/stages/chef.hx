@@ -103,38 +103,6 @@ function beatHit(){
     switch(curBeat){
         case 116:
             defaultCamZoom -= .2;
-        case 145:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 147:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 161:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 163:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 177:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 179:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 193:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        case 195:
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
         case 291:
             defaultCamZoom = 1;
         case 293:
