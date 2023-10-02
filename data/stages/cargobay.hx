@@ -50,7 +50,6 @@ function stepHit(){
         switch(curStep){
             case 4:
                 FlxTween.tween(camGame, {alpha: 1}, 1.75);
-                FlxTween.tween(camHUD, {alpha: 1}, 1.25);
                 FlxTween.tween(camGame, {zoom: 1}, 1, {ease: FlxEase.sineIn});
             case 16:
                 camGame.alpha = 1;
@@ -113,6 +112,9 @@ function stepHit(){
                 }
                 for (i in playerStrums.members)
                     FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.sineInOut});
+                for (i in cpuStrums.members){
+                    i.alpha = 0.5;
+                 }
             case 1936:
                 FlxTween.tween(flashback, {alpha: .5}, 8);
             case 2062:
