@@ -81,7 +81,7 @@ function postCreate(){
     FlxG.camera.followLerp = 0;
 }
 
-function update() {
+function update(){
 	if (FlxG.keys.pressed.ENTER) {
 		redImpostor.animation.play('select');
 		greenImpostor.animation.play('select');
@@ -95,10 +95,9 @@ function update() {
 
 	starFG.x -= 0.06;
 	starBG.x -= 0.03;
-
 }
 
-function postUpdate() {
+function postUpdate(){
     state.menuItems.members[0].offset.set(125, -300);
     state.menuItems.members[1].offset.set(125, -250);
     state.menuItems.members[2].offset.set(55, -200);
