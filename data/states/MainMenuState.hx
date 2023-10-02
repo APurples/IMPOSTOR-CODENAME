@@ -93,14 +93,14 @@ function update(){
 		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
 	}
 
-	starFG.x -= 0.06;
+	starFG.x -= 0.06; // moves the stars to the left
 	starBG.x -= 0.03;
 }
 
 function postUpdate(){
-    state.menuItems.members[0].offset.set(125, -300);
-    state.menuItems.members[1].offset.set(125, -250);
-    state.menuItems.members[2].offset.set(55, -200);
+    state.menuItems.members[0].offset.set(125, -300); // story mode
+    state.menuItems.members[1].offset.set(125, -250); // freeplay
+    state.menuItems.members[2].offset.set(55, -200); // settings
 
     FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
     FlxG.camera.scroll.set();
