@@ -67,22 +67,27 @@ function create() {
 	glowyThing.scrollFactor.set();
 	add(glowyThing);
 	*/
+
+	impostorVer = new FlxText(5, FlxG.height - 2, 2, 'VS Impostor V4 CNE Port v0.2 [ALPHA]');
+	add(impostorVer);
 }
 
 function postCreate(){
-    magenta.destroy();
+    magenta.destroy(); // fuck you magenta sprite
 
-    for(e in state.menuItems) {
+    for(e in state.menuItems){
         e.scale.x = e.scale.y = 0.5;
         e.scrollFactor.set();
         e.updateHitbox();
         e.animation.play(e.animation.curAnim.name, true);
-      }
+    }
+
+	// prevents the bg froming moving around when using arrow keys
     FlxG.camera.followLerp = 0;
 }
 
 function update(){
-	if (FlxG.keys.pressed.ENTER) {
+	if (FlxG.keys.pressed.ENTER){
 		redImpostor.animation.play('select');
 		greenImpostor.animation.play('select');
 
@@ -93,7 +98,8 @@ function update(){
 		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
 	}
 
-	starFG.x -= 0.06; // moves the stars to the left
+	// moves the stars to the left
+	starFG.x -= 0.06;
 	starBG.x -= 0.03;
 }
 
