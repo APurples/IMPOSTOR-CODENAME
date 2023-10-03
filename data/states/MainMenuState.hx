@@ -3,17 +3,17 @@ import flixel.addons.display.FlxBackdrop;
 function create() {
 	FlxG.mouse.visible = true;
 
-	starFG = new FlxBackdrop(Paths.image('menus/mainmenu/starFG'));
-	starFG.updateHitbox();
-	starFG.antialiasing = true;
-	starFG.scrollFactor.set();
-	add(starFG);
-
 	starBG = new FlxBackdrop(Paths.image('menus/mainmenu/starBG'));
 	starBG.updateHitbox();
 	starBG.antialiasing = true;
 	starBG.scrollFactor.set();
 	add(starBG);
+
+	starFG = new FlxBackdrop(Paths.image('menus/mainmenu/starFG'));
+	starFG.updateHitbox();
+	starFG.antialiasing = true;
+	starFG.scrollFactor.set();
+	add(starFG);
 
 	greenImpostor = new FlxSprite(-300, -60);
 	greenImpostor.frames = Paths.getSparrowAtlas('menus/mainmenu/greenmenu');
