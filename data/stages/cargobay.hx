@@ -112,17 +112,20 @@ function stepHit(){
                 }
                 for (i in playerStrums.members)
                     FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.sineInOut});
-                for (i in cpuStrums.members){
-                    i.alpha = 0.5;
+                for (e in cpuStrums.members){
+                    e.x -= 5000;
                 }
             case 1936:
-                FlxTween.tween(flashback, {alpha: .5}, 8);
+                FlxTween.tween(flashback, {alpha: .5}, 10);
             case 2062:
                 boyfriend.alpha = 0;
                 flashback.alpha = 0;
                 camHUD.alpha = 0;
                 for (i in playerStrums.members)
                     FlxTween.tween(i, {x: i.x + 320}, .001);
+                for (i in cpuStrums.members){
+                    i.x += 5000;
+                }
             case 2082:
                 FlxTween.tween(camHUD, {alpha: 1}, 1);
             case 2096:
@@ -130,6 +133,10 @@ function stepHit(){
                 dad.alpha = 1;
                 gf.alpha = 1;
                 cargo.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
+            case 2880:
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
@@ -149,6 +156,10 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
+            case 3328:
+                FlxTween.tween(camGame, {zoom: 0.725}, 16);
+            case 3392:
+                defaultCamZoom = 1;
         }
     }
 }
