@@ -114,7 +114,7 @@ function stepHit(){
                     FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.sineInOut});
                 for (i in cpuStrums.members){
                     i.alpha = 0.5;
-                 }
+                }
             case 1936:
                 FlxTween.tween(flashback, {alpha: .5}, 8);
             case 2062:

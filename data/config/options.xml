@@ -1,12 +1,14 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Impostor" desc="Options for Vs Impostor.">
-	<menu name="gameplay" desc="Change gameplay options for VS Impostor such as camera movement, screen shaking...">
-		<checkbox id="jumpscares" name="Disable Jumpscares" desc="If unchecked, there will be jumpscares in certain songs." />
-		<checkbox id="camMove" name="Disable Cam Movement" desc="If checked, the camera will no longer move with the note's direction." />
+	<menu name="gameplay" desc="Change gameplay options for VS Impostor such as middlescroll, hitsounds...">
+		<checkbox id="middlescroll" name="Middlescroll" desc="If checked, centers the player's strums to the middle." />
+		<checkbox id="opponentNotes" name="Hide opponent notes" desc="If checked, will make the opponent's notes invisible." />
 		<checkbox id="hitsound" name="Hitsounds" desc="If checked, a tick sound will occur on every note hit." />
 	</menu>
-	<menu name="appearance" desc="Change appearance options for VS Impostor such as flashing lights, jumpscares...">
+	<menu name="appearance" desc="Change appearance options for VS Impostor such as flashing lights, jumpscares, camera movement...">
 		<checkbox id="flashingLights" name="Disable Flashing Lights" desc="If unchecked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
 		<checkbox id="screenShake" name="Disable Screen Shake" desc="If unchecked, screen shaking will occur in some songs." />
+		<checkbox id="jumpscares" name="Disable Jumpscares" desc="If unchecked, there will be jumpscares in certain songs." />
+		<checkbox id="camMove" name="Disable Cam Movement" desc="If checked, the camera will no longer move with the note's direction." />
 	</menu>
 </menu>
