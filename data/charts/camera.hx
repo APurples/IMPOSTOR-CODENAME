@@ -18,8 +18,11 @@ function postUpdate() {
     }
 }
 
-function update(){
+function postUpdate(){
     if(curStage == "chef"){
         camMoveOffset = 14;
+    }
+    if(curStage == "nuzzus"){
+        camFollowChars = false;
     }
 }
