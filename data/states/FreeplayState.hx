@@ -41,7 +41,6 @@ function create(){
     portrait.animation.addByIndices('red', 'Character', [1], null, 24, true);
     portrait.animation.addByIndices('black', 'Character', [6], null, 24, true);
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
-    portrait.animation.addByIndices('nuzzus', 'Character', [39], null, 24, true);
     portrait.antialiasing = true;
     portrait.setPosition(304.65, -100);
     portrait.updateHitbox();
@@ -90,9 +89,6 @@ function postUpdate(){
             portrait.animation.play('red');
         case "sauces moogus":
             portrait.animation.play('chef');
-        case "sussus nuzzus":
-            portrait.animation.play('nuzzus');
-            portrait.alpha = 1;
         case "monochrome":
             portrait.alpha = 0;
         case "double kill vtwo":
