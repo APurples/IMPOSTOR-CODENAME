@@ -16,9 +16,7 @@ function postUpdate() {
             case "singRIGHT-alt": camFollow.x += camMoveOffset;
         }
     }
-}
 
-function postUpdate(){
     if(curStage == "chef"){
         camMoveOffset = 14;
     }
