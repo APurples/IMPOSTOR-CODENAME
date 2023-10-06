@@ -1,6 +1,7 @@
 var flashback:FlxSprite;
 var defeat:FlxSprite;
 var cargo:FlxSprite;
+var bflegs:FlxSprite;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
@@ -23,6 +24,14 @@ function create(){
     cargo = new FlxSprite(50, 50).loadGraphic(Paths.image('stages/cargo bay/cargo'));
     insert(members.indexOf(dad), cargo);
     add(cargo);
+
+    bflegs = new FlxSprite(2525, 1200);
+    bflegs.alpha = 0;
+    bflegs.frames = Paths.getSparrowAtlas('char_running_legs/bf_legs');
+    bflegs.animation.addByPrefix('bop', 'run legs', 24, true);
+    bflegs.animation.play('bop');
+    insert(members.indexOf(boyfriend), bflegs);
+    add(bflegs);
 }
 
 // god bless you maz
@@ -153,13 +162,17 @@ function stepHit(){
                 remove(gf);
                 remove(strumLines.members[0].characters[0]);
                 remove(strumLines.members[2].characters[0]);
+                FlxTween.tween(healthBar, {alpha:0}, .5);
+                FlxTween.tween(healthBarBG, {alpha:0}, .5);
+                FlxTween.tween(iconP1, {alpha:0}, .5);
+                FlxTween.tween(iconP2, {alpha:0}, .5);
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
             case 3328:
-                FlxTween.tween(camGame, {zoom: 0.725}, 16);
+                FlxTween.tween(camGame, {zoom: 0.725}, 10);
             case 3392:
-                defaultCamZoom = 1;
+                iconP1.flip.x = false;
         }
     }
 }
