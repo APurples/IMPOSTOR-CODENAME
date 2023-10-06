@@ -99,40 +99,4 @@ function beatHit(){
         gray.animation.play('bop');
         saster.animation.play('bop');
     }
-
-    switch(curBeat){
-        case 116:
-            defaultCamZoom -= .2;
-        case 291:
-            defaultCamZoom = 1;
-        case 293:
-            defaultCamZoom = 0.8;
-        case 308:
-            defaultCamZoom = 0.8;
-        case 324:
-            defaultCamZoom = .75;
-    }
-
-    if (curBeat > 111 && curBeat < 115){
-        defaultCamZoom += .05;
-    }
-    if (curBeat > 303 && curBeat < 307){
-        defaultCamZoom += .05;
-    }
-    if (curBeat > 319 && curBeat < 323){
-        defaultCamZoom += .05;
-    }
-}
-
-function stepHit(){
-    switch(curStep){
-        case 171:
-            defaultCamZoom = 1;
-        case 176:
-            defaultCamZoom = 0.8;
-        case 206:
-            defaultCamZoom = 1;
-        case 208:
-            defaultCamZoom = 0.8;
-    }
 }
