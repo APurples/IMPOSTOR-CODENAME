@@ -22,11 +22,13 @@ function create(){
         remove(snow);
     }
 
-    crowd = new FlxSprite(-925, 250);
-	crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
-	crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);
-	crowd.scrollFactor.set(1.5, 1.5);
-	crowd.antialiasing = true;
+    crowd = new FlxSprite(-900, 200);
+    crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
+    crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);
+    crowd.animation.play('bop');
+    crowd.scrollFactor.set(1.5, 1.5);
+    crowd.antialiasing = true;
+    crowd.updateHitbox();
     
     bfdead.alpha = 0;
 }
@@ -41,10 +43,10 @@ function update(){
     if (curSong == "meltdown"){
         add(speaker);
         add(crowd);
+        bfdead.alpha = 1;
         if (Options.lowMemoryMode){
             remove(crowd);
         }
-        bfdead.alpha = 1;
     }
 }
 
