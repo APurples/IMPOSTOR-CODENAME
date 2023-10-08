@@ -89,11 +89,11 @@ function postUpdate(){
             portrait.animation.play('red');
         case "sauces moogus":
             portrait.animation.play('chef');
-            FlxTween.tween(portrait, {alpha: 1}, .3);
+            portrait.alpha = 1;
         case "monochrome":
-            FlxTween.tween(portrait, {alpha: 0}, .3);
+            portrait.alpha = 0;
         case "double kill vtwo":
             portrait.animation.play('black');
-            FlxTween.tween(portrait, {alpha: 1}, .3);
+            portrait.alpha = 1;
     }
 }

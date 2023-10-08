@@ -1,4 +1,4 @@
-var preloadedCharacters = ['bfdefeat'];
+var preloadedCharacters = ['bfdefeat', 'bfrun', 'blackrunalt'];
 
 function postCreate() {
 	for (event in events) {
