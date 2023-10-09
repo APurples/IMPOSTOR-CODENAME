@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="amongly.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="amongly0000" x="26" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0001" x="26" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0002" x="1099" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0003" x="1099" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0004" x="2172" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0005" x="2172" y="26" width="1034" height="767"/>
+	<SubTexture name="amongly0006" x="26" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0007" x="26" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0008" x="1099" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0009" x="1099" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0010" x="2172" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0011" x="2172" y="832" width="1034" height="767"/>
+	<SubTexture name="amongly0012" x="26" y="1638" width="1034" height="767"/>
+	<SubTexture name="amongly0013" x="26" y="1638" width="1034" height="767"/>
+</TextureAtlas>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mint.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mint0000" x="26" y="26" width="321" height="336"/>
+	<SubTexture name="mint0001" x="26" y="26" width="321" height="336"/>
+	<SubTexture name="mint0002" x="386" y="26" width="321" height="336"/>
+	<SubTexture name="mint0003" x="386" y="26" width="321" height="336"/>
+	<SubTexture name="mint0004" x="26" y="401" width="321" height="336"/>
+	<SubTexture name="mint0005" x="26" y="401" width="321" height="336"/>
+	<SubTexture name="mint0006" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0007" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0008" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0009" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0010" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0011" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0012" x="386" y="401" width="321" height="336"/>
+	<SubTexture name="mint0013" x="386" y="401" width="321" height="336"/>
+</TextureAtlas>

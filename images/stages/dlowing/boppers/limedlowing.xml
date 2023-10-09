@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="limedlowing.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="lime0000" x="26" y="26" width="596" height="525"/>
+	<SubTexture name="lime0001" x="26" y="26" width="596" height="525"/>
+	<SubTexture name="lime0002" x="661" y="26" width="596" height="525"/>
+	<SubTexture name="lime0003" x="661" y="26" width="596" height="525"/>
+	<SubTexture name="lime0004" x="1296" y="26" width="596" height="525"/>
+	<SubTexture name="lime0005" x="1296" y="26" width="596" height="525"/>
+	<SubTexture name="lime0006" x="26" y="590" width="596" height="525"/>
+	<SubTexture name="lime0007" x="26" y="590" width="596" height="525"/>
+	<SubTexture name="lime0008" x="661" y="590" width="596" height="525"/>
+	<SubTexture name="lime0009" x="661" y="590" width="596" height="525"/>
+	<SubTexture name="lime0010" x="661" y="590" width="596" height="525"/>
+	<SubTexture name="lime0011" x="661" y="590" width="596" height="525"/>
+	<SubTexture name="lime0012" x="661" y="590" width="596" height="525"/>
+	<SubTexture name="lime0013" x="661" y="590" width="596" height="525"/>
+</TextureAtlas>

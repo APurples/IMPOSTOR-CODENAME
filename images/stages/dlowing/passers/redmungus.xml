@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dlowing_boppers.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="redmungus0000" x="26" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0001" x="26" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0002" x="712" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0003" x="712" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0004" x="1398" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0005" x="1398" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0006" x="2084" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0007" x="2084" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0008" x="2770" y="26" width="647" height="804"/>
+	<SubTexture name="redmungus0009" x="2770" y="26" width="647" height="804"/>
+</TextureAtlas>

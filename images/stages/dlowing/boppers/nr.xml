@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="nr.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="nr0000" x="26" y="26" width="440" height="469"/>
+	<SubTexture name="nr0001" x="26" y="26" width="440" height="469"/>
+	<SubTexture name="nr0002" x="505" y="26" width="440" height="469"/>
+	<SubTexture name="nr0003" x="505" y="26" width="440" height="469"/>
+	<SubTexture name="nr0004" x="984" y="26" width="440" height="469"/>
+	<SubTexture name="nr0005" x="984" y="26" width="440" height="469"/>
+	<SubTexture name="nr0006" x="1463" y="26" width="440" height="469"/>
+	<SubTexture name="nr0007" x="1463" y="26" width="440" height="469"/>
+	<SubTexture name="nr0008" x="26" y="534" width="440" height="469"/>
+	<SubTexture name="nr0009" x="26" y="534" width="440" height="469"/>
+	<SubTexture name="nr0010" x="26" y="534" width="440" height="469"/>
+	<SubTexture name="nr0011" x="26" y="534" width="440" height="469"/>
+	<SubTexture name="nr0012" x="26" y="534" width="440" height="469"/>
+	<SubTexture name="nr0013" x="26" y="534" width="440" height="469"/>
+</TextureAtlas>

@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="-85" icon="yarlow" camx="150" y="75" isGF="false" camy="237.5" isPlayer="false" holdTime="6.1" sprite="yarlowdnasu">
+	<anim x="60" loop="false" y="-170" fps="24" anim="idle" name="idle"/>
+	<anim x="20" loop="false" y="-100" fps="24" anim="up" name="singUP"/>
+	<anim x="-85" loop="false" y="-187" fps="24" anim="left" name="singLEFT"/>
+	<anim x="-48" loop="false" y="-174" fps="24" anim="right" name="singRIGHT"/>
+	<anim x="45" loop="false" y="-304" fps="24" anim="down" name="singDOWN"/>
+</character>

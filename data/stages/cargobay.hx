@@ -111,6 +111,7 @@ function beatHit(){
         camHUD.zoom += 0.06;
         camZoomingStrength = 0;
     }
+    
     if (bopping){
         camGame.zoom += 0.015;
         camHUD.zoom += 0.03;
