@@ -7,11 +7,43 @@ var bflegs:FlxSprite;
 
 var swing:Bool = false;
 var bopping:Bool = false;
+var angle:Bool = false;
+var hideWhiteStrums:Bool = false;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
 
 function create(){
+    end1 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/1'));
+    end1.alpha = 0;
+    end1.screenCenter();
+    add(end1);
+
+    end2 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/2'));
+    end2.alpha = 0;
+    end2.screenCenter();
+    add(end2);
+
+    end3 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/3'));
+    end3.alpha = 0;
+    end3.screenCenter();
+    add(end3);
+
+    end4 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/4'));
+    end4.alpha = 0;
+    end4.screenCenter();
+    add(end4);
+
+    end5 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/5'));
+    end5.alpha = 0;
+    end5.screenCenter();
+    add(end5);
+    
+    end6 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/6'));
+    end6.alpha = 0;
+    end6.screenCenter();
+    add(end6);
+
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
     overlay.alpha = .75;
     add(overlay);
@@ -43,6 +75,10 @@ function update(elapsed){
         camGame.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.5;
         camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.5;
     }
+
+    if (FlxG.save.data.middlescroll){
+        hideWhiteStrums = true;
+    }
 }
 
 // god bless you maz
@@ -59,6 +95,10 @@ function postCreate(){
 function postUpdate(){
     cpuStrums.forEach(function(strums) strums.alpha = 0);
     cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
+    if (hideWhiteStrums){
+        cpuStrums[2].forEach(function(strums) strums.alpha = 0);
+        cpuStrums[2].notes.forEach(function(notes) notes.alpha = 0);
+    }
 }
 
 function onSongStart(){
@@ -111,15 +151,43 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 520:
+                camGame.angle = 1;
+                camHUD.angle = 1;
+            case 522:
+                camGame.angle = -1;
+                camHUD.angle = -1;
             case 524:
+                camGame.angle = 1;
+                camHUD.angle = 1;
                 FlxTween.tween(camGame, {alpha: 0}, .275);
-                FlxTween.tween(camGame, {angle: 2}, .275);
+                FlxTween.tween(camHUD, {alpha: 0}, .275);
+            case 526:
+                camGame.angle = -1;
+                camHUD.angle = -1;
             case 528:
                 camGame.alpha = 1;
+                camHUD.alpha = 1;
                 camGame.angle = 0;
+                camHUD.angle = 0;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 776:
+                camGame.angle = 1;
+                camHUD.angle = 1;
+            case 778:
+                camGame.angle = -1;
+                camHUD.angle = -1;
+            case 780:
+                camGame.angle = 1;
+                camHUD.angle = 1;
+            case 782:
+                camGame.angle = -1;
+                camHUD.angle = -1;
+            case 784:
+                camGame.angle = 0;
+                camHUD.angle = 0;
             case 1040:
                 scrollSpeed = 3.3;
                 if (!FlxG.save.data.flashingLights){
@@ -204,11 +272,37 @@ function stepHit(){
                 hall.alpha = 1;
                 bflegs.alpha = 1;
                 blacklegs.alpha = 1;
+            case 3920:
+                end1.alpha = 1;
+            case 3926:
+                end2.alpha = 1;
+                end1.alpha = 0;
+            case 3932:
+                end3.alpha = 1;
+                end2.alpha = 0;
+                camHUD.alpha = 0;
+            case 3952:
+                end4.alpha = 1;
+                end3.alpha = 0;
+            case 3958:
+                end5.alpha = 1;
+                end4.alpha = 0;
+            case 3964:
+                end6.alpha = 1;
+                end5.alpha = 0;
         }
     }
 }
 
 // hscript call stuff
+
+function angleBop(){
+    angleBop = true;
+}
+
+function stopAngleBop(){
+    angleBop = false;
+}
 
 function boppingShit(){
     bopping = true;
