@@ -5,7 +5,7 @@ camHUD.alpha = 0;
 
 function create(){
     // this code is so messy i am so sorry to anyone that knows what they are doing
-    
+
     remove(comboGroup);
     remove(gf);
     remove(dad);
@@ -61,8 +61,8 @@ function create(){
     add(other);
     add(blade);
     add(addb);
-    add(ov);
     add(callguy);
+    add(ov);
     add(adds);
     add(gf);
     add(dad);
