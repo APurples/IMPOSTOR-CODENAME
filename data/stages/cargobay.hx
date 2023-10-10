@@ -1,3 +1,5 @@
+import flixel.addons.display.FlxBackdrop;
+
 var overlay:FlxSprite;
 var flashback:FlxSprite;
 var hall:FlxSprite;
@@ -14,34 +16,28 @@ camGame.alpha = 0;
 camHUD.alpha = 0;
 
 function create(){
-    end1 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/1'));
+    end1 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/1'));
     end1.alpha = 0;
-    end1.screenCenter();
     add(end1);
 
-    end2 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/2'));
+    end2 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/2'));
     end2.alpha = 0;
-    end2.screenCenter();
     add(end2);
 
-    end3 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/3'));
+    end3 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/3'));
     end3.alpha = 0;
-    end3.screenCenter();
     add(end3);
 
-    end4 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/4'));
+    end4 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/4'));
     end4.alpha = 0;
-    end4.screenCenter();
     add(end4);
 
-    end5 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/5'));
+    end5 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/5'));
     end5.alpha = 0;
-    end5.screenCenter();
     add(end5);
     
-    end6 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/6'));
+    end6 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/6'));
     end6.alpha = 0;
-    end6.screenCenter();
     add(end6);
 
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
@@ -55,7 +51,6 @@ function create(){
 
     hall = new FlxSprite(250, -400).loadGraphic(Paths.image('stages/cargo bay/chase'));
     hall.alpha = 0;
-    hall.shader = shader = new CustomShader("scroll");
     insert(members.indexOf(dad), hall);
 
     defeat = new FlxSprite(1200, 50);
@@ -273,24 +268,6 @@ function stepHit(){
                 hall.alpha = 1;
                 bflegs.alpha = 1;
                 blacklegs.alpha = 1;
-            case 3920:
-                end1.alpha = 1;
-            case 3926:
-                end2.alpha = 1;
-                end1.alpha = 0;
-            case 3932:
-                end3.alpha = 1;
-                end2.alpha = 0;
-                camHUD.alpha = 0;
-            case 3952:
-                end4.alpha = 1;
-                end3.alpha = 0;
-            case 3958:
-                end5.alpha = 1;
-                end4.alpha = 0;
-            case 3964:
-                end6.alpha = 1;
-                end5.alpha = 0;
         }
     }
 }
@@ -342,4 +319,10 @@ function chaseTime2(){
     strumLines.members[1].characters[1].visible = true;
     strumLines.members[1].characters[2].visible = true;
     strumLines.members[2].characters[2].visible = true;
+}
+
+function stopChaseTime(){
+    swing = false;
+    camGame.angle = 0;
+    camHUD.angle = 0;
 }

@@ -1,8 +1,9 @@
 var boing:Bool = false;
 
 function onEvent(e:EventGameEvent){
-    if (e.event.name == "Note Bounce"){
-        mult = e.event.params[1];
+    if (e.event.name == "Note Bounce" || "Note_Bounce" /* mfw discord */){
+        constant = e.event.params[1];
+        mult = e.event.params[2];
 
         if (e.event.params[0] == true){
             boing = true;
@@ -28,7 +29,7 @@ function stepHit(){
 }
 
 function boingUp(){
-    FlxTween.tween(camHUD, {y: -10 * mult}, Conductor.stepCrochet * 0.002, {ease: FlxEase.circOut});
+    FlxTween.tween(camHUD, {y: -constant * mult}, Conductor.stepCrochet * 0.002, {ease: FlxEase.circOut});
 }
 
 function boingDown(){

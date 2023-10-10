@@ -39,6 +39,7 @@ function create(){
 
     // gonn make this into an array later
     portrait.animation.addByIndices('red', 'Character', [1], null, 24, true);
+    portrait.animation.addByIndices('yellow', 'Character', [2], null, 24, true);
     portrait.animation.addByIndices('black', 'Character', [6], null, 24, true);
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
     portrait.antialiasing = true;
@@ -92,8 +93,10 @@ function postUpdate(){
             portrait.alpha = 1;
         case "monochrome":
             portrait.alpha = 0;
+        case "yarlow" | "dlowing":
+            portrait.animation.play('yellow');
+            portrait.alpha = 1;
         case "double kill vtwo":
             portrait.animation.play('black');
-            portrait.alpha = 1;
     }
 }

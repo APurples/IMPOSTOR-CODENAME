@@ -138,6 +138,20 @@ function create(){
     add(pissOverlay);
 }
 
+function update(){
+    if (PlayState.opponentMode){
+        comboGroup.x = 2300;
+    }
+
+    if (PlayState.coopMode){
+        comboGroup.x = 2450;
+    }
+
+    if (PlayState.opponentMode || PlayState.coopMode){
+        camHUD.alpha = 1;
+    }
+}
+
 function postUpdate(){
     if (curSong == "yarlow"){
         remove(lime);

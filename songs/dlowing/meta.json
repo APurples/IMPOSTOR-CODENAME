@@ -1,1 +1,16 @@
-null
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 174,
+	"difficulties": [
+		"DLOW"
+	],
+	"needsVoices": true,
+	"parsedColor": -143305,
+	"displayName": "dlowing",
+	"icon": "yarlow",
+	"name": "dlowing",
+	"color": "#FDD037"
+}

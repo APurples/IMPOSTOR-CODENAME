@@ -48,6 +48,8 @@ function update(){
             remove(crowd);
         }
     }
+
+    if ()
 }
 
 function onSongStart(){
