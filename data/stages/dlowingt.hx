@@ -43,10 +43,67 @@ function create(){
     ov = new FlxSprite(1262.5, 806).loadGraphic(Paths.image('stages/dlowing/overlay gold'));
     ov.scrollFactor.set(1, 1);
 
+    lime = new FlxSprite(3200, 1850);
+    lime.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/limedlowing');
+    lime.animation.addByPrefix('bop', 'lime', 24, false);
+    lime.scrollFactor.set(1, 1);
+
     callguy = new FlxSprite(1450, 1300);
     callguy.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/call');
     callguy.animation.addByPrefix('bop', 'call', 24, false);
     callguy.scrollFactor.set(1, 1);
+
+    nr = new FlxSprite(1320, 1500);
+    nr.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/nr');
+    nr.animation.addByPrefix('bop', 'nr', 24, false);
+    nr.scrollFactor.set(1, 1);
+
+    sheriff = new FlxSprite(3250, 1500);
+    sheriff.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/sheriff');
+    sheriff.animation.addByPrefix('bop', 'sheriff', 24, false);
+    sheriff.scrollFactor.set(1, 1);
+
+    gray = new FlxSprite(3800, 1650);
+    gray.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/gay');
+    gray.animation.addByPrefix('bop', 'gray instance', 24, false);
+    gray.scrollFactor.set(1, 1);
+
+    mint = new FlxSprite(2100, 1250);
+    mint.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/mint');
+    mint.animation.addByPrefix('bop', 'mint', 24, false);
+    mint.scrollFactor.set(1, 1);
+
+    amongly = new FlxSprite(-1500, 1575);
+    amongly.frames = Paths.getSparrowAtlas('stages/dlowing/passers/amongly');
+    amongly.animation.addByPrefix('bop', 'amongly', 24, true);
+    amongly.animation.play('bop');
+    amongly.scrollFactor.set(1.2, 1);
+    amongly.scale.x = amongly.scale.y = .95;
+    amongly.velocity.x = 280;
+
+    tnr = new FlxSprite(-10000, 1575);
+    tnr.frames = Paths.getSparrowAtlas('stages/dlowing/passers/tanandrichard');
+    tnr.animation.addByPrefix('bop', 'tanandrichard', 32, true);
+    tnr.animation.play('bop');
+    tnr.scrollFactor.set(1.2, 1);
+    tnr.scale.x = tnr.scale.y = .95;
+    tnr.velocity.x = 240;
+
+    amonglit = new FlxSprite(55000, 1250);
+    amonglit.frames = Paths.getSparrowAtlas('stages/dlowing/passers/amonglita');
+    amonglit.animation.addByPrefix('bop', 'amonglita', 32, true);
+    amonglit.animation.play('bop');
+    amonglit.scrollFactor.set(1.2, 1);
+    amonglit.scale.x = amonglit.scale.y = .95;
+    amonglit.velocity.x = -800;
+
+    redmungus = new FlxSprite(-16000, 1575);
+    redmungus.frames = Paths.getSparrowAtlas('stages/dlowing/passers/redmungus');
+    redmungus.animation.addByPrefix('bop', 'redmungus', 24, true);
+    redmungus.animation.play('bop');
+    redmungus.scrollFactor.set(1.2, 1);
+    redmungus.scale.x = redmungus.scale.y = .95;
+    redmungus.velocity.x = 200;
 
     pissOverlay = new FlxSprite(0, 0);
     pissOverlay.frames = Paths.getSparrowAtlas('stages/dlowing/pee vig');
@@ -56,25 +113,59 @@ function create(){
     pissOverlay.antialiasing = true;
 
     add(main);
+    add(mint);
     add(stand);
     add(whiteruby);
     add(other);
+    add(callguy);
+    add(nr);
+    add(sheriff);
     add(blade);
     add(addb);
-    add(callguy);
+    add(lime);
     add(ov);
+    add(gray);
     add(adds);
     add(gf);
     add(dad);
     add(boyfriend);
     add(comboGroup);
+    add(amongly);
+    add(tnr);
+    add(amonglit);
+    add(redmungus);
     add(addm);
     add(pissOverlay);
 }
 
+function postUpdate(){
+    if (curSong == "yarlow"){
+        remove(lime);
+        remove(nr);
+        remove(sheriff);
+        remove(redmungus);
+        remove(mint);
+        remove(amongly);
+        remove(tnr);
+        remove(amonglit);
+        remove(redmungus);
+    }
+
+    if (Options.lowMemoryMode){
+        remove(addm);
+        remove(addb);
+        remove(adds);
+        remove(ov);
+    }
+}
+
 function beatHit(){
     if (curBeat % 2 == 0){
+        mint.animation.play('bop');
+        lime.animation.play('bop');
         callguy.animation.play('bop');
+        nr.animation.play('bop');
+        sheriff.animation.play('bop');
         whiteruby.animation.play('bop');
         pissOverlay.animation.play('bop');
     }
@@ -120,6 +211,14 @@ function stepHit(){
             case 942:
                 FlxTween.tween(camGame, {alpha: 0}, 3);
                 FlxTween.tween(camHUD, {alpha: 0}, 3);
+        }
+    }
+
+    if (curSong == "dlowing"){
+        switch(curStep){
+            case 1:
+                FlxTween.tween(camGame, {alpha: 1}, 5);
+                FlxTween.tween(camHUD, {alpha: 1}, 5);
         }
     }
 }

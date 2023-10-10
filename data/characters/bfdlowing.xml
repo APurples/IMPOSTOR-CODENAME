@@ -1,9 +1,11 @@
 <!DOCTYPE codename-engine-character>
-<character isPlayer="true" sprite="bf" icon="bf" flipX="true" x="-62.5" y="325" camx="-175" camy="-17.5">
+<character isPlayer="true" sprite="bf" icon="bf" flipX="true" x="-62.5" y="325" camx="-185" camy="-17.5">
 	<anim name="idle"          anim="BF idle dance"      fps="24" loop="false" x="-5"  y="0"/>
 	<anim name="singUP"        anim="BF NOTE UP0"        fps="24" loop="false" x="-29" y="27"/>
+	<anim name="singUP-alt"    anim="BF NOTE UP MISS"    fps="24" loop="false" x="-29" y="27"/>
 	<anim name="singLEFT"      anim="BF NOTE LEFT0"      fps="24" loop="false" x="12"  y="-6"/>
 	<anim name="singRIGHT"     anim="BF NOTE RIGHT0"     fps="24" loop="false" x="-38" y="-7"/>
+	<anim name="singRIGHT-alt" anim="BF NOTE RIGHT MISS" fps="24" loop="false" x="-30" y="21"/>
 	<anim name="singDOWN"      anim="BF NOTE DOWN0"      fps="24" loop="false" x="-10" y="-50"/>
 	<anim name="singUPmiss"    anim="BF NOTE UP MISS"    fps="24" loop="false" x="-29" y="27"/>
 	<anim name="singLEFTmiss"  anim="BF NOTE LEFT MISS"  fps="24" loop="false" x="12"  y="24"/>

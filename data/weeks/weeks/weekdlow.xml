@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-week>
+<week name="It's D'lowing time" chars="red,bf,gf" sprite="week2">
+<difficulty name="dlow"/>
+	<song>yarlow</song>
+	<song>dlowing</song>
+</week>
