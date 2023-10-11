@@ -1,7 +1,6 @@
 var bopping:Bool = false;
 
 camGame.alpha = 0;
-camHUD.alpha = 0;
 
 function create(){
     // this code is so messy i am so sorry to anyone that knows what they are doing
@@ -146,10 +145,6 @@ function update(){
     if (PlayState.coopMode){
         comboGroup.x = 2450;
     }
-
-    if (PlayState.opponentMode || PlayState.coopMode){
-        camHUD.alpha = 1;
-    }
 }
 
 function postUpdate(){
@@ -194,7 +189,6 @@ function stepHit(){
         switch(curStep){
             case 2:
                 FlxTween.tween(camGame, {alpha: 1}, 6);
-                FlxTween.tween(camHUD, {alpha: 1}, 6);
                 FlxTween.tween(camGame, {zoom: 0.8}, 13, {ease: FlxEase.sineInOut});
             case 128:
                 if (!FlxG.save.data.flashingLights){
@@ -232,7 +226,14 @@ function stepHit(){
         switch(curStep){
             case 1:
                 FlxTween.tween(camGame, {alpha: 1}, 5);
-                FlxTween.tween(camHUD, {alpha: 1}, 5);
+            case 64:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, 1);
+                }
+            case 704:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, 1);
+                }
         }
     }
 }
