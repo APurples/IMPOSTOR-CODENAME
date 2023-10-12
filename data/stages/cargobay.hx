@@ -2,10 +2,11 @@ import flixel.addons.display.FlxBackdrop;
 
 var overlay:FlxSprite;
 var flashback:FlxSprite;
-var hall:FlxSprite;
 var defeat:FlxSprite;
 var cargo:FlxSprite;
 var bflegs:FlxSprite;
+
+var hall:FlxBackdrop;
 
 var swing:Bool = false;
 var bopping:Bool = false;
@@ -49,8 +50,13 @@ function create(){
     flashback.scale.x = flashback.scale.y = 1.5;
     insert(members.indexOf(dad), flashback);
 
-    hall = new FlxSprite(250, -400).loadGraphic(Paths.image('stages/cargo bay/chase'));
+    hall = new FlxBackdrop(Paths.image('stages/cargo bay/chase'));
+    hall.y -= 225;
+    hall.velocity.x -= 1250; // moves the hall to the left
+    hall.scale.x = hall.scale.y = .75;
     hall.alpha = 0;
+    hall.moves = true;
+    hall.active = true;
     insert(members.indexOf(dad), hall);
 
     defeat = new FlxSprite(1200, 50);
@@ -67,7 +73,6 @@ function create(){
 
 function update(elapsed){
     if (swing){
-        camGame.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.5;
         camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.5;
     }
 
@@ -323,6 +328,5 @@ function chaseTime2(){
 
 function stopChaseTime(){
     swing = false;
-    camGame.angle = 0;
     camHUD.angle = 0;
 }
