@@ -11,6 +11,7 @@ var hall:FlxBackdrop;
 var swing:Bool = false;
 var bopping:Bool = false;
 var angle:Bool = false;
+var chaseCamPos:Bool = false;
 var hideWhiteStrums:Bool = false;
 
 camGame.alpha = 0;
@@ -52,7 +53,7 @@ function create(){
 
     hall = new FlxBackdrop(Paths.image('stages/cargo bay/chase'));
     hall.y -= 225;
-    hall.velocity.x -= 1250; // moves the hall to the left
+    hall.velocity.x -= 1500; // moves the hall to the left
     hall.scale.x = hall.scale.y = .75;
     hall.alpha = 0;
     hall.moves = true;
@@ -90,6 +91,9 @@ function postCreate(){
     strumLines.members[2].characters[3].visible = false;
     strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 90;
     strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 75;
+    strumLines.members[2].characters[2].x -= 171;
+    strumLines.members[2].characters[2].y += 60;
+    strumLines.members[2].characters[3].x -= 175;
 }
 
 function postUpdate(){
@@ -98,6 +102,10 @@ function postUpdate(){
     if (hideWhiteStrums){
         cpuStrums[2].forEach(function(strums) strums.alpha = 0);
         cpuStrums[2].notes.forEach(function(notes) notes.alpha = 0);
+    }
+
+    if (chaseCamPos){
+        camFollow.x += 200;
     }
 }
 
@@ -279,14 +287,6 @@ function stepHit(){
 
 // hscript call stuff
 
-function angleBop(){
-    angleBop = true;
-}
-
-function stopAngleBop(){
-    angleBop = false;
-}
-
 function boppingShit(){
     bopping = true;
     camZoomingStrength = 0;
@@ -306,6 +306,7 @@ function healthFade(){
 }
 
 function chaseTime(){
+    chaseCamPos = true;
     swing = true;
     defeat.alpha = 0;
     strumLines.members[2].characters[1].visible = false;
@@ -320,10 +321,26 @@ function chaseTime(){
     trace("i can feel black coming inside of me at this part");
 }
 
+function chaseDrop(){
+    camMoveOffset = 32;
+    chaseCamPos = false;
+    scrollSpeed = 3.575;
+    hall.velocity.x -= 250;
+    trace("gyat damn black :fire: :fire:");
+}
+
+function noMoreChaseDrop(){
+    camMoveOffset = 24;
+    scrollSpeed = 3.5;
+    chaseCamPos = true;
+    hall.velocity.x += 250;
+}
+
 function chaseTime2(){
     strumLines.members[1].characters[1].visible = true;
     strumLines.members[1].characters[2].visible = true;
     strumLines.members[2].characters[2].visible = true;
+    strumLines.members[2].characters[3].visible = true;
 }
 
 function stopChaseTime(){

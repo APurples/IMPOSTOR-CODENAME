@@ -30,6 +30,7 @@ function stepHit(){
 
 function boingUp(){
     FlxTween.tween(camHUD, {y: -constant * mult}, Conductor.stepCrochet * 0.002, {ease: FlxEase.circOut});
+    trace("boing"); // feeling silly
 }
 
 function boingDown(){
