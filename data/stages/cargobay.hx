@@ -12,7 +12,7 @@ var swing:Bool = false;
 var bopping:Bool = false;
 var angle:Bool = false;
 var chaseCamPos:Bool = false;
-var hideWhiteStrums:Bool = false;
+var buildUpCamPos:Bool = false;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
@@ -74,38 +74,45 @@ function create(){
 
 function update(elapsed){
     if (swing){
-        camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.5;
+        camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.25;
     }
 
-    if (FlxG.save.data.middlescroll){
-        hideWhiteStrums = true;
+    if (PlayState.opponentMode){
+        comboGroup.x = 2050;
+    }
+
+    if (PlayState.coopMode){
+        comboGroup.x = 2250;
     }
 }
 
-// god bless you maz
 function postCreate(){
-    strumLines.members[2].characters[1].visible = false;
+    // this sucks
+    strumLines.members[0].characters[1].visible = false;
+    strumLines.members[0].characters[2].visible = false;
     strumLines.members[1].characters[1].visible = false;
     strumLines.members[1].characters[2].visible = false;
-    strumLines.members[2].characters[2].visible = false;
-    strumLines.members[2].characters[3].visible = false;
+    strumLines.members[0].characters[1].x -= 173;
+    strumLines.members[0].characters[1].y += 60;
+    strumLines.members[2].characters[0].y += 25;
+    strumLines.members[0].characters[2].x = strumLines.members[0].characters[1].x;
+    strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y + 25;
     strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 90;
     strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 75;
-    strumLines.members[2].characters[2].x -= 171;
-    strumLines.members[2].characters[2].y += 60;
-    strumLines.members[2].characters[3].x -= 175;
 }
 
 function postUpdate(){
-    cpuStrums.forEach(function(strums) strums.alpha = 0);
-    cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
-    if (hideWhiteStrums){
-        cpuStrums[2].forEach(function(strums) strums.alpha = 0);
-        cpuStrums[2].notes.forEach(function(notes) notes.alpha = 0);
+    // cpuStrums.forEach(function(strums) strums.alpha = 0);
+    // cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
+
+    if (buildUpCamPos){
+        camFollow.x -= 150;
+        camFollow.y -= 50;
     }
 
     if (chaseCamPos){
-        camFollow.x += 200;
+        camFollow.x += 450;
+        camFollow.y -= 25;
     }
 }
 
@@ -144,6 +151,7 @@ function stepHit(){
                     camHUD.flash(0xFFFFFF, 1);
                 }
             case 272:
+                FlxG.camera.followLerp = 0.08;
                 overlay.alpha = 0;
                 cargo.alpha = 1;
                 scrollSpeed = 3.3;
@@ -153,8 +161,10 @@ function stepHit(){
             case 398:
                 FlxTween.tween(camGame, {zoom: 1.2}, .35);
             case 400:
+                FlxG.camera.followLerp = 0.05;
                 FlxTween.tween(camGame, {alpha: 0}, .275);
             case 404:
+                FlxG.camera.followLerp = 0.08;
                 camGame.alpha = 1;
                 scrollSpeed = 3.1;
                 if (!FlxG.save.data.flashingLights){
@@ -179,6 +189,7 @@ function stepHit(){
                 camHUD.alpha = 1;
                 camGame.angle = 0;
                 camHUD.angle = 0;
+                FlxG.camera.followLerp = 0.04;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
@@ -195,15 +206,18 @@ function stepHit(){
                 camGame.angle = -1;
                 camHUD.angle = -1;
             case 784:
+                FlxG.camera.followLerp = 0.06;
                 camGame.angle = 0;
                 camHUD.angle = 0;
             case 1040:
+                FlxG.camera.followLerp = 0.08;
                 scrollSpeed = 3.3;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 1296:
                 scrollSpeed = 3.1;
+                FlxG.camera.followLerp = 0.06;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
@@ -212,6 +226,7 @@ function stepHit(){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 1552:
+                FlxG.camera.followLerp = 0.04;
                 scrollSpeed = 2.6;
                 overlay.alpha = .75;
                 cargo.alpha = 0;
@@ -239,6 +254,7 @@ function stepHit(){
             case 2082:
                 FlxTween.tween(camHUD, {alpha: 1}, 1);
             case 2096:
+                FlxG.camera.followLerp = 0.08;
                 scrollSpeed = 3.15;
                 boyfriend.alpha = 1;
                 dad.alpha = 1;
@@ -247,7 +263,18 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 2624:
+                FlxG.camera.followLerp = 0.06;
+            case 2640:
+                FlxG.camera.followLerp = 2;
+            case 2641:
+                FlxG.camera.followLerp = 0.06;
+            case 2672:
+                FlxG.camera.followLerp = 2;
+            case 2673:
+                FlxG.camera.followLerp = 0.06;
             case 2880:
+                FlxG.camera.followLerp = 0.08;
                 scrollSpeed = 3.3;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
@@ -257,21 +284,21 @@ function stepHit(){
                 FlxTween.tween(camHUD, {alpha: 0}, .45);
                 FlxTween.tween(camGame, {zoom: 1.2}, .45);
             case 3136:
+                strumLines.members[2].characters[0].visible = false;
+                FlxG.camera.followLerp = 0.04;
                 scrollSpeed = 2.6;
-                strumLines.members[2].characters[1].visible = true;
                 camGame.alpha = 1;
                 camHUD.alpha = 1;
                 defeat.alpha = 1;
                 remove(cargo);
-                remove(gf);
-                remove(strumLines.members[0].characters[0]);
-                remove(strumLines.members[2].characters[0]);
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
             case 3328:
+                buildUpCamPos = true;
                 FlxTween.tween(camGame, {zoom: 0.725}, 10);
             case 3392:
+                buildUpCamPos = false;
                 camGame.alpha = 0;
                 camHUD.alpha = 0;
             case 3408:
@@ -309,7 +336,7 @@ function chaseTime(){
     chaseCamPos = true;
     swing = true;
     defeat.alpha = 0;
-    strumLines.members[2].characters[1].visible = false;
+    strumLines.members[0].characters[0].visible = false;
     strumLines.members[1].characters[0].visible = false;
     FlxTween.tween(healthBar, {alpha:1}, .5);
     FlxTween.tween(healthBarBG, {alpha:1}, .5);
@@ -337,10 +364,10 @@ function noMoreChaseDrop(){
 }
 
 function chaseTime2(){
+    strumLines.members[0].characters[1].visible = true;
+    strumLines.members[0].characters[2].visible = true;
     strumLines.members[1].characters[1].visible = true;
     strumLines.members[1].characters[2].visible = true;
-    strumLines.members[2].characters[2].visible = true;
-    strumLines.members[2].characters[3].visible = true;
 }
 
 function stopChaseTime(){
