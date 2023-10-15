@@ -106,7 +106,8 @@ function update(){
 function postUpdate(){
     state.menuItems.members[0].offset.set(125, -300); // story mode
     state.menuItems.members[1].offset.set(125, -250); // freeplay
-    state.menuItems.members[2].offset.set(55, -200); // settings
+    state.menuItems.members[2].offset.set(55, -200); // donate/credits
+	state.menuItems.members[3].offset.set(55, -200); // settings
 
     FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
     FlxG.camera.scroll.set();

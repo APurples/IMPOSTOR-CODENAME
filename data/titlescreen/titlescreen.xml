@@ -16,6 +16,7 @@
         <text beat="3">
             <line text="apurples" />
             <line text="presents" />
+            <sprite path="menus/titlescreen/osaka" scale="1.25"/>
         </text>
 
         <text beat="4" />

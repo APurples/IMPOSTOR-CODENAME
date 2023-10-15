@@ -74,7 +74,7 @@ function create(){
 
 function update(elapsed){
     if (swing){
-        camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0) * 2.25;
+        camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
     }
 
     if (PlayState.opponentMode){
@@ -95,8 +95,8 @@ function postCreate(){
     strumLines.members[0].characters[1].x -= 173;
     strumLines.members[0].characters[1].y += 60;
     strumLines.members[2].characters[0].y += 25;
-    strumLines.members[0].characters[2].x = strumLines.members[0].characters[1].x;
-    strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y + 25;
+    strumLines.members[0].characters[2].x = strumLines.members[0].characters[1].x + 15;
+    strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y - 60;
     strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 90;
     strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 75;
 }
@@ -106,12 +106,12 @@ function postUpdate(){
     // cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
 
     if (buildUpCamPos){
-        camFollow.x -= 150;
+        camFollow.x -= 275;
         camFollow.y -= 50;
     }
 
     if (chaseCamPos){
-        camFollow.x += 450;
+        camFollow.x += 400;
         camFollow.y -= 25;
     }
 }
@@ -305,9 +305,18 @@ function stepHit(){
                 scrollSpeed = 3.5;
                 camGame.alpha = 1;
                 camHUD.alpha = 1;
-                hall.alpha = 1;
-                bflegs.alpha = 1;
-                blacklegs.alpha = 1;
+            case 3536:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
+            case 3664:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
+            case 3792:
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .5);
+                }
         }
     }
 }
@@ -353,7 +362,7 @@ function chaseDrop(){
     chaseCamPos = false;
     scrollSpeed = 3.575;
     hall.velocity.x -= 250;
-    trace("gyat damn black :fire: :fire:");
+    trace("gyat damn black :fire: :fire:"); // 🔥🔥
 }
 
 function noMoreChaseDrop(){
@@ -368,6 +377,9 @@ function chaseTime2(){
     strumLines.members[0].characters[2].visible = true;
     strumLines.members[1].characters[1].visible = true;
     strumLines.members[1].characters[2].visible = true;
+    hall.alpha = 1;
+    bflegs.alpha = 1;
+    blacklegs.alpha = 1;
 }
 
 function stopChaseTime(){

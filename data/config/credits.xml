@@ -1,4 +1,8 @@
 <!DOCTYPE codename-mod-credits>
-<menu name="VS Impostor Codename Port" desc="Credits for VS Impostor Codename">
-	<credit name="Credit Example" desc="THE ONLY FUCKING PERSON THAT PORTED THIS :skull: :skull:" icon="" size="130" url="https://github.com/APurples"/>
+<menu name="Impostor CNE Port" desc="Credits for VS Impostor Codename Port">
+	<credit name="APurples" desc="THE ONLY FUCKING PERSON THAT PORTED THIS :skull: :skull:" icon="apurples" size="115" url="https://github.com/APurples"/>
+</menu>
+
+<menu name="VS Impostor" desc="Credits for VS Impostor">
+	<credit name="Clowfoe" desc="THE ONLY FUCKING PERSON THAT PORTED THIS :skull: :skull:" icon="apurples" size="115" url="https://github.com/APurples"/>
 </menu>

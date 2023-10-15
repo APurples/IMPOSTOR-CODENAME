@@ -1,6 +1,10 @@
 import flixel.addons.display.FlxBackdrop;
+import lime.app.Application;
+import lime.graphics.Image;
 
 function create(){
+	window.title = "Vs Impostor: V4";
+
     starBG = new FlxBackdrop(Paths.image('menus/starBG'));
 	starBG.updateHitbox();
 	starBG.antialiasing = true;
