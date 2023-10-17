@@ -76,7 +76,7 @@ function postCreate(){
     magenta.destroy(); // fuck you magenta sprite
 
     for(e in state.menuItems){
-        e.scale.x = e.scale.y = 0.5;
+        e.scale.x = e.scale.y = 0.425;
         e.scrollFactor.set();
         e.updateHitbox();
         e.animation.play(e.animation.curAnim.name, true);
@@ -104,10 +104,10 @@ function update(){
 }
 
 function postUpdate(){
-    state.menuItems.members[0].offset.set(125, -300); // story mode
-    state.menuItems.members[1].offset.set(125, -250); // freeplay
-    state.menuItems.members[2].offset.set(55, -200); // donate/credits
-	state.menuItems.members[3].offset.set(55, -200); // settings
+    state.menuItems.members[0].offset.set(125, -275); // story mode
+    state.menuItems.members[1].offset.set(125, -210); // freeplay
+    state.menuItems.members[2].offset.set(125, -155); // donate/credits
+	state.menuItems.members[3].offset.set(55, -50); // settings
 
     FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
     FlxG.camera.scroll.set();
