@@ -1,19 +1,19 @@
 <!DOCTYPE codename-engine-splashes>
 <splashes sprite="impostorSplashes" alpha="0.6" scale="0.85"> 
 	<strum id="0"> <!-- LEFT -->
-		<anim name="splash purple1" anim="note splash purple 1" fps="24" x="-20" y="10" />
-		<anim name="splash purple2" anim="note splash purple 2" fps="24" x="-20" y="10" />
+		<anim name="splash purple1" anim="note splash purple 1" fps="24" x="-19.25" y="10" />
+		<anim name="splash purple2" anim="note splash purple 2" fps="24" x="-19.25" y="10" />
 	</strum>
 	<strum id="1"> <!-- DOWN -->
-		<anim name="splash blue1" anim="note splash blue 1" fps="24" x="-20" y="10" />
-		<anim name="splash blue2" anim="note splash blue 2" fps="24" x="-20" y="10" />
+		<anim name="splash blue1" anim="note splash blue 1" fps="24" x="-19.25" y="10" />
+		<anim name="splash blue2" anim="note splash blue 2" fps="24" x="-19.25" y="10" />
 	</strum>
 	<strum id="2"> <!-- UP -->
-		<anim name="splash green1" anim="note splash green 1" fps="24" x="-20" y="10" />
-		<anim name="splash green2" anim="note splash green 2" fps="24" x="-20" y="10" />
+		<anim name="splash green1" anim="note splash green 1" fps="24" x="-19.25" y="10" />
+		<anim name="splash green2" anim="note splash green 2" fps="24" x="-19.25" y="10" />
 	</strum>
 	<strum id="3"> <!-- RIGHT -->
-		<anim name="splash red1" anim="note splash red 1" fps="24" x="-20" y="10" />
-		<anim name="splash red2" anim="note splash red 2" fps="24" x="-20" y="10" />
+		<anim name="splash red1" anim="note splash red 1" fps="24" x="-19.25" y="10" />
+		<anim name="splash red2" anim="note splash red 2" fps="24" x="-19.25" y="10" />
 	</strum>
 </splashes>

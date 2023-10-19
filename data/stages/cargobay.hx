@@ -18,27 +18,33 @@ camGame.alpha = 0;
 camHUD.alpha = 0;
 
 function create(){
-    end1 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/1'));
+    end1 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/1'));
+    end1.cameras = [camHUD];
     end1.alpha = 0;
-    add(end1);
+    add(end1, false);
 
-    end2 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/2'));
+    end2 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/2'));
+    end2.cameras = [camHUD];
     end2.alpha = 0;
-    add(end2);
+    add(end2, false);
 
-    end3 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/3'));
+    end3 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/3'));
+    end3.cameras = [camHUD];
     end3.alpha = 0;
     add(end3);
 
-    end4 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/4'));
+    end4 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/4'));
+    end4.cameras = [camHUD];
     end4.alpha = 0;
     add(end4);
 
-    end5 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/5'));
+    end5 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/5'));
+    end5.cameras = [camHUD];
     end5.alpha = 0;
     add(end5);
     
-    end6 = new FlxSprite(800, 800).loadGraphic(Paths.image('stages/cargo bay/end/6'));
+    end6 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/6'));
+    end6.cameras = [camHUD];
     end6.alpha = 0;
     add(end6);
 
@@ -244,6 +250,9 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+                cpuStrums.forEach(function(strum:StrumNote) {
+                    FlxTween.tween(strum, {alpha: 0}, 1);
+                });
             case 1936:
                 FlxTween.tween(flashback, {alpha: .5}, 8.5);
             case 2062:
@@ -263,14 +272,18 @@ function stepHit(){
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
+            case 2216:
+                cpuStrums.forEach(function(strum:StrumNote) {
+                    FlxTween.tween(strum, {alpha: 1}, .5);
+                });
             case 2624:
                 FlxG.camera.followLerp = 0.06;
             case 2640:
-                FlxG.camera.followLerp = 2;
+                FlxG.camera.followLerp = 69420; // OVER NINE THOUSAND!!
             case 2641:
                 FlxG.camera.followLerp = 0.06;
             case 2672:
-                FlxG.camera.followLerp = 2;
+                FlxG.camera.followLerp = 69420;
             case 2673:
                 FlxG.camera.followLerp = 0.06;
             case 2880:
@@ -386,3 +399,47 @@ function stopChaseTime(){
     swing = false;
     camHUD.angle = 0;
 }
+
+/* is there a better and more optimized way to do this
+function end1(){
+    end1.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+
+function end2(){
+    end2.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+
+function end3(){
+    end3.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+
+function end4(){
+    end4.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+
+function end5(){
+    end5.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+
+function end6(){
+    end6.alpha = 1;
+    if (!FlxG.save.data.flashingLights){
+        camGame.flash(0xFFFFFF, .5);
+    }
+}
+*/
