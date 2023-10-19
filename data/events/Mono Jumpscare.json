@@ -9,6 +9,11 @@
             "name": "Fade Out time",
             "type": "String",
             "defaultValue": 0.25
+        },
+        {
+            "name": "Shake on Opponent hit?",
+            "type": "Bool",
+            "defaultValue": true
         }
     ]
 }

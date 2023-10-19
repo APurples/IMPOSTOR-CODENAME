@@ -1,0 +1,14 @@
+{
+    "params": [
+        {
+            "name": "Shake on BF hit",
+            "type": "Bool",
+            "defaultValue": false
+        },
+        {
+            "name": "Shake on Dad hit",
+            "type": "Bool",
+            "defaultValue": false
+        }
+    ]
+}
