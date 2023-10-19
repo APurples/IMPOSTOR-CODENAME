@@ -1,14 +1,18 @@
 /*
 todo:
-    add in the tween thingy for this
+    - add in the tween thingy for this
+    - add in the custom font
+    - add in the boxes for the song names
 */
 
 import flixel.FlxCamera;
 import flixel.math.FlxMath;
 import flixel.addons.display.FlxBackdrop;
-import flixel.input.mouse.FlxMouseEventManager;
+import funkin.backend.system.framerate.Framerate;
 
-function create(){
+function create(){    
+    Framerate.offset.y = 77.5;
+
     FlxG.mouse.visible = true;
 
 	starsBG = new FlxBackdrop(Paths.image('menus/freeplay/starBG'), 1, 1, true, true);
