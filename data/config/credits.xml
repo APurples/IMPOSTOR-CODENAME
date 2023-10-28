@@ -7,6 +7,10 @@
 	<credit name="Impostorm" desc="Team of VS Impostor" url="https://gamebanana.com/mods/55652"/>
 </menu>
 
+<menu name="Dlowing" desc="Credits for Dlowing">
+	<credit name="Dlowing team" desc="Made the d'lowing mod (credits are in their gamebanana page)" url="https://gamebanana.com/mods/386576"/>
+</menu>
+
 <menu name="Special Thanks" desc="Everyone that helped made this possible !!">
 	<credit name="VS Impostor Getaway" desc="Airship Running BG in Double Kill V2, go check the mod out !!" url="https://gamebanana.com/mods/423926"/>
 </menu>
