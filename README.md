@@ -15,4 +15,5 @@ Also big credits to [Clowfoe](https://twitter.com/clowfoe) and his team Impostor
 Same goes to Denasu for his d'lowing remix mod!
 
 [VS Impostor download](https://gamebanana.com/mods/55652)
+
 [D'lowing download](https://gamebanana.com/mods/386576)
