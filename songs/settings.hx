@@ -31,14 +31,16 @@ function onCountdown(event:CountdownEvent) {
         }
     }
 
-    if (FlxG.save.data.opponentNotes){
-        if (!PlayState.opponentMode){
-            for (i in cpuStrums.members){
-                i.x -= 5000;
-            }
-        }else{
-            for (i in playerStrums.members){
-                i.x -= 5000;
+    if (!PlayState.coopMode){
+        if (FlxG.save.data.opponentNotes){
+            if (!PlayState.opponentMode){
+                for (i in cpuStrums.members){
+                    i.x -= 5000;
+                }
+            }else{
+                for (i in playerStrums.members){
+                    i.x -= 5000;
+                }
             }
         }
     }
