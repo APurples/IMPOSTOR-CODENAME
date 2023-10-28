@@ -74,8 +74,8 @@ function postCreate(){
     strumLines.members[2].characters[0].y += 25;
     strumLines.members[0].characters[2].x = strumLines.members[0].characters[1].x + 15;
     strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y - 60;
-    strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 90;
-    strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 75;
+    strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 147.25;
+    strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 95;
 }
 
 function postUpdate(){
