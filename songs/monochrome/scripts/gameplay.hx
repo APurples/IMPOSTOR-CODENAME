@@ -10,7 +10,13 @@ function stepHit(){
     switch(curStep){
         case 1:
             dad.alpha = 1;
+        case 120:
+            if (PlayState.opponentMode || PlayState.coopMode){
+                FlxTween.tween(camHUD, {alpha: 1}, .75);
+            }
         case 128:
-            FlxTween.tween(camHUD, {alpha: 1}, .5);
+            if (!PlayState.opponentMode || !PlayState.coopMode){
+                FlxTween.tween(camHUD, {alpha: 1}, .5);
+            }
     }
 }
