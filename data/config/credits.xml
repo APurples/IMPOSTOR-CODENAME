@@ -3,6 +3,10 @@
 	<credit name="APurples" desc="THE ONLY FUCKING PERSON THAT PORTED THIS :skull: :skull: but erm yeah i coded all of this and also charted double kill v2, i hope you enjoyed :3c" icon="apurples" size="115" url="https://github.com/APurples"/>
 </menu>
 
-<menu name="VS Impostor" desc="Credits for VS Impostor">
-	<credit name="Clowfoe" desc="The owner and main programmer of VS Impostor." icon="clow" size="115" url="https://twitter.com/clowfoe"/>
+<menu name="VS Impostor" desc="Credits for VS Impostor (I'll put everyone in a hotfix lmfao)">
+	<credit name="Impostorm" desc="Team of VS Impostor" url="https://gamebanana.com/mods/55652"/>
+</menu>
+
+<menu name="Special Thanks" desc="Everyone that helped made this possible !!">
+	<credit name="VS Impostor Getaway" desc="Airship Running BG in Double Kill V2, go check the mod out !!" url="https://gamebanana.com/mods/423926"/>
 </menu>
