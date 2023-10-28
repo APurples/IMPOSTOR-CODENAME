@@ -240,6 +240,9 @@ function stepHit(){
                 }
             case 1280:
                 FlxTween.tween(camHUD, {alpha: 0}, 5);
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, 2);
+                }
         }
     }
 }

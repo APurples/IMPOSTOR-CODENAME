@@ -13,41 +13,12 @@ var bopping:Bool = false;
 var angle:Bool = false;
 var chaseCamPos:Bool = false;
 var buildUpCamPos:Bool = false;
+var focusOnBf:Bool = false;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
 
 function create(){
-    end1 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/1'));
-    end1.cameras = [camHUD];
-    end1.alpha = 0;
-    add(end1, false);
-
-    end2 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/2'));
-    end2.cameras = [camHUD];
-    end2.alpha = 0;
-    add(end2, false);
-
-    end3 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/3'));
-    end3.cameras = [camHUD];
-    end3.alpha = 0;
-    add(end3);
-
-    end4 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/4'));
-    end4.cameras = [camHUD];
-    end4.alpha = 0;
-    add(end4);
-
-    end5 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/5'));
-    end5.cameras = [camHUD];
-    end5.alpha = 0;
-    add(end5);
-    
-    end6 = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/end/6'));
-    end6.cameras = [camHUD];
-    end6.alpha = 0;
-    add(end6);
-
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
     overlay.alpha = .75;
     add(overlay);
@@ -110,6 +81,11 @@ function postCreate(){
 function postUpdate(){
     // cpuStrums.forEach(function(strums) strums.alpha = 0);
     // cpuStrums.notes.forEach(function(notes) notes.alpha = 0.25);
+
+    if (focusOnBf){
+        camFollow.x += 175;
+        camFollow.y += 50;
+    }
 
     if (buildUpCamPos){
         camFollow.x -= 275;
@@ -314,6 +290,10 @@ function stepHit(){
                 buildUpCamPos = false;
                 camGame.alpha = 0;
                 camHUD.alpha = 0;
+            case 3402:
+                if (PlayState.coopMode || PlayState.opponentMode){
+                    FlxTween.tween(camHUD, {alpha: 1}, 1);
+                }
             case 3408:
                 scrollSpeed = 3.5;
                 camGame.alpha = 1;
@@ -329,6 +309,43 @@ function stepHit(){
             case 3792:
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
+                }
+            case 3920:
+                end1.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3926:
+                end2.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3932:
+                end3.alpha = 1;
+                camHUD.alpha = 0;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3952:
+                end4.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3958:
+                end5.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3964:
+                end6.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, .35);
+                }
+            case 3976:
+                // codename devs please add mid-cutscene support for songs please :((
+                end7.alpha = 1;
+                if (!FlxG.save.data.flashingLights){
+                    camGame.flash(0xFFFFFF, 2);
                 }
         }
     }
@@ -346,11 +363,19 @@ function stopBoppingShit(){
     camZoomingStrength = 1;
 }
 
+function focusOnBf(){
+    focusOnBf = true;
+}
+
+function unfocusOnBf(){
+    focusOnBf = false;
+}
+
 function healthFade(){
-    FlxTween.tween(healthBar, {alpha:0}, .5);
-    FlxTween.tween(healthBarBG, {alpha:0}, .5);
-    FlxTween.tween(iconP1, {alpha:0}, .5);
-    FlxTween.tween(iconP2, {alpha:0}, .5);
+    FlxTween.tween(healthBar, {alpha:0}, .35);
+    FlxTween.tween(healthBarBG, {alpha:0}, .35);
+    FlxTween.tween(iconP1, {alpha:0}, .35);
+    FlxTween.tween(iconP2, {alpha:0}, .35);
     trace("healthbar faded!");
 }
 
@@ -399,47 +424,3 @@ function stopChaseTime(){
     swing = false;
     camHUD.angle = 0;
 }
-
-/* is there a better and more optimized way to do this
-function end1(){
-    end1.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-
-function end2(){
-    end2.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-
-function end3(){
-    end3.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-
-function end4(){
-    end4.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-
-function end5(){
-    end5.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-
-function end6(){
-    end6.alpha = 1;
-    if (!FlxG.save.data.flashingLights){
-        camGame.flash(0xFFFFFF, .5);
-    }
-}
-*/
