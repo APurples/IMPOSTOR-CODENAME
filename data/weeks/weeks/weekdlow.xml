@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-week>
-<week name="It's D'lowing time" chars="dlow,bf,gf" sprite="weekA">
+<week name="Airship Troubles" chars="dlow,bf,gf" sprite="weekA">
 <difficulty name="dlow"/>
 	<song>yarlow</song>
 	<song>dlowing</song>
