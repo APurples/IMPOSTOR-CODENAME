@@ -22,7 +22,9 @@ isStoryMode = true;
 function create(){
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
     overlay.alpha = .75;
-    add(overlay);
+    if (!Options.lowMemoryMode){
+        add(overlay);
+    }
 
     flashback = new FlxSprite(1805, 800).loadGraphic(Paths.image('stages/cargo bay/airshipFlashback'));
     flashback.alpha = 0;

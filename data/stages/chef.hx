@@ -50,8 +50,8 @@ function create(){
     gray.active = true;
     insert(members.indexOf(dad), gray);
     add(gray);
-    if (Options.lowMemoryMode){
-        remove(gray);
+    if (!Options.lowMemoryMode){
+        add(gray);
     }
 
     saster = new FlxSprite(1300, 525);
@@ -63,9 +63,8 @@ function create(){
     saster.setGraphicSize(Std.int(saster.width * 1.2));
     saster.active = true;
     insert(members.indexOf(dad), saster);
-    add(saster);
-    if (Options.lowMemoryMode){
-        remove(saster);
+    if (!Options.lowMemoryMode){
+        add(saster);
     }
 
     frontable = new FlxSprite(800, 700).loadGraphic(Paths.image('stages/kitchen/Kitchen Counter'));
@@ -79,18 +78,16 @@ function create(){
     chefBluelight.antialiasing = true;
     chefBluelight.scrollFactor.set(1, 1);
     chefBluelight.active = false;
-    add(chefBluelight);
-    if (Options.lowMemoryMode){
-        remove(chefBluelight);
+    if (!Options.lowMemoryMode){
+        add(chefBluelight);
     }
 
     chefBlacklight = new FlxSprite(0, -300).loadGraphic(Paths.image('stages/kitchen/black_overhead_shadow'));
     chefBlacklight.antialiasing = true;
     chefBlacklight.scrollFactor.set(1, 1);
     chefBlacklight.active = false;
-    add(chefBlacklight);
-    if (Options.lowMemoryMode){
-        remove(chefBlacklight);
+    if (!Options.lowMemoryMode){
+        add(chefBlacklight);
     }
 }
 

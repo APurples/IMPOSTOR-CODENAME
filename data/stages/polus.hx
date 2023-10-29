@@ -17,9 +17,8 @@ function create(){
     snow.antialiasing = true;
     snow.updateHitbox();
     snow.setGraphicSize(Std.int(snow.width * 2));
-    add(snow);
-    if (Options.lowMemoryMode){
-        remove(snow);
+    if (!Options.lowMemoryMode){
+        add(snow);
     }
 
     crowd = new FlxSprite(-900, 200);
@@ -45,9 +44,8 @@ function update(){
     if (curSong == "meltdown"){
         bfdead.alpha = 1;
         add(speaker);
-        add(crowd);
-        if (Options.lowMemoryMode){
-            remove(crowd);
+        if (!Options.lowMemoryMode){
+            add(crowd);
         }
     }
 
