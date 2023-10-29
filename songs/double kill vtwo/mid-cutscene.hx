@@ -1,0 +1,1 @@
+// function create() game.startVideo("mid-", function() close());

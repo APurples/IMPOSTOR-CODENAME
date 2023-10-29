@@ -17,6 +17,7 @@ var focusOnBf:Bool = false;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
+isStoryMode = true;
 
 function create(){
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
@@ -342,7 +343,6 @@ function stepHit(){
                     camGame.flash(0xFFFFFF, .35);
                 }
             case 3976:
-                // codename devs please add mid-cutscene support for songs please :((
                 end7.alpha = 1;
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
@@ -350,6 +350,15 @@ function stepHit(){
         }
     }
 }
+
+/*
+function beatHit(curBeat){
+    if (curBeat == 994){
+        playCutscenes = true;
+        startCutscene("mid-", function() close());
+    }
+}
+*/
 
 // hscript call stuff
 
