@@ -14,6 +14,8 @@ Due to the engine having some limits, and the fact that it is still in developme
 Also big credits to [Clowfoe](https://twitter.com/clowfoe) and his team Impostorm for making VS Impostor!
 Same goes to Denasu for his d'lowing remix mod!
 
+There are more credits in the port, go to the credits section in the main menu to check everyone else out.
+
 [VS Impostor download](https://gamebanana.com/mods/55652)
 
 [D'lowing download](https://gamebanana.com/mods/386576)
