@@ -94,6 +94,16 @@ function create(){
     }
 }
 
+function update(){
+    if (PlayState.opponentMode){
+        comboGroup.x = 1125;
+    }
+    
+    if (PlayState.coopMode){
+        comboGroup.x = 1250;
+    }
+}
+
 function beatHit(){
     if (curBeat % 2 == 0){
         gray.animation.play('bop');

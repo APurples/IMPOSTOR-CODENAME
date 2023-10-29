@@ -37,9 +37,11 @@ function update(){
     if (curSong == "sussus moogus"){
         remove(speaker);
     }
+
     if (curSong == "sabotage"){
         add(speaker);
     }
+
     if (curSong == "meltdown"){
         bfdead.alpha = 1;
         add(speaker);
@@ -47,6 +49,14 @@ function update(){
         if (Options.lowMemoryMode){
             remove(crowd);
         }
+    }
+
+    if (PlayState.opponentMode){
+        comboGroup.x = 400;
+    }
+    
+    if (PlayState.coopMode){
+        comboGroup.x = 550;
     }
 }
 

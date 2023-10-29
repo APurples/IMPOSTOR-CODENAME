@@ -9,4 +9,5 @@
 	<girlfriend  x="345" y="-71" scroll="1" />
 	<dad x="7" y="-100" />
 	<boyfriend x="925" y="-124" />
+	<combo x="750" y="250"/>
 </stage>
