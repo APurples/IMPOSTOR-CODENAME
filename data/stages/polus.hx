@@ -1,6 +1,6 @@
-var speaker:FlxSprite;
-var snow:FlxSprite;
-var crowd:FlxSprite;
+var flashBeat2:Bool = false;
+var flashBeat4:Bool = false;
+var flashBeat8:Bool = false;
 
 function create(){
     speaker = new FlxSprite(300, 195);
@@ -41,124 +41,23 @@ function update(){
         add(speaker);
     }
     if (curSong == "meltdown"){
+        bfdead.alpha = 1;
         add(speaker);
         add(crowd);
-        bfdead.alpha = 1;
         if (Options.lowMemoryMode){
             remove(crowd);
         }
     }
 }
 
-function onSongStart(){
-    if (curSong == "meltdown"){
-        camGame.zoom += 0.015;
-        camHUD.zoom += 0.03;
-        if (!FlxG.save.data.flashingLights){
-            camGame.flash(0xADFF0000, .35);
-        }
-    }
-}
-
 function stepHit(){
-    if (curSong == 'sussus moogus'){
-        if (curStep > 383 && curStep < 641){
-            if (curStep % 8 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curStep > 1151 && curStep < 1273){
-            if (curStep % 64 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curStep > 1279 && curStep < 1533){
-            if (curStep % 8 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-    
-        switch(curStep){
-            case 376:
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            case 380:
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            case 1272:
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            case 1276:
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-        }
-    }
-    else if (curSong == "sabotage"){
+    if (curSong == "sabotage"){
         switch(curStep){
             case 816:
                 gf.alpha = 1;
                 gf.playAnim("fadein", true);
             case 820:
                 dad.playAnim("look", true);
-        }
-    
-        if (curStep > 63 && curStep < 511){
-            if (curStep % 32 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curStep > 511 && curStep < 577){
-            if (curStep % 64 == 0){
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curStep > 639 && curStep < 705){
-            if (curStep % 32 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curStep > 831 && curStep < 1473){
-            if (curStep % 32 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
         }
     }
     else if (curSong == "meltdown"){
@@ -174,51 +73,73 @@ function beatHit(){
     speaker.animation.play('bop');
     crowd.animation.play('bop');
 
-    if (curSong == "meltdown"){
-        if (curBeat > 0 && curBeat < 32){
-            if (curBeat % 8 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curBeat > 31 && curBeat < 125){
-            if (curBeat % 4 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curBeat > 127 && curBeat < 185){
-            if (curBeat % 8 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curBeat > 191 && curBeat < 253){
-            if (curBeat % 4 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
-            }
-        }
-        if (curBeat > 255 && curBeat < 281){
-            if (curBeat % 8 == 0){
-                camGame.zoom += 0.015;
-                camHUD.zoom += 0.03;
-                if (!FlxG.save.data.flashingLights){
-                    camGame.flash(0xADFF0000, .35);
-                }
+    if (flashBeat2 == true){
+        if (curBeat % 2 == 0){
+            camGame.zoom += 0.015;
+            camHUD.zoom += 0.03;
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
             }
         }
     }
+
+    if (flashBeat4 == true){
+        if (curBeat % 4 == 0){
+            camGame.zoom += 0.015;
+            camHUD.zoom += 0.03;
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        }
+    }
+
+    if (flashBeat8 == true){
+        if (curBeat % 8 == 0){
+            camGame.zoom += 0.015;
+            camHUD.zoom += 0.03;
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        }
+    }
+}
+
+// hscript call stuff
+
+function flashBeat2(){
+    flashBeat2 = true;
+}
+
+function flashBeat2Alt(){
+    flashBeat2 = true;
+}
+
+function flashBeat4(){
+    flashBeat4 = true;
+}
+
+function flashBeat4Alt(){
+    flashBeat4 = true;
+}
+
+function flashBeat8(){
+    flashBeat8 = true;
+}
+
+function flashBeat8Alt(){
+    flashBeat8 = true;
+}
+
+function flashBeat8Alt2(){
+    flashBeat8 = true;
+}
+
+function stopFlashing(){
+    flashBeat2 = false;
+    flashBeat4 = false;
+    flashBeat8 = false;
+}
+
+function cancelFlashBeat8(){ // specifically for meltdown
+    flashBeat8 = false;
 }

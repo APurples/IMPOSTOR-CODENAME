@@ -1,13 +1,22 @@
 // fast forward script by lunarcleint
-// opponent mode fix for fast forward by yasher
+// opponent mode fix for fast forward and open console by pressing f6 by yasher
 // botplay by me (lol)
 
-function update() {
-    if (startingSong || !canPause || paused || health <= 0) return;
-    updateSpeed(FlxG.keys.pressed.TWO);
+import funkin.backend.utils.NativeAPI;
 
-    if (FlxG.keys.pressed.THREE){
-        player.cpu = true;
+var devMode:Bool = false; // youre not a dev youre not a dev youre not a dev youre not a dev youre not a dev youre not a-
+
+function update(elapsed) {
+    if (devMode == true){
+        if (startingSong || !canPause || paused || health <= 0) return;
+        updateSpeed(FlxG.keys.pressed.TWO);
+    
+        if (FlxG.keys.pressed.THREE){
+            player.cpu = true;
+        }
+    
+        if (FlxG.keys.justPressed.F6)
+            NativeAPI.allocConsole();
     }
 }
 
