@@ -345,7 +345,7 @@ function stepHit(){
                     camGame.flash(0xFFFFFF, .35);
                 }
             case 3976:
-                end7.alpha = 1;
+                playVid("end");
                 if (!FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
