@@ -353,15 +353,6 @@ function stepHit(){
     }
 }
 
-/*
-function beatHit(curBeat){
-    if (curBeat == 994){
-        playCutscenes = true;
-        startCutscene("mid-", function() close());
-    }
-}
-*/
-
 // hscript call stuff
 
 function boppingShit(){

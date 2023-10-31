@@ -71,8 +71,7 @@ function stepHit(){
     else if (curSong == "meltdown"){
         switch (curStep){
             case 1152:
-                FlxTween.tween(camGame, {alpha: 0}, 1.65);
-                FlxTween.tween(camHUD, {alpha: 0}, 1.65);
+                playVid('end');
         }
     }
 }
