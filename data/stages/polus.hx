@@ -72,6 +72,9 @@ function stepHit(){
         switch (curStep){
             case 1152:
                 playVid('end');
+                new FlxTimer().start(4, function(tmr:FlxTimer){
+                    camGame.alpha = 0;
+                });
         }
     }
 }

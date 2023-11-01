@@ -30,9 +30,13 @@ public function playVid(vid:String) {
     curVideo.onEndReached.add(curVideo.dispose);
     var path = Paths.file("songs/" + PlayState.SONG.meta.name.toLowerCase() + "/" + vid + '.mp4'); // songs/current-song/vid.mp4
     curVideo.play(Assets.getPath(path));
+    trace("video played!");
+    if (curVideo == null) trace("video did not play! did you check if the video name is spelled correctly?");
 }
+
 function update() {
     if (curVideo != null) canPause = false;
     else canPause = true; // doesn't fuckin work
 }
+
 function onDestroy() curVideo.destroy();
