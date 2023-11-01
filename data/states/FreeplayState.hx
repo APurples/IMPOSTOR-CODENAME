@@ -70,13 +70,14 @@ function create(){
 
     scoreText.y = 85;
     coopText.y = scoreText.y + 36;
+    diffText.y = scoreText.y + 36;
 
     scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reason
+    diffText.alpha = 0;
 }
 
 function postCreate(){
-    bg.destroy(); // fuck you bg and diffText
-    diffText.destroy();
+    bg.destroy(); // fuck you bg
 }
 
 function update(){
@@ -92,6 +93,7 @@ function postUpdate(){
     switch(songs[curSelected].name){
         case "sussus moogus" | "sabotage" | "meltdown":
             portrait.animation.play('red');
+            diffText.alpha = 0;
         case "sauces moogus":
             portrait.animation.play('chef');
             portrait.alpha = 1;
@@ -100,7 +102,9 @@ function postUpdate(){
         case "yarlow" | "dlowing":
             portrait.animation.play('yellow');
             portrait.alpha = 1;
+            diffText.alpha = 0;
         case "double kill vtwo":
             portrait.animation.play('black');
+            diffText.alpha = 1;
     }
 }
