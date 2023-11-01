@@ -1,3 +1,7 @@
+/* Todo:
+    - Preloading for playVid function
+*/
+
 import hxvlc.flixel.FlxVideo;
 
 static var camMoveOffset:Float = 24;
