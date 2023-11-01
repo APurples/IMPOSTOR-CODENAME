@@ -74,6 +74,7 @@ function stepHit(){
                 playVid('end');
                 new FlxTimer().start(4, function(tmr:FlxTimer){
                     camGame.alpha = 0;
+                    camHUD.alpha = 0;
                 });
         }
     }

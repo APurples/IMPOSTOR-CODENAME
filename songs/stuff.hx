@@ -1,6 +1,8 @@
 import hxvlc.flixel.FlxVideo;
+
 static var camMoveOffset:Float = 24;
 static var camFollowChars:Bool = true;
+
 var curVideo = null;
 
 function create() {camFollowChars = true; camMoveOffset = 24;}
