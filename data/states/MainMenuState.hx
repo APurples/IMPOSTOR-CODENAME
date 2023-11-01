@@ -87,17 +87,6 @@ function postCreate(){
 }
 
 function update(){
-	if (FlxG.keys.pressed.ENTER){
-		redImpostor.animation.play('select');
-		greenImpostor.animation.play('select');
-
-		FlxTween.tween(starFG, {y: starFG.y + 500}, 0.7, {ease: FlxEase.quadInOut});
-		FlxTween.tween(starBG, {y: starBG.y + 500}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.2});
-		FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
-		FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
-		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
-	}
-
 	// moves the stars to the left
 	starFG.x -= 0.06;
 	starBG.x -= 0.03;
@@ -111,4 +100,19 @@ function postUpdate(){
 
     FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
     FlxG.camera.scroll.set();
+
+	if (controls.ACCEPT){
+		selectItem();
+	}
+}
+
+function selectItem(){
+	redImpostor.animation.play('select');
+	greenImpostor.animation.play('select');
+
+	FlxTween.tween(starFG, {y: starFG.y + 500}, 0.7, {ease: FlxEase.quadInOut});
+	FlxTween.tween(starBG, {y: starBG.y + 500}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.2});
+	FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
+	FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
+	FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
 }
