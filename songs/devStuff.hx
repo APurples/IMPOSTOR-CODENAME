@@ -4,7 +4,7 @@
 
 import funkin.backend.utils.NativeAPI;
 
-var devMode:Bool = false; // youre not a dev youre not a dev youre not a dev youre not a dev youre not a dev youre not a-
+var devMode:Bool = true; // youre not a dev youre not a dev youre not a dev youre not a dev youre not a dev youre not a-
 
 function update(elapsed) {
     if (devMode == true){

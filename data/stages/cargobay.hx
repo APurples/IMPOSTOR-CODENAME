@@ -53,12 +53,6 @@ function create(){
 }
 
 function update(elapsed){
-    iconP1.alpha = 0;
-    iconP2.alpha = 0;
-    healthBar.alpha = 0;
-    healthBarBG.alpha = 0;
-    scoreTxt.alpha = 0;
-
     if (swing){
         camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
     }
@@ -85,6 +79,14 @@ function postCreate(){
     strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y - 60;
     strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 147.25;
     strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 95;
+
+    iconP1.alpha = 0;
+    iconP2.alpha = 0;
+    healthBar.alpha = 0;
+    healthBarBG.alpha = 0;
+    scoreTxt.alpha = 0;
+    missesTxt.alpha = 0;
+    accuracyTxt.alpha = 0;
 }
 
 function postUpdate(){
@@ -388,11 +390,13 @@ function healthFade(){
 }
 
 function healthFadeBack(){
-    FlxTween.tween(healthBar, {alpha: 1}, .35);
-    FlxTween.tween(healthBarBG, {alpha: 1}, .35);
-    FlxTween.tween(iconP1, {alpha: 1}, .35);
-    FlxTween.tween(iconP2, {alpha: 1}, .35);
-    FlxTween.tween(scoreTxt, {alpha: 1}, .35);
+    FlxTween.tween(healthBar, {alpha: 1}, .5);
+    FlxTween.tween(healthBarBG, {alpha: 1}, .5);
+    FlxTween.tween(iconP1, {alpha: 1}, .5);
+    FlxTween.tween(iconP2, {alpha: 1}, .5);
+    FlxTween.tween(scoreTxt, {alpha: 1}, .5);
+    FlxTween.tween(missesTxt, {alpha: 1}, .5);
+    FlxTween.tween(accuracyTxt, {alpha: 1}, .5);
 }
 
 function chaseTime(){
@@ -401,10 +405,6 @@ function chaseTime(){
     defeat.alpha = 0;
     strumLines.members[0].characters[0].visible = false;
     strumLines.members[1].characters[0].visible = false;
-    FlxTween.tween(healthBar, {alpha:1}, .5);
-    FlxTween.tween(healthBarBG, {alpha:1}, .5);
-    FlxTween.tween(iconP1, {alpha:1}, .5);
-    FlxTween.tween(iconP2, {alpha:1}, .5);
     if (!FlxG.save.data.flashingLights){
         camGame.flash(0xFFFFFF, .5);
     }
