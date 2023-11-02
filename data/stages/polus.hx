@@ -1,6 +1,9 @@
+import hxvlc.flixel.FlxVideo;
+
+var flashMeasure:Bool = false;
+var flashMeasure2:Bool = false;
+var flashMeasure4:Bool = false;
 var flashBeat2:Bool = false;
-var flashBeat4:Bool = false;
-var flashBeat8:Bool = false;
 
 function create(){
     speaker = new FlxSprite(300, 195);
@@ -58,6 +61,36 @@ function update(){
     }
 }
 
+function measureHit(){
+    if (flashMeasure == true){
+        camGame.zoom += 0.015;
+        camHUD.zoom += 0.03;
+        if (!FlxG.save.data.flashingLights){
+            camGame.flash(0xADFF0000, .35);
+        }
+    }
+
+    if (flashMeasure2 == true){
+        if (curMeasure % 2 == 0){
+            camGame.zoom += 0.015;
+            camHUD.zoom += 0.03;
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        }
+    }
+
+    if (flashMeasure4 == true){
+        if (curMeasure % 4 == 0){
+            camGame.zoom += 0.015;
+            camHUD.zoom += 0.03;
+            if (!FlxG.save.data.flashingLights){
+                camGame.flash(0xADFF0000, .35);
+            }
+        }
+    }
+}
+
 function stepHit(){
     if (curSong == "sabotage"){
         switch(curStep){
@@ -71,7 +104,7 @@ function stepHit(){
     else if (curSong == "meltdown"){
         switch (curStep){
             case 1152:
-                playVid('end');
+                playVid("end");
                 new FlxTimer().start(4, function(tmr:FlxTimer){
                     camGame.alpha = 0;
                     camHUD.alpha = 0;
@@ -93,26 +126,6 @@ function beatHit(){
             }
         }
     }
-
-    if (flashBeat4 == true){
-        if (curBeat % 4 == 0){
-            camGame.zoom += 0.015;
-            camHUD.zoom += 0.03;
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        }
-    }
-
-    if (flashBeat8 == true){
-        if (curBeat % 8 == 0){
-            camGame.zoom += 0.015;
-            camHUD.zoom += 0.03;
-            if (!FlxG.save.data.flashingLights){
-                camGame.flash(0xADFF0000, .35);
-            }
-        }
-    }
 }
 
 // hscript call stuff
@@ -125,32 +138,36 @@ function flashBeat2Alt(){
     flashBeat2 = true;
 }
 
-function flashBeat4(){
-    flashBeat4 = true;
+function flashMeasure(){
+    flashMeasure = true;
 }
 
-function flashBeat4Alt(){
-    flashBeat4 = true;
+function flashMeasureAlt(){
+    flashMeasure = true;
 }
 
-function flashBeat8(){
-    flashBeat8 = true;
+function flashMeasure2(){
+    flashMeasure2 = true;
 }
 
-function flashBeat8Alt(){
-    flashBeat8 = true;
+function flashMeasure2Alt(){
+    flashMeasure2 = true;
 }
 
-function flashBeat8Alt2(){
-    flashBeat8 = true;
+function flashMeasure2Alt2(){
+    flashMeasure2 = true;
+}
+
+function flashMeasure4(){
+    flashMeasure4 = true;
 }
 
 function stopFlashing(){
     flashBeat2 = false;
-    flashBeat4 = false;
-    flashBeat8 = false;
+    flashMeasure = false;
+    flashMeasure2 = false;
 }
 
-function cancelFlashBeat8(){ // specifically for meltdown
-    flashBeat8 = false;
+function cancelFlashMeasure2(){ // specifically for meltdown
+    flashMeasure2 = false;
 }

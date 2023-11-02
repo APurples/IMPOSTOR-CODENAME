@@ -53,6 +53,12 @@ function create(){
 }
 
 function update(elapsed){
+    iconP1.alpha = 0;
+    iconP2.alpha = 0;
+    healthBar.alpha = 0;
+    healthBarBG.alpha = 0;
+    scoreTxt.alpha = 0;
+
     if (swing){
         camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
     }
@@ -105,6 +111,10 @@ function onSongStart(){
     FlxTween.tween(camGame, {zoom: 1.1}, 1.25, {ease: FlxEase.circIn});
 }
 
+function measureHit(){
+    defeat.animation.play("bop");
+}
+
 function beatHit(){
     if (swing){
         camGame.zoom += 0.045;
@@ -120,10 +130,6 @@ function beatHit(){
 }
 
 function stepHit(){
-    if (curStep % 16 == 0){
-        defeat.animation.play("bop");
-    }
-
     if (curSong == "double kill vtwo"){
         switch(curStep){
             case 4:
@@ -379,6 +385,14 @@ function healthFade(){
     FlxTween.tween(iconP1, {alpha:0}, .35);
     FlxTween.tween(iconP2, {alpha:0}, .35);
     trace("healthbar faded!");
+}
+
+function healthFadeBack(){
+    FlxTween.tween(healthBar, {alpha: 1}, .35);
+    FlxTween.tween(healthBarBG, {alpha: 1}, .35);
+    FlxTween.tween(iconP1, {alpha: 1}, .35);
+    FlxTween.tween(iconP2, {alpha: 1}, .35);
+    FlxTween.tween(scoreTxt, {alpha: 1}, .35);
 }
 
 function chaseTime(){

@@ -1,7 +1,3 @@
-/* Todo:
-    - Preloading for playVid function
-*/
-
 import hxvlc.flixel.FlxVideo;
 
 static var camMoveOffset:Float = 24;
@@ -9,7 +5,10 @@ static var camFollowChars:Bool = true;
 
 var curVideo = null;
 
-function create() {camFollowChars = true; camMoveOffset = 24;}
+function create(){
+    camFollowChars = true;
+    camMoveOffset = 24;
+}
 
 function postUpdate() {
     if (!FlxG.save.data.camMove){
@@ -29,14 +28,18 @@ function postUpdate() {
     if (curStage == "chef") camMoveOffset = 14;
 }
 
-/** Video sprite to be placed in mid-game **/
+// Mid-song video cutscenes event
+/* Todo:
+    - Preloading for playVid function
+    - Make the video pause when pausing the entire game
+*/
 
 public function playVid(vid:String) {
     curVideo = new FlxVideo();
     curVideo.onEndReached.add(curVideo.dispose);
     var path = Paths.file("songs/" + PlayState.SONG.meta.name.toLowerCase() + "/" + vid + '.mp4'); // songs/current-song/vid.mp4
     curVideo.play(Assets.getPath(path));
-    trace("video played!");
+    trace(curVideo);
     if (curVideo == null) trace("video did not play! did you check if the video name is spelled correctly?");
 }
 
@@ -44,5 +47,3 @@ function update() {
     if (curVideo != null) canPause = false;
     else canPause = true; // doesn't fuckin work
 }
-
-function onDestroy() curVideo.destroy();
