@@ -3,6 +3,12 @@ import flixel.addons.display.FlxBackdrop;
 function create() {
 	FlxG.mouse.visible = true;
 
+	if (!FlxG.save.data.devMode){
+		canAccessDebugMenus = false;
+	}else{
+		canAccessDebugMenus = true;
+	}
+
 	starBG = new FlxBackdrop(Paths.image('menus/mainmenu/starBG'));
 	starBG.updateHitbox();
 	starBG.antialiasing = true;
