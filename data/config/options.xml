@@ -1,6 +1,8 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Impostor" desc="Options for Vs Impostor.">
 	<menu name="gameplay" desc="Change gameplay options for VS Impostor such as middlescroll, hitsounds...">
+		<checkbox id="camMove" name="Camera Movement" desc="If checked, the camera will move with the notes' direction." />
+		<checkbox id="cutsceneFreeplay" name="Cutscenes in freeplay" desc="If checked, SCRIPTED cutscenes will always play in freeplay." />
 		<checkbox id="middlescroll" name="Middlescroll" desc="If checked, centers the player's strums to the middle." />
 		<checkbox id="opponentNotes" name="Hide opponent notes" desc="If checked, will make the opponent's notes invisible." />
 		<checkbox id="hitsound" name="Hitsounds" desc="If checked, a tick sound will occur on every note hit." />
@@ -9,7 +11,6 @@
 		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
 		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
-		<checkbox id="camMove" name="Camera Movement" desc="If checked, the camera will move with the notes' direction." />
 	</menu>
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

@@ -8,6 +8,10 @@ function postCreate(){
         if (curStage == "chef") healthBar.createFilledBar(0xFFC75E52,0xFF31B0D1);
         if (curStage == "dlowingt") healthBar.createFilledBar(0xFFFDCC37,0xFF31B0D1);
     }
+
+    if (FlxG.save.data.cutsceneFreeplay){
+        playCutscenes = true;
+    }
 }
 
 function onPlayerHit(a){
