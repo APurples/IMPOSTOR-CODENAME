@@ -1,6 +1,8 @@
 import flixel.addons.display.FlxBackdrop;
 
-var overlay:FlxSprite;
+var lightoverlayDK:FlxSprite;
+var mainoverlayDK:FlxSprite;
+var defeatDKoverlay:FlxSprite;
 var flashback:FlxSprite;
 var defeat:FlxSprite;
 var cargo:FlxSprite;
@@ -17,10 +19,31 @@ camHUD.alpha = 0;
 isStoryMode = true;
 
 function create() {
-	overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
-	overlay.alpha = .75;
-	if (!Options.lowMemoryMode) {
-		add(overlay);
+	lightoverlayDK = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/cargo bay/scvavd'));
+	lightoverlayDK.antialiasing = true;
+	lightoverlayDK.scrollFactor.set(1, 1);
+	lightoverlayDK.active = false;
+	lightoverlayDK.alpha = 0.51;
+	if (!Options.lowMemoryMode){
+		add(lightoverlayDK);
+	}
+
+	mainoverlayDK = new FlxSprite(-100, 0).loadGraphic(Paths.image('stages/cargo bay/overlay ass dk'));
+	mainoverlayDK.antialiasing = true;
+	mainoverlayDK.scrollFactor.set(1, 1);
+	mainoverlayDK.active = false;
+	mainoverlayDK.alpha = 0.6;
+	if (!Options.lowMemoryMode){
+		add(mainoverlayDK);
+	}
+
+	defeatDKoverlay = new FlxSprite(900, 350).loadGraphic(Paths.image('stages/cargo bay/iluminao omaga'));
+	defeatDKoverlay.antialiasing = true;
+	defeatDKoverlay.scrollFactor.set(1, 1);
+	defeatDKoverlay.active = false;
+	defeatDKoverlay.alpha = 0;
+	if (!Options.lowMemoryMode){
+		add(defeatDKoverlay);
 	}
 
 	flashback = new FlxSprite(1805, 800).loadGraphic(Paths.image('stages/cargo bay/airshipFlashback'));
@@ -138,7 +161,6 @@ function stepHit() {
 				}
 			case 272:
 				FlxG.camera.followLerp = 0.08;
-				overlay.alpha = 0;
 				cargo.alpha = 1;
 				scrollSpeed = 3.3;
 				if (FlxG.save.data.flashingLights) {
@@ -179,6 +201,10 @@ function stepHit() {
 				if (FlxG.save.data.flashingLights) {
 					camGame.flash(0xFFFFFF, .5);
 				}
+			case 656:
+				if (FlxG.save.data.flashingLights) {
+					camGame.flash(0xFFFFFF, .5);
+				}
 			case 776:
 				camGame.angle = 1;
 				camHUD.angle = 1;
@@ -214,7 +240,6 @@ function stepHit() {
 			case 1552:
 				FlxG.camera.followLerp = 0.04;
 				scrollSpeed = 2.6;
-				overlay.alpha = .75;
 				cargo.alpha = 0;
 				if (FlxG.save.data.flashingLights) {
 					camGame.flash(0xFFFFFF, .5);
@@ -223,7 +248,6 @@ function stepHit() {
 				FlxTween.tween(camGame, {zoom: 1.2}, 1.6, {ease: FlxEase.circIn});
 			case 1808:
 				scrollSpeed = 2.9;
-				overlay.alpha = 0;
 				camZoomingStrength = 2;
 				dad.alpha = 0;
 				gf.alpha = 0;

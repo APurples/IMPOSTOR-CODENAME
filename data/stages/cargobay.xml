@@ -10,5 +10,4 @@
 	<sprite name="end4" x="0" y="0" sprite="end/4" alpha="0" scroll="0" scale="1.625" antialiasing="true"/>
 	<sprite name="end5" x="0" y="0" sprite="end/5" alpha="0" scroll="0" scale="1.625" antialiasing="true"/>
 	<sprite name="end6" x="0" y="0" sprite="end/6" alpha="0" scroll="0" scale="1.625" antialiasing="true"/>
-	<sprite name="end7" x="0" y="0" sprite="end/7" alpha="0" scroll="0" scale="1.575" antialiasing="true"/>
 </stage>
