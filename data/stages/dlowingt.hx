@@ -64,11 +64,6 @@ function create(){
     sheriff.animation.addByPrefix('bop', 'sheriff', 24, false);
     sheriff.scrollFactor.set(1, 1);
 
-    gray = new FlxSprite(3800, 1650);
-    gray.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/gay');
-    gray.animation.addByPrefix('bop', 'gray instance', 24, false);
-    gray.scrollFactor.set(1, 1);
-
     mint = new FlxSprite(2100, 1250);
     mint.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/mint');
     mint.animation.addByPrefix('bop', 'mint', 24, false);
@@ -125,9 +120,7 @@ function create(){
     add(addb);
     add(lime);
     add(ov);
-    add(gray);
     add(adds);
-    add(gf);
     add(dad);
     add(boyfriend);
     add(comboGroup);
@@ -135,6 +128,7 @@ function create(){
     add(tnr);
     add(amonglit);
     add(redmungus);
+    add(gf);
     add(addm);
     add(pissOverlay);
 }

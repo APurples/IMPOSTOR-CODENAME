@@ -1,6 +1,6 @@
 <!DOCTYPE codename-engine-stage>
 <stage zoom="0.6" name="dlowingt" folder="stages/dlowing/">
-	<girlfriend  x="100" y="1150" />
+	<girlfriend  x="100" y="1000" />
 	<dad x="1800" y="1200" />
 	<boyfriend x="2850" y="1200" />
 	<combo x="2580" y="1600" />
