@@ -19,7 +19,7 @@ function onEvent(e:EventGameEvent){
 }
 
 function onDadHit(event:NoteHitEvent){
-    if(!FlxG.save.data.screenShake){
+    if(FlxG.save.data.screenShake){
         if (shakeDadHit == true){
             FlxG.camera.shake(0.015, .1, null, true);
         }
@@ -27,7 +27,7 @@ function onDadHit(event:NoteHitEvent){
 }
 
 function onPlayerHit(event:NoteHitEvent){
-    if(!FlxG.save.data.screenShake){
+    if(FlxG.save.data.screenShake){
         if (shakeBfHit == true){
             FlxG.camera.shake(0.015, .1, null, true);
         }

@@ -191,29 +191,29 @@ function stepHit(){
                 FlxTween.tween(camGame, {alpha: 1}, 6);
                 FlxTween.tween(camGame, {zoom: 0.8}, 13, {ease: FlxEase.sineInOut});
             case 128:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 192:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 384:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 512:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 770:
                 FlxTween.tween(camGame, {zoom: 0.8}, 3.2, {ease: FlxEase.sineInOut});
             case 800:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, .5);
                 }
             case 928:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 942:
@@ -227,20 +227,20 @@ function stepHit(){
             case 1:
                 FlxTween.tween(camGame, {alpha: 1}, 5);
             case 64:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 704:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 1024:
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 1);
                 }
             case 1280:
                 FlxTween.tween(camHUD, {alpha: 0}, 5);
-                if (!FlxG.save.data.flashingLights){
+                if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
         }

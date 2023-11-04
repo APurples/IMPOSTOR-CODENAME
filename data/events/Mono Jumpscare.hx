@@ -12,7 +12,7 @@ function create(){
 }
 
 function onEvent(e:EventGameEvent){
-    if (!FlxG.save.data.jumpscares){
+    if (FlxG.save.data.jumpscares){
         if (e.event.name == "Mono Jumpscare"){
             if (e.event.params[0] == true){
                 jumpscare.alpha = 1;

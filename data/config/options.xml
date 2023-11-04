@@ -6,10 +6,10 @@
 		<checkbox id="hitsound" name="Hitsounds" desc="If checked, a tick sound will occur on every note hit." />
 	</menu>
 	<menu name="visuals" desc="Change visuals options for VS Impostor such as flashing lights, jumpscares, camera movement...">
-		<checkbox id="flashingLights" name="Disable Flashing Lights" desc="If unchecked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
-		<checkbox id="screenShake" name="Disable Screen Shake" desc="If unchecked, screen shaking will occur in some songs." />
-		<checkbox id="jumpscares" name="Disable Jumpscares" desc="If unchecked, there will be jumpscares in certain songs." />
-		<checkbox id="camMove" name="Disable Cam Movement" desc="If checked, the camera will no longer move with the note's direction." />
+		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
+		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
+		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
+		<checkbox id="camMove" name="Camera Movement" desc="If checked, the camera will move with the notes' direction." />
 	</menu>
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

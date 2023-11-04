@@ -11,7 +11,7 @@ function create(){
 }
 
 function postUpdate() {
-    if (!FlxG.save.data.camMove){
+    if (FlxG.save.data.camMove){
         switch(strumLines.members[curCameraTarget].characters[0].getAnimName()) {
             case "singLEFT": camFollow.x -= camMoveOffset;
             case "singDOWN": camFollow.y += camMoveOffset;
@@ -39,7 +39,7 @@ public function playVid(vid:String) {
     curVideo.onEndReached.add(curVideo.dispose);
     var path = Paths.file("songs/" + PlayState.SONG.meta.name.toLowerCase() + "/" + vid + '.mp4'); // songs/current-song/vid.mp4
     curVideo.play(Assets.getPath(path));
-    trace(curVideo);
+    trace("video played!");
     if (curVideo == null) trace("video did not play! did you check if the video name is spelled correctly?");
 }
 

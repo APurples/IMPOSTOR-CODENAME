@@ -65,7 +65,7 @@ function measureHit(){
     if (flashMeasure == true){
         camGame.zoom += 0.015;
         camHUD.zoom += 0.03;
-        if (!FlxG.save.data.flashingLights){
+        if (FlxG.save.data.flashingLights){
             camGame.flash(0xADFF0000, .35);
         }
     }
@@ -74,7 +74,7 @@ function measureHit(){
         if (curMeasure % 2 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (!FlxG.save.data.flashingLights){
+            if (FlxG.save.data.flashingLights){
                 camGame.flash(0xADFF0000, .35);
             }
         }
@@ -84,7 +84,7 @@ function measureHit(){
         if (curMeasure % 4 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (!FlxG.save.data.flashingLights){
+            if (FlxG.save.data.flashingLights){
                 camGame.flash(0xADFF0000, .35);
             }
         }
@@ -121,7 +121,7 @@ function beatHit(){
         if (curBeat % 2 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (!FlxG.save.data.flashingLights){
+            if (FlxG.save.data.flashingLights){
                 camGame.flash(0xADFF0000, .35);
             }
         }
