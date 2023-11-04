@@ -6,4 +6,5 @@
 	<anim x="-50" loop="false" y="-171" fps="24" anim="right" name="singRIGHT"/>
 	<anim x="39" loop="false" y="-305" fps="24" anim="down" name="singDOWN"/>
 	<anim x="57" loop="false" y="-174" fps="24" anim="confused" name="confused"/>
+	<anim x="57" loop="true" y="-174" fps="24" anim="confused" indices="71" name="confused-stare"/>
 </character>

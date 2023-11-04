@@ -1,3 +1,5 @@
+import flixel.util.FlxTimer;
+
 var bopping:Bool = false;
 
 camGame.alpha = 0;
@@ -243,6 +245,10 @@ function stepHit(){
                 if (FlxG.save.data.flashingLights){
                     camGame.flash(0xFFFFFF, 2);
                 }
+            case 1368:
+                new FlxTimer().start(10, function(tmr:FlxTimer){
+                    endSong();
+                });
         }
     }
 }

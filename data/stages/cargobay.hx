@@ -1,13 +1,6 @@
 import flixel.addons.display.FlxBackdrop;
+//import openfl.display.BlendMode;
 
-var lightoverlayDK:FlxSprite;
-var mainoverlayDK:FlxSprite;
-var defeatDKoverlay:FlxSprite;
-var flashback:FlxSprite;
-var defeat:FlxSprite;
-var cargo:FlxSprite;
-var bflegs:FlxSprite;
-var hall:FlxBackdrop;
 var swing:Bool = false;
 var bopping:Bool = false;
 var chaseCamPos:Bool = false;
@@ -23,6 +16,7 @@ function create() {
 	lightoverlayDK.antialiasing = true;
 	lightoverlayDK.scrollFactor.set(1, 1);
 	lightoverlayDK.active = false;
+	//lightoverlayDK.blend = ADD;
 	lightoverlayDK.alpha = 0.51;
 	if (!Options.lowMemoryMode){
 		add(lightoverlayDK);
@@ -32,6 +26,7 @@ function create() {
 	mainoverlayDK.antialiasing = true;
 	mainoverlayDK.scrollFactor.set(1, 1);
 	mainoverlayDK.active = false;
+	//mainoverlayDK.blend == ADD;
 	mainoverlayDK.alpha = 0.6;
 	if (!Options.lowMemoryMode){
 		add(mainoverlayDK);
@@ -41,6 +36,7 @@ function create() {
 	defeatDKoverlay.antialiasing = true;
 	defeatDKoverlay.scrollFactor.set(1, 1);
 	defeatDKoverlay.active = false;
+	//defeatDKoverlay.blend = ADD;
 	defeatDKoverlay.alpha = 0;
 	if (!Options.lowMemoryMode){
 		add(defeatDKoverlay);
@@ -246,26 +242,10 @@ function stepHit() {
 				}
 			case 1788:
 				FlxTween.tween(camGame, {zoom: 1.2}, 1.6, {ease: FlxEase.circIn});
-			case 1808:
-				scrollSpeed = 2.9;
-				camZoomingStrength = 2;
-				dad.alpha = 0;
-				gf.alpha = 0;
-				if (FlxG.save.data.flashingLights) {
-					camGame.flash(0xFFFFFF, .5);
-				}
-				cpuStrums.forEach(function(strum:StrumNote) {
-					FlxTween.tween(strum, {alpha: 0}, 1);
-				});
-				for (i in playerStrums.members)
-					FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
 			case 1936:
 				FlxTween.tween(flashback, {alpha: .5}, 8.5);
-			case 2062:
-				camZoomingStrength = 1;
-				boyfriend.alpha = 0;
-				flashback.alpha = 0;
-				camHUD.alpha = 0;
+				FlxTween.tween(mainoverlayDK, {alpha: 0}, 8.5);
+				FlxTween.tween(lightoverlayDK, {alpha: 0}, 8.5);
 			case 2082:
 				FlxTween.tween(camHUD, {alpha: 1}, 1);
 			case 2096:
@@ -275,6 +255,8 @@ function stepHit() {
 				dad.alpha = 1;
 				gf.alpha = 1;
 				cargo.alpha = 1;
+				mainoverlayDK.alpha = 0.6;
+				lightoverlayDK.alpha = 0.51;
 				if (FlxG.save.data.flashingLights) {
 					camGame.flash(0xFFFFFF, .5);
 				}
@@ -304,24 +286,17 @@ function stepHit() {
 				FlxTween.tween(camGame, {alpha: 0}, .45);
 				FlxTween.tween(camHUD, {alpha: 0}, .45);
 				FlxTween.tween(camGame, {zoom: 1.2}, .45);
-			case 3136:
-				strumLines.members[2].characters[0].visible = false;
-				FlxG.camera.followLerp = 0.04;
-				scrollSpeed = 2.6;
-				camGame.alpha = 1;
-				camHUD.alpha = 1;
-				defeat.alpha = 1;
-				remove(cargo);
-				if (FlxG.save.data.flashingLights) {
-					camGame.flash(0xFFFFFF, 2);
-				}
 			case 3328:
 				buildUpCamPos = true;
 				FlxTween.tween(camGame, {zoom: 0.725}, 10);
 			case 3392:
 				buildUpCamPos = false;
+				camZoomingStrength = 1;
 				camGame.alpha = 0;
 				camHUD.alpha = 0;
+				defeatDKoverlay.alpha = 0;
+				mainoverlayDK.alpha = 0;
+				lightoverlayDK.alpha = 0;
 			case 3402:
 				if (PlayState.coopMode || PlayState.opponentMode) {
 					FlxTween.tween(camHUD, {alpha: 1}, 1);
@@ -396,10 +371,26 @@ function stopBoppingShit() {
 
 function focusOnBf() {
 	focusOnBf = true;
+	scrollSpeed = 2.9;
+	camZoomingStrength = 2;
+	dad.alpha = 0;
+	gf.alpha = 0;
+	if (FlxG.save.data.flashingLights) {
+		camGame.flash(0xFFFFFF, .5);
+	}
+	cpuStrums.forEach(function(strum:StrumNote) {
+		FlxTween.tween(strum, {alpha: 0}, 1);
+	});
+	for (i in playerStrums.members)
+		FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
 }
 
 function unfocusOnBf() {
 	focusOnBf = false;
+	camZoomingStrength = 1;
+	boyfriend.alpha = 0;
+	flashback.alpha = 0;
+	camHUD.alpha = 0;
 }
 
 function healthFade() {
@@ -407,6 +398,9 @@ function healthFade() {
 	FlxTween.tween(healthBarBG, {alpha: 0}, .35);
 	FlxTween.tween(iconP1, {alpha: 0}, .35);
 	FlxTween.tween(iconP2, {alpha: 0}, .35);
+	FlxTween.tween(scoreTxt, {alpha: 0}, .35);
+	FlxTween.tween(missesTxt, {alpha: 0}, .35);
+	FlxTween.tween(accuracyTxt, {alpha: 0}, .35);
 	trace("healthbar faded");
 }
 
@@ -418,6 +412,33 @@ function healthFadeBack() {
 	FlxTween.tween(scoreTxt, {alpha: 1}, .5);
 	FlxTween.tween(missesTxt, {alpha: 1}, .5);
 	FlxTween.tween(accuracyTxt, {alpha: 1}, .5);
+}
+
+function tweenAngle1(){
+	FlxTween.tween(camGame, {angle: -1}, .35, {ease: FlxEase.quartOut});
+}
+
+function tweenAngle2(){
+	FlxTween.tween(camGame, {angle: 1}, .35, {ease: FlxEase.quartOut});
+}
+
+function tweenAngleBack(){
+	FlxTween.tween(camGame, {angle: 0}, .35, {ease: FlxEase.quartOut});
+}
+
+function defeatReference(){
+	strumLines.members[2].characters[0].visible = false;
+	FlxG.camera.followLerp = 0.04;
+	scrollSpeed = 2.6;
+	camGame.alpha = 1;
+	camHUD.alpha = 1;
+	defeat.alpha = 1;
+	defeatDKoverlay.alpha = 1;
+	camZoomingStrength = 2.5;
+	remove(cargo);
+	if (FlxG.save.data.flashingLights) {
+		camGame.flash(0xFFFFFF, 2);
+	}
 }
 
 function chaseTime() {
@@ -453,8 +474,6 @@ function chaseTime2() {
 	strumLines.members[1].characters[1].visible = true;
 	strumLines.members[1].characters[2].visible = true;
 	hall.alpha = 1;
-	bflegs.alpha = 1;
-	blacklegs.alpha = 1;
 }
 
 function stopChaseTime() {

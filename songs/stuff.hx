@@ -28,8 +28,8 @@ function postUpdate() {
     if (curStage == "chef") camMoveOffset = 14;
 }
 
-// Mid-song video cutscenes event
-/* Todo:
+/* Mid-song video cutscenes event
+    Todo:
     - Preloading for playVid function
     - Make the video pause when pausing the entire game
 */
