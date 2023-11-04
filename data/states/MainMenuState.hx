@@ -47,8 +47,7 @@ function create() {
 
 	logo = new FlxSprite(0, 100);
 	logo.frames = Paths.getSparrowAtlas('menus/logoBumpin');
-	logo.animation.addByPrefix('bump', 'logo bumpin', 24, true);
-	logo.animation.play('bump');
+	logo.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 	logo.screenCenter();
 	logo.updateHitbox();
 	logo.scrollFactor.set();
@@ -110,6 +109,10 @@ function postUpdate(){
 	if (controls.ACCEPT){
 		selectItem();
 	}
+}
+
+function beatHit(){
+	logo.animation.play('bump');
 }
 
 function selectItem(){
