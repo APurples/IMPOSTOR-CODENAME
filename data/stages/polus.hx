@@ -162,6 +162,10 @@ function flashMeasure4(){
     flashMeasure4 = true;
 }
 
+function flashMeasure4Alt(){
+    flashMeasure4 = true;
+}
+
 function stopFlashing(){
     flashBeat2 = false;
     flashMeasure = false;
