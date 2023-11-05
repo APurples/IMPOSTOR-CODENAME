@@ -1,0 +1,30 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="red" char="red" position="left" />
+	<char name="gf" char="gf" position="middle" />
+	<char name="bf" char="bf" position="right" />
+
+	<!-- Lines -->
+	<line char="red" >
+		that really hurt :(
+	</line>
+	<line char="bf" >
+		o my fault
+	</line>
+	<line char="girlfriend" >
+		boyfriend be careful !!
+	</line>
+	<line char="girlfriend" >
+		this guy seems....
+	</line>
+	<line char="girlfriend" >
+		..mistrustful......
+	</line>
+	<line char="bf" name="neutral" >
+		now that you mention it... he does look pretty
+	</line>
+	<line char="bf" name="lmfao" >
+		skeptical..
+	</line>
+</dialogue>
