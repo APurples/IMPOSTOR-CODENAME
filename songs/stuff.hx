@@ -25,7 +25,7 @@ function postUpdate() {
         }
     }
 
-    if (curStage == "chef") camMoveOffset = 14;
+    if (curStage == "toogus" || "chef") camMoveOffset = 14;
 }
 
 /* Mid-song video cutscenes event
