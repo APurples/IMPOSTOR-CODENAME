@@ -45,6 +45,7 @@ function create(){
     // gonn make this into an array later
     portrait.animation.addByIndices('red', 'Character', [1], null, 24, true);
     portrait.animation.addByIndices('yellow', 'Character', [2], null, 24, true);
+    portrait.animation.addByIndices('green', 'Character', [3], null, 24, true);
     portrait.animation.addByIndices('black', 'Character', [6], null, 24, true);
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
     portrait.antialiasing = true;
@@ -94,6 +95,9 @@ function postUpdate(){
     switch(songs[curSelected].name){
         case "sussus moogus" | "sabotage" | "meltdown":
             portrait.animation.play('red');
+            diffText.alpha = 0;
+        case "sussus toogus" | "lights down" | "reactor":
+            portrait.animation.play('green');
             diffText.alpha = 0;
         case "sauces moogus":
             portrait.animation.play('chef');
