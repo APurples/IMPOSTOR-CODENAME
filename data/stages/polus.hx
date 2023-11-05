@@ -166,6 +166,7 @@ function stopFlashing(){
     flashBeat2 = false;
     flashMeasure = false;
     flashMeasure2 = false;
+    flashMeasure4 = false;
 }
 
 function cancelFlashMeasure2(){ // specifically for meltdown

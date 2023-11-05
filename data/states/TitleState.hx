@@ -10,7 +10,7 @@ function update(){
 
 function beatHit(){
     switch (curBeat){
-        case 0:
+        case 1:
             flashTime = false;
         case 8:
             FlxG.camera.zoom += 0.045;

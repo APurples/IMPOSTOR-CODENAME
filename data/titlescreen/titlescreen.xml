@@ -1,11 +1,11 @@
 <!DOCTYPE codename-titlestate >
 <titlestate>
     <sprites folder="menus/titlescreen/">
-<sprite name="starBG" sprite="starBG" x="0" y="0">
-<sprite name="starFG" sprite="starFG" x="0" y="0"></sprite>
-</sprite>
+        <sprite name="starBG" sprite="starBG" x="0" y="0">
+        <sprite name="starFG" sprite="starFG" x="0" y="0"></sprite>
+    </sprite>
 
-<sprite name="logo" sprite="logoBumpin" scale=".85" x="225" y="-35"></sprite>
+    <sprite name="logo" sprite="logoBumpin" scale=".85" x="225" y="-35"></sprite>
 </sprites>
 
     <intro length="16">

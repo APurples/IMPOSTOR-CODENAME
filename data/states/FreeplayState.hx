@@ -14,6 +14,7 @@ function create(){
     Framerate.offset.y = 77.5;
 
     FlxG.mouse.visible = true;
+    disableAutoPlay = true;
 
 	starsBG = new FlxBackdrop(Paths.image('menus/freeplay/starBG'), 1, 1, true, true);
 	starsBG.setPosition(111.3, 67.95);

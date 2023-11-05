@@ -1,14 +1,13 @@
-function create(){
-    game.camFollow.x = 2250;
-    game.camFollow.y += 150;
+var sound:FlxSound;
 
+function create(){
+    game.camFollow.x = 2200;
+    game.camFollow.y += 150;
     game.dad.playAnim("confused", false);
 
-    FlxTween.tween(FlxG.camera, {zoom: 1}, .1);
+    FlxTween.tween(FlxG.camera, {zoom: 1}, 0.2);
     FlxTween.tween(FlxG.camera, {zoom: 1.1}, 25, {ease: FlxEase.quadInOut});
-    FlxTween.tween(game.gf, {x: 1150}, 4.3, {ease: FlxEase.sineInOut});
-    
-    FlxG.sound.play(Paths.sound('dlowing/Walking'));
+    FlxTween.tween(game.gf, {x: 1050}, 4.3, {ease: FlxEase.sineInOut});
 
     new FlxTimer().start(.5, function(tmr:FlxTimer){
         game.boyfriend.playAnim("idle-loop-post", false);
@@ -22,7 +21,9 @@ function create(){
         game.camGame.visible = false;
     });
 
-    new FlxTimer().start(9.25, function(tmr:FlxTimer){
-        close();
-    });
+    sound = FlxG.sound.load(Paths.sound('dlowing/Walking'));
+	sound.play();
+    sound.onComplete = function() {
+		close();
+	}
 }
