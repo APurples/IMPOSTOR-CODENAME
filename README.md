@@ -16,9 +16,9 @@ APurples - Owner, Main Coder and Main Charter for Impostor CNE Port
 
 MAZ - Helped add in mid-song video cutscenes
 
-Credits to [Clowfoe](https://twitter.com/clowfoe) and his team Impostorm for making VS Impostor!
+Due to recent drama, the creator of VS Impostor will not be credited in this port because of his actions.
 
-Same goes to Denasu for his d'lowing remix mod!
+Credits to Denasu for making the D'lowing mod!
 
 There are more credits in the port, go to the credits section in the main menu to check everyone else out.
 
