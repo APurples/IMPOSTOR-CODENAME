@@ -1,0 +1,54 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="red" char="red" position="left" />
+	<char name="redcrack" char="redcrack" position="left" />
+	<char name="bf" char="bf" position="right" />
+	<char name="bfoh" char="bfoh" position="right" />
+	<char name="bfsad" char="bfsad" position="right" />
+	<char name="bfmad" char="bfmad" position="right" />
+	<char name="bfcrazy" char="bfcrazy" position="right" />
+	<char name="bfhappy" char="bfhappy" position="right" />
+
+
+	<!-- Lines -->
+	<line char="redcrack" stay="true">
+		lol!!! you dumbass!!!!!
+	</line>
+	<line char="redcrack" >
+		you fell for it!! i was actually an impostor this whole time!!!! 
+	</line>
+	<line char="bfoh" >
+		y..you....
+	</line>
+	<line char="bfoh" >
+		girlfriend .... you.....
+	</line>
+	<line char="bfsad" stay="true" >
+		how could you do this??!!
+	</line>
+	<line char="bfsad" >
+		why her ??!!
+	</line>
+	<line char="bfsad" >
+		id rather it have been me than her !!!
+	</line>
+	<line char="bfmad" stay="true" >
+		you piece of SHIT!!!! i shouldve NEVER trusted you!!!
+	</line>
+	<line char="bfcrazy" stay="true" >
+		ILL MAKE YOU PAY FOR WHAT YOU DID
+	</line>
+	<line char="bfcrazy" >
+		ILL MAKE YOU REGRET YOU WERE EVER BORN
+	</line>
+	<line char="bfsad" stay="true" >
+		sniffle..... ill avenge you babe.....
+	</line>
+	<line char="red" >
+		u done?
+	</line>
+	<line char="bfhappy" >
+		yea
+	</line>
+</dialogue>
