@@ -1,0 +1,50 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="red" char="red" position="left" />
+	<char name="redscared" char="redscared" position="left" />
+	<char name="redsad" char="redsad" position="left" />
+	<char name="redcrack" char="redcrack" position="left" />
+	<char name="gfhappy" char="gfhappy" position="middle" />
+	<char name="gfdemon" char="gfdemon" position="middle" />
+	<char name="bf" char="bf" position="right" />
+	<char name="bfmad" char="bfmad" position="right" />
+	<char name="bfcrazy" char="bfcrazy" position="right" />
+	<char name="bfhappy" char="bfhappy" position="right" />
+
+
+	<!-- Lines -->
+	<line char="bfhappy">
+		ooooooooh im a ghoioostt
+	</line>
+	<line char="gfhappy" >
+		me too oooooooh ooohoh
+	</line>
+	<line char="redscared" >
+		WHAT IN THE WORLD UR SCARY
+	</line>
+	<line char="gfdemon" >
+		yea...
+	</line>
+	<line char="bfmad" stay="true" >
+		what u gonna do STINKY!!
+	</line>
+	<line char="redsad" >
+		i...im so sorry.. please just.. dont hurt me..
+	</line>
+	<line char="redsad" >
+		i have a husband and kids at home....
+	</line>
+	<line char="bfhappy" stay="true" >
+		you know what.. yeah man. lets just put our differences aside.
+	</line>
+	<line char="bfcrazy" stay="true" >
+		after you KILLED ME??? what are you on???
+	</line>
+	<line char="redcrack" >
+		idk tbh
+	</line>
+	<line char="bf" stay="true" >
+		ok man
+	</line>
+</dialogue>

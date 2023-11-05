@@ -18,9 +18,15 @@ function create(){
         game.camHUD.visible = true;
 
         new FlxTimer().start(1.35, function(tmr:FlxTimer){
-            game.startCutscene(null, function(){
-                close();
-            });
+            if (!Options.naughtyness == true){
+                game.startCutscene("naughtyness-", function(){
+                    close();
+                });
+            }else{
+                game.startCutscene(null, function(){
+                    close();
+                });
+            }
         });
     });
 }

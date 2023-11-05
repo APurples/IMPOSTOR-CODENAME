@@ -1,0 +1,61 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="red" char="red" position="left" />
+	<char name="redcrack" char="redcrack" position="left" />
+	<char name="redsad" char="redsad" position="left" />
+	<char name="gfsuspect" char="gfsuspect" position="middle" />
+	<char name="gflol" char="gflol" position="middle" />
+	<char name="gfhappy" char="gfhappy" position="middle" />
+	<char name="gfmad" char="gfmad" position="middle" />
+	<char name="bf" char="bf" position="right" />
+	<char name="bflmfao" char="bflmfao" position="right" />
+	<char name="bfhappy" char="bfhappy" position="right" />
+
+	<!-- Lines -->
+	<line char="redsad" stay="true">
+		that really hurt :(
+	</line>
+	<line char="bf" >
+		o my fault
+	</line>
+	<line char="gfsuspect" >
+		boyfriend be careful !!
+	</line>
+	<line char="gfsuspect" >
+		this guy seems....
+	</line>
+	<line char="gflol" >
+		..mistrustful......
+	</line>
+	<line char="bf" >
+		now that you mention it... he does look pretty
+	</line>
+	<line char="bflmfao" >
+		skeptical..
+	</line>
+	<line char="redsad" >
+		hey what did i do :(( im a crewmate guys :( cmon :((((
+	</line>
+	<line char="gfhappy" >
+		Ermm.. This Guy 😂 
+	</line>
+	<line char="gfmad" >
+		you have a gun!!!! also a knife !!but only in your up sprite!!!!
+	</line>
+	<line char="red" >
+		wow :( u dont have to be a flippin meanie :(
+	</line>
+	<line char="bfhappy" >
+		whatever man! lets just rap battle!
+	</line>
+	<line char="redcrack" >
+		ok !
+	</line>
+	<line char="redcrack" >
+		(heh.... they have no clue im actually the IMPOSTOR...)
+	</line>
+	<line char="bf" >
+		you are speaking out loud
+	</line>
+</dialogue>
