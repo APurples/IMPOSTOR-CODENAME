@@ -1,13 +1,13 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="0.75" name="polus" folder="stages/polus/">
-	<sprite name="sky" x="-1084" y="-693" sprite="polus_custom_sky" />
-	<sprite name="rocks" x="-700" y="-300" sprite="polusrocks" />
-	<sprite name="hills" x="-1050" y="-181" sprite="polusHills" />
-	<sprite name="lab" x="50" y="-400" sprite="polus_custom_lab" />
-	<sprite name="floor" x="-1350" y="83" sprite="polus_custom_floor" />
-	<sprite name="bfdead" x="600" y="525" sprite="bfdead" />
-	<girlfriend  x="345" y="-71" scroll="1" />
-	<dad x="7" y="-100" />
-	<boyfriend x="925" y="-124" />
+<stage folder="stages/polus/" name="polus" zoom="0.75">
+	<sprite x="-400" y="-400" sprite="polus_custom_sky" name="sky"/>
+	<sprite x="-700" sprite="polusrocks" y="-300" name="rocks"/>
+	<sprite x="-1050" sprite="polusHills" y="-181" name="hills"/>
+	<sprite x="50" sprite="polus_custom_lab" y="-400" name="lab"/>
+	<sprite x="-1350" sprite="polus_custom_floor" y="83" name="floor"/>
+	<sprite x="600" sprite="bfdead" y="525" name="bfdead"/>
+	<girlfriend x="345" scroll="1" y="-71"/>
+	<dad x="7" y="-100"/>
+	<boyfriend x="925" y="-124"/>
 	<combo x="750" y="250"/>
 </stage>
