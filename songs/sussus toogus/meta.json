@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": false,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 150,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -14718166,
+	"displayName": "sussus toogus",
+	"icon": "crewmate",
+	"name": "sussus toogus",
+	"color": "#1F6B2A"
+}

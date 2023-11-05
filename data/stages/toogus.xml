@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.9" name="toogus" folder="stages/toogus/">
+	<sprite name="bg" x="-1750" y="30" sprite="mirabg" />
+	<sprite name="fg" x="-1750" y="30" sprite="mirafg" />
+	<sprite name="table" x="-1750" y="30" sprite="table_bg" />
+	<girlfriend  x="300" y="100" scroll="1" />
+	<dad x="-115" y="55" />
+	<boyfriend x="865" y="50" />
+</stage>
