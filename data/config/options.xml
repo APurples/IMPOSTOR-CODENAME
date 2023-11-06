@@ -12,5 +12,10 @@
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
 		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
 	</menu>
+	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
+		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />
+		<checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />
+		<checkbox id="indonesian" name="Indonesian" desc="Changes the game's language to Indonesian." />
+	</menu>
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

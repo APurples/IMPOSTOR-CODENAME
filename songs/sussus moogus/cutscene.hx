@@ -22,6 +22,11 @@ function create(){
                 game.startCutscene("naughtyness-", function(){
                     close();
                 });
+            }
+            if (FlxG.save.data.arabic || FlxG.save.data.indonesian || FlxG.save.data.swedish){
+                game.startCutscene("placeholder-", function(){
+                    close();
+                });
             }else{
                 game.startCutscene(null, function(){
                     close();
