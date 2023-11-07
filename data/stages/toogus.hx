@@ -1,5 +1,5 @@
 function create(){
-    saxguy = new FlxSprite(-300, 200);
+    saxguy = new FlxSprite(-550, 275);
 	saxguy.frames = Paths.getSparrowAtlas('stages/toogus/cyan_toogus');
 	saxguy.animation.addByPrefix('POP OFF CYAN', 'Cyan Dancy', 24, true);
 	saxguy.antialiasing = true;
@@ -26,11 +26,14 @@ function stepHit(){
 				if (PlayState.opponentMode || PlayState.coopMode) FlxTween.tween(camHUD, {alpha: 1}, .75);
 			case 128:
 				FlxTween.tween(camHUD, {alpha: 1}, .75);
-			case 896:
-				FlxTween.tween(camHUD, {alpha: 0}, .75);
-				saxguy.animation.play("POP OFF CYAN");
-				saxguy.alpha = 1;
-				dad.playAnim("notice", true);
+			case 897:
+				dad.playAnim("notice");
+			case 908:
+				dad.playAnim("wave");
+			case 924:
+				dad.playAnim("unwave");
+			case 928:
+				dad.playAnim("stare");
 			case 1016:
 				if (PlayState.opponentMode || PlayState.coopMode) FlxTween.tween(camHUD, {alpha: 1}, .75);
 			case 1024:
@@ -56,4 +59,11 @@ function stepHit(){
 			}
 		}
 	}
+}
+
+function POPOFFCYAN(){
+	FlxTween.tween(camHUD, {alpha: 0}, .75);
+	saxguy.animation.play("POP OFF CYAN");
+	saxguy.alpha = 1;
+	saxguy.velocity.x = 125;
 }

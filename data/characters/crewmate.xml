@@ -6,8 +6,9 @@
 	<anim x="60" loop="false" y="-183" fps="24" anim="green right" name="singRIGHT"/>
 	<anim x="194" loop="false" y="-205" fps="24" anim="green down" name="singDOWN"/>
 	<anim x="235" loop="false" y="-168" fps="24" anim="green notice" name="notice"/>
-	<anim x="252" loop="false" y="-168" fps="24" anim="green wave" name="wave"/>
+	<anim x="252" loop="true" y="-168" fps="24" anim="green wave" name="wave"/>
 	<anim x="231" loop="false" y="-168" fps="24" anim="green unwave" name="unwave"/>
+	<anim x="231" loop="true" y="-168" fps="24" anim="green unwave" indices="16" name="stare"/>
 	<anim x="64" loop="false" y="-150" fps="24" anim="silly dance left" name="left"/>
 	<anim x="61" loop="false" y="-151" fps="24" anim="silly dance right" name="right"/>
 </character>
