@@ -1,18 +1,21 @@
 // basically the stuff for the custom options
 
+public var bfColor;
+public var dadColor;
+
 function postCreate(){
     if (Options.colorHealthBar){
-        if (curStage == "polus") healthBar.createFilledBar(0xFFBB2D30,0xFF31B0D1);
-        if (curStage == "toogus") healthBar.createFilledBar(0xFF1F6B2B,0xFF31B0D1);
-        if (curStage == "monochrome") healthBar.createFilledBar(0xFFFFFFFF,0xFF31B0D1);
-        if (curStage == "cargobay") healthBar.createFilledBar(0xFF6C5887,0xFF31B0D1);
-        if (curStage == "chef") healthBar.createFilledBar(0xFFC75E52,0xFF31B0D1);
-        if (curStage == "dlowingt") healthBar.createFilledBar(0xFFFDCC37,0xFF31B0D1);
+        bfColor = (boyfriend != null && boyfriend.xml != null && boyfriend.xml.exists("color")) ? CoolUtil.getColorFromDynamic(boyfriend.xml.get("color")) : 0xFF66FF33;
+        dadColor = (dad != null && dad.xml != null && dad.xml.exists("color")) ? CoolUtil.getColorFromDynamic(dad.xml.get("color")) : 0xFFFF0000;
+    
+        healthBar.createFilledBar(dadColor, bfColor);
+
+        missesTxt.color = dadColor;
+        accuracyTxt.color = dadColor;
+        scoreTxt.color = dadColor;
     }
 
-    if (FlxG.save.data.cutsceneFreeplay){
-        playCutscenes = true;
-    }
+    if (FlxG.save.data.cutsceneFreeplay) playCutscenes = true;
 }
 
 function onPlayerHit(a){

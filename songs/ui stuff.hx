@@ -51,12 +51,12 @@ function getRatingFC(accuracy:Float, misses:Int):String {
 }
 
 function create() {
-    timeTxt = new FlxText((FlxG.width / 2) - 585, 20, 400, "X:XX", 32);
+    timeTxt = new FlxText((FlxG.width / 2) - 585, 20, 400, PlayState.SONG.meta.name, 32);
     timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     timeTxt.scrollFactor.set();
     timeTxt.alpha = 0;
     timeTxt.borderColor = 0xFF000000;
-    timeTxt.borderSize = 1;
+    timeTxt.setGraphicSize(Std.int(timeTxt.width * 0.575));
     timeTxt.screenCenter(FlxAxes.X);
 
     hudTxt = new FlxText(0, 685, FlxG.width, "Score: 0 | Misses: 0 | Rating: ?");
@@ -84,7 +84,7 @@ function create() {
     }
 
     timeTxt.x -= 450;
-    timeTxt.y += 4;
+    timeTxt.y += 2;
     timeBar.x -= 325;
     timeBarBG.x -= 325;
 
@@ -109,13 +109,6 @@ function onSongStart() {
 function update(elapsed:Float) {
     if (inst != null && timeBar != null && timeBar.max != inst.length) {
         timeBar.setRange(0, Math.max(1, inst.length));
-    }
-
-    if (inst != null && timeTxt != null) {
-        var timeRemaining = Std.int((inst.length - Conductor.songPosition) / 1000);
-        var seconds = CoolUtil.addZeros(Std.string(timeRemaining % 60), 2);
-        var minutes = Std.int(timeRemaining / 60);
-        timeTxt.text = minutes + ":" + seconds;
     }
 
     if (FlxG.save.data.psychUi){
@@ -146,7 +139,9 @@ function onPlayerHit(note:Note) {
     }
 }
 
-function postCreate() {
+function postCreate(){
+    hudTxt.color = dadColor;
+    
     if (FlxG.save.data.psychUi){
         for (i in [missesTxt, accuracyTxt, scoreTxt]){
             i.visible = false;

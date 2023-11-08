@@ -215,7 +215,6 @@ function lightsoutquick(){
 	strumLines.members[0].characters[1].visible = true;
 	strumLines.members[0].characters[0].visible = false;
 	strumLines.members[1].characters[0].visible = false;
-	healthBar.createFilledBar(FlxColor.BLACK, FlxColor.WHITE);
 }
 
 function lightsonquick(){
@@ -231,7 +230,6 @@ function lightsonquick(){
 	toogusorange.alpha = 1;
 	strumLines.members[0].characters[0].visible = true;
 	strumLines.members[0].characters[1].visible = false;
-	healthBar.createFilledBar(0xFF1F6B2B,0xFF31B0D1);
 }
 
 function ending(){

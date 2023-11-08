@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="-52.5" icon="bf" camx="-225" y="225" isGF="false" camy="-17.5" flipX="true" isPlayer="true" sprite="bfsauce">
+<character x="-52.5" icon="bf" camx="-225" y="225" isGF="false" camy="-17.5" flipX="true" isPlayer="true" color="#31B0D1" sprite="bfsauce">
 	<anim x="-5" loop="false" y="0" fps="24" anim="BF idle dance" name="idle"/>
 	<anim x="-24" loop="false" y="-18" fps="24" anim="BF NOTE UP0" name="singUP"/>
 	<anim x="33" loop="false" y="-16" fps="24" anim="BF NOTE LEFT0" name="singLEFT"/>
