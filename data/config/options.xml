@@ -12,6 +12,10 @@
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
 		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
 	</menu>
+	<menu name="ui" desc="Change how the ui (aka, hud) looks!">
+		<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
+		<checkbox id="psychUi" name="Psych UI" desc="If checked, the ui will look like psych engine's ui." />
+	</menu>
 	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />
 		<checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />

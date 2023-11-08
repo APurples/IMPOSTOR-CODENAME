@@ -3,3 +3,4 @@ if (FlxG.save.data.flashingLights == null) flashingLights == true;
 if (FlxG.save.data.screenShake == null) screenShake == true;
 if (FlxG.save.data.jumpscares == null) jumpscares == true;
 if (FlxG.save.data.camMove == null) camMove == true;
+if (FlxG.save.data.timebar == null) timebar == true;
