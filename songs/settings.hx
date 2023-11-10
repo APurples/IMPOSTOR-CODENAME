@@ -10,9 +10,17 @@ function postCreate(){
     
         healthBar.createFilledBar(dadColor, bfColor);
 
-        missesTxt.color = dadColor;
-        accuracyTxt.color = dadColor;
-        scoreTxt.color = dadColor;
+        if (FlxG.save.data.coloredScore){
+            if (!PlayState.opponentMode){
+                missesTxt.color = dadColor;
+                accuracyTxt.color = dadColor;
+                scoreTxt.color = dadColor;
+            }else{
+                missesTxt.color = bfColor;
+                accuracyTxt.color = bfColor;
+                scoreTxt.color = bfColor;
+            }
+        }
     }
 
     if (FlxG.save.data.cutsceneFreeplay) playCutscenes = true;

@@ -114,30 +114,37 @@ function update(elapsed:Float) {
     }
 }
 
-function onPlayerHit(note:Note) {
-    if (FlxG.save.data.psychUi){
-        if(!note.isSustainNote){
-            if(hudTxtTween != null) {
-                hudTxtTween.cancel();
-            }
-            hudTxt.scale.x = 1.075;
-            hudTxt.scale.y = 1.075;
-            hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
-                onComplete: function(twn:FlxTween) {
-                    hudTxtTween = null;
+function onPlayerHit(note:Note){
+    if (FlxG.save.data.scoreZoom){
+        if (FlxG.save.data.psychUi){
+            if(!note.isSustainNote){
+                if(hudTxtTween != null) {
+                    hudTxtTween.cancel();
                 }
-            });
-        
+                hudTxt.scale.x = 1.075;
+                hudTxt.scale.y = 1.075;
+                hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
+                    onComplete: function(twn:FlxTween) {
+                        hudTxtTween = null;
+                    }
+                });
+            
+            }
         }
     }
 }
 
 function postCreate(){
-    hudTxt.color = dadColor;
-
     timeTxt.x -= 32;
     timeTxt.y -= 32;
 
+    if (FlxG.save.data.coloredScore){
+        if (!PlayState.opponentMode){
+            hudTxt.color = dadColor;
+        }else{
+            hudTxt.color = bfColor;
+        }
+    }
     if (FlxG.save.data.psychUi){
         for (i in [missesTxt, accuracyTxt, scoreTxt]){
             i.visible = false;

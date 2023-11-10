@@ -14,6 +14,8 @@
 	</menu>
 	<menu name="ui" desc="Change how the ui (aka, hud) looks!">
 		<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
+		<checkbox id="scoreZoom" name="Score Text Zoom on Hit" desc="If unchecked, disables the Score text zooming everytime you hit a note." />
+		<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
 		<checkbox id="psychUi" name="Psych UI" desc="If checked, the ui will look like psych engine's ui." />
 	</menu>
 	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">

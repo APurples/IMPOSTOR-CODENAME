@@ -16,6 +16,12 @@ function create(){
 	fg.setGraphicSize(Std.int(fg.width * 1.06));
 	insert(members.indexOf(gf), fg);
 
+	bfvent = new FlxSprite(70, 200);
+	bfvent.frames = Paths.getSparrowAtlas('stages/toogus/bf_mira_vent');
+	bfvent.animation.addByPrefix('vent', 'bf vent', 24, false);
+	bfvent.visible = false;
+	add(bfvent);
+
 	if (curSong == "lights down"){
 		toogusblue = new FlxSprite(1200, 250);
 		toogusblue.frames = Paths.getSparrowAtlas('stages/toogus/mirascaredmates');
@@ -149,6 +155,8 @@ function stepHit(){
 				blueNotDead = false;
 			case 832:
 				orangeNotDead = false;
+			case 1601:
+				dad.playAnim("bwomp");
 		}
 	}
 }
@@ -235,10 +243,13 @@ function lightsonquick(){
 }
 
 function ending(){
-	dad.playAnim("bwomp");
+	bfvent.animation.play('vent');
+	bfvent.visible = true;
+	boyfriend.visible = false;
+	gf.visible = false;
+	camHUD.visible = false;
 }
 
 function blackout(){
-	camGame.alpha = 0;
-	camHUD.alpha = 0;
+	camGame.visible = false;
 }
