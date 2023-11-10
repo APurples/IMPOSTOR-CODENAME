@@ -76,11 +76,6 @@ function create() {
         add(timeTxt);
     }
 
-    timeBar.x -= 32;
-    timeBar.y -= 32;
-    timeBarBG.x -= 32;
-    timeBarBG.y -= 32;
-
     hudTxt = new FlxText(0, 685, FlxG.width, "Score: 0 | Misses: 0 | Rating: ?");
     hudTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     hudTxt.borderSize = 1.25;
@@ -139,7 +134,10 @@ function onPlayerHit(note:Note) {
 
 function postCreate(){
     hudTxt.color = dadColor;
-    
+
+    timeTxt.x -= 32;
+    timeTxt.y -= 32;
+
     if (FlxG.save.data.psychUi){
         for (i in [missesTxt, accuracyTxt, scoreTxt]){
             i.visible = false;
