@@ -95,21 +95,23 @@ function onSongStart(){
 }
 
 function beatHit(){
-	if (curBeat % 2 == 0){
-		if (blueNotDead){
-			toogusblue.animation.play('bop');
-		}else if (blueNotDead == false){
-			toogusblue.animation.play("bop2");
-		}
-		if (orangeNotDead){
-			toogusorange.animation.play('bop');
-		}else if (orangeNotDead == false){
-			toogusorange.animation.play("bop2");
-		}
-		if (whiteNotDead){
-			tooguswhite.animation.play('bop');
-		}else if (whiteNotDead == false){
-			tooguswhite.animation.play("bop2");
+	if (curSong == "lights down"){
+		if (curBeat % 2 == 0){
+			if (blueNotDead){
+				toogusblue.animation.play('bop');
+			}else if (blueNotDead == false){
+				toogusblue.animation.play("bop2");
+			}
+			if (orangeNotDead){
+				toogusorange.animation.play('bop');
+			}else if (orangeNotDead == false){
+				toogusorange.animation.play("bop2");
+			}
+			if (whiteNotDead){
+				tooguswhite.animation.play('bop');
+			}else if (whiteNotDead == false){
+				tooguswhite.animation.play("bop2");
+			}
 		}
 	}
 }

@@ -10,6 +10,8 @@ import flixel.math.FlxMath;
 import flixel.addons.display.FlxBackdrop;
 import funkin.backend.system.framerate.Framerate;
 
+var tweenTime:Bool = false;
+
 function create(){    
     Framerate.offset.y = 77.5;
 
@@ -50,8 +52,6 @@ function create(){
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
     portrait.antialiasing = true;
     portrait.setPosition(304.65, -100);
-    portrait.updateHitbox();
-    portrait.scrollFactor.set();
     insert(members.indexOf(bg), portrait);
     add(portrait);
 
@@ -74,12 +74,12 @@ function create(){
     coopText.y = scoreText.y + 36;
     diffText.y = scoreText.y + 36;
 
-    scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reason
-    diffText.alpha = 0;
+    scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reas
 }
 
 function postCreate(){
     bg.destroy(); // fuck you bg
+    diffText.alpha = 0;
 }
 
 function update(){
@@ -92,13 +92,12 @@ function update(){
 
 function postUpdate(){
     // stuff that changes the portraits !!!! honestly bad code rn but i'll clean up later
+
     switch(songs[curSelected].name){
         case "sussus moogus" | "sabotage" | "meltdown":
             portrait.animation.play('red');
-            diffText.alpha = 0;
         case "sussus toogus" | "lights down" | "reactor":
             portrait.animation.play('green');
-            diffText.alpha = 0;
         case "sauces moogus":
             portrait.animation.play('chef');
             portrait.alpha = 1;
@@ -107,9 +106,15 @@ function postUpdate(){
         case "yarlow" | "dlowing":
             portrait.animation.play('yellow');
             portrait.alpha = 1;
-            diffText.alpha = 0;
         case "double kill vtwo":
             portrait.animation.play('black');
-            diffText.alpha = 1;
     }
+}
+
+// shit doesn't work yet (for some reason)
+function changePortrait(){
+    portrait.x = 504.65;
+    portrait.alpha = 0;
+    FlxTween.tween(portrait, {x: 304.65}, 0.3, {ease: FlxEase.expoOut, startDelay: 0.05});
+    FlxTween.tween(portrait, {alpha: 1}, 0.3, {ease: FlxEase.expoOut, startDelay: 0.05});
 }

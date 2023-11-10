@@ -51,22 +51,15 @@ function getRatingFC(accuracy:Float, misses:Int):String {
 }
 
 function create() {
-    timeTxt = new FlxText((FlxG.width / 2) - 585, 20, 400, PlayState.SONG.meta.name, 32);
-    timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    timeTxt = new FlxText(42 + (FlxG.width / 2) - 585, 20, 400, PlayState.SONG.meta.name, 32);
+    timeTxt.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, "left", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     timeTxt.scrollFactor.set();
     timeTxt.alpha = 0;
-    timeTxt.borderColor = 0xFF000000;
-    timeTxt.setGraphicSize(Std.int(timeTxt.width * 0.575));
-    timeTxt.screenCenter(FlxAxes.X);
-
-    hudTxt = new FlxText(0, 685, FlxG.width, "Score: 0 | Misses: 0 | Rating: ?");
-    hudTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    hudTxt.borderSize = 1.25;
-    hudTxt.screenCenter(FlxAxes.X);
+    timeTxt.borderSize = 1;
 
     timeBarBG = new FlxSprite();
     timeBarBG.x = timeTxt.x;
-    timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+	timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
     timeBarBG.alpha = 0;
     timeBarBG.scrollFactor.set();
     timeBarBG.loadGraphic(Paths.image("timeBar"));
@@ -83,10 +76,15 @@ function create() {
         add(timeTxt);
     }
 
-    timeTxt.x -= 450;
-    timeTxt.y += 2;
-    timeBar.x -= 325;
-    timeBarBG.x -= 325;
+    timeBar.x -= 32;
+    timeBar.y -= 32;
+    timeBarBG.x -= 32;
+    timeBarBG.y -= 32;
+
+    hudTxt = new FlxText(0, 685, FlxG.width, "Score: 0 | Misses: 0 | Rating: ?");
+    hudTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, "center", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    hudTxt.borderSize = 1.25;
+    hudTxt.screenCenter(FlxAxes.X);
 
     hudTxt.cameras = [camHUD];
     timeBar.cameras = [camHUD];
@@ -149,6 +147,10 @@ function postCreate(){
     }
     if (Options.downscroll && FlxG.save.data.psychUi){
         hudTxt.y = 605;
+    }
+    if (Options.downscroll){
+        timeBar.y = 660;
+        timeBarBG.y = 655;
     }
     if (FlxG.save.data.psychUi) add(hudTxt);
 }
