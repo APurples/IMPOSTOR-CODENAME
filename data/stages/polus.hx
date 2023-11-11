@@ -1,5 +1,3 @@
-import hxvlc.flixel.FlxVideo;
-
 var flashMeasure:Bool = false;
 var flashMeasure2:Bool = false;
 var flashMeasure4:Bool = false;
@@ -105,10 +103,8 @@ function stepHit(){
         switch (curStep){
             case 1152:
                 playVid("end");
-                new FlxTimer().start(4, function(tmr:FlxTimer){
-                    camGame.alpha = 0;
-                    camHUD.alpha = 0;
-                });
+                camGame.alpha = 0;
+                camHUD.alpha = 0;
         }
     }
 }

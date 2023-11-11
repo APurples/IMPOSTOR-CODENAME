@@ -23,5 +23,5 @@
 		<checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />
 		<checkbox id="indonesian" name="Indonesian" desc="Changes the game's language to Indonesian." />
 	</menu>
-	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools. (Look at songs/devStuff.hx in the files for the tools you can use)" />
+	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools and editors. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

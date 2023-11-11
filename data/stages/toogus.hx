@@ -92,7 +92,7 @@ function update(){
 		toogusorange.setPosition(-350, 400);
 	}
 	if (whiteNotDead == false){
-		tooguswhite.setPosition(1300, 400);
+		tooguswhite.setPosition(1300, 450);
 	}
 }
 
@@ -155,6 +155,8 @@ function stepHit(){
 				blueNotDead = false;
 			case 832:
 				orangeNotDead = false;
+			case 1440:
+				whiteNotDead = false;
 			case 1601:
 				dad.playAnim("bwomp");
 		}
@@ -211,41 +213,16 @@ function lightson(){
 	strumLines.members[1].characters[1].visible = false;
 	healthBar.createFilledBar(0xFF1F6B2B,0xFF31B0D1);
 }
-function lightsoutquick(){
-	if (FlxG.save.data.flashingLights){
-		camGame.flash(FlxColor.WHITE, 0.15);
-	}
-	gf.alpha = 0;
-	bg.alpha = 0;
-	fg.alpha = 0;
-	table.alpha = 0;
-	toogusblue.alpha = 0;
-	tooguswhite.alpha = 0;
-	toogusorange.alpha = 0;
-	strumLines.members[0].characters[1].visible = true;
-	strumLines.members[0].characters[0].visible = false;
-	strumLines.members[1].characters[0].visible = false;
-}
-
-function lightsonquick(){
-	if (FlxG.save.data.flashingLights){
-		camGame.flash(FlxColor.BLACK, 0.15);
-	}
-	gf.alpha = 1;
-	bg.alpha = 1;
-	fg.alpha = 1;
-	table.alpha = 1;
-	toogusblue.alpha = 1;
-	tooguswhite.alpha = 1;
-	toogusorange.alpha = 1;
-	strumLines.members[0].characters[0].visible = true;
-	strumLines.members[0].characters[1].visible = false;
-}
 
 function ending(){
 	bfvent.animation.play('vent');
 	bfvent.visible = true;
-	boyfriend.visible = false;
+	bg.alpha = 1;
+	fg.alpha = 1;
+	table.alpha = 1;
+	strumLines.members[0].characters[0].visible = true;
+	strumLines.members[0].characters[1].visible = false;
+	strumLines.members[1].characters[1].visible = false;
 	gf.visible = false;
 	camHUD.visible = false;
 }

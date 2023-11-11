@@ -114,22 +114,20 @@ function update(elapsed:Float) {
     }
 }
 
-function onPlayerHit(note:Note){
+function onPlayerHit(event){
     if (FlxG.save.data.scoreZoom){
         if (FlxG.save.data.psychUi){
-            if(!note.isSustainNote){
+            if (event.note.isSustainNote) return;
                 if(hudTxtTween != null) {
                     hudTxtTween.cancel();
                 }
-                hudTxt.scale.x = 1.075;
-                hudTxt.scale.y = 1.075;
+                hudTxt.scale.x = 1.1;
+                hudTxt.scale.y = 1.1;
                 hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
                     onComplete: function(twn:FlxTween) {
                         hudTxtTween = null;
                     }
                 });
-            
-            }
         }
     }
 }
