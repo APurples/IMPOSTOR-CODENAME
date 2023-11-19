@@ -10,7 +10,12 @@ public var timeBarBG:FlxSprite;
 public var timeBar:FlxBar;
 public var timeTxt:FlxText;
 public var hudTxt:FlxText;
+
 var hudTxtTween:FlxTween;
+var missesTxtTween:FlxTween;
+var accuracyTxtTween:FlxTween;
+var scoreTxtTween:FlxTween;
+
 var ratingFC:String = "FC";
 var ratingStuff:Array<Dynamic> = [
     ['You Suck!', 0.2], //From 0% to 19%
@@ -58,8 +63,8 @@ function create() {
     timeTxt.borderSize = 1;
 
     timeBarBG = new FlxSprite();
-    timeBarBG.x = timeTxt.x;
-	timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+    timeBarBG.x = timeTxt.x - 4;
+	timeBarBG.y = timeTxt.y + (timeTxt.height / 4) - 4;
     timeBarBG.alpha = 0;
     timeBarBG.scrollFactor.set();
     timeBarBG.loadGraphic(Paths.image("timeBar"));
@@ -129,31 +134,58 @@ function onPlayerHit(event){
                     }
                 });
         }
+        
+        /* todo:
+            make the tween scaling look better for this
+            clean this code up lmfao
+        */
+        if(missesTxtTween != null) {
+            missesTxtTween.cancel();
+        }
+        missesTxt.scale.x = 1.1;
+        missesTxt.scale.y = 1.1;
+        missesTxtTween = FlxTween.tween(missesTxt.scale, {x: 1, y: 1}, 0.2, {
+            onComplete: function(twn:FlxTween) {
+                missesTxtTween = null;
+            }
+        });
+        
+        if(accuracyTxtTween != null) {
+            accuracyTxtTween.cancel();
+        }
+        accuracyTxt.scale.x = 1.1;
+        accuracyTxt.scale.y = 1.1;
+        accuracyTxtTween = FlxTween.tween(accuracyTxt.scale, {x: 1, y: 1}, 0.2, {
+            onComplete: function(twn:FlxTween) {
+                accuracyTxtTween = null;
+            }
+        });
+
+        if(scoreTxtTween != null) {
+            scoreTxtTween.cancel();
+        }
+        scoreTxt.scale.x = 1.1;
+        scoreTxt.scale.y = 1.1;
+        accuracyTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
+            onComplete: function(twn:FlxTween) {
+                scoreTxtTween = null;
+            }
+        });
     }
 }
 
-function postCreate(){
-    timeTxt.x -= 32;
-    timeTxt.y -= 32;
-
-    if (FlxG.save.data.coloredScore){
-        if (!PlayState.opponentMode){
+function postCreate()
+    if (FlxG.save.data.coloredScore)
+        if (!PlayState.opponentMode)
             hudTxt.color = dadColor;
-        }else{
+        else
             hudTxt.color = bfColor;
-        }
-    }
-    if (FlxG.save.data.psychUi){
-        for (i in [missesTxt, accuracyTxt, scoreTxt]){
+
+    if (FlxG.save.data.psychUi)
+        for (i in [missesTxt, accuracyTxt, scoreTxt])
             i.visible = false;
-        }
-    }
-    if (Options.downscroll && FlxG.save.data.psychUi){
+
+    if (Options.downscroll && FlxG.save.data.psychUi)
         hudTxt.y = 605;
-    }
-    if (Options.downscroll){
-        timeBar.y = 660;
-        timeBarBG.y = 655;
-    }
+    
     if (FlxG.save.data.psychUi) add(hudTxt);
-}

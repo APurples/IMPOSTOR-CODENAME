@@ -8,7 +8,7 @@ function create(){
     blackScreen.screenCenter();
     add(blackScreen);
 
-    startVideo(Paths.video("meltdown"), function(){
+    startVideo(Paths.video("sussus toogus"), function(){
         FlxTween.tween(blackScreen, {alpha: 0}, 1);
         game.camGame.visible = true;
         game.camHUD.visible = true;
@@ -16,6 +16,11 @@ function create(){
         new FlxTimer().start(1.35, function(tmr:FlxTimer){
             if (!Options.naughtyness == true){
                 game.startCutscene("naughtyness-", function(){
+                    close();
+                });
+            }
+            if (FlxG.save.data.arabic || FlxG.save.data.indonesian || FlxG.save.data.swedish){
+                game.startCutscene("placeholder-", function(){
                     close();
                 });
             }else{

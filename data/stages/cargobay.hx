@@ -264,8 +264,9 @@ function stepHit() {
 				cpuStrums.forEach(function(strum:StrumNote) {
 					FlxTween.tween(strum, {alpha: 1}, .5);
 				});
-				for (i in playerStrums.members)
-					FlxTween.tween(i, {x: i.x + 320}, .75, {ease: FlxEase.smootherStepInOut});
+				if (!FlxG.save.data.middlescroll)
+					for (i in playerStrums.members)
+						FlxTween.tween(i, {x: i.x + 320}, .75, {ease: FlxEase.smootherStepInOut});
 			case 2624:
 				FlxG.camera.followLerp = 0.06;
 			case 2640:
@@ -381,8 +382,9 @@ function focusOnBf() {
 	cpuStrums.forEach(function(strum:StrumNote) {
 		FlxTween.tween(strum, {alpha: 0}, 1);
 	});
-	for (i in playerStrums.members)
-		FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
+	if (!FlxG.save.data.middlescroll)
+		for (i in playerStrums.members)
+			FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
 }
 
 function unfocusOnBf() {

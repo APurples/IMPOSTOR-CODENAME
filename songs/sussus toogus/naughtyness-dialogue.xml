@@ -1,0 +1,48 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="red" char="red" position="left" />
+	<char name="gf" char="gfhappy" position="middle" />
+	<char name="gfhappy" char="gfhappy" position="middle" />
+	<char name="gfdemon" char="gfdemon" position="middle" />
+	<char name="bf" char="bf" position="right" />
+	<char name="bfmad" char="bfmad" position="right" />
+	<char name="bfcrazy" char="bfcrazy" position="right" />
+	<char name="bfhappy" char="bfhappy" position="right" />
+
+
+	<!-- Lines -->
+	<line char="bf">
+		that red guy was crazy, glad we made it out alive
+	</line>
+	<line char="gf">
+		we literally didnt
+	</line>
+	<line char="red">
+		Hello Fellow Crewmates!
+	</line>
+	<line char="bf">
+		... who are u
+	</line>
+	<line char="red">
+		im just a innocent crewmate trying to do his little tasks!
+	</line>
+	<line char="gf">
+		hmmmm i dont trust this guy bf...
+	</line>
+	<line char="red">
+		aww cmon guys! heyy cmon guys cmon heyyy cmonnn
+	</line>
+	<line char="red">
+		Come on.
+	</line>
+	<line char="red">
+		Can't you hear how you sound? You are OUT OF YOUR FLIPPIN MIND.
+	</line>
+	<line char="bfhappy" >
+		sure man
+	</line>
+	<line char="red">
+		cool lets sing now buddy :)
+	</line>
+</dialogue>

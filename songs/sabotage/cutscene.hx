@@ -1,12 +1,8 @@
 var blackScreen:FlxSprite = null;
-var music:FlxSound;
 
 function create(){
     game.camGame.visible = false;
     game.camHUD.visible = false;
-
-    music = FlxG.sound.load(Paths.music('dialogue/main'));
-	music.volume = 0;
 
     blackScreen = new FlxSprite(0, 0).makeSolid(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
     blackScreen.screenCenter();
