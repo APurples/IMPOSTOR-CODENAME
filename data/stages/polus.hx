@@ -4,23 +4,11 @@ var flashMeasure4:Bool = false;
 var flashBeat2:Bool = false;
 
 function create(){
-    speaker = new FlxSprite(300, 195);
-    speaker.frames = Paths.getSparrowAtlas('stages/polus/speakerlonely');
-    speaker.animation.addByPrefix('bop', 'speakers lonely', 24, false);
-    speaker.antialiasing = true;
-    insert(members.indexOf(gf), speaker);
-    
-    snow = new FlxSprite(0, -250);
-    snow.frames = Paths.getSparrowAtlas('stages/polus/snow');
-    snow.animation.addByPrefix('cum', 'cum', 24);
-    snow.animation.play('cum');
-    snow.scrollFactor.set(1, 1);
-    snow.antialiasing = true;
-    snow.updateHitbox();
-    snow.setGraphicSize(Std.int(snow.width * 2));
-    if (!Options.lowMemoryMode){
-        add(snow);
-    }
+    deadGfspeaker = new FlxSprite(300, 195);
+    deadGfspeaker.frames = Paths.getSparrowAtlas('stages/polus/speakerlonely');
+    deadGfspeaker.animation.addByPrefix('bop', 'speakers lonely', 24, false);
+    deadGfspeaker.antialiasing = true;
+    insert(members.indexOf(gf), deadGfspeaker);
 
     crowd = new FlxSprite(-900, 200);
     crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
@@ -35,16 +23,11 @@ function create(){
 
 function update(){
     if (curSong == "sussus moogus"){
-        remove(speaker);
-    }
-
-    if (curSong == "sabotage"){
-        add(speaker);
+        remove(deadGfspeaker);
     }
 
     if (curSong == "meltdown"){
         bfdead.alpha = 1;
-        add(speaker);
         if (!Options.lowMemoryMode){
             add(crowd);
         }
@@ -110,7 +93,7 @@ function stepHit(){
 }
 
 function beatHit(){
-    speaker.animation.play('bop');
+    deadGfspeaker.animation.play('bop');
     crowd.animation.play('bop');
 
     if (flashBeat2 == true){

@@ -8,20 +8,6 @@ var orangeNotDead:Bool = true;
 var whiteNotDead:Bool = true;
 
 function create(){
-	bg = new FlxSprite(-1750, 50).loadGraphic(Paths.image('stages/toogus/mirabg'));
-	bg.setGraphicSize(Std.int(bg.width * 1.06));
-	insert(members.indexOf(gf), bg);
-
-	fg = new FlxSprite(-1750, 50).loadGraphic(Paths.image('stages/toogus/mirafg'));
-	fg.setGraphicSize(Std.int(fg.width * 1.06));
-	insert(members.indexOf(gf), fg);
-
-	bfvent = new FlxSprite(70, 200);
-	bfvent.frames = Paths.getSparrowAtlas('stages/toogus/bf_mira_vent');
-	bfvent.animation.addByPrefix('vent', 'bf vent', 24, false);
-	bfvent.visible = false;
-	add(bfvent);
-
 	if (curSong == "lights down"){
 		toogusblue = new FlxSprite(1200, 250);
 		toogusblue.frames = Paths.getSparrowAtlas('stages/toogus/mirascaredmates');
@@ -31,7 +17,7 @@ function create(){
 		toogusblue.active = true;
 		toogusblue.antialiasing = true;
 		toogusblue.flipX = true;
-		insert(members.indexOf(gf), toogusblue);
+		insert(members.indexOf(table), toogusblue);
 
 		toogusorange = new FlxSprite(-300, 250);
 		toogusorange.frames = Paths.getSparrowAtlas('stages/toogus/mirascaredmates');
@@ -40,7 +26,7 @@ function create(){
 		toogusorange.setGraphicSize(Std.int(toogusorange.width * 0.7));
 		toogusorange.active = true;
 		toogusorange.antialiasing = true;
-		insert(members.indexOf(gf), toogusorange);
+		insert(members.indexOf(table), toogusorange);
 
 		tooguswhite = new FlxSprite(1350, 200);
 		tooguswhite.frames = Paths.getSparrowAtlas('stages/toogus/mirascaredmates');
@@ -50,7 +36,7 @@ function create(){
 		tooguswhite.active = true;
 		tooguswhite.antialiasing = true;
 		tooguswhite.flipX = true;
-		insert(members.indexOf(gf), tooguswhite);
+		insert(members.indexOf(table), tooguswhite);
 
 		bfvent = new FlxSprite(70, 200);
 		bfvent.frames = Paths.getSparrowAtlas('stages/toogus/bf_mira_vent');
@@ -59,12 +45,8 @@ function create(){
 		bfvent.active = true;
 		bfvent.antialiasing = true;
 		bfvent.alpha = 0.001;
-		insert(members.indexOf(gf), bfvent);
+		insert(members.indexOf(table), bfvent);
 	}
-
-	table = new FlxSprite(-1600, 50).loadGraphic(Paths.image('stages/toogus/table_bg'));
-	table.setGraphicSize(Std.int(table.width * 1.06));
-	insert(members.indexOf(gf), table);
 
     saxguy = new FlxSprite(-550, 275);
 	saxguy.frames = Paths.getSparrowAtlas('stages/toogus/cyan_toogus');

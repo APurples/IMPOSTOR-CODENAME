@@ -1,7 +1,10 @@
+import openfl.Lib;
+
 var flashTime:Bool = false;
 
 function create(){
     window.title = "Vs Impostor: V4";
+    Lib.application.window.move(Std.int(325),Std.int(175));
 }
 
 function update(){

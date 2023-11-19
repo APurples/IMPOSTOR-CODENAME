@@ -7,6 +7,7 @@ if (FlxG.save.data.camMove == null) camMove == true;
 if (FlxG.save.data.midVidCutscene == null) midVidCutscene == true;
 if (FlxG.save.data.flashingLights == null) flashingLights == true;
 if (FlxG.save.data.screenShake == null) screenShake == true;
+if (FlxG.save.data.windowShake == null) windowShake == true;
 if (FlxG.save.data.jumpscares == null) jumpscares == true;
 
 // ui/hud options

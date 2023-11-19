@@ -8,7 +8,10 @@ todo:
 import flixel.FlxCamera;
 import flixel.math.FlxMath;
 import flixel.addons.display.FlxBackdrop;
+
 import funkin.backend.system.framerate.Framerate;
+
+import openfl.Lib;
 
 var tweenTime:Bool = false;
 
@@ -74,7 +77,7 @@ function create(){
     coopText.y = scoreText.y + 36;
     diffText.y = scoreText.y + 36;
 
-    scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reas
+    scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reason
 }
 
 function postCreate(){
@@ -96,19 +99,32 @@ function postUpdate(){
     switch(songs[curSelected].name){
         case "sussus moogus" | "sabotage" | "meltdown":
             portrait.animation.play('red');
+            portrait.alpha = 1;
+            windowGoBack();
         case "sussus toogus" | "lights down" | "reactor":
             portrait.animation.play('green');
         case "sauces moogus":
             portrait.animation.play('chef');
-            portrait.alpha = 1;
         case "monochrome":
-            portrait.alpha = 0;
+            FlxTween.tween(portrait, {alpha: 0}, 0.35);
+            FlxG.camera.shake(0.0025, 0.001, null, true);
+            if (FlxG.save.data.windowShake) Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1), Lib.application.window.y + FlxG.random.int(-1, 1));
         case "yarlow" | "dlowing":
             portrait.animation.play('yellow');
-            portrait.alpha = 1;
         case "double kill vtwo":
+            portrait.alpha = 1;
             portrait.animation.play('black');
+            windowGoBack();
     }
+}
+
+function windowGoBack(){
+    FlxTween.tween(Lib.application.window, {x: 325, y: 175}, 0.5, {
+        ease: FlxEase.circOut,
+        onComplete: function(twn:FlxTween){
+            Lib.application.window.move(Std.int(325),Std.int(175));
+        }
+    });
 }
 
 // shit doesn't work yet (for some reason)

@@ -1,6 +1,3 @@
-var shakeDadHit:Bool = false;
-var shakeOppMode:Bool = false;
-
 function create(){
     jumpscare = new FlxSprite(0, 60).loadGraphic(Paths.image('deadpostor'));
     jumpscare.screenCenter();
@@ -19,10 +16,6 @@ function onEvent(e:EventGameEvent){
             }
             if (e.event.params[0] == false){
                 FlxTween.tween(jumpscare, {alpha: 0}, e.event.params[1]);
-            }
-
-            if(e.event.params[1] == true){
-                shakeDadHit = true;
             }
         }
     }

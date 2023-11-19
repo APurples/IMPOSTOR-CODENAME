@@ -1,6 +1,10 @@
 <!DOCTYPE codename-engine-stage>
-<stage zoom="0.9" name="toogus" folder="stages/toogus/">
-	<girlfriend  x="400" y="80" scroll="1" />
-	<dad x="0" y="50" />
-	<boyfriend x="970" y="50" />
+<stage folder="stages/toogus/" name="toogus" zoom="0.9">
+	<sprite x="-1600" y="50" sprite="mirabg" scale="1.06" name="bg"/>
+	<sprite x="-1600" y="50" sprite="mirafg" scale="1.06" name="fg"/>
+	<sprite x="-1600" y="50" sprite="table_bg" scale="1.06" name="table"/>
+	<girlfriend x="400" scroll="1" y="80"/>
+	<dad x="0" y="50"/>
+	<boyfriend x="970" y="50"/>
+	<combo/>
 </stage>

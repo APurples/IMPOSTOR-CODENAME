@@ -104,7 +104,14 @@ function onSongStart() {
     }
 }
 
-function update(elapsed:Float) {
+function update(elapsed:Float){
+    // custom icon lerping
+    iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
+    iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
+
+    iconP1.updateHitbox();
+    iconP2.updateHitbox();
+
     if (inst != null && timeBar != null && timeBar.max != inst.length) {
         timeBar.setRange(0, Math.max(1, inst.length));
     }
@@ -117,6 +124,13 @@ function update(elapsed:Float) {
             hudTxt.text = "Score: " + songScore + " | Misses: " + misses +  " | Rating: " + rating + " (" + acc + "%)" + " - " + ratingFC;
         } 
     }
+}
+
+function beatHit(){
+    iconP1.scale.set(1, 1);
+    iconP2.scale.set(1, 1);
+    iconP1.setGraphicSize(Std.int(iconP1.width + 30));
+    iconP2.setGraphicSize(Std.int(iconP2.width + 30));
 }
 
 function onPlayerHit(event){
@@ -174,18 +188,15 @@ function onPlayerHit(event){
     }
 }
 
-function postCreate()
+function postCreate(){
     if (FlxG.save.data.coloredScore)
-        if (!PlayState.opponentMode)
-            hudTxt.color = dadColor;
-        else
-            hudTxt.color = bfColor;
+        if (!PlayState.opponentMode) hudTxt.color = dadColor;
+        else hudTxt.color = bfColor;
 
     if (FlxG.save.data.psychUi)
-        for (i in [missesTxt, accuracyTxt, scoreTxt])
-            i.visible = false;
+        for (i in [missesTxt, accuracyTxt, scoreTxt]) i.visible = false;
 
-    if (Options.downscroll && FlxG.save.data.psychUi)
-        hudTxt.y = 605;
+    if (Options.downscroll && FlxG.save.data.psychUi) hudTxt.y = 605;
     
     if (FlxG.save.data.psychUi) add(hudTxt);
+}
