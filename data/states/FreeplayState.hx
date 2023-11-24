@@ -106,7 +106,7 @@ function postUpdate(){
         case "monochrome":
             FlxTween.tween(portrait, {alpha: 0}, 0.35);
             FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
-            Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1),Lib.application.window.y + FlxG.random.int(-1, 1));
+            if (FlxG.save.data.windowShake) Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1),Lib.application.window.y + FlxG.random.int(-1, 1));
         case "yarlow" | "dlowing":
             portrait.animation.play('yellow');
         case "double kill vtwo":
