@@ -13,8 +13,6 @@ import funkin.backend.system.framerate.Framerate;
 
 import openfl.Lib;
 
-var tweenTime:Bool = false;
-
 function create(){    
     Framerate.offset.y = 77.5;
 
@@ -100,31 +98,22 @@ function postUpdate(){
         case "sussus moogus" | "sabotage" | "meltdown":
             portrait.animation.play('red');
             portrait.alpha = 1;
-            windowGoBack();
+            FlxG.sound.music.volume = 1;
         case "sussus toogus" | "lights down" | "reactor":
             portrait.animation.play('green');
         case "sauces moogus":
             portrait.animation.play('chef');
         case "monochrome":
             FlxTween.tween(portrait, {alpha: 0}, 0.35);
-            FlxG.camera.shake(0.0025, 0.001, null, true);
-            if (FlxG.save.data.windowShake) Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1), Lib.application.window.y + FlxG.random.int(-1, 1));
+            FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
+            Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1),Lib.application.window.y + FlxG.random.int(-1, 1));
         case "yarlow" | "dlowing":
             portrait.animation.play('yellow');
         case "double kill vtwo":
             portrait.alpha = 1;
             portrait.animation.play('black');
-            windowGoBack();
+            FlxG.sound.music.volume = 1;
     }
-}
-
-function windowGoBack(){
-    FlxTween.tween(Lib.application.window, {x: 325, y: 175}, 0.5, {
-        ease: FlxEase.circOut,
-        onComplete: function(twn:FlxTween){
-            Lib.application.window.move(Std.int(325),Std.int(175));
-        }
-    });
 }
 
 // shit doesn't work yet (for some reason)

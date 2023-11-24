@@ -23,8 +23,13 @@ function create(){
                     close();
                 });
             }
-            if (FlxG.save.data.arabic || FlxG.save.data.indonesian || FlxG.save.data.swedish){
+            if (FlxG.save.data.indonesian || FlxG.save.data.swedish){
                 game.startCutscene("placeholder-", function(){
+                    close();
+                });
+            }
+            if (FlxG.save.data.arabic){
+                game.startCutscene("arabic-", function(){
                     close();
                 });
             }else{
