@@ -73,6 +73,14 @@ function update(elapsed) {
 		camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
 	}
 
+	if (focusOnBf){
+        switch(strumLines.members[curCameraTarget].characters[0].getAnimName()){
+			case "singLEFT": camGame.angle = (lerp(camGame.angle, -1, 0.35));
+			case "idle", "singDOWN", "singUP": camGame.angle = (lerp(camGame.angle, 0, 0.35));
+			case "singRIGHT": camGame.angle = (lerp(camGame.angle, 1, 0.35));
+		}
+	}
+
 	if (PlayState.opponentMode) {
 		comboGroup.x = 2050;
 	}
@@ -92,13 +100,7 @@ function postCreate() {
 	strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 147.25;
 	strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 95;
 
-	iconP1.alpha = 0;
-	iconP2.alpha = 0;
-	healthBar.alpha = 0;
-	healthBarBG.alpha = 0;
-	scoreTxt.alpha = 0;
-	missesTxt.alpha = 0;
-	accuracyTxt.alpha = 0;
+	for (e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]) e.alpha = 0;
 }
 
 function postUpdate() {
@@ -390,30 +392,23 @@ function focusOnBf() {
 function unfocusOnBf() {
 	focusOnBf = false;
 	camZoomingStrength = 1;
+	camGame.angle = 0;
 	boyfriend.alpha = 0;
 	flashback.alpha = 0;
 	camHUD.alpha = 0;
 }
 
 function healthFade() {
-	FlxTween.tween(healthBar, {alpha: 0}, .35);
-	FlxTween.tween(healthBarBG, {alpha: 0}, .35);
-	FlxTween.tween(iconP1, {alpha: 0}, .35);
-	FlxTween.tween(iconP2, {alpha: 0}, .35);
-	FlxTween.tween(scoreTxt, {alpha: 0}, .35);
-	FlxTween.tween(missesTxt, {alpha: 0}, .35);
-	FlxTween.tween(accuracyTxt, {alpha: 0}, .35);
+	for(e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]){
+		FlxTween.tween(e, {alpha: 0}, .35);
+	}
 	trace("healthbar faded");
 }
 
 function healthFadeBack() {
-	FlxTween.tween(healthBar, {alpha: 1}, .5);
-	FlxTween.tween(healthBarBG, {alpha: 1}, .5);
-	FlxTween.tween(iconP1, {alpha: 1}, .5);
-	FlxTween.tween(iconP2, {alpha: 1}, .5);
-	FlxTween.tween(scoreTxt, {alpha: 1}, .5);
-	FlxTween.tween(missesTxt, {alpha: 1}, .5);
-	FlxTween.tween(accuracyTxt, {alpha: 1}, .5);
+	for(e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]){
+		FlxTween.tween(e, {alpha: 1}, .35);
+	}
 }
 
 function tweenAngle1(){

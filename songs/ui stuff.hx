@@ -94,13 +94,7 @@ function create() {
 
 function onSongStart() {
     if (timeBar != null) {
-        FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-    }
-    if (timeBarBG != null) {
-        FlxTween.tween(timeBarBG, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-    }
-    if (timeTxt != null) {
-        FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+        for (e in [timeBar, timeBarBG, timeTxt]) FlxTween.tween(e, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
     }
 }
 
@@ -127,10 +121,12 @@ function update(elapsed:Float){
 }
 
 function beatHit(){
-    iconP1.scale.set(1, 1);
-    iconP2.scale.set(1, 1);
-    iconP1.setGraphicSize(Std.int(iconP1.width + 30));
-    iconP2.setGraphicSize(Std.int(iconP2.width + 30));
+    for (i in [iconP1, iconP2]){
+        i.scale.set(1, 1);
+        i.scale.set(1, 1);
+        i.setGraphicSize(Std.int(i.width + 30));
+        i.setGraphicSize(Std.int(i.width + 30));
+    }
 }
 
 function onPlayerHit(event){
