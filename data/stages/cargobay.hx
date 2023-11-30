@@ -396,24 +396,18 @@ function unfocusOnBf() {
 }
 
 function healthFade() {
-	FlxTween.tween(healthBar, {alpha: 0}, .35);
-	FlxTween.tween(healthBarBG, {alpha: 0}, .35);
-	FlxTween.tween(iconP1, {alpha: 0}, .35);
-	FlxTween.tween(iconP2, {alpha: 0}, .35);
-	FlxTween.tween(scoreTxt, {alpha: 0}, .35);
-	FlxTween.tween(missesTxt, {alpha: 0}, .35);
-	FlxTween.tween(accuracyTxt, {alpha: 0}, .35);
+	for(e in [healthBar, healthBarBG, iconP1, iconP2, scoreTxt, missesTxt, accuracyTxt])
+	{
+		FlxTween.tween(e, {alpha: 0}, .35);
+	}
 	trace("healthbar faded");
 }
 
 function healthFadeBack() {
-	FlxTween.tween(healthBar, {alpha: 1}, .5);
-	FlxTween.tween(healthBarBG, {alpha: 1}, .5);
-	FlxTween.tween(iconP1, {alpha: 1}, .5);
-	FlxTween.tween(iconP2, {alpha: 1}, .5);
-	FlxTween.tween(scoreTxt, {alpha: 1}, .5);
-	FlxTween.tween(missesTxt, {alpha: 1}, .5);
-	FlxTween.tween(accuracyTxt, {alpha: 1}, .5);
+	for(e in [healthBar, healthBarBG, iconP1, iconP2, scoreTxt, missesTxt, accuracyTxt])
+	{
+		FlxTween.tween(e, {alpha: 1}, .35);
+	}
 }
 
 function tweenAngle1(){
