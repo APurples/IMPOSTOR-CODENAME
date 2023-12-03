@@ -2,6 +2,7 @@ import flixel.addons.display.FlxBackdrop;
 import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
+import flixel.effects.FlxFlicker;
 
 var menuTxt:FlxText;
 
@@ -74,7 +75,12 @@ function create(){
 	controlsShit.y -= controlsShit.height;
 	add(controlsShit);
 
-	changeItem();
+	wipTxt = new FunkinText(575, FlxG.height - 250, 0, 'W.I.P MENU!!');
+	wipTxt.scale.set(2, 2);
+	wipTxt.scrollFactor.set();
+	wipTxt.y -= wipTxt.height;
+	wipTxt.color = FlxColor.RED;
+	add(wipTxt);
 }
 
 var selectedSomethin:Bool = false;
