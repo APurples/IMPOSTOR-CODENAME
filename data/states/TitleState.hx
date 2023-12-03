@@ -6,16 +6,11 @@ function create(){
 
 function beatHit(){
     switch (curBeat){
-        case 1:
-            flashTime = false;
-        case 8:
-            flash();
-        case 14:
-            flash();
-        case 15:
-            flash();
-        case 16:
-            flashTime = true;
+        case 1: flashTime = false;
+        case 8: flash();
+        case 14: flash();
+        case 15: flash();
+        case 16: flashTime = true;
     }
 }
 
