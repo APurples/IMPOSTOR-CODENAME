@@ -1,0 +1,18 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/reactor/" zoom="0.7" name="reactor">
+	<sprite x="0" name="bg0" sprite="wallbgthing" y="0"/>
+	<sprite x="0" name="bg" sprite="floornew" y="0"/>
+	<sprite x="875" y="915" sprite="yellowcoti" name="boppers1">
+		<anim x="0" loop="false" y="0" fps="24" anim="idle" type="beat" name="idle"/>
+	</sprite>
+	<sprite sprite="backbars" name="bg2"/>
+	<sprite x="450" y="995" sprite="browngeoff" name="boppers2">
+		<anim x="0" loop="false" y="0" fps="24" anim="idle" type="beat" name="idle"/>
+	</sprite>
+	<sprite sprite="frontpillars" name="bg3"/>
+	<sprite x="1200" y="100" sprite="ball lol" type="loop" name="ball thingy"/>
+	<girlfriend x="1400" y="775"/>
+	<dad x="1100" y="750"/>
+	<boyfriend x="1950" y="750"/>
+	<combo x="1662.25" y="1022.75"/>
+</stage>

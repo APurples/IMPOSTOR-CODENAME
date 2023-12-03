@@ -24,12 +24,12 @@ function create(){
                 });
             }
             if (FlxG.save.data.indonesian || FlxG.save.data.swedish){
-                game.startCutscene("placeholder-", function(){
+                game.startCutscene("placeholder/placeholder-", function(){
                     close();
                 });
             }
             if (FlxG.save.data.arabic){
-                game.startCutscene("arabic-", function(){
+                game.startCutscene("arabic/arabic-", function(){
                     close();
                 });
             }else{

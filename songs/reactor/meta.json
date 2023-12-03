@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 250,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -7376387,
+	"displayName": "reactor",
+	"icon": "impostor3",
+	"name": "reactor",
+	"color": "#8F71FD"
+}

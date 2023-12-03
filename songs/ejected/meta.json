@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 155,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -7376387,
+	"displayName": "ejected",
+	"icon": "impostor3",
+	"name": "ejected",
+	"color": "#8F71FD"
+}

@@ -20,7 +20,7 @@ function create(){
                 });
             }
             if (FlxG.save.data.arabic || FlxG.save.data.indonesian || FlxG.save.data.swedish){
-                game.startCutscene("placeholder-", function(){
+                game.startCutscene("placeholder/placeholder-", function(){
                     close();
                 });
             }else{

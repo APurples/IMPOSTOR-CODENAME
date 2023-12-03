@@ -60,15 +60,13 @@ function create() {
 	vignette.scrollFactor.set();
 	add(vignette);
 
-	/*
-	glowyThing = new FlxSprite(361, 438).loadGraphic(Paths.image('menus/mainmenu/buttonglow'));
+	/*glowyThing = new FlxSprite(361, 438).loadGraphic(Paths.image('menus/mainmenu/buttonglow'));
 	glowyThing.antialiasing = true;
 	glowyThing.scale.set(0.51, 0.51);
 	glowyThing.updateHitbox();
 	glowyThing.active = false;
 	glowyThing.scrollFactor.set();
-	add(glowyThing);
-	*/
+	add(glowyThing);*/
 
 	impostorVer = new FlxText(5, FlxG.height - 2, 2, 'VS Impostor V4 CNE Port v0.2 [ALPHA]');
 	//add(impostorVer);
@@ -92,6 +90,13 @@ function update(){
 	// moves the stars to the left
 	starFG.x -= 0.06;
 	starBG.x -= 0.03;
+
+	if (controls.BACK || FlxG.mouse.justPressedRight) FlxG.switchState(new TitleState());
+
+	if (controls.ACCEPT || FlxG.mouse.justPressed){
+		selectItem();
+		transition();
+	}
 }
 
 function postUpdate(){
@@ -100,17 +105,13 @@ function postUpdate(){
     state.menuItems.members[2].offset.set(125, -155); // donate/credits
 	state.menuItems.members[3].offset.set(55, -50); // settings
 
-    FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
+    FlxG.camera.scroll.x = FlxG.camera.scroll.y = 0;
     FlxG.camera.scroll.set();
-
-	if (controls.ACCEPT) selectItem();
 }
 
-function beatHit(){
-	logo.animation.play('bump');
-}
+function beatHit() logo.animation.play('bump');
 
-function selectItem(){
+function transition(){
 	redImpostor.animation.play('select');
 	greenImpostor.animation.play('select');
 
