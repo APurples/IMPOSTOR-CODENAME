@@ -409,6 +409,7 @@ function healthFadeBack() {
 	for(e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]){
 		FlxTween.tween(e, {alpha: 1}, .35);
 	}
+	trace("healthbar unfaded");
 }
 
 function tweenAngle1(){
