@@ -13,9 +13,11 @@ function onEvent(e:EventGameEvent){
         if (e.event.name == "Mono Jumpscare"){
             if (e.event.params[0] == true){
                 jumpscare.alpha = 1;
+                camHUD.alpha = 0.6;
             }
             if (e.event.params[0] == false){
                 FlxTween.tween(jumpscare, {alpha: 0}, e.event.params[1]);
+                FlxTween.tween(camHUD, {alpha: 1}, e.event.params[1]);
             }
         }
     }
