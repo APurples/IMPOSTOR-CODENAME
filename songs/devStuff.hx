@@ -21,12 +21,8 @@ function update(elapsed) {
         if (startingSong || !canPause || paused || health <= 0) return;
         updateSpeed(FlxG.keys.pressed.TWO);
     
-        if (FlxG.keys.pressed.THREE){
-            player.cpu = true;
-        }
-    
-        if (FlxG.keys.justPressed.F6)
-            NativeAPI.allocConsole();
+        if (FlxG.keys.pressed.THREE) player.cpu = true;
+        if (FlxG.keys.justPressed.F6) NativeAPI.allocConsole();
     }
 }
 

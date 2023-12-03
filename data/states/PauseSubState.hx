@@ -6,15 +6,12 @@
 */
 var isDebugEnabled:Bool = false;
 
-function create()
-    if (game.isStoryMode && game.inst != null && game.vocals != null) menuItems.insert(1, 'Skip Song');
+function create() if (game.isStoryMode && game.inst != null && game.vocals != null && FlxG.save.data.devMode) menuItems.insert(1, 'Skip Song');
 
 function update(){
     if (controls.ACCEPT){
         if (menuItems[curSelected] == "Skip Song") game.endSong();
     }
     
-    if (FlxG.save.data.devMode){
-        isDebugEnabled = true;
-    }
+    if (FlxG.save.data.devMode) isDebugEnabled = true;
 }

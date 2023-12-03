@@ -3,11 +3,8 @@ import flixel.addons.display.FlxBackdrop;
 function create() {
 	FlxG.mouse.visible = true;
 
-	if (!FlxG.save.data.devMode){
-		canAccessDebugMenus = false;
-	}else{
-		canAccessDebugMenus = true;
-	}
+	if (!FlxG.save.data.devMode) canAccessDebugMenus = false;
+	else canAccessDebugMenus = true;
 
 	starBG = new FlxBackdrop(Paths.image('menus/mainmenu/starBG'));
 	starBG.updateHitbox();
@@ -74,7 +71,7 @@ function create() {
 	*/
 
 	impostorVer = new FlxText(5, FlxG.height - 2, 2, 'VS Impostor V4 CNE Port v0.2 [ALPHA]');
-	add(impostorVer);
+	//add(impostorVer);
 }
 
 function postCreate(){
@@ -106,9 +103,7 @@ function postUpdate(){
     FlxG.camera.scroll.x = FlxG.camera.scroll.y=0;
     FlxG.camera.scroll.set();
 
-	if (controls.ACCEPT){
-		selectItem();
-	}
+	if (controls.ACCEPT) selectItem();
 }
 
 function beatHit(){

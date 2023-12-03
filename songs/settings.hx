@@ -28,9 +28,7 @@ function postCreate(){
 
 function onPlayerHit(a){
     if (FlxG.save.data.hitsound){
-        if (!a.note.isSustainNote){
-            FlxG.sound.play(Paths.sound('hitsound'), 0.2);
-        }
+        if (!a.note.isSustainNote) FlxG.sound.play(Paths.sound('hitsound'), 0.2);
     }
 }
 
@@ -39,19 +37,11 @@ function onCountdown(event:CountdownEvent) {
         if (!PlayState.coopMode){
             if (event.swagCounter == 0){
                 if (!PlayState.opponentMode){
-                    for (i in playerStrums.members){
-                        i.x -= 320;
-                    }
-                    for (i in cpuStrums.members){
-                        i.x -= 5000;
-                    }
+                    for (i in playerStrums.members) i.x -= 320;
+                    for (i in cpuStrums.members) i.x -= 5000;
                 }else{
-                    for (i in playerStrums.members){
-                        i.x -= 5000;
-                    }
-                    for (i in cpuStrums.members){
-                        i.x += 320;
-                    }
+                    for (i in playerStrums.members) i.x -= 5000;
+                    for (i in cpuStrums.members) i.x += 320;
                 }
             }
         }
@@ -60,13 +50,9 @@ function onCountdown(event:CountdownEvent) {
     if (!PlayState.coopMode){
         if (FlxG.save.data.opponentNotes){
             if (!PlayState.opponentMode){
-                for (i in cpuStrums.members){
-                    i.x -= 5000;
-                }
+                for (i in cpuStrums.members) i.x -= 5000;
             }else{
-                for (i in playerStrums.members){
-                    i.x -= 5000;
-                }
+                for (i in playerStrums.members) i.x -= 5000;
             }
         }
     }

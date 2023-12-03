@@ -22,42 +22,29 @@ function create(){
 }
 
 function update(){
-    if (curSong == "sussus moogus"){
-        remove(deadGfspeaker);
-    }
+    if (curSong == "sussus moogus") remove(deadGfspeaker);
 
     if (curSong == "meltdown"){
         bfdead.alpha = 1;
-        if (!Options.lowMemoryMode){
-            add(crowd);
-        }
+        if (!Options.lowMemoryMode) add(crowd);
     }
 
-    if (PlayState.opponentMode){
-        comboGroup.x = 400;
-    }
-    
-    if (PlayState.coopMode){
-        comboGroup.x = 550;
-    }
+    if (PlayState.opponentMode) comboGroup.x = 400;
+    if (PlayState.coopMode) comboGroup.x = 550;
 }
 
 function measureHit(){
     if (flashMeasure == true){
         camGame.zoom += 0.015;
         camHUD.zoom += 0.03;
-        if (FlxG.save.data.flashingLights){
-            camGame.flash(0x7EFF0000, .35);
-        }
+        if (FlxG.save.data.flashingLights) camGame.flash(0x7EFF0000, .35);
     }
 
     if (flashMeasure2 == true){
         if (curMeasure % 2 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (FlxG.save.data.flashingLights){
-                camGame.flash(0x7EFF0000, .35);
-            }
+            if (FlxG.save.data.flashingLights) camGame.flash(0x7EFF0000, .35);
         }
     }
 
@@ -65,9 +52,7 @@ function measureHit(){
         if (curMeasure % 4 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (FlxG.save.data.flashingLights){
-                camGame.flash(0x7EFF0000, .35);
-            }
+            if (FlxG.save.data.flashingLights) camGame.flash(0x7EFF0000, .35);
         }
     }
 }
@@ -78,8 +63,7 @@ function stepHit(){
             case 816:
                 gf.alpha = 1;
                 gf.playAnim("fadein", true);
-            case 820:
-                dad.playAnim("look", true);
+            case 820: dad.playAnim("look", true);
         }
     }
     else if (curSong == "meltdown"){
@@ -100,50 +84,30 @@ function beatHit(){
         if (curBeat % 2 == 0){
             camGame.zoom += 0.015;
             camHUD.zoom += 0.03;
-            if (FlxG.save.data.flashingLights){
-                camGame.flash(0x7EFF0000, .35);
-            }
+            if (FlxG.save.data.flashingLights) camGame.flash(0x7EFF0000, .35);
         }
     }
 }
 
 // hscript call stuff
 
-function flashBeat2(){
-    flashBeat2 = true;
-}
+function flashBeat2() flashBeat2 = true;
 
-function flashBeat2Alt(){
-    flashBeat2 = true;
-}
+function flashBeat2Alt() flashBeat2 = true;
 
-function flashMeasure(){
-    flashMeasure = true;
-}
+function flashMeasure() flashMeasure = true;
 
-function flashMeasureAlt(){
-    flashMeasure = true;
-}
+function flashMeasureAlt() flashMeasure = true;
 
-function flashMeasure2(){
-    flashMeasure2 = true;
-}
+function flashMeasure2() flashMeasure2 = true;
 
-function flashMeasure2Alt(){
-    flashMeasure2 = true;
-}
+function flashMeasure2Alt() flashMeasure2 = true;
 
-function flashMeasure2Alt2(){
-    flashMeasure2 = true;
-}
+function flashMeasure2Alt2() flashMeasure2 = true;
 
-function flashMeasure4(){
-    flashMeasure4 = true;
-}
+function flashMeasure4() flashMeasure4 = true;
 
-function flashMeasure4Alt(){
-    flashMeasure4 = true;
-}
+function flashMeasure4Alt() flashMeasure4 = true;
 
 function stopFlashing(){
     flashBeat2 = false;
@@ -152,6 +116,4 @@ function stopFlashing(){
     flashMeasure4 = false;
 }
 
-function cancelFlashMeasure2(){ // specifically for meltdown
-    flashMeasure2 = false;
-}
+function cancelFlashMeasure2() flashMeasure2 = false; // specifically for meltdown

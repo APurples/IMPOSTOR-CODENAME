@@ -5,17 +5,10 @@ var bopping:Bool = false;
 camGame.alpha = 0;
 
 function create(){
-    // this code is so messy i am so sorry to anyone that knows what they are doing
-
-    remove(comboGroup);
-    remove(gf);
-    remove(dad);
-    remove(boyfriend);
+    for (i in [comboGroup, gf, dad, boyfriend]) remove(i);
 
     whiteruby = new FlxSprite(2500, 1150);
-    if (curSong == "yarlow"){
-        whiteruby.setPosition(2350, 1420);
-    }
+    if (curSong == "yarlow") whiteruby.setPosition(2350, 1420);
     whiteruby.frames = Paths.getSparrowAtlas('stages/dlowing/boppers/whiteruby');
     whiteruby.animation.addByPrefix('bop', 'white', 24, false);
     whiteruby.scrollFactor.set(1, 1);
@@ -134,50 +127,21 @@ function create(){
 }
 
 function update(){
-    if (PlayState.opponentMode){
-        comboGroup.x = 2300;
-    }
+    if (PlayState.opponentMode) comboGroup.x = 2300;
 
-    if (PlayState.coopMode){
-        comboGroup.x = 2450;
-    }
+    if (PlayState.coopMode) comboGroup.x = 2450;
 }
 
 function postUpdate(){
-    if (curSong == "yarlow"){
-        remove(lime);
-        remove(nr);
-        remove(sheriff);
-        remove(redmungus);
-        remove(mint);
-        remove(amongly);
-        remove(tnr);
-        remove(amonglit);
-        remove(redmungus);
-    }
+    if (curSong == "yarlow") for (i in [lime, nr, sheriff, redmungus, mint, amongly, tnr, amonglit, redmungus]) remove(i);
 
-    if (Options.lowMemoryMode){
-        remove(addm);
-        remove(addb);
-        remove(adds);
-        remove(ov);
-    }
+    if (Options.lowMemoryMode) for (i in [addm, addb, adds, ov]) remove(i);
 }
 
 function beatHit(){
-    if (curBeat % 2 == 0){
-        mint.animation.play('bop');
-        lime.animation.play('bop');
-        callguy.animation.play('bop');
-        nr.animation.play('bop');
-        sheriff.animation.play('bop');
-        whiteruby.animation.play('bop');
-        pissOverlay.animation.play('bop');
-    }
+    if (curBeat % 2 == 0) for (i in [mint, lime, callguy, nr, sheriff, whiteruby, pissOverlay]) i.animation.play("bop");
 
-    if (bopping){
-        camGame.zoom += 0.03;
-    }
+    if (bopping) camGame.zoom += 0.03;
 }
 
 function stepHit(){
@@ -186,35 +150,10 @@ function stepHit(){
             case 2:
                 FlxTween.tween(camGame, {alpha: 1}, 6);
                 FlxTween.tween(camGame, {zoom: 0.8}, 13, {ease: FlxEase.sineInOut});
-            case 128:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
-            case 192:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
-            case 384:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, .5);
-                }
-            case 512:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, .5);
-                }
-            case 770:
-                FlxTween.tween(camGame, {zoom: 0.8}, 3.2, {ease: FlxEase.sineInOut});
-            case 800:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, .5);
-                }
-            case 928:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
-            case 942:
-                FlxTween.tween(camGame, {alpha: 0}, 3);
-                FlxTween.tween(camHUD, {alpha: 0}, 3);
+            case 128, 192, 928: if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 1);
+            case 384, 512, 800: if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
+            case 770:FlxTween.tween(camGame, {zoom: 0.8}, 3.2, {ease: FlxEase.sineInOut});
+            case 942: for (i in [camGame, camHUD]) FlxTween.tween(i, {alpha: 0}, 3);
         }
     }
 
@@ -222,23 +161,10 @@ function stepHit(){
         switch(curStep){
             case 1:
                 FlxTween.tween(camGame, {alpha: 1}, 5);
-            case 64:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
-            case 704:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
-            case 1024:
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 1);
-                }
+            case 64, 704, 1024: if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 1);
             case 1280:
                 FlxTween.tween(camHUD, {alpha: 0}, 5);
-                if (FlxG.save.data.flashingLights){
-                    camGame.flash(0xFFFFFF, 2);
-                }
+                if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 2);
             case 1368:
                 new FlxTimer().start(10, function(tmr:FlxTimer){
                     endSong();

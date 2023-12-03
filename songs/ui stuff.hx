@@ -31,14 +31,8 @@ var ratingStuff:Array<Dynamic> = [
 ];
 
 function getRating(accuracy:Float):String {
-    if (accuracy < 0) {
-        return "?";
-    }
-    for (rating in ratingStuff) {
-        if (accuracy < rating[1]) {
-            return rating[0];
-        }
-    }
+    if (accuracy < 0) return "?";
+    for (rating in ratingStuff) if (accuracy < rating[1]) return rating[0];
     return ratingStuff[ratingStuff.length - 1][0];
 }
 
@@ -92,31 +86,22 @@ function create() {
     timeTxt.cameras = [camHUD];
 }
 
-function onSongStart() {
-    if (timeBar != null) {
-        for (e in [timeBar, timeBarBG, timeTxt]) FlxTween.tween(e, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-    }
-}
+function onSongStart() if (timeBar != null) for (e in [timeBar, timeBarBG, timeTxt]) FlxTween.tween(e, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
 function update(elapsed:Float){
     // custom icon lerping
-    iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
-    iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
-
-    iconP1.updateHitbox();
-    iconP2.updateHitbox();
-
-    if (inst != null && timeBar != null && timeBar.max != inst.length) {
-        timeBar.setRange(0, Math.max(1, inst.length));
+    for (i in [iconP1, iconP2]){
+        i.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
+        i.updateHitbox();
     }
+
+    if (inst != null && timeBar != null && timeBar.max != inst.length) timeBar.setRange(0, Math.max(1, inst.length));
 
     if (FlxG.save.data.psychUi){
         var acc = FlxMath.roundDecimal(Math.max(accuracy, 0) * 100, 2);
         var rating:String = getRating(accuracy);
         getRatingFC(accuracy, misses);
-        if (songScore > 0 || acc > 0 || misses > 0) {
-            hudTxt.text = "Score: " + songScore + " | Misses: " + misses +  " | Rating: " + rating + " (" + acc + "%)" + " - " + ratingFC;
-        } 
+        if (songScore > 0 || acc > 0 || misses > 0) hudTxt.text = "Score: " + songScore + " | Misses: " + misses +  " | Rating: " + rating + " (" + acc + "%)" + " - " + ratingFC;
     }
 }
 
@@ -133,9 +118,7 @@ function onPlayerHit(event){
     if (FlxG.save.data.scoreZoom){
         if (FlxG.save.data.psychUi){
             if (event.note.isSustainNote) return;
-                if(hudTxtTween != null) {
-                    hudTxtTween.cancel();
-                }
+                if(hudTxtTween != null) hudTxtTween.cancel();
                 hudTxt.scale.x = 1.1;
                 hudTxt.scale.y = 1.1;
                 hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
@@ -189,8 +172,7 @@ function postCreate(){
         if (!PlayState.opponentMode) hudTxt.color = dadColor;
         else hudTxt.color = bfColor;
 
-    if (FlxG.save.data.psychUi)
-        for (i in [missesTxt, accuracyTxt, scoreTxt]) i.visible = false;
+    if (FlxG.save.data.psychUi) for (i in [missesTxt, accuracyTxt, scoreTxt]) i.visible = false;
 
     if (Options.downscroll && FlxG.save.data.psychUi) hudTxt.y = 605;
     

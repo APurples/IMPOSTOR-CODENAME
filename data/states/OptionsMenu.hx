@@ -1,10 +1,8 @@
-import flixel.addons.display.FlxBackdrop;
 import funkin.backend.system.framerate.Framerate;
 
 function postCreate(){
     for (option in main.members)
-		if (option.desc == "Modify mod options here")
-			main.members.remove(option);
+		if (option.desc == "Modify mod options here") main.members.remove(option);
 
     starsBG = new FlxBackdrop(Paths.image('menus/starBG'));
 	starsBG.antialiasing = true;
@@ -25,6 +23,4 @@ function update(){
     // moves the stars to the left
     starsFG.x -= 0.06;
     starsBG.x -= 0.03;
-
-    if (controls.ACCEPT) FlxG.camera.zoom += 0.015;
 }

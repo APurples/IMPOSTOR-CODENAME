@@ -50,9 +50,7 @@ function create(){
     gray.active = true;
     insert(members.indexOf(dad), gray);
     add(gray);
-    if (!Options.lowMemoryMode){
-        add(gray);
-    }
+    if (!Options.lowMemoryMode) add(gray);
 
     saster = new FlxSprite(1300, 525);
     saster.frames = Paths.getSparrowAtlas('stages/kitchen/Boppers');
@@ -63,9 +61,7 @@ function create(){
     saster.setGraphicSize(Std.int(saster.width * 1.2));
     saster.active = true;
     insert(members.indexOf(dad), saster);
-    if (!Options.lowMemoryMode){
-        add(saster);
-    }
+    if (!Options.lowMemoryMode) add(saster);
 
     frontable = new FlxSprite(800, 700).loadGraphic(Paths.image('stages/kitchen/Kitchen Counter'));
     frontable.antialiasing = true;
@@ -78,27 +74,18 @@ function create(){
     chefBluelight.antialiasing = true;
     chefBluelight.scrollFactor.set(1, 1);
     chefBluelight.active = false;
-    if (!Options.lowMemoryMode){
-        add(chefBluelight);
-    }
+    if (!Options.lowMemoryMode) add(chefBluelight);
 
     chefBlacklight = new FlxSprite(0, -300).loadGraphic(Paths.image('stages/kitchen/black_overhead_shadow'));
     chefBlacklight.antialiasing = true;
     chefBlacklight.scrollFactor.set(1, 1);
     chefBlacklight.active = false;
-    if (!Options.lowMemoryMode){
-        add(chefBlacklight);
-    }
+    if (!Options.lowMemoryMode) add(chefBlacklight);
 }
 
 function update(){
-    if (PlayState.opponentMode){
-        comboGroup.x = 1125;
-    }
-    
-    if (PlayState.coopMode){
-        comboGroup.x = 1250;
-    }
+    if (PlayState.opponentMode) comboGroup.x = 1125;
+    if (PlayState.coopMode) comboGroup.x = 1250;
 }
 
 function beatHit(){
