@@ -3,6 +3,7 @@ import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
 import flixel.effects.FlxFlicker;
+import funkin.menus.MainMenuState;
 
 var menuTxt:FlxText;
 

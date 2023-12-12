@@ -1,4 +1,7 @@
 import hxvlc.flixel.FlxVideo;
+import funkin.game.cutscenes.DialogueCutscene;
+import funkin.game.cutscenes.dialogue.DialogueBox;
+import flixel.addons.text.FlxTypeText;
 
 static var camMoveOffset:Float = 24;
 static var camFollowChars:Bool = true;
@@ -24,8 +27,12 @@ function postUpdate() {
             case "singRIGHT-alt": camFollow.x += camMoveOffset;
         }
     }
-
     if (curStage == "toogus" || "chef") camMoveOffset = 14;
+
+    // Arabic alignment
+    if (subState != null && subState.curLine != null && FlxG.save.data.arabic) {
+        subState.dialogueBox.text.alignment = "right";
+    }
 }
 
 /* Mid-song video cutscenes event
