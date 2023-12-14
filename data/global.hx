@@ -1,3 +1,5 @@
+import lime.graphics.Image;
+
 function new() {
     // makes all of these options automatically set to true on first ever launch
     // gameplay options
@@ -28,6 +30,8 @@ static var redirectStates:Map<FlxState, String> = [
 function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
 
 function preStateSwitch() {
+    window.title = "Vs Impostor: V4 Codename Engine Port";
+    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
     FlxG.camera.bgColor = 0xFF000000;
     for (redirectState in redirectStates.keys()) 
         if (Std.isOfType(FlxG.game._requestedState, redirectState)) 

@@ -3,8 +3,6 @@ import lime.app.Application;
 import lime.graphics.Image;
 
 function create(){
-    window.title = "Vs Impostor: V4 Codename Engine Port";
-
     starBG = new FlxBackdrop(Paths.image('menus/starBG'));
 	starBG.updateHitbox();
 	starBG.antialiasing = true;

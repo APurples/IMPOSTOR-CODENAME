@@ -1,9 +1,5 @@
 var flashTime:Bool = false;
 
-function create(){
-    window.title = "Vs Impostor: V4 Codename Engine Port";
-}
-
 function beatHit(){
     switch (curBeat){
         case 1: flashTime = false;
