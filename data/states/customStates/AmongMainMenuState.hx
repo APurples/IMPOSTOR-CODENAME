@@ -3,15 +3,17 @@ import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
 import flixel.effects.FlxFlicker;
-
-var menuTxt:FlxText;
+import funkin.options.OptionsMenu;
 
 var portVer:Int = 0.1;
 
-var menuItems:FlxTypedGroup<FlxSprite>;
-var optionShit:Array<String> = CoolUtil.coolTextFile(Paths.txt("config/menuItems"));
+var menuItems:Array<FlxSprite> = [];
+var optionShit:Array<String> = ['story mode', 'freeplay', 'credits', 'options'];
+var curSelected:Int = 0;
 
 function create(){
+	FlxG.mouse.visible = true;
+
 	starFG = new FlxBackdrop(Paths.image('menus/starFG'));
 	starFG.updateHitbox();
 	starFG.scrollFactor.set();
@@ -70,17 +72,25 @@ function create(){
 	versionShit.y -= versionShit.height;
 	add(versionShit);
 
-	controlsShit = new FunkinText(5, FlxG.height - 2, 0, 'Press 1 to open the story mode menu, Press 2 to open the freeplay menu, Press 3 to open the credits menu, Press 4 to open the options menu.');
-	controlsShit.scrollFactor.set();
-	controlsShit.y -= controlsShit.height;
-	add(controlsShit);
+	for(option in optionShit){
+		var menuItem = new FlxSprite(0, 130);
+		menuItem.frames = Paths.getSparrowAtlas('menus/menuBooba/' + option);
+		//menuItem.animation.addByPrefix('selected', option + "basic", 24);
+		menuItem.animation.addByPrefix('idle', option + "basic", 24);
+		menuItem.animation.play('idle', true);
+        menuItem.scale.set(.5, .5);
+		menuItem.updateHitbox();
+		menuItem.antialiasing = true;
 
-	wipTxt = new FunkinText(575, FlxG.height - 250, 0, 'W.I.P MENU!!');
-	wipTxt.scale.set(2, 2);
-	wipTxt.scrollFactor.set();
-	wipTxt.y -= wipTxt.height;
-	wipTxt.color = FlxColor.RED;
-	add(wipTxt);
+		switch(option){
+			case "story mode": menuItem.setPosition(400, 475);
+			case "freeplay": menuItem.setPosition(633, 475);
+			case "credits": menuItem.setPosition(525, 580);
+			case "options": menuItem.setPosition(525, 640);
+		}
+
+        menuItems.push(add(menuItem));
+	}
 }
 
 var selectedSomethin:Bool = false;
@@ -100,29 +110,14 @@ function update(elapsed){
 
 	if (controls.BACK && !selectedSomethin) FlxG.switchState(new TitleState());
 
-	if (FlxG.keys.justPressed.ONE && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new StoryMenuState());
-		});
-	}
-	if (FlxG.keys.justPressed.TWO && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new FreeplayState());
-		});
-	}
-	if (FlxG.keys.justPressed.THREE && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new CreditsMain());
-		});
-	}
-	if (FlxG.keys.justPressed.FOUR && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new OptionsMenu());
-		});
+	curSelected = spr.ID;
+	for (spr in menuItems){
+		if (FlxG.mouse.overlaps(curSelected)){
+			//spr.animation.play('selected');
+			if (FlxG.mouse.justPressed){
+				selectItem();
+			}
+		}else spr.animation.play('idle');
 	}
 }
 
