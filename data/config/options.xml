@@ -20,10 +20,10 @@
 		<checkbox id="psychUi" name="Psych UI" desc="If checked, the ui will look like psych engine's ui." />
 	</menu>	
 	<!-- will come in a later time, for now this will be commented out -->
-	<!--menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
+	<!-- <menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />
 		<checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />
 		<checkbox id="indonesian" name="Indonesian" desc="Changes the game's language to Indonesian." />
-	</menu-->
+	</menu> -->
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools and editors. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

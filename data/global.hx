@@ -1,25 +1,31 @@
-// makes all of these options automatically set to true on first ever launch
+function new() {
+    // makes all of these options automatically set to true on first ever launch
+    // gameplay options
+    if (FlxG.save.data.camMove == null) FlxG.save.data.camMove = true;
 
-// gameplay options
-if (FlxG.save.data.camMove == null) camMove == true;
+    // visual options
+    if (FlxG.save.data.midVidCutscene == null) FlxG.save.data.midVidCutscene = true;
+    if (FlxG.save.data.flashingLights == null) FlxG.save.data.flashingLights = true;
+    if (FlxG.save.data.screenShake == null) FlxG.save.data.screenShake = true;
+    if (FlxG.save.data.windowShake == null) FlxG.save.data.windowShake = true;
+    if (FlxG.save.data.jumpscares == null) FlxG.save.data.jumpscares = true;
 
-// visual options
-if (FlxG.save.data.midVidCutscene == null) midVidCutscene == true;
-if (FlxG.save.data.flashingLights == null) flashingLights == true;
-if (FlxG.save.data.screenShake == null) screenShake == true;
-if (FlxG.save.data.windowShake == null) windowShake == true;
-if (FlxG.save.data.jumpscares == null) jumpscares == true;
+    // ui/hud options
+    if (FlxG.save.data.timebar == null) FlxG.save.data.timebar = true;
+    if (FlxG.save.data.scoreZoom == null) FlxG.save.data.scoreZoom = true;
+    if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
 
-// ui/hud options
-if (FlxG.save.data.timebar == null) timebar == true;
-if (FlxG.save.data.scoreZoom == null) scoreZoom == true;
-if (FlxG.save.data.coloredScore == null) coloredScore == true;
-
-function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
+    // Language options
+    // if (FlxG.save.data.indonesian == null) indonesian == false;
+    // if (FlxG.save.data.swedish == null) swedish == false;
+    if (FlxG.save.data.arabic == null) FlxG.save.data.arabic = false;
+}
 
 static var redirectStates:Map<FlxState, String> = [
     MainMenuState => "customStates/AmongMainMenuState",
 ];
+
+function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
 
 function preStateSwitch() {
     FlxG.camera.bgColor = 0xFF000000;

@@ -29,7 +29,7 @@ function create(){
                 });
             }
             if (FlxG.save.data.arabic){
-                game.startCutscene("arabic/arabic-", function(){
+                game.startCutscene("dialogues/arabic/arabic-", function(){
                     close();
                 });
             }else{
