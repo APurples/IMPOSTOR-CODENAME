@@ -1,5 +1,8 @@
 import flixel.addons.display.FlxBackdrop;
+import funkin.game.cutscenes.VideoCutscene;
 //import openfl.display.BlendMode;
+
+var endingVid:VideoCutscene;
 
 var swing:Bool = false;
 var bopping:Bool = false;
@@ -88,6 +91,9 @@ function postCreate() {
 	strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 95;
 
 	for (e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]) e.alpha = 0;
+
+	endingVid = new VideoCutscene(Paths.video('midsong/double kill v2'), function() {
+	});
 }
 
 function postUpdate() {
@@ -271,14 +277,20 @@ function stepHit() {
 			case 3964:
 				end6.alpha = 1;
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .35);
-			case 3976:
-				playVid("end");
-				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 2);
 		}
 	}
 }
 
 // hscript call stuff
+
+function playEnding(){
+    persistentUpdate = false;
+    endingVid.skippable = false;
+    inCutscene = true;
+    openSubState(endingVid);
+    persistentDraw = false;
+    for (i in [camGame, camHUD]) i.alpha = 0;
+}
 
 function boppingShit() {
 	bopping = true;
