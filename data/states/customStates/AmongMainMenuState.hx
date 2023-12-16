@@ -1,4 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
+import flixel.group.FlxSpriteGroup;
 import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
@@ -6,11 +7,18 @@ import flixel.effects.FlxFlicker;
 import funkin.menus.MainMenuState;
 import funkin.menus.credits.CreditsMain;
 import funkin.options.OptionsMenu;
+import funkin.backend.scripting.Script;
 
 var portVer:Int = 0.1;
 
-var menuItems:Array<FlxSprite> = [];
-var optionShit:Array<String> = ['story mode', 'freeplay', 'credits', 'options'];
+var optionShit:Array<String> = [
+	'story mode',
+	'freeplay',
+	'credits',
+	'options'
+];
+
+var menuItems:FlxSpriteGroup;
 var curSelected:Int = 0;
 
 function create(){
@@ -69,42 +77,32 @@ function create(){
 	logo.antialiasing = true;
 	add(logo);
 
-	versionShit = new FunkinText(5, FlxG.height - 22, 0, 'VS Impostor V4: CNE Port v' + portVer);
+	versionShit = new FunkinText(5, FlxG.height, 0, 'VS Impostor V4: CNE Port v' + portVer);
 	versionShit.scrollFactor.set();
 	versionShit.y -= versionShit.height;
 	add(versionShit);
-
-	controlsShit = new FunkinText(5, FlxG.height - 2, 0, 'Press 1 to open the story mode menu, Press 2 to open the freeplay menu, Press 3 to open the credits menu, Press 4 to open the options menu.');
-	controlsShit.scrollFactor.set();
-	controlsShit.y -= controlsShit.height;
-	add(controlsShit);
-
-	wipTxt = new FunkinText(575, FlxG.height - 250, 0, 'W.I.P MENU!!');
-	wipTxt.scale.set(2, 2);
-	wipTxt.scrollFactor.set();
-	wipTxt.y -= wipTxt.height;
-	wipTxt.color = FlxColor.RED;
-	add(wipTxt);
-
-	for(option in optionShit){
-		var menuItem = new FlxSprite(0, 130);
-		menuItem.frames = Paths.getSparrowAtlas('menus/menuBooba/' + option);
-		//menuItem.animation.addByPrefix('selected', option + "basic", 24);
-		menuItem.animation.addByPrefix('idle', option + "basic", 24);
+	menuItems = new FlxSpriteGroup();
+	for(i in 0...optionShit.length){
+		var menuItem:FunkinSprite = new FunkinSprite(0, 130);
+		menuItem.frames = Paths.getFrames(Paths.image('menus/menuBooba/menu_' + optionShit[i]), true);
+		menuItem.animation.addByPrefix('idle', optionShit[i] + "basic", 24);
 		menuItem.animation.play('idle', true);
+		menuItem.ID = i;
+		menuItems.add(menuItem);
         menuItem.scale.set(.5, .5);
-		menuItem.updateHitbox();
 		menuItem.antialiasing = true;
 
-		switch(option){
-			case "story mode": menuItem.setPosition(400, 475);
-			case "freeplay": menuItem.setPosition(633, 475);
-			case "credits": menuItem.setPosition(525, 580);
-			//case "options": menuItem.setPosition(525, 640);
+		switch(optionShit[i]){
+			case "story mode": menuItem.setPosition(300, 410);
+			case "freeplay": menuItem.setPosition(550, 422);
+			case "credits": menuItem.setPosition(425, 540);
+			case "options": menuItem.setPosition(575, 595);
 		}
-
-        menuItems.push(add(menuItem));
 	}
+
+	add(menuItems);
+
+	changeItem(0);
 }
 
 var selectedSomethin:Bool = false;
@@ -112,51 +110,35 @@ var selectedSomethin:Bool = false;
 function update(elapsed){
 	if (FlxG.sound.music.volume < 0.8) FlxG.sound.music.volume += 0.5 * elapsed;
 
-    if (FlxG.keys.justPressed.SEVEN && !selectedSomethin){
+    if (FlxG.keys.justPressed.SEVEN){
 		persistentUpdate = !(persistentDraw = true);
 		openSubState(new EditorPicker());
 	}
 
-	if (controls.SWITCHMOD && !selectedSomethin) {
+	if (controls.SWITCHMOD) {
 		openSubState(new ModSwitchMenu());
 		persistentUpdate = !(persistentDraw = true);
 	}
 
-	if (controls.BACK && !selectedSomethin) FlxG.switchState(new TitleState());
+	if (controls.BACK || FlxG.mouse.justPressedRight){
+		FlxG.sound.play(Paths.sound('menu/cancel'));
+		FlxG.camera.fade(FlxColor.BLACK, 0.5, false);
+		new FlxTimer().start(.75, function(tmr:FlxTimer){
+			FlxG.switchState(new TitleState());
+		});
+	}
 
-	/*curSelected = spr.ID;
-	for (spr in menuItems){
-		if (FlxG.mouse.overlaps(curSelected)){
-			//spr.animation.play('selected');
-			if (FlxG.mouse.justPressed){
-				selectItem();
-			}
-		}else spr.animation.play('idle');
-	}*/
+	if (FlxG.save.data.devMode){
+		if (FlxG.keys.justPressed.Q) FlxG.camera.zoom -= .1;
+		if (FlxG.keys.justPressed.E) FlxG.camera.zoom += .1;
+	}
 
-	if (FlxG.keys.justPressed.ONE && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new StoryMenuState());
-		});
-	}
-	if (FlxG.keys.justPressed.TWO && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new FreeplayState());
-		});
-	}
-	if (FlxG.keys.justPressed.THREE && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new CreditsMain());
-		});
-	}
-	if (FlxG.keys.justPressed.FOUR && !selectedSomethin){
-		selectItem();
-		new FlxTimer().start(1, function() {
-			FlxG.switchState(new OptionsMenu());
-		});
+	if (!selectedSomethin){
+		for (i in menuItems.members) {
+			if (FlxG.mouse.overlaps(i) && FlxG.mouse.justMoved && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
+		}
+
+		if ((FlxG.mouse.justPressed)) selectItem();
 	}
 }
 
@@ -171,6 +153,34 @@ function selectItem(){
 	FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
 	FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
 	FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
+
+	new FlxTimer().start(1, function(tmr:FlxTimer){
+		switchState();
+	});
+}
+
+function changeItem(huh:Int = 0) {
+	curSelected += huh;
+
+	if (curSelected >= menuItems.length)
+		curSelected = 0;
+	if (curSelected < 0)
+		curSelected = menuItems.length - 1;
+}
+
+function switchState() {
+	var daChoice:String = optionShit[curSelected];
+
+	switch (daChoice) {
+		case 'story mode':
+			FlxG.switchState(new StoryMenuState());
+		case 'freeplay':
+			FlxG.switchState(new FreeplayState());
+		case 'credits':
+			FlxG.switchState(new CreditsMain());
+		case 'options':
+			FlxG.switchState(new OptionsMenu());
+	}
 }
 
 function beatHit() logo.animation.play("bump");

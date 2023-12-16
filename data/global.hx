@@ -1,7 +1,9 @@
 import lime.graphics.Image;
 
+static var initialized:Bool = false;
+
 function new() {
-    // makes all of these options automatically set to true on first ever launch
+    // makes all of these options automatically set to their default values
     // gameplay options
     if (FlxG.save.data.camMove == null) FlxG.save.data.camMove = true;
 
@@ -16,11 +18,21 @@ function new() {
     if (FlxG.save.data.timebar == null) FlxG.save.data.timebar = true;
     if (FlxG.save.data.scoreZoom == null) FlxG.save.data.scoreZoom = true;
     if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
+    if (FlxG.save.data.iconLerp == null) FlxG.save.data.iconLerp = true;
 
     // Language options
     // if (FlxG.save.data.indonesian == null) indonesian == false;
     // if (FlxG.save.data.swedish == null) swedish == false;
     if (FlxG.save.data.arabic == null) FlxG.save.data.arabic = false;
+
+    // other options
+    if (FlxG.save.data.warningState == null) FlxG.save.data.warningState = true;
+
+
+    if (!FlxG.save.data.systemCursor){
+		FlxG.mouse.useSystemCursor = false;
+		FlxG.mouse.load(Paths.image('cursor'));
+    }else FlxG.mouse.useSystemCursor = true;
 }
 
 static var redirectStates:Map<FlxState, String> = [
@@ -33,9 +45,14 @@ function preStateSwitch() {
     window.title = "Vs Impostor: V4 Codename Engine Port";
     window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
     FlxG.camera.bgColor = 0xFF000000;
-    for (redirectState in redirectStates.keys()) 
-        if (Std.isOfType(FlxG.game._requestedState, redirectState)) 
-            FlxG.game._requestedState = new ModState(redirectStates.get(redirectState));
+
+	if (!initialized) {
+		initialized = true;
+		FlxG.game._requestedState = new ModState('customStates/WarningState');
+	} else
+		for (redirectState in redirectStates.keys())
+			if (FlxG.game._requestedState is redirectState)
+				FlxG.game._requestedState = new ModState(redirectStates.get(redirectState));
 }
 
 function onDestroy() FlxG.camera.bgColor = 0xFF000000;

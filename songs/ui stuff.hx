@@ -90,9 +90,11 @@ function onSongStart() if (timeBar != null) for (e in [timeBar, timeBarBG, timeT
 
 function update(elapsed:Float){
     // custom icon lerping
-    for (i in [iconP1, iconP2]){
-        i.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
-        i.updateHitbox();
+    if (FlxG.save.data.iconLerp){
+        for (i in [iconP1, iconP2]){
+            i.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, FlxMath.bound(1 - (elapsed * 30), 0, 1))));
+            i.updateHitbox();
+        }
     }
 
     if (inst != null && timeBar != null && timeBar.max != inst.length) timeBar.setRange(0, Math.max(1, inst.length));
@@ -108,8 +110,6 @@ function update(elapsed:Float){
 function beatHit(){
     for (i in [iconP1, iconP2]){
         i.scale.set(1, 1);
-        i.scale.set(1, 1);
-        i.setGraphicSize(Std.int(i.width + 30));
         i.setGraphicSize(Std.int(i.width + 30));
     }
 }

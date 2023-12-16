@@ -2,9 +2,6 @@ import funkin.backend.system.framerate.Framerate;
 import flixel.addons.display.FlxBackdrop;
 
 function postCreate(){
-    for (option in main.members)
-		if (option.desc == "Modify mod options here") main.members.remove(option);
-
     starBG = new FlxBackdrop(Paths.image('menus/starBG'));
 	starBG.antialiasing = true;
 	starBG.updateHitbox();

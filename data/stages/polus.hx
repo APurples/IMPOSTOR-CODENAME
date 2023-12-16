@@ -1,7 +1,11 @@
+import funkin.game.cutscenes.VideoCutscene;
+
 var flashMeasure:Bool = false;
 var flashMeasure2:Bool = false;
 var flashMeasure4:Bool = false;
 var flashBeat2:Bool = false;
+
+var meltdownShit:VideoCutscene;
 
 function create(){
     deadGfspeaker = new FlxSprite(300, 195);
@@ -19,6 +23,11 @@ function create(){
     crowd.updateHitbox();
     
     bfdead.alpha = 0;
+}
+
+function postCreate(){
+    meltdownShit = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
+	});
 }
 
 function update(){
@@ -66,14 +75,6 @@ function stepHit(){
             case 820: dad.playAnim("look", true);
         }
     }
-    else if (curSong == "meltdown"){
-        switch (curStep){
-            case 1152:
-                playVid("end");
-                camGame.alpha = 0;
-                camHUD.alpha = 0;
-        }
-    }
 }
 
 function beatHit(){
@@ -90,6 +91,15 @@ function beatHit(){
 }
 
 // hscript call stuff
+
+function playVid(){
+    persistentUpdate = false;
+    meltdownShit.skippable = false;
+    inCutscene = true;
+    openSubState(meltdownShit);
+    persistentDraw = false;
+    for (i in [camGame, camHUD]) i.alpha = 0;
+}
 
 function flashBeat2() flashBeat2 = true;
 

@@ -3,6 +3,9 @@
 public var bfColor;
 public var dadColor;
 
+public var underlay:FlxSprite;
+public var opponentUnderlay:FlxSprite;
+
 function postCreate(){
     if (Options.colorHealthBar){
         bfColor = (boyfriend != null && boyfriend.xml != null && boyfriend.xml.exists("color")) ? CoolUtil.getColorFromDynamic(boyfriend.xml.get("color")) : 0xFF66FF33;
@@ -22,6 +25,29 @@ function postCreate(){
             }
         }
     }
+
+    underlay = new FlxSprite().makeGraphic(FlxG.width / 2.75, FlxG.height);
+    if (!FlxG.save.data.middlescroll) underlay.x = 725;
+    else underlay.screenCenter();
+    underlay.cameras = [camHUD];
+    underlay.alpha = FlxG.save.data.playerUnderlay;
+    insert(1, underlay);
+
+    opponentUnderlay = new FlxSprite().makeGraphic(FlxG.width / 2.75, FlxG.height);
+    if (!FlxG.save.data.middlescroll) opponentUnderlay.x = 85;
+    else opponentUnderlay.x = 69420;
+    opponentUnderlay.cameras = [camHUD];
+    opponentUnderlay.alpha = FlxG.save.data.opponentUnderlay;
+    insert(1, opponentUnderlay);
+
+    if (PlayState.coopMode){
+        underlay.color = bfColor;
+        opponentUnderlay.color = dadColor;
+    }else{
+        underlay.color = opponentUnderlay.color = 0xFF000000;
+    }
+
+    if (FlxG.save.data.noMoreSplashes) splashHandler.visible = false;
 
     if (FlxG.save.data.cutsceneFreeplay) playCutscenes = true;
 }
