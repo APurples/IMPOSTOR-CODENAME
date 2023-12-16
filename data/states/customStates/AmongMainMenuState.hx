@@ -1,5 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
-import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxTypedGroup;
 import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
@@ -11,14 +11,10 @@ import funkin.backend.scripting.Script;
 
 var portVer:Int = 0.1;
 
-var optionShit:Array<String> = [
-	'story mode',
-	'freeplay',
-	'credits',
-	'options'
-];
+var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Innersloth'];
 
-var menuItems:FlxSpriteGroup;
+var menuItems:FlxTypedGroup<FlxSprite> =  new FlxTypedGroup();
+
 var curSelected:Int = 0;
 
 function create(){
@@ -81,22 +77,26 @@ function create(){
 	versionShit.scrollFactor.set();
 	versionShit.y -= versionShit.height;
 	add(versionShit);
-	menuItems = new FlxSpriteGroup();
+
 	for(i in 0...optionShit.length){
 		var menuItem:FunkinSprite = new FunkinSprite(0, 130);
-		menuItem.frames = Paths.getFrames(Paths.image('menus/menuBooba/menu_' + optionShit[i]), true);
-		menuItem.animation.addByPrefix('idle', optionShit[i] + "basic", 24);
-		menuItem.animation.play('idle', true);
+		if(i > 3) menuItem.frames = Paths.getSparrowAtlas('menus/menuBooba/Buttons_UI');
+		else menuItem.frames = Paths.getSparrowAtlas('menus/menuBooba/Big_Buttons_UI');
+		menuItem.animation.addByPrefix('idle', optionShit[i] + ' Button', 24, true);
+		menuItem.animation.addByPrefix('hover', optionShit[i] + ' Select', 24, true);
 		menuItem.ID = i;
 		menuItems.add(menuItem);
         menuItem.scale.set(.5, .5);
+		menuItem.updateHitbox();
 		menuItem.antialiasing = true;
 
 		switch(optionShit[i]){
-			case "story mode": menuItem.setPosition(300, 410);
-			case "freeplay": menuItem.setPosition(550, 422);
-			case "credits": menuItem.setPosition(425, 540);
-			case "options": menuItem.setPosition(575, 595);
+			case "Story Mode": menuItem.setPosition(400, 475);
+			case "Freeplay": menuItem.setPosition(633, 475);
+			case "Credits": menuItem.setPosition(400, 580);
+			case "Gallery": menuItem.setPosition(633, 580);
+			case "Options": menuItem.setPosition(673, 640);
+			case "Innersloth": menuItem.setPosition(503, 640);
 		}
 	}
 
@@ -135,10 +135,15 @@ function update(elapsed){
 
 	if (!selectedSomethin){
 		for (i in menuItems.members) {
+			updateItems();
 			if (FlxG.mouse.overlaps(i) && FlxG.mouse.justMoved && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
 		}
 
-		if ((FlxG.mouse.justPressed)) selectItem();
+		if (FlxG.mouse.justPressed){
+			if (optionShit[curSelected] == 'Innersloth') FlxG.openURL('https://www.innersloth.com/');
+			else if (optionShit[curSelected] == 'Gallery') FlxG.openURL('https://vsimpostor.com/');
+			else selectItem();
+		}
 	}
 }
 
@@ -159,26 +164,31 @@ function selectItem(){
 	});
 }
 
+function updateItems() {
+	menuItems.forEach(function(spr:FunkinSprite) {
+		spr.animation.play('idle');
+		if (spr.ID == curSelected) spr.animation.play('hover');
+	});
+}
+
 function changeItem(huh:Int = 0) {
 	curSelected += huh;
 
-	if (curSelected >= menuItems.length)
-		curSelected = 0;
-	if (curSelected < 0)
-		curSelected = menuItems.length - 1;
+	if (curSelected >= menuItems.length) curSelected = 0;
+	if (curSelected < 0) curSelected = menuItems.length - 1;
 }
 
 function switchState() {
 	var daChoice:String = optionShit[curSelected];
 
 	switch (daChoice) {
-		case 'story mode':
+		case 'Story Mode':
 			FlxG.switchState(new StoryMenuState());
-		case 'freeplay':
+		case 'Freeplay':
 			FlxG.switchState(new FreeplayState());
-		case 'credits':
+		case 'Credits':
 			FlxG.switchState(new CreditsMain());
-		case 'options':
+		case 'Options':
 			FlxG.switchState(new OptionsMenu());
 	}
 }
