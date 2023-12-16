@@ -16,9 +16,9 @@ function new() {
 
     // ui/hud options
     if (FlxG.save.data.timebar == null) FlxG.save.data.timebar = true;
-    if (FlxG.save.data.scoreZoom == null) FlxG.save.data.scoreZoom = true;
     if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
     if (FlxG.save.data.iconLerp == null) FlxG.save.data.iconLerp = true;
+    if (FlxG.save.data.verticalHealthbarAlignment == null) FlxG.save.data.verticalHealthbarAlignment = 1;
 
     // Language options
     // if (FlxG.save.data.indonesian == null) indonesian == false;
@@ -29,10 +29,11 @@ function new() {
     if (FlxG.save.data.warningState == null) FlxG.save.data.warningState = true;
 
 
-    if (!FlxG.save.data.systemCursor){
-		FlxG.mouse.useSystemCursor = false;
-		FlxG.mouse.load(Paths.image('cursor'));
-    }else FlxG.mouse.useSystemCursor = true;
+    if (!FlxG.save.data.flixelCursor) FlxG.mouse.useSystemCursor = true;
+    else{
+        FlxG.mouse.useSystemCursor = false;
+        FlxG.mouse.load(Paths.image('cursor'));
+    }
 }
 
 static var redirectStates:Map<FlxState, String> = [

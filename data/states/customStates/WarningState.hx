@@ -1,4 +1,3 @@
-import haxe.xml.Access;
 import flixel.addons.display.FlxBackdrop;
 
 function create(){

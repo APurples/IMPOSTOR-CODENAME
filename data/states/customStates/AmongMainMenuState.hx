@@ -11,7 +11,7 @@ import funkin.backend.scripting.Script;
 
 var portVer:Int = 0.1;
 
-var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Innersloth'];
+var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Shop', 'Innersloth'];
 
 var menuItems:FlxTypedGroup<FlxSprite> =  new FlxTypedGroup();
 
@@ -93,16 +93,15 @@ function create(){
 		switch(optionShit[i]){
 			case "Story Mode": menuItem.setPosition(400, 475);
 			case "Freeplay": menuItem.setPosition(633, 475);
-			case "Credits": menuItem.setPosition(400, 580);
-			case "Gallery": menuItem.setPosition(633, 580);
-			case "Options": menuItem.setPosition(673, 640);
-			case "Innersloth": menuItem.setPosition(503, 640);
+			case "Credits": menuItem.setPosition(633, 580);
+			case "Gallery": menuItem.setPosition(400, 580);
+			case "Options": menuItem.setPosition(455, 640);
+			case "Innersloth": menuItem.setPosition(725, 640);
+			case "Shop": menuItem.setPosition(590, 640);
 		}
 	}
 
 	add(menuItems);
-
-	changeItem(0);
 }
 
 var selectedSomethin:Bool = false;
@@ -136,7 +135,7 @@ function update(elapsed){
 	if (!selectedSomethin){
 		for (i in menuItems.members) {
 			updateItems();
-			if (FlxG.mouse.overlaps(i) && FlxG.mouse.justMoved && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
+			if (FlxG.mouse.overlaps(i) && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
 		}
 
 		if (FlxG.mouse.justPressed){
@@ -182,14 +181,11 @@ function switchState() {
 	var daChoice:String = optionShit[curSelected];
 
 	switch (daChoice) {
-		case 'Story Mode':
-			FlxG.switchState(new StoryMenuState());
-		case 'Freeplay':
-			FlxG.switchState(new FreeplayState());
-		case 'Credits':
-			FlxG.switchState(new CreditsMain());
-		case 'Options':
-			FlxG.switchState(new OptionsMenu());
+		case 'Story Mode': FlxG.switchState(new StoryMenuState());
+		case 'Freeplay': FlxG.switchState(new FreeplayState());
+		case 'Credits': FlxG.switchState(new CreditsMain());
+		case 'Options': FlxG.switchState(new OptionsMenu());
+		case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
 	}
 }
 

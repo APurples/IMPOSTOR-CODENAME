@@ -33,6 +33,8 @@ function postCreate(){
     underlay.alpha = FlxG.save.data.playerUnderlay;
     insert(1, underlay);
 
+    if (PlayState.opponentMode) underlay.x = 85;
+
     opponentUnderlay = new FlxSprite().makeGraphic(FlxG.width / 2.75, FlxG.height);
     if (!FlxG.save.data.middlescroll) opponentUnderlay.x = 85;
     else opponentUnderlay.x = 69420;

@@ -19,13 +19,21 @@
 	</menu>
 	<menu name="ui" desc="Change how the ui looks!">
 		<menu name="game hud" desc="Change the HUD up when playing a song!">
-			<checkbox id="iconLerp" name="Old Icon Bop" desc="If checked, the icons will bop like the vanilla icon bop VS Impostor V4 uses." />
-			<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
-			<checkbox id="scoreZoom" name="Score Text Zoom on Hit" desc="If unchecked, disables the Score text zooming everytime you hit a note." />
-			<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
-			<checkbox id="psychUi" name="Psych UI" desc="If checked, the ui will look like psych engine's ui." />
+			<menu name="psych hud" desc="Options for the Psych HUD">
+				<checkbox id="psychUi" name="Psych HUD" desc="If checked, the ui will look like psych engine's hud." />
+				<checkbox id="scoreZoom" name="Score Text Zoom on Hit" desc="If checked, the score text will zoom on every note hit. (Only works if Psych HUD is on.)" />
+			</menu>
+			<menu name="impostor hud" desc="Options for the Impostor HUD">
+				<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
+				<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
+			</menu>
+			<menu name="Vertical Healthbar" desc="Options for the Vertical Healthbar">
+				<checkbox id="verticalHealthbar" name="Vertical Healthbar" desc="If checked, the healthbar will be vertical instead of horizontal."/>
+				<number id="verticalHealthbarAlignment" name="Alignment" desc="The alignment for the vertical healthbar. 1 is left, and 2 is right." change="1" min="1" max="2"/>
+			</menu>
+			<checkbox id="hideIcons" name="Hide Icons" desc="If checked, the icons will be hidden."/>
 		</menu>
-		<checkbox id="systemCursor" name="System Cursor" desc="If checked, your system's cursor will override the haxeflixel cursor. (You may need to restart the game in order for this to take effect.)" />
+		<checkbox id="flixelCursor" name="Haxeflixel Cursor" desc="If checked, the haxeflixel cursor will override your system's cursor. (Offsets may not be accurate)" />
 	</menu>	
 	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />

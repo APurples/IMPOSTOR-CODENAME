@@ -105,6 +105,11 @@ function update(elapsed:Float){
         getRatingFC(accuracy, misses);
         if (songScore > 0 || acc > 0 || misses > 0) hudTxt.text = "Score: " + songScore + " | Misses: " + misses +  " | Rating: " + rating + " (" + acc + "%)" + " - " + ratingFC;
     }
+
+    if (FlxG.save.data.verticalHealthbar){
+        iconP1.y = healthBar.y + (healthBar.height * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - iconOffset);
+		iconP2.y = healthBar.y + (healthBar.height * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (iconP2.height - iconOffset);
+    }
 }
 
 function beatHit(){
@@ -127,43 +132,6 @@ function onPlayerHit(event){
                     }
                 });
         }
-        
-        /* todo:
-            make the tween scaling look better for this
-            clean this code up lmfao
-        */
-        if(missesTxtTween != null) {
-            missesTxtTween.cancel();
-        }
-        missesTxt.scale.x = 1.1;
-        missesTxt.scale.y = 1.1;
-        missesTxtTween = FlxTween.tween(missesTxt.scale, {x: 1, y: 1}, 0.2, {
-            onComplete: function(twn:FlxTween) {
-                missesTxtTween = null;
-            }
-        });
-        
-        if(accuracyTxtTween != null) {
-            accuracyTxtTween.cancel();
-        }
-        accuracyTxt.scale.x = 1.1;
-        accuracyTxt.scale.y = 1.1;
-        accuracyTxtTween = FlxTween.tween(accuracyTxt.scale, {x: 1, y: 1}, 0.2, {
-            onComplete: function(twn:FlxTween) {
-                accuracyTxtTween = null;
-            }
-        });
-
-        if(scoreTxtTween != null) {
-            scoreTxtTween.cancel();
-        }
-        scoreTxt.scale.x = 1.1;
-        scoreTxt.scale.y = 1.1;
-        accuracyTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
-            onComplete: function(twn:FlxTween) {
-                scoreTxtTween = null;
-            }
-        });
     }
 }
 
@@ -177,4 +145,33 @@ function postCreate(){
     if (Options.downscroll && FlxG.save.data.psychUi) hudTxt.y = 605;
     
     if (FlxG.save.data.psychUi) add(hudTxt);
+
+    if (FlxG.save.data.verticalHealthbar){
+        for (i in [healthBar, healthBarBG]){
+            i.angle = 90;
+            i.y -= 300;
+            if (FlxG.save.data.middlescroll){
+                if (FlxG.save.data.verticalHealthbarAlignment == 1) i.x -= 250;
+                else if (FlxG.save.data.verticalHealthbarAlignment == 2) i.x += 250;
+            }
+            else{
+                if (FlxG.save.data.verticalHealthbarAlignment == 1) i.x -= 575;
+                else if (FlxG.save.data.verticalHealthbarAlignment == 2) i.x += 575;
+            }
+        }
+
+        for (i in [iconP1, iconP2]) insert(1, i);
+    }
+
+    if (FlxG.save.data.hideIcons) for (i in [iconP1, iconP2]) i.visible = false;
+}
+
+function postUpdate(){
+    if (FlxG.save.data.verticalHealthbar){
+        if (FlxG.save.data.verticalHealthbarAlignment == 1){
+            iconP1.x = iconP2.x = -15;
+        }else if (FlxG.save.data.verticalHealthbarAlignment == 2){
+            iconP1.x = iconP2.x = 1135;
+        }
+    }
 }
