@@ -12,7 +12,6 @@
 		<checkbox id="hitsound" name="Hitsounds" desc="If checked, a tick sound will occur on every note hit." />
 	</menu>
 	<menu name="visuals" desc="Change visuals options for VS Impostor such as flashing lights, jumpscares, screen shaking...">
-		<checkbox id="midVidCutscene" name="Mid-Song Vid Cutscenes" desc="If checked, video cutscenes will play mid-song. (Uncheck if your PC is weak!)" />
 		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
 		<checkbox id="windowShake" name="Window Shake" desc="If checked, window shaking will occur in some songs and in some menus." />
