@@ -19,6 +19,8 @@ function new() {
     if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
     if (FlxG.save.data.iconLerp == null) FlxG.save.data.iconLerp = true;
     if (FlxG.save.data.verticalHealthbarAlignment == null) FlxG.save.data.verticalHealthbarAlignment = 1;
+    if (FlxG.save.data.playerUnderlay == null) FlxG.save.data.playerUnderlay = 0;
+    if (FlxG.save.data.opponentUnderlay == null) FlxG.save.data.opponentUnderlay = 0;
 
     // Language options
     // if (FlxG.save.data.indonesian == null) indonesian == false;

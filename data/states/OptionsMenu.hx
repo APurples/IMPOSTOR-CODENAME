@@ -2,6 +2,8 @@ import funkin.backend.system.framerate.Framerate;
 import flixel.addons.display.FlxBackdrop;
 
 function postCreate(){
+    FlxTween.tween(Framerate.offset, {y: pathBG.height}, .75, {ease: FlxEase.elasticOut});
+
     for (option in main.members)
 		if (option.desc == "Modify mod options here") main.members.remove(option);
 
@@ -19,8 +21,6 @@ function postCreate(){
 }
 
 function update(){
-    Framerate.offset.y = pathBG.height;
-
     // moves the stars to the left
     starFG.x -= 0.06;
     starBG.x -= 0.03;

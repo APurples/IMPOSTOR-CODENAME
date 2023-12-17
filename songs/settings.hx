@@ -31,7 +31,7 @@ function postCreate(){
     else underlay.screenCenter();
     underlay.cameras = [camHUD];
     underlay.alpha = FlxG.save.data.playerUnderlay;
-    insert(1, underlay);
+    if (FlxG.save.data.playerUnderlay != 0) insert(1, underlay);
 
     if (PlayState.opponentMode) underlay.x = 85;
 
@@ -40,7 +40,7 @@ function postCreate(){
     else opponentUnderlay.x = 69420;
     opponentUnderlay.cameras = [camHUD];
     opponentUnderlay.alpha = FlxG.save.data.opponentUnderlay;
-    insert(1, opponentUnderlay);
+    if (FlxG.save.data.opponentUnderlay != 0) insert(1, opponentUnderlay);
 
     if (PlayState.coopMode){
         underlay.color = bfColor;

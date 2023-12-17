@@ -5,7 +5,7 @@
 	<sprite x="-1050" name="hills" y="-181" sprite="polusHills"/>
 	<sprite x="50" name="lab" y="-400" sprite="polus_custom_lab"/>
 	<sprite x="-1350" name="floor" y="83" sprite="polus_custom_floor"/>
-	<sprite x="600" name="bfdead" y="525" sprite="bfdead"/>
+	<sprite x="600" name="bfdead" y="525" alpha="0" sprite="bfdead"/>
 	<girlfriend x="345" y="-71" scroll="1"/>
 	<sprite x="300" y="195" sprite="speakerlonely" alpha="0" name="gfDeadSpeaker"/>
 	<dad x="7" y="-100"/>

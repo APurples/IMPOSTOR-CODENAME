@@ -34,7 +34,6 @@ function create(){
 		tooguswhite.animation.addByPrefix('bop2', '3body', 24, false);
 		tooguswhite.setGraphicSize(Std.int(tooguswhite.width * 0.9));
 		tooguswhite.active = true;
-		tooguswhite.antialiasing = true;
 		tooguswhite.flipX = true;
 		insert(members.indexOf(table), tooguswhite);
 
@@ -42,16 +41,13 @@ function create(){
 		bfvent.frames = Paths.getSparrowAtlas('stages/toogus/bf_mira_vent');
 		bfvent.animation.addByPrefix('vent', 'bf vent', 24, false);
 		bfvent.scrollFactor.set(1, 1);
-		bfvent.active = true;
-		bfvent.antialiasing = true;
-		bfvent.alpha = 0.001;
+		bfvent.alpha = 0;
 		insert(members.indexOf(table), bfvent);
 	}
 
     saxguy = new FlxSprite(-550, 275);
 	saxguy.frames = Paths.getSparrowAtlas('stages/toogus/cyan_toogus');
 	saxguy.animation.addByPrefix('POP OFF CYAN', 'Cyan Dancy', 24, true);
-	saxguy.antialiasing = true;
 	saxguy.scrollFactor.set(1, 1);
     saxguy.alpha = 0;
     add(saxguy);
@@ -67,39 +63,24 @@ function postCreate(){
 }
 
 function update(){
-	if (blueNotDead == false){
-		toogusblue.setPosition(1150, 400);
-	}
-	if (orangeNotDead == false){
-		toogusorange.setPosition(-350, 400);
-	}
-	if (whiteNotDead == false){
-		tooguswhite.setPosition(1300, 450);
-	}
+	if (blueNotDead == false) toogusblue.setPosition(1150, 400);
+	if (orangeNotDead == false) toogusorange.setPosition(-350, 400);
+	if (whiteNotDead == false) tooguswhite.setPosition(1300, 450);
 }
 
-function onSongStart(){
-	if (curSong == "sussus toogus") FlxTween.tween(camHUD, {alpha: 0}, .75);
-}
+function onSongStart() if (curSong == "sussus toogus") FlxTween.tween(camHUD, {alpha: 0}, .75);
 
 function beatHit(){
 	if (curSong == "lights down"){
 		if (curBeat % 2 == 0){
-			if (blueNotDead){
-				toogusblue.animation.play('bop');
-			}else if (blueNotDead == false){
-				toogusblue.animation.play("bop2");
-			}
-			if (orangeNotDead){
-				toogusorange.animation.play('bop');
-			}else if (orangeNotDead == false){
-				toogusorange.animation.play("bop2");
-			}
-			if (whiteNotDead){
-				tooguswhite.animation.play('bop');
-			}else if (whiteNotDead == false){
-				tooguswhite.animation.play("bop2");
-			}
+			if (blueNotDead) toogusblue.animation.play('bop');
+			else if (blueNotDead == false) toogusblue.animation.play("bop2");
+
+			if (orangeNotDead) toogusorange.animation.play('bop');
+			else if (orangeNotDead == false) toogusorange.animation.play("bop2");
+
+			if (whiteNotDead) tooguswhite.animation.play('bop');
+			else if (whiteNotDead == false) tooguswhite.animation.play("bop2");
 		}
 	}
 }
@@ -107,40 +88,26 @@ function beatHit(){
 function stepHit(){
 	if (curSong == "sussus toogus"){
 		switch(curStep){
-			case 112:
-				dad.playAnim("left", true);
-			case 116:
-				dad.playAnim("right", true);
-			case 120:
-				dad.playAnim("left", true);
+			case 112: dad.playAnim("left", true);
+			case 116: dad.playAnim("right", true);
+			case 120: dad.playAnim("left", true);
 			case 124:
 				dad.playAnim("right", true);
 				if (PlayState.opponentMode || PlayState.coopMode) FlxTween.tween(camHUD, {alpha: 1}, .75);
-			case 128:
-				FlxTween.tween(camHUD, {alpha: 1}, .75);
-			case 897:
-				dad.playAnim("notice");
-			case 908:
-				dad.playAnim("wave");
-			case 924:
-				dad.playAnim("unwave");
-			case 928:
-				dad.playAnim("stare");
-			case 1016:
-				if (PlayState.opponentMode || PlayState.coopMode) FlxTween.tween(camHUD, {alpha: 1}, .75);
-			case 1024:
-				FlxTween.tween(camHUD, {alpha: 1}, .75);
+			case 128: FlxTween.tween(camHUD, {alpha: 1}, .75);
+			case 897: dad.playAnim("notice");
+			case 908: dad.playAnim("wave");
+			case 924: dad.playAnim("unwave");
+			case 928: dad.playAnim("stare");
+			case 1016: if (PlayState.opponentMode || PlayState.coopMode) FlxTween.tween(camHUD, {alpha: 1}, .75);
+			case 1024: FlxTween.tween(camHUD, {alpha: 1}, .75);
 		}
 	}else if (curSong == "lights down"){
 		switch (curStep){
-			case 512:
-				blueNotDead = false;
-			case 832:
-				orangeNotDead = false;
-			case 1440:
-				whiteNotDead = false;
-			case 1601:
-				dad.playAnim("bwomp");
+			case 512: blueNotDead = false;
+			case 832: orangeNotDead = false;
+			case 1440: whiteNotDead = false;
+			case 1601: dad.playAnim("bwomp");
 		}
 	}
 }
@@ -161,16 +128,8 @@ function POPOFFCYAN(){
 // lights down
 
 function lightsout(){
-	if (FlxG.save.data.flashingLights){
-		camGame.flash(FlxColor.WHITE, 0.35);
-	}
-	gf.alpha = 0;
-	bg.alpha = 0;
-	fg.alpha = 0;
-	table.alpha = 0;
-	toogusblue.alpha = 0;
-	tooguswhite.alpha = 0;
-	toogusorange.alpha = 0;
+	if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.WHITE, 0.35);
+	for (i in [gf, bg, fg, table, toogusblue, tooguswhite, toogusorange]) i.alpha = 0;
 	strumLines.members[0].characters[1].visible = true;
 	strumLines.members[0].characters[0].visible = false;
 	strumLines.members[1].characters[0].visible = false;
@@ -179,16 +138,8 @@ function lightsout(){
 }
 
 function lightson(){
-	if (FlxG.save.data.flashingLights){
-		camGame.flash(FlxColor.BLACK, 0.35);
-	}
-	gf.alpha = 1;
-	bg.alpha = 1;
-	fg.alpha = 1;
-	table.alpha = 1;
-	toogusblue.alpha = 1;
-	tooguswhite.alpha = 1;
-	toogusorange.alpha = 1;
+	if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.BLACK, 0.35);
+	for (i in [gf, bg, fg, table, toogusblue, tooguswhite, toogusorange]) i.alpha = 1;
 	strumLines.members[0].characters[0].visible = true;
 	strumLines.members[0].characters[1].visible = false;
 	strumLines.members[1].characters[0].visible = true;
@@ -199,9 +150,7 @@ function lightson(){
 function ending(){
 	bfvent.animation.play('vent');
 	bfvent.visible = true;
-	bg.alpha = 1;
-	fg.alpha = 1;
-	table.alpha = 1;
+	for (i in [bg, fg, table]) i.alpha = 1;
 	strumLines.members[0].characters[0].visible = true;
 	strumLines.members[0].characters[1].visible = false;
 	strumLines.members[1].characters[1].visible = false;
@@ -209,6 +158,4 @@ function ending(){
 	camHUD.visible = false;
 }
 
-function blackout(){
-	camGame.visible = false;
-}
+function blackout() camGame.visible = false;

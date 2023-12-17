@@ -12,13 +12,13 @@ import funkin.backend.system.framerate.Framerate;
 
 import openfl.Lib;
 
-function create(){    
-    Framerate.offset.y = 77.5;
+function create(){   
+    FlxTween.tween(Framerate.offset, {y: 77.5}, .75, {ease: FlxEase.elasticOut});
 
     FlxG.mouse.visible = true;
     disableAutoPlay = true;
 
-	starsBG = new FlxBackdrop(Paths.image('menus/freeplay/starBG'), 1, 1, true, true);
+	starsBG = new FlxBackdrop(Paths.image('menus/starBG'), 1, 1, true, true);
 	starsBG.setPosition(111.3, 67.95);
 	starsBG.antialiasing = true;
 	starsBG.updateHitbox();
@@ -26,7 +26,7 @@ function create(){
     insert(members.indexOf(bg), starsBG);
     add(starsBG);
 
-	starsFG = new FlxBackdrop(Paths.image('menus/freeplay/starFG'), 1, 1, true, true);
+	starsFG = new FlxBackdrop(Paths.image('menus/starFG'), 1, 1, true, true);
 	starsFG.setPosition(54.3, 59.45);
 	starsFG.updateHitbox();
 	starsFG.antialiasing = true;

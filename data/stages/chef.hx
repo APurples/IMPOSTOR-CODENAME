@@ -88,9 +88,4 @@ function update(){
     if (PlayState.coopMode) comboGroup.x = 1250;
 }
 
-function beatHit(){
-    if (curBeat % 2 == 0){
-        gray.animation.play('bop');
-        saster.animation.play('bop');
-    }
-}
+function beatHit() if (curBeat % 2 == 0) for (i in [gray, saster]) i.animation.play("bop");

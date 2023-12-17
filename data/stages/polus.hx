@@ -11,23 +11,19 @@ function create(){
     deadGfspeaker = new FlxSprite(300, 195);
     deadGfspeaker.frames = Paths.getSparrowAtlas('stages/polus/speakerlonely');
     deadGfspeaker.animation.addByPrefix('bop', 'speakers lonely', 24, false);
-    deadGfspeaker.antialiasing = true;
     insert(members.indexOf(gf), deadGfspeaker);
 
     crowd = new FlxSprite(-900, 200);
     crowd.frames = Paths.getSparrowAtlas('stages/polus/boppers_meltdown');
     crowd.animation.addByPrefix('bop', 'BoppersMeltdown', 24, false);
-    crowd.animation.play('bop');
     crowd.scrollFactor.set(1.5, 1.5);
-    crowd.antialiasing = true;
-    crowd.updateHitbox();
-    
-    bfdead.alpha = 0;
 }
 
 function postCreate(){
-    meltdownShit = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
-	});
+    if (curSong == "meltdown"){
+        meltdownShit = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
+        });
+    }
 }
 
 function update(){
@@ -39,7 +35,7 @@ function update(){
     }
 
     if (PlayState.opponentMode) comboGroup.x = 400;
-    if (PlayState.coopMode) comboGroup.x = 550;
+    else if (PlayState.coopMode) comboGroup.x = 550;
 }
 
 function measureHit(){
@@ -78,8 +74,7 @@ function stepHit(){
 }
 
 function beatHit(){
-    deadGfspeaker.animation.play('bop');
-    crowd.animation.play('bop');
+    for (i in [deadGfspeaker, crowd]) i.animation.play("bop");
 
     if (flashBeat2 == true){
         if (curBeat % 2 == 0){
