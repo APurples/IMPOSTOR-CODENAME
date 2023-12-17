@@ -1,0 +1,1 @@
+function onEvent(_) if (_.event.name == "Camera Move Offset") camMoveOffset = _.event.params[0];

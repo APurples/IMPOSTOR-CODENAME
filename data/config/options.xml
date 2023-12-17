@@ -36,10 +36,12 @@
 		<checkbox id="flixelCursor" name="Haxeflixel Cursor" desc="If checked, the haxeflixel cursor will override your system's cursor. (Offsets may not be accurate)" />
 	</menu>	
 	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
+		<checkbox id="englishUK" name="UK English" desc="Changes the game's language to English (UK)." />
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />
 		<!--checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />
 		<checkbox id="indonesian" name="Indonesian" desc="Changes the game's language to Indonesian." /-->
 	</menu>
+	<checkbox id="uncappedFPS" name="Uncap Framerate" desc="If checked, your framerate will be uncapped! (You may need to restart the game in order for this option to take effect.)"/>
 	<checkbox id="warningState" name="Warning on bootup" desc="If checked, a warning will ALWAYS pop up when launching the port. Turn off if it gets annoying."/>
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools and editors. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

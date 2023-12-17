@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="drippy" camx="-60" y="90" isGF="false" camy="100" color="#31B0D1" isPlayer="false" holdTime="6.1" sprite="drippy">
+	<anim x="-30" loop="false" y="-90" fps="24" anim="DripIdle" name="idle"/>
+	<anim x="27" loop="false" y="13" fps="24" anim="DripUp" name="singUP"/>
+	<anim x="146" loop="false" y="-84" fps="24" anim="DripLeft" name="singLEFT"/>
+	<anim x="-34" loop="false" y="-84" fps="24" anim="DripRight" name="singRIGHT"/>
+	<anim x="-34" loop="false" y="-111" fps="24" anim="DripDown" name="singDOWN"/>
+</character>

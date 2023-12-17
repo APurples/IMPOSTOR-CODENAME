@@ -6,6 +6,7 @@ todo:
 */
 
 import flixel.FlxCamera;
+import flixel.text.FlxTextBorderStyle;
 import flixel.addons.display.FlxBackdrop;
 
 import funkin.backend.system.framerate.Framerate;
@@ -48,8 +49,10 @@ function create(){
     portrait.animation.addByIndices('red', 'Character', [1], null, 24, true);
     portrait.animation.addByIndices('yellow', 'Character', [2], null, 24, true);
     portrait.animation.addByIndices('green', 'Character', [3], null, 24, true);
+    portrait.animation.addByIndices('para', 'Character', [8], null, 24, true);
     portrait.animation.addByIndices('black', 'Character', [6], null, 24, true);
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
+    portrait.animation.addByIndices('pop', 'Character', [33], null, 24, true);
     portrait.antialiasing = true;
     portrait.setPosition(304.65, -100);
     insert(members.indexOf(bg), portrait);
@@ -59,7 +62,6 @@ function create(){
     upperBar.antialiasing = true;
     upperBar.updateHitbox();
     upperBar.scrollFactor.set();
-    //upperBar.cameras = [camUpper];
     insert(members.indexOf(scoreBG), upperBar);
     add(upperBar);
 
@@ -67,7 +69,6 @@ function create(){
     crossImage.antialiasing = true;
     crossImage.scrollFactor.set();
     crossImage.updateHitbox();
-    //crossImage.cameras = [camUpper];
     add(crossImage);
 
     scoreText.y = 85;
@@ -98,14 +99,15 @@ function postUpdate(){
             portrait.animation.play('red');
             portrait.alpha = 1;
             FlxG.sound.music.volume = 1;
-        case "sussus toogus" | "lights down" | "reactor":
-            portrait.animation.play('green');
-        case "sauces moogus":
-            portrait.animation.play('chef');
+        case "sussus toogus" | "lights down" | "reactor": portrait.animation.play('green');
+        case "ejected": portrait.animation.play('para');
+        case "sauces moogus": portrait.animation.play('chef');
         case "monochrome":
             FlxTween.tween(portrait, {alpha: 0}, 0.35);
             FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
             if (FlxG.save.data.windowShake) Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1),Lib.application.window.y + FlxG.random.int(-1, 1));
+            if (FlxG.save.data.screenShake) FlxG.camera.shake(0.0015, .1);
+        case "drippypop": portrait.animation.play('pop');
         case "yarlow" | "dlowing": portrait.animation.play('yellow');
         case "double kill vtwo":
             portrait.alpha = 1;

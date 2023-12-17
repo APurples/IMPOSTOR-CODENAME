@@ -120,20 +120,6 @@ function onSongStart() FlxTween.tween(camGame, {zoom: 1.1}, 1.25, {ease: FlxEase
 
 function measureHit() defeat.animation.play("bop");
 
-function beatHit() {
-	if (swing) {
-		camGame.zoom += 0.045;
-		camHUD.zoom += 0.06;
-		camZoomingStrength = 0;
-	}
-
-	if (bopping) {
-		camGame.zoom += 0.015;
-		camHUD.zoom += 0.03;
-		camZoomingStrength = 0;
-	}
-}
-
 function stepHit() {
 	if (curSong == "double kill vtwo") {
 		switch (curStep) {
@@ -292,23 +278,12 @@ function playEnding(){
     for (i in [camGame, camHUD]) i.alpha = 0;
 }
 
-function boppingShit() {
-	bopping = true;
-	camZoomingStrength = 0;
-}
-
-function stopBoppingShit() {
-	bopping = false;
-	camZoomingStrength = 1;
-}
-
 function focusOnBf() {
 	focusOnBf = true;
 	scrollSpeed = 2.9;
-	camZoomingStrength = 2;
 	dad.alpha = 0;
 	gf.alpha = 0;
-	if (FlxG.save.data.flashingLights)camGame.flash(0xFFFFFF, .5);
+	if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
 	cpuStrums.forEach(function(strum:StrumNote) {
 		FlxTween.tween(strum, {alpha: 0}, 1);
 	});
@@ -318,7 +293,6 @@ function focusOnBf() {
 
 function unfocusOnBf() {
 	focusOnBf = false;
-	camZoomingStrength = 1;
 	camGame.angle = 0;
 	for (i in [boyfriend, flashback, camHUD]) i.alpha = 0;
 }
@@ -350,18 +324,16 @@ function defeatReference(){
 	FlxG.camera.followLerp = 0.04;
 	scrollSpeed = 2.6;
 	for (i in [camGame, camHUD, defeat, defeatDKoverlay]) i.alpha = 1;
-	camZoomingStrength = 2.5;
 	remove(cargo);
-	if (FlxG.save.data.flashingLights)camGame.flash(0xFFFFFF, 2);
+	if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 2);
 }
 
 function chaseTime() {
 	chaseCamPos = true;
-	swing = true;
 	defeat.alpha = 0;
 	strumLines.members[0].characters[0].visible = false;
 	strumLines.members[1].characters[0].visible = false;
-	if (FlxG.save.data.flashingLights)camGame.flash(0xFFFFFF, .5);
+	if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
 	trace("i can feel black coming inside of me at this part");
 }
 

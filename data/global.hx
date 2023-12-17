@@ -2,6 +2,8 @@ import lime.graphics.Image;
 
 static var initialized:Bool = false;
 
+if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 999;
+
 function new() {
     // makes all of these options automatically set to their default values
     // gameplay options

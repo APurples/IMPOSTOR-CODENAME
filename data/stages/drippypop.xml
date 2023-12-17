@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom=".9">
+	<sprite name="bg" sprite="stages/drip/ng"/>
+	<gf x="950" y="270"/>
+	<dad x="700" y="250"/>
+	<bf x="1425" y="195"/>
+	<combo x="1453.75" y="532"/>
+</stage>

@@ -18,18 +18,17 @@ function create(){
         game.camHUD.visible = true;
 
         new FlxTimer().start(1.35, function(tmr:FlxTimer){
-            if (!Options.naughtyness == true){
+            if (!Options.naughtyness){
                 game.startCutscene("naughtyness-", function(){
                     close();
                 });
             }
-            if (FlxG.save.data.indonesian || FlxG.save.data.swedish){
-                game.startCutscene("placeholder/placeholder-", function(){
+            if (FlxG.save.data.englishUK){
+                game.startCutscene("dialogues/english-uk/", function(){
                     close();
                 });
-            }
-            if (FlxG.save.data.arabic){
-                game.startCutscene("dialogues/arabic/arabic-", function(){
+            }else if (FlxG.save.data.arabic){
+                game.startCutscene("dialogues/arabic/", function(){
                     close();
                 });
             }else{

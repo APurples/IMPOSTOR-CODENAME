@@ -50,7 +50,7 @@ function getRatingFC(accuracy:Float, misses:Int):String {
 }
 
 function create() {
-    timeTxt = new FlxText(42 + (FlxG.width / 2) - 585, 20, 400, PlayState.SONG.meta.name, 32);
+    timeTxt = new FlxText(42 + (FlxG.width / 2) - 585, 20, 400, PlayState.SONG.meta.displayName, 32);
     timeTxt.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, "left", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     timeTxt.scrollFactor.set();
     timeTxt.alpha = 0;
