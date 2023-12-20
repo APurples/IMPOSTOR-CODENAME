@@ -42,6 +42,7 @@ function new() {
 
 static var redirectStates:Map<FlxState, String> = [
     MainMenuState => "customStates/AmongMainMenuState",
+    //FreeplayState => "customStates/AmongFreeplayState", - I must uncomment this after demo v1 release
 ];
 
 function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();

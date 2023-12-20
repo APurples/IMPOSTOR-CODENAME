@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 120,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -4510416,
+	"displayName": "MELTDOWN-HQ",
+	"icon": "impostor2",
+	"name": "meltdown-hq",
+	"color": "#BB2D30"
+}

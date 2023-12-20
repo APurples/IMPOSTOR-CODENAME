@@ -27,11 +27,11 @@ function postCreate(){
 }
 
 function update(){
-    if (curSong == "sussus moogus") remove(deadGfspeaker);
-
-    if (curSong == "meltdown"){
-        bfdead.alpha = 1;
-        if (!Options.lowMemoryMode) add(crowd);
+    switch (curSong){
+        case "sussus moogus", "top ten": remove(deadGfspeaker);
+        case "meltdown":
+            bfdead.alpha = 1;
+            if (!Options.lowMemoryMode) add(crowd);
     }
 
     if (PlayState.opponentMode) comboGroup.x = 400;

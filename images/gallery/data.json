@@ -1,0 +1,85 @@
+{
+  "bgSettings": {
+    "image": "prettyCheckers",
+    "antialiasing": false,
+    "color": "0x9800FF",
+    "velocity": {
+      "x": -0.5,
+      "y": 0.25
+    },
+    "scale": {
+      "width": 5,
+      "height": 5
+    }
+  },
+  "textSettings": {
+	"titleFont": "vcr.ttf",
+	"titleColor": "0xFFFFFF",
+	"titleBorderColor": "0x000000",
+	"titleSize": 30,
+	"titleBorderSize": 3,
+	"descFont": "vcr.ttf",
+	"descColor": "0xFFFFFF",
+	"descBorderColor": "0x000000",
+	"descSize": 20,
+	"descBorderSize": 2
+  },
+  "images": [
+    {
+      "filename": "bf_vs_black",
+      "title": "Boyfriend vs Black",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "red_and_green",
+      "title": "Red and Green",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "triple_trouble",
+      "title": "Triple Trouble",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "Redv4leak",
+      "title": "Outdated teaser of V4 for Red Week",
+      "description": "This is what the red week would've looked like if V4 was a small update as it was intended to back in 2021.",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "UnusedV4Icons",
+      "title": "Beta V4 Icons",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "Unused_icon",
+      "title": "Scrapped app icon",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "GrayUnusedBackground",
+      "title": "Unused Gray Background",
+      "description": "",
+      "antialiasing": true,
+      "resize": true
+    },
+    {
+      "filename": "NewVotingTime",
+      "title": "Voting Time BG for Hotfix",
+      "description": "This was going to be the new background for Voting Time on a hotfix, but it never happened since everyone on the team was too burnt out to even work anymore.",
+      "antialiasing": true,
+      "resize": true
+    }
+  ]
+}

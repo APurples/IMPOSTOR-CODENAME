@@ -12,8 +12,9 @@ import funkin.backend.scripting.Script;
 var portVer:Int = 0.1;
 
 var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Shop', 'Innersloth'];
-
 var menuItems:FlxTypedGroup<FlxSprite> =  new FlxTypedGroup();
+
+var shopTxtTween:FlxTween;
 
 var curSelected:Int = 0;
 
@@ -78,6 +79,12 @@ function create(){
 	versionShit.y -= versionShit.height;
 	add(versionShit);
 
+	shopTxt = new FunkinText(5, 425, 0, 'Shop is currently in the works! Check back here whenever another demo comes out!');
+	shopTxt.screenCenter(FlxAxes.X);
+	shopTxt.scale.set(0, 0);
+	shopTxt.color = FlxColor.RED;
+	add(shopTxt);
+
 	for(i in 0...optionShit.length){
 		var menuItem:FunkinSprite = new FunkinSprite(0, 130);
 		if(i > 3) menuItem.frames = Paths.getSparrowAtlas('menus/menuBooba/Buttons_UI');
@@ -135,13 +142,19 @@ function update(elapsed){
 	if (!selectedSomethin){
 		for (i in menuItems.members) {
 			updateItems();
-			if (FlxG.mouse.overlaps(i) && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
+			if (FlxG.mouse.overlaps(i) && FlxG.mouse.justMoved && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
 		}
 
 		if (FlxG.mouse.justPressed){
 			if (optionShit[curSelected] == 'Innersloth') FlxG.openURL('https://www.innersloth.com/');
-			else if (optionShit[curSelected] == 'Gallery') FlxG.openURL('https://vsimpostor.com/');
-			else selectItem();
+			else if (optionShit[curSelected] == "Shop"){
+				FlxG.sound.play(Paths.sound('menu/locked'));
+				if (FlxG.save.data.screenShake) FlxG.camera.shake(0.01, 0.1);
+				shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 1.5, y: 1.5}, .25, {ease: FlxEase.bounceOut});
+				new FlxTimer().start(7.5, function(tmr:FlxTimer){
+					shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 0, y: 0}, .5, {ease: FlxEase.elasticInOut});
+				});
+			}else selectItem();
 		}
 	}
 }
@@ -185,7 +198,9 @@ function switchState() {
 		case 'Freeplay': FlxG.switchState(new FreeplayState());
 		case 'Credits': FlxG.switchState(new CreditsMain());
 		case 'Options': FlxG.switchState(new OptionsMenu());
-		case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
+		case 'Gallery':
+			FlxG.switchState(new ModState('customStates/GalleryState'));
+		//case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
 	}
 }
 
