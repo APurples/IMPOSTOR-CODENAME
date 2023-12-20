@@ -38,6 +38,10 @@ function new() {
         FlxG.mouse.useSystemCursor = false;
         FlxG.mouse.load(Paths.image('cursor'));
     }
+
+    // set the window title and icon
+    window.title = "Vs Impostor: V4 Codename Engine Port";
+    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
 }
 
 static var redirectStates:Map<FlxState, String> = [
@@ -47,8 +51,6 @@ static var redirectStates:Map<FlxState, String> = [
 function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
 
 function preStateSwitch() {
-    window.title = "Vs Impostor: V4 Codename Engine Port";
-    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
     FlxG.camera.bgColor = 0xFF000000;
 
 	if (!initialized) {
