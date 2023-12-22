@@ -42,6 +42,7 @@ function new() {
 
 static var redirectStates:Map<FlxState, String> = [
     MainMenuState => "customStates/AmongMainMenuState",
+    TitleState => "customStates/AmongTitleState",
     //FreeplayState => "customStates/AmongFreeplayState", - I must uncomment this after demo v1 release
 ];
 

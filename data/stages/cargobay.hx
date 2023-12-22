@@ -4,14 +4,16 @@ import funkin.game.cutscenes.VideoCutscene;
 
 var endingVid:VideoCutscene;
 
-var swing:Bool = false;
-var bopping:Bool = false;
+var chaseModchart:Bool = false;
 var chaseCamPos:Bool = false;
 var buildUpCamPos:Bool = false;
 var focusOnBf:Bool = false;
 
 camGame.alpha = 0;
 camHUD.alpha = 0;
+camHUD.x -= 100;
+camHUD.y -= 100;
+camHUD.angle = -2;
 isStoryMode = true;
 
 function create() {
@@ -68,8 +70,8 @@ function create() {
 function update() {
 	if (swing) camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
 
-	if (focusOnBf){
-        switch(strumLines.members[curCameraTarget].characters[0].getAnimName()){
+	if (focusOnBf) {
+        switch(strumLines.members[curCameraTarget].characters[0].getAnimName()) {
 			case "singLEFT": camGame.angle = (lerp(camGame.angle, -1, 0.35));
 			case "idle", "singDOWN", "singUP": camGame.angle = (lerp(camGame.angle, 0, 0.35));
 			case "singRIGHT": camGame.angle = (lerp(camGame.angle, 1, 0.35));
@@ -120,6 +122,15 @@ function onSongStart() FlxTween.tween(camGame, {zoom: 1.1}, 1.25, {ease: FlxEase
 
 function measureHit() defeat.animation.play("bop");
 
+function beatHit(){
+	if (chaseModchart){
+		camHUD.y = 25;
+		FlxTween.tween(camHUD, {x: 0, y: 0}, .25, {ease: FlxEase.backOut});
+		if (curBeat % 2 == 0) camHUD.x -= 25;
+		if (curBeat % 2 == 1) camHUD.x += 25;
+	}
+}
+
 function stepHit() {
 	if (curSong == "double kill vtwo") {
 		switch (curStep) {
@@ -127,8 +138,10 @@ function stepHit() {
 			case 16:
 				defaultCamZoom = 1;
 				camGame.alpha = 1;
-				camHUD.alpha = 1;
-				if (FlxG.save.data.flashingLights) camHUD.flash(0xFFFFFF, 1);
+				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, 1);
+			case 72:
+				FlxTween.tween(camHUD, {alpha: 1}, .75);
+				FlxTween.tween(camHUD, {x: 0, y: 0, angle: 0}, .75, {ease: FlxEase.circOut});
 			case 272:
 				FlxG.camera.followLerp = 0.08;
 				cargo.alpha = 1;
@@ -144,45 +157,29 @@ function stepHit() {
 				camGame.alpha = 1;
 				scrollSpeed = 3.1;
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
-			case 520:
-				camGame.angle = 1;
-				camHUD.angle = 1;
-			case 522:
-				camGame.angle = -1;
-				camHUD.angle = -1;
+			case 520: for (i in [camGame, camHUD]) i.angle = 1;
+			case 522: for (i in [camGame, camHUD]) i.angle = -1;
 			case 524:
-				camGame.angle = 1;
-				camHUD.angle = 1;
-				FlxTween.tween(camGame, {alpha: 0}, .275);
-				FlxTween.tween(camHUD, {alpha: 0}, .275);
-			case 526:
-				camGame.angle = -1;
-				camHUD.angle = -1;
+				for (i in [camGame, camHUD]){
+					i.angle = 1;
+					FlxTween.tween(i, {alpha: 0}, .275);
+				}
+			case 526: for (i in [camGame, camHUD]) i.angle = -1;
 			case 528:
-				camGame.alpha = 1;
-				camHUD.alpha = 1;
-				camGame.angle = 0;
-				camHUD.angle = 0;
 				FlxG.camera.followLerp = 0.04;
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
-			case 656:
-				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
-			case 776:
-				camGame.angle = 1;
-				camHUD.angle = 1;
-			case 778:
-				camGame.angle = -1;
-				camHUD.angle = -1;
-			case 780:
-				camGame.angle = 1;
-				camHUD.angle = 1;
-			case 782:
-				camGame.angle = -1;
-				camHUD.angle = -1;
+				for (i in [camGame, camHUD]){
+					i.angle = 0;
+					i.alpha = 1;
+				}
+			case 656: if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
+			case 776: for (i in [camGame, camHUD]) i.angle = 1;
+			case 778: for (i in [camGame, camHUD]) i.angle = -1;
+			case 780: for (i in [camGame, camHUD]) i.angle = 1;
+			case 782: for (i in [camGame, camHUD]) i.angle = -1;
 			case 784:
 				FlxG.camera.followLerp = 0.06;
-				camGame.angle = 0;
-				camHUD.angle = 0;
+				for (i in [camGame, camHUD]) i.angle = 0;
 			case 1040:
 				FlxG.camera.followLerp = 0.08;
 				scrollSpeed = 3.3;
@@ -199,9 +196,8 @@ function stepHit() {
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
 			case 1788: FlxTween.tween(camGame, {zoom: 1.2}, 1.6, {ease: FlxEase.circIn});
 			case 1936:
+				for (i in [mainoverlayDK, lightoverDK]) FlxTween.tween(i, {alpha: 0}, 8.5);
 				FlxTween.tween(flashback, {alpha: .5}, 8.5);
-				FlxTween.tween(mainoverlayDK, {alpha: 0}, 8.5);
-				FlxTween.tween(lightoverlayDK, {alpha: 0}, 8.5);
 			case 2082: FlxTween.tween(camHUD, {alpha: 1}, 1);
 			case 2096:
 				FlxG.camera.followLerp = 0.08;
@@ -214,8 +210,7 @@ function stepHit() {
 				cpuStrums.forEach(function(strum:StrumNote) {
 					FlxTween.tween(strum, {alpha: 1}, .5);
 				});
-				if (!FlxG.save.data.middlescroll)
-					for (i in playerStrums.members) FlxTween.tween(i, {x: i.x + 320}, .75, {ease: FlxEase.smootherStepInOut});
+				if (!FlxG.save.data.middlescroll) for (i in playerStrums.members) FlxTween.tween(i, {x: i.x + 320}, .75, {ease: FlxEase.smootherStepInOut});
 			case 2624: FlxG.camera.followLerp = 0.06;
 			case 2640: FlxG.camera.followLerp = 69420; // OVER NINE THOUSAND!!
 			case 2641: FlxG.camera.followLerp = 0.06;
@@ -226,8 +221,7 @@ function stepHit() {
 				scrollSpeed = 3.3;
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
 			case 3128:
-				FlxTween.tween(camGame, {alpha: 0}, .45);
-				FlxTween.tween(camHUD, {alpha: 0}, .45);
+				for (i in [camGame, camHUD]) FlxTween.tween(i, {alpha: 0}, .45);
 				FlxTween.tween(camGame, {zoom: 1.2}, .45);
 			case 3328:
 				buildUpCamPos = true;
@@ -269,7 +263,7 @@ function stepHit() {
 
 // hscript call stuff
 
-function playEnding(){
+function playEnding() {
     persistentUpdate = false;
     endingVid.skippable = false;
     inCutscene = true;
@@ -287,8 +281,7 @@ function focusOnBf() {
 	cpuStrums.forEach(function(strum:StrumNote) {
 		FlxTween.tween(strum, {alpha: 0}, 1);
 	});
-	if (!FlxG.save.data.middlescroll)
-		for (i in playerStrums.members) FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
+	if (!FlxG.save.data.middlescroll) for (i in playerStrums.members) FlxTween.tween(i, {x: i.x - 320}, 1, {ease: FlxEase.smootherStepInOut});
 }
 
 function unfocusOnBf() {
@@ -307,19 +300,13 @@ function healthFadeBack() {
 	trace("healthbar unfaded");
 }
 
-function tweenAngle1(){
-	FlxTween.tween(camGame, {angle: -1}, .35, {ease: FlxEase.quartOut});
-}
+function tweenAngle1() FlxTween.tween(camGame, {angle: -1}, .35, {ease: FlxEase.quartOut});
 
-function tweenAngle2(){
-	FlxTween.tween(camGame, {angle: 1}, .35, {ease: FlxEase.quartOut});
-}
+function tweenAngle2() FlxTween.tween(camGame, {angle: 1}, .35, {ease: FlxEase.quartOut});
 
-function tweenAngleBack(){
-	FlxTween.tween(camGame, {angle: 0}, .35, {ease: FlxEase.quartOut});
-}
+function tweenAngleBack() FlxTween.tween(camGame, {angle: 0}, .35, {ease: FlxEase.quartOut});
 
-function defeatReference(){
+function defeatReference() {
 	strumLines.members[2].characters[0].visible = false;
 	FlxG.camera.followLerp = 0.04;
 	scrollSpeed = 2.6;
@@ -330,6 +317,7 @@ function defeatReference(){
 
 function chaseTime() {
 	chaseCamPos = true;
+	chaseModChart = true;
 	defeat.alpha = 0;
 	strumLines.members[0].characters[0].visible = false;
 	strumLines.members[1].characters[0].visible = false;

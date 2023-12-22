@@ -57,6 +57,10 @@ function update(){
 	
 		if (FlxG.keys.justPressed.ENTER && !selectedSomethin) pressedEnter();
 		else if (FlxG.keys.justPressed.ESCAPE && !selectedSomethin) pressedEscape();
+		else if (FlxG.keys.justPressed.ENTER && selectedSomethin){
+			FlxG.camera.stopFX();
+			FlxG.switchState(new TitleState());
+		}
 	}else FlxG.switchState(new TitleState());
 }
 

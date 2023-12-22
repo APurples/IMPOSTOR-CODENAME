@@ -1,9 +1,0 @@
-{
-    "params": [
-        {
-            "name": "Offset",
-            "type": "Float",
-            "defaultValue": 16
-        }
-    ]
-}
