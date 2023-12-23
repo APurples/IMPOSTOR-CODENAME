@@ -2,12 +2,14 @@ import lime.graphics.Image;
 
 static var initialized:Bool = false;
 
-if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 999;
+if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 1000;
 
 function new() {
     // makes all of these options automatically set to their default values
     // gameplay options
     if (FlxG.save.data.camMove == null) FlxG.save.data.camMove = true;
+    if (FlxG.save.data.doubleTrails == null) FlxG.save.data.doubleTrails = true;
+    if (FlxG.save.data.trailZoom == null) FlxG.save.data.trailZoom = true;
 
     // visual options
     if (FlxG.save.data.midVidCutscene == null) FlxG.save.data.midVidCutscene = true;
@@ -38,6 +40,9 @@ function new() {
         FlxG.mouse.useSystemCursor = false;
         FlxG.mouse.load(Paths.image('cursor'));
     }
+
+    window.title = "Vs Impostor: V4 - Codename Engine";
+    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
 }
 
 static var redirectStates:Map<FlxState, String> = [
@@ -49,8 +54,6 @@ static var redirectStates:Map<FlxState, String> = [
 function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
 
 function preStateSwitch() {
-    window.title = "Vs Impostor: V4 Codename Engine Port";
-    window.setIcon(Image.fromBytes(Assets.getBytes(Paths.image('icon'))));
     FlxG.camera.bgColor = 0xFF000000;
 
 	if (!initialized) {

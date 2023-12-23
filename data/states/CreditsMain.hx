@@ -5,16 +5,12 @@ function postCreate(){
     FlxTween.tween(Framerate.offset, {y: pathBG.height}, .75, {ease: FlxEase.elasticOut});
     
     starBG = new FlxBackdrop(Paths.image('menus/starBG'));
-	starBG.antialiasing = true;
-	starBG.updateHitbox();
 	starBG.scrollFactor.set();
-    add(starBG);
+    insert(0, starBG);
 
     starFG = new FlxBackdrop(Paths.image('menus/starFG'));
-	starFG.updateHitbox();
-	starFG.antialiasing = true;
 	starFG.scrollFactor.set();
-	add(starFG);
+    insert(0, starFG);
 }
 
 function update(){

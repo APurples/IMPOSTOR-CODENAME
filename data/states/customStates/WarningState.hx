@@ -1,4 +1,7 @@
 import flixel.addons.display.FlxBackdrop;
+import funkin.options.OptionsMenu;
+
+var optionsPressed:Bool = false;
 
 function create(){
 	if (FlxG.save.data.warningState){
@@ -13,8 +16,8 @@ function create(){
 			30);
 		add(warningDesc1);
 	
-		warningDesc2 = new FunkinText(1350, 365, 550,
-			"This port has flashing lights and shaking effects that can affect some people. You can press ESCAPE right now to disable flashing lights. You can look at the settings to see more options to look at.",
+		warningDesc2 = new FunkinText(1350, 400, 550,
+			"This port has flashing lights and shaking effects that can affect some people. You can press ESCAPE right now to open up the options menu if you need to turn anything off.",
 			30);
 		add(warningDesc2);
 	
@@ -56,7 +59,7 @@ function update(){
 		});
 	
 		if (FlxG.keys.justPressed.ENTER && !selectedSomethin) pressedEnter();
-		else if (FlxG.keys.justPressed.ESCAPE && !selectedSomethin) pressedEscape();
+		else if (FlxG.keys.justPressed.ESCAPE) pressedEscape();
 		else if (FlxG.keys.justPressed.ENTER && selectedSomethin){
 			FlxG.camera.stopFX();
 			FlxG.switchState(new TitleState());
@@ -76,13 +79,6 @@ function pressedEnter(){
 }
 
 function pressedEscape(){
-	selectedSomethin = true;
-	FlxG.sound.play(Paths.sound('menu/cancel'));
-	FlxTween.tween(FlxG.camera, {alpha: 0}, 1.5);
-	enterTxt.text = "ESCAPE Pressed. Flashing Lights set off.";
-	enterTxt.x -= 125;
-	FlxG.save.data.flashingLights = false;
-	new FlxTimer().start(2, function() {
-		FlxG.switchState(new TitleState());
-	});
+	FlxG.switchState(new OptionsMenu());
+	optionsPressed = true;
 }

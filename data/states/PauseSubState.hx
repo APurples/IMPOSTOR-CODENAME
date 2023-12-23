@@ -4,14 +4,13 @@
 
     Original script by MAZ
 */
-var isDebugEnabled:Bool = false;
 
-function create() if (game.isStoryMode && game.inst != null && game.vocals != null && FlxG.save.data.devMode) menuItems.insert(1, 'Skip Song');
+function create(){
+    if (game.isStoryMode && game.inst != null && game.vocals != null && FlxG.save.data.devMode) menuItems.insert(1, 'Skip Song');
 
-function update(){
-    if (controls.ACCEPT){
-        if (menuItems[curSelected] == "Skip Song") game.endSong();
-    }
-    
-    if (FlxG.save.data.devMode) isDebugEnabled = true;
+    if (game.curStage == "pixelSkeld") pauseMusic = FlxG.sound.load(Paths.music('pause/tomongus'), 0, true);
 }
+
+function postCreate() game.menuItems.screenCenter();
+
+function update() if (controls.ACCEPT) if (menuItems[curSelected] == "Skip Song") game.endSong();

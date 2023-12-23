@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/school/" zoom="1">
+	<sprite antialiasing="false" scroll="0.1" x="-12" updateHitbox="true" sprite="stars" scale="6" name="bgSky"/>
+	<sprite antialiasing="false" x="-204" updateHitbox="true" scroll="0.95" sprite="weebStreet" y="0" scale="6" name="bgStreet"/>
+	<gf x="650" y="310"/>
+	<dad x="100" y="100"/>
+	<bf x="1000" y ="180"/>
+	<combo/>
+</stage>

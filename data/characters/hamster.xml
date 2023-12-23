@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="113" camx="85" camy="-35" icon="hamster" y="510" isGF="false" scale="6" color="#ffaa6f" isPlayer="false" antialiasing="false" sprite="hamster">
+	<anim x="0" loop="false" y="0" fps="24" anim="Idle" name="idle"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Up" name="singUP"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Left" name="singLEFT"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Right" name="singRIGHT"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Down" name="singDOWN"/>
+</character>

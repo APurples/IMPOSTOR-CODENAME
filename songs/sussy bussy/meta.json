@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"beatsPerMesure": 4,
+	"bpm": 132,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -52429,
+	"displayName": "SUSSY BUSSY",
+	"icon": "tomongus",
+	"name": "sussy bussy",
+	"color": "#FF3333"
+}

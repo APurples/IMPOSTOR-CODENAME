@@ -3,7 +3,6 @@ import flixel.group.FlxTypedGroup;
 import funkin.menus.ModSwitchMenu;
 import funkin.editors.EditorPicker;
 import flixel.text.FlxTextBorderStyle;
-import flixel.effects.FlxFlicker;
 import funkin.menus.MainMenuState;
 import funkin.menus.credits.CreditsMain;
 import funkin.options.OptionsMenu;
@@ -14,24 +13,31 @@ var portVer:Int = 0.1;
 var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Shop', 'Innersloth'];
 var menuItems:FlxTypedGroup<FlxSprite> =  new FlxTypedGroup();
 
+var confirm, cancel, locked:FlxSound;
+
 var shopTxtTween:FlxTween;
 
 var curSelected:Int = 0;
 
 function create(){
+	CoolUtil.playMenuSong();
+	Script.staticVariables.set('skipTitleIntro', true);
 	FlxG.mouse.visible = true;
 
+	// loads sounds in for no lag when selecting something
+	confirm = FlxG.sound.load(Paths.sound('menu/confirm'));
+	cancel = FlxG.sound.load(Paths.sound('menu/cancel'));
+	locked = FlxG.sound.load(Paths.sound('menu/locked'));
+
 	starFG = new FlxBackdrop(Paths.image('menus/starFG'));
-	starFG.updateHitbox();
 	starFG.scrollFactor.set();
-	starFG.antialiasing = true;
+	starFG.antialiasing = Options.antialiasing;
 	starFG.velocity.set(-50, 0);
 	add(starFG);
 
 	starBG = new FlxBackdrop(Paths.image('menus/starBG'), 0, 0);
-	starBG.updateHitbox();
 	starBG.scrollFactor.set();
-	starBG.antialiasing = true;
+	starBG.antialiasing = Options.antialiasing;
 	starBG.velocity.set(-42.5, 0);
 	add(starBG);
 	
@@ -40,10 +46,8 @@ function create(){
 	redImpostor.animation.addByPrefix('idle', 'red idle', 24, true);
 	redImpostor.animation.addByPrefix('select', 'red select', 24, false);
 	redImpostor.animation.play('idle');
-	redImpostor.updateHitbox();
 	redImpostor.scale.set(0.7, 0.7);
-	redImpostor.scrollFactor.set();
-	redImpostor.antialiasing = true;
+	redImpostor.antialiasing = Options.antialiasing;
 	add(redImpostor);
 
 	greenImpostor = new FlxSprite(-300, -60);
@@ -51,35 +55,28 @@ function create(){
 	greenImpostor.animation.addByPrefix('idle', 'green idle', 24, true);
 	greenImpostor.animation.addByPrefix('select', 'green select', 24, false);
 	greenImpostor.animation.play('idle');
-	greenImpostor.updateHitbox();
 	greenImpostor.scale.set(0.7, 0.7);
-	greenImpostor.scrollFactor.set();
-	greenImpostor.antialiasing = true;
+	greenImpostor.antialiasing = Options.antialiasing;
 	add(greenImpostor);
 
 	vignette = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/menuBooba/vignette'));
-	vignette.updateHitbox();
-	vignette.active = false;
-	vignette.scrollFactor.set();
-	vignette.antialiasing = true;
+	vignette.antialiasing = Options.antialiasing;
 	add(vignette);
 
 	logo = new FlxSprite(0, 100);
 	logo.frames = Paths.getSparrowAtlas('menus/logoBumpin');
 	logo.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 	logo.screenCenter();
-	logo.updateHitbox();
 	logo.scale.set(0.65, 0.65);
 	logo.y -= 160;
-	logo.antialiasing = true;
+	logo.antialiasing = Options.antialiasing;
 	add(logo);
 
 	versionShit = new FunkinText(5, FlxG.height, 0, 'VS Impostor V4: CNE Port v' + portVer);
-	versionShit.scrollFactor.set();
 	versionShit.y -= versionShit.height;
 	add(versionShit);
 
-	shopTxt = new FunkinText(5, 425, 0, 'Shop is currently in the works! Check back here whenever another demo comes out!');
+	shopTxt = new FunkinText(5, 425, 0, 'Shop is currently in the works! Check back here whenever another demo comes out.');
 	shopTxt.screenCenter(FlxAxes.X);
 	shopTxt.scale.set(0, 0);
 	shopTxt.color = FlxColor.RED;
@@ -109,6 +106,8 @@ function create(){
 	}
 
 	add(menuItems);
+
+	updateItems();
 }
 
 var selectedSomethin:Bool = false;
@@ -127,7 +126,7 @@ function update(elapsed){
 	}
 
 	if (controls.BACK || FlxG.mouse.justPressedRight){
-		FlxG.sound.play(Paths.sound('menu/cancel'));
+		cancel.play();
 		FlxG.camera.fade(FlxColor.BLACK, 0.5, false);
 		new FlxTimer().start(.75, function(tmr:FlxTimer){
 			FlxG.switchState(new TitleState());
@@ -141,14 +140,16 @@ function update(elapsed){
 
 	if (!selectedSomethin){
 		for (i in menuItems.members) {
-			updateItems();
-			if (FlxG.mouse.overlaps(i) && FlxG.mouse.justMoved && curSelected != menuItems.members.indexOf(i)) curSelected = menuItems.members.indexOf(i);
+			if (FlxG.mouse.overlaps(i)){
+				curSelected = menuItems.members.indexOf(i);
+				updateItems();
+			}
 		}
 
 		if (FlxG.mouse.justPressed){
 			if (optionShit[curSelected] == 'Innersloth') FlxG.openURL('https://www.innersloth.com/');
 			else if (optionShit[curSelected] == "Shop"){
-				FlxG.sound.play(Paths.sound('menu/locked'));
+				locked.play();
 				if (FlxG.save.data.screenShake) FlxG.camera.shake(0.01, 0.1);
 				shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 1.5, y: 1.5}, .25, {ease: FlxEase.bounceOut});
 				new FlxTimer().start(7.5, function(tmr:FlxTimer){
@@ -161,7 +162,7 @@ function update(elapsed){
 
 function selectItem(){
 	selectedSomethin = true;
-	FlxG.sound.play(Paths.sound('menu/confirm'));
+	confirm.play();
 	greenImpostor.animation.play('select');
 	redImpostor.animation.play('select');
 
@@ -198,8 +199,7 @@ function switchState() {
 		case 'Freeplay': FlxG.switchState(new FreeplayState());
 		case 'Credits': FlxG.switchState(new CreditsMain());
 		case 'Options': FlxG.switchState(new OptionsMenu());
-		case 'Gallery':
-			FlxG.switchState(new ModState('customStates/GalleryState'));
+		case 'Gallery': FlxG.switchState(new ModState('customStates/GalleryState'));
 		//case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
 	}
 }

@@ -1,6 +1,10 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Impostor" desc="Options for Vs Impostor.">
 	<menu name="gameplay" desc="Change gameplay options for VS Impostor such as middlescroll, camera movement, hitsounds...">
+		<menu name="double note ghosts" desc="Options for double note ghost trails.">
+			<checkbox id="doubleTrails" name="Double Note Trails" desc="If checked, a ghost will appear everytime you hit double notes."/>
+			<checkbox id="trailZoom" name="Zoom on Double Note Hit" desc="If checked, the camera and hud will zoom in everytime you hit double notes"/>
+		</menu>
 		<menu name="underlays" desc="Change options for underlays.">
 			<number id="playerUnderlay" name="BF Underlay Alpha" desc="Changes the transparency of the underlay for the player." change="0.05" min="0" max="1"/>
 			<number id="opponentUnderlay" name="Dad Underlay Alpha" desc="Changes the transparency of the underlay for the opponent/second player." change="0.05" min="0" max="1"/>

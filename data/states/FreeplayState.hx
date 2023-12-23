@@ -11,8 +11,6 @@ import flixel.addons.display.FlxBackdrop;
 
 import funkin.backend.system.framerate.Framerate;
 
-import openfl.Lib;
-
 function create(){   
     FlxTween.tween(Framerate.offset, {y: 77.5}, .75, {ease: FlxEase.elasticOut});
 
@@ -105,7 +103,7 @@ function postUpdate(){
         case "monochrome":
             FlxTween.tween(portrait, {alpha: 0}, 0.35);
             FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
-            if (FlxG.save.data.windowShake) Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-1, 1),Lib.application.window.y + FlxG.random.int(-1, 1));
+            if (FlxG.save.data.windowShake) window.move(window.x + FlxG.random.int(-1, 1), window.y + FlxG.random.int(-1, 1));
             if (FlxG.save.data.screenShake) FlxG.camera.shake(0.0015, .1);
         case "drippypop": portrait.animation.play('pop');
         case "yarlow" | "dlowing": portrait.animation.play('yellow');

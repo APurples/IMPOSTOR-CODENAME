@@ -1,4 +1,4 @@
-// basically the stuff for the custom options
+// has (most) settings code here
 
 public var bfColor;
 public var dadColor;
