@@ -24,7 +24,11 @@ function postCreate(){
 }
 
 function update(elapsed){
-    camGame.angle = Math.sin((Conductor.songPosition / 1200) * (Conductor.bpm / 60) * -1.0) * 1.2;
+    //FlxTween.tween(trail, {y: boyfriend.y + 750}, .5, {ease: FlxEase.cubeOut});
+    for (i in [boyfriend, gf, dad]){
+        i.angle = Math.sin((Conductor.songPosition / 1200) * (Conductor.bpm / 60) * -1.0) * 1.2;
+        i.y = Math.sin((Conductor.songPosition / 1000) * (Conductor.bpm / 60) * 1.0) * 30;
+    }
     camHUD.y = Math.sin((Conductor.songPosition / 1000) * (Conductor.bpm / 60) * 1.0) * 15;
     camHUD.angle = Math.sin((Conductor.songPosition / 1200) * (Conductor.bpm / 60) * -1.0) * 1.2;
 }
@@ -40,8 +44,6 @@ function stopVid(){
 
 
 function postUpdate(elapsed:Float) {
-    defaultCamZoom = curCameraTarget==1 ? 0.75 : 0.45;
-
     FlxG.camera.shake(0.0025, 0.1);
     camHUD.shake(0.00175, 0.1);
 }

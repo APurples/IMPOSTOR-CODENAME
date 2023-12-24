@@ -1,5 +1,4 @@
 var data:Map<Int, {colors:Array<FlxColor>, lastNote:{time:Float, id:Int}}> = [];
-var disableDoubles:Bool = false;
 
 function postCreate()
 	for (sl in strumLines.members)
@@ -23,15 +22,15 @@ function onNoteHit(event:NoteHitEvent) {
 	target.lastNote.time = event.note.strumTime;
 	target.lastNote.id = event.note.noteData;
 
-	if(doDouble && !disableDoubles)
+	if(doDouble && FlxG.save.data.doubleTrails)
 		for (character in event.characters)
-			if (character.visible && FlxG.save.data.doubleTrails) doGhostAnim(character, target.colors[event.characters.indexOf(character)]).playAnim(character.getAnimName(), true);
+			if (character.visible) doGhostAnim(character, target.colors[event.characters.indexOf(character)]).playAnim(character.getAnimName(), true);
 }
 
-function doGhostAnim(char:Character, color:FlxColor) {
+public function doGhostAnim(char:Character, color:FlxColor) {
 	if (FlxG.save.data.trailZoom) {camGame.zoom += .015; camHUD.zoom += .03;}
 
-	var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer); // ez fix (u forgot char.isPlayer)
+	public static var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer); // ez fix (u forgot char.isPlayer)
 	trail.color = color;
 	trail.blend = 0;
 	trail.active = false;
@@ -40,5 +39,6 @@ function doGhostAnim(char:Character, color:FlxColor) {
 		trail.kill();
 		remove(trail, true);
 	};
+	if (curStage == "ejected") FlxTween.tween(trail, {y: char.y - 1500}, .85, {ease: FlxEase.cubeOut});
 	return trail;
 }
