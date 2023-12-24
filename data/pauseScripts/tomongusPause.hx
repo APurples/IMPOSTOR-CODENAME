@@ -21,8 +21,6 @@ function create(event) {
 	event.cancel();
 	event.music = "pause/tomongus";
 
-	cameras = [];
-
     confirm = FlxG.sound.load(Paths.sound('menu/confirm'), .3);
     cancel = FlxG.sound.load(Paths.sound('menu/cancel'), .3);
     scroll = FlxG.sound.load(Paths.sound('menu/scroll'), .15);
@@ -49,6 +47,14 @@ function create(event) {
     FlxTween.tween(songPlayingText, {y: 680}, .5, {ease: FlxEase.cubeOut});
 	add(songPlayingText);
 
+    musicIco = new FlxSprite().loadGraphic(Paths.image('menus/pause/musicIcon'));
+    musicIco.x = songPlayingText.x + 525;
+    musicIco.y = 750;
+    FlxTween.tween(musicIco, {y: 685}, .5, {ease: FlxEase.cubeOut});
+	musicIco.scale.set(2.5, 2.5);
+    musicIco.antialiasing = false;
+	add(musicIco);
+
 	songText = new FlxText(25, -50, 0, "GAME PAUSED", 42, true);
     FlxTween.tween(songText, {y: 5}, .5, {ease: FlxEase.cubeOut});
 	add(songText);
@@ -69,10 +75,8 @@ function create(event) {
 		i++;
 	}
 
-    hand = new FlxSprite().loadGraphic(Paths.image('stages/school/ui/hand_textbox'));
-	hand.scale.set(4.5, 4.5);
-	hand.updateHitbox();
-	add(hand);
+    hamster = new FlxSprite().loadGraphic(Paths.image('menus/pause/tomongus/hamster'));
+	add(hamster);
 
 	cameras = [pauseCam];
 }
@@ -90,10 +94,10 @@ var time:Float = 0;
 function update(elapsed) {
 	time += elapsed;
 
-	var curText = texts[curSelected];
-	hand.setPosition(curText.x - hand.width - 18 + (Math.sin(time * Math.PI * 2) * 12), curText.y + (text.height - hand.height) - 6);
-	hand.x -= hand.x % 6;
-	hand.y -= hand.y % 6;
+    var curText = texts[curSelected];
+	hamster.setPosition(curText.x - hamster.width - 18 + (Math.sin(time * Math.PI * 2) * 12), curText.y + (text.height - hamster.height) + 12);
+	hamster.x -= hamster.x % 6;
+	hamster.y -= hamster.y % 6;
 
 	if (!canDoShit) return;
 	var oldSec = curSelected;

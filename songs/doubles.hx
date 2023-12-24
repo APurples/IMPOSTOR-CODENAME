@@ -27,10 +27,10 @@ function onNoteHit(event:NoteHitEvent) {
 			if (character.visible) doGhostAnim(character, target.colors[event.characters.indexOf(character)]).playAnim(character.getAnimName(), true);
 }
 
-public function doGhostAnim(char:Character, color:FlxColor) {
+function doGhostAnim(char:Character, color:FlxColor) {
 	if (FlxG.save.data.trailZoom) {camGame.zoom += .015; camHUD.zoom += .03;}
 
-	public static var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer); // ez fix (u forgot char.isPlayer)
+	var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer); // ez fix (u forgot char.isPlayer)
 	trail.color = color;
 	trail.blend = 0;
 	trail.active = false;
