@@ -67,5 +67,3 @@ function preStateSwitch() {
 }
 
 function onDestroy() FlxG.camera.bgColor = 0xFF000000;
-
-function onDiscordPresenceUpdate(event) event.cancel(); // disabling for now
