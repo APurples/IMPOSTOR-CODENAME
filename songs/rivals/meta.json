@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"icon": "tomongus",
+	"difficulties": [
+		"HARD"
+	],
+	"parsedColor": -52429,
+	"color": "#FF3333",
+	"name": "rivals",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "RIVALS",
+	"beatsPerMesure": 4,
+	"needsVoices": true,
+	"bpm": 135
+}

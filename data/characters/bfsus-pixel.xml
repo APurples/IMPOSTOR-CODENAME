@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="-5" camx="-150" camy="-15" icon="bf-pixel" y="375" isGF="false" scale="6" color="#31B0D1" flipX="true" isPlayer="true" antialiasing="false" sprite="bfSus">
+<character x="-5" icon="bf-pixel" camx="-150" y="375" isGF="false" scale="6" camy="-15" color="#31B0D1" flipX="true" isPlayer="true" antialiasing="false" sprite="bfSus">
 	<anim x="10" loop="false" y="0" fps="24" anim="idle" name="idle"/>
 	<anim x="10" loop="false" y="0" fps="24" anim="up" name="singUP"/>
 	<anim x="10" loop="false" y="0" fps="24" anim="left" name="singLEFT"/>
@@ -9,4 +9,5 @@
 	<anim x="10" loop="false" y="0" fps="24" anim="missleft" name="singLEFTmiss"/>
 	<anim x="10" loop="false" y="0" fps="24" anim="missright" name="singRIGHTmiss"/>
 	<anim x="10" loop="false" y="0" fps="24" anim="missdown" name="singDOWNmiss"/>
+	<anim x="10" loop="false" y="0" fps="24" anim="shoot" name="shoot"/>
 </character>

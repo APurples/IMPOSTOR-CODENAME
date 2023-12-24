@@ -4,12 +4,13 @@
 	<char name="red" char="red" position="left" />
 	<char name="redscared" char="redscared" position="left" />
 	<char name="redsad" char="redsad" position="left" />
-	<char name="redcrack" char="redcrack" position="left" />
+	<char name="redjolly" char="redjolly" position="left" />
 	<char name="gfhappy" char="gfhappy" position="middle" />
 	<char name="gfdemon" char="gfdemon" position="middle" />
 	<char name="bf" char="bf" position="right" />
 	<char name="bfmad" char="bfmad" position="right" />
 	<char name="bfcrazy" char="bfcrazy" position="right" />
+	<char name="bfjolly" char="bfjolly" position="right" />
 	<char name="bfhappy" char="bfhappy" position="right" />
 
 
@@ -41,10 +42,16 @@
 	<line char="bfcrazy" stay="true" >
 		after you KILLED ME??? what are you on???
 	</line>
-	<line char="redcrack" >
-		idk tbh
+	<line char="redjolly" >
+		christmas spirit
+	</line>
+	<line char="bfjolly" stay="true" >
+		have a holly jolly christmas
+	</line>
+	<line char="redjolly" >
+		its the best time of the year !
 	</line>
 	<line char="bf" stay="true" >
-		ok man
+		ok shut up we need to sing now
 	</line>
 </dialogue>

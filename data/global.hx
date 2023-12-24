@@ -2,7 +2,7 @@ import lime.graphics.Image;
 
 static var initialized:Bool = false;
 
-if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 1000;
+if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 999;
 
 function new() {
     // makes all of these options automatically set to their default values
@@ -25,6 +25,7 @@ function new() {
     if (FlxG.save.data.verticalHealthbarAlignment == null) FlxG.save.data.verticalHealthbarAlignment = 1;
     if (FlxG.save.data.playerUnderlay == null) FlxG.save.data.playerUnderlay = 0;
     if (FlxG.save.data.opponentUnderlay == null) FlxG.save.data.opponentUnderlay = 0;
+    if (FlxG.save.data.tomongusPause == null) FlxG.save.data.tomongusPause = true;
 
     // Language options
     // if (FlxG.save.data.indonesian == null) indonesian == false;
@@ -48,7 +49,7 @@ function new() {
 static var redirectStates:Map<FlxState, String> = [
     MainMenuState => "customStates/AmongMainMenuState",
     TitleState => "customStates/AmongTitleState",
-    //FreeplayState => "customStates/AmongFreeplayState", - I must uncomment this after demo v1 release
+    // FreeplayState => "customStates/AmongFreeplayState",
 ];
 
 function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();

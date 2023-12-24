@@ -11,7 +11,7 @@ import funkin.backend.scripting.Script;
 var portVer:Int = 0.1;
 
 var optionShit:Array<String> = ['Story Mode', 'Freeplay', 'Gallery', 'Credits', 'Options', 'Shop', 'Innersloth'];
-var menuItems:FlxTypedGroup<FlxSprite> =  new FlxTypedGroup();
+var menuItems:FlxTypedGroup<FlxSprite> = new FlxTypedGroup();
 
 var confirm, cancel, locked:FlxSound;
 
@@ -72,8 +72,12 @@ function create(){
 	logo.antialiasing = Options.antialiasing;
 	add(logo);
 
-	versionShit = new FunkinText(5, FlxG.height, 0, 'VS Impostor V4: CNE Port v' + portVer);
-	versionShit.y -= versionShit.height;
+	tabShit = new FunkinText(5, FlxG.height, 0, 'Press TAB to open up the mods menu');
+	tabShit.y -= tabShit.height;
+	add(tabShit);
+
+	versionShit = new FunkinText(5, FlxG.height, 0, 'VS Impostor V4.1.0: CNE Port v' + portVer);
+	versionShit.y -= versionShit.height + 22;
 	add(versionShit);
 
 	shopTxt = new FunkinText(5, 425, 0, 'Shop is currently in the works! Check back here whenever another demo comes out.');
@@ -200,7 +204,7 @@ function switchState() {
 		case 'Credits': FlxG.switchState(new CreditsMain());
 		case 'Options': FlxG.switchState(new OptionsMenu());
 		case 'Gallery': FlxG.switchState(new ModState('customStates/GalleryState'));
-		//case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
+		// case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
 	}
 }
 

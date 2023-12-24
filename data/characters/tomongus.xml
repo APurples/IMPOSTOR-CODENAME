@@ -1,8 +1,9 @@
 <!DOCTYPE codename-engine-character>
-<character x="113" icon="tomongus" camx="85" camy="-35" y="496" isGF="false" scale="6" color="#FF676F" isPlayer="false" antialiasing="false" sprite="tomongus">
+<character x="113" icon="tomongus" camx="85" y="496" isGF="false" scale="6" camy="-35" color="#FF676F" isPlayer="false" antialiasing="false" sprite="tomongus">
 	<anim x="0" loop="false" y="0" fps="24" anim="idle" name="idle"/>
 	<anim x="0" loop="false" y="0" fps="24" anim="up" name="singUP"/>
 	<anim x="0" loop="false" y="0" fps="24" anim="left" name="singLEFT"/>
 	<anim x="0" loop="false" y="0" fps="24" anim="right" name="singRIGHT"/>
 	<anim x="0" loop="false" y="0" fps="24" anim="down" name="singDOWN"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="huh" name="huh"/>
 </character>

@@ -73,6 +73,8 @@ function onPlayerHit(event:NoteHitEvent) {
 }
 
 function postCreate() {
+	PauseSubState.script = "data/pauseScripts/tomongusPause";
+
 	if (enableCameraHacks) {
 		camGame.pixelPerfectRender = true;
 		camGame.antialiasing = false;
@@ -88,6 +90,12 @@ function postCreate() {
 		gameOverSong = "pixel/gameOver";
 		lossSFX = "pixel/gameOverSFX";
 		retrySFX = "pixel/gameOverEnd";
+	}
+
+	if (curSong == "rivals"){
+		strumLines.members[1].characters[1].x -= 20;
+		strumLines.members[1].characters[1].y += 10;
+		strumLines.members[1].characters[1].visible = false;
 	}
 }
 
@@ -109,9 +117,6 @@ function onStartCountdown() {
 	makeCameraPixely(newNoteCamera);
 }
 
-/**
- * Use this to make any camera pixelly (you wont be able to zoom with it anymore!)
- */
 public function makeCameraPixely(cam) {
 	cam.pixelPerfectRender = true;
 	if(!enableCameraHacks) return;
@@ -136,9 +141,7 @@ var pixellyCameras = [];
 var pixellyShaders = [];
 
 function postUpdate(elapsed) {
-	for(e in pixellyCameras) {
-		if (Std.isOfType(e, HudCamera)) e.downscroll = camHUD.downscroll;
-	}
+	for(e in pixellyCameras) if (Std.isOfType(e, HudCamera)) e.downscroll = camHUD.downscroll;
 	if (enableCameraHacks) {
 		for(p in strumLines)
 			p.notes.forEach(function(n) {
@@ -151,7 +154,15 @@ function postUpdate(elapsed) {
 		if (!e.exists) continue;
 		e.zoom = 1 / daPixelZoom / Math.min(FlxG.scaleMode.scale.x, FlxG.scaleMode.scale.y);
 	}
-	for(e in pixellyShaders) {
-		e.pixelZoom = 1 / daPixelZoom / Math.min(FlxG.scaleMode.scale.x, FlxG.scaleMode.scale.y);
-	}
+	for(e in pixellyShaders) e.pixelZoom = 1 / daPixelZoom / Math.min(FlxG.scaleMode.scale.x, FlxG.scaleMode.scale.y);
+}
+
+function bfShoot(){
+	strumLines.members[0].characters[0].playAnim("huh");
+	strumLines.members[1].characters[1].playAnim("shoot");
+	camHUD.visible = false;
+	strumLines.members[1].characters[0].visible = false;
+	strumLines.members[1].characters[1].visible = true;
+	if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.WHITE, 1);
+	FlxG.sound.play(Paths.sound('tomongus_Shot'));
 }

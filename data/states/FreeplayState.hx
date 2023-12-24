@@ -52,6 +52,7 @@ function create(){
     portrait.animation.addByIndices('chef', 'Character', [12], null, 24, true);
     portrait.animation.addByIndices('pop', 'Character', [33], null, 24, true);
     portrait.antialiasing = true;
+    portrait.alpha = 0;
     portrait.setPosition(304.65, -100);
     insert(members.indexOf(bg), portrait);
     add(portrait);
@@ -74,6 +75,8 @@ function create(){
     diffText.y = scoreText.y + 36;
 
     scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reason
+
+    changePortrait();
 }
 
 function postCreate(){
@@ -114,10 +117,9 @@ function postUpdate(){
     }
 }
 
-// shit doesn't work yet (for some reason)
 function changePortrait(){
     portrait.x = 504.65;
     portrait.alpha = 0;
-    FlxTween.tween(portrait, {x: 304.65}, 0.3, {ease: FlxEase.expoOut, startDelay: 0.05});
-    FlxTween.tween(portrait, {alpha: 1}, 0.3, {ease: FlxEase.expoOut, startDelay: 0.05});
+    FlxTween.tween(portrait, {x: 304.65}, 0.3, {ease: FlxEase.expoOut});
+    FlxTween.tween(portrait, {alpha: 1}, 0.3, {ease: FlxEase.expoOut});
 }

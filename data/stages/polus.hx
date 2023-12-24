@@ -10,6 +10,7 @@ var meltdownShit:VideoCutscene;
 function create(){
     deadGfspeaker = new FlxSprite(300, 195);
     deadGfspeaker.frames = Paths.getSparrowAtlas('stages/polus/speakerlonely');
+    deadGfspeaker.antialiasing = Options.antialiasing;
     deadGfspeaker.animation.addByPrefix('bop', 'speakers lonely', 24, false);
     insert(members.indexOf(gf), deadGfspeaker);
 

@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="70" icon="parasite" camx="-200" y="100" isGF="false" scale="2" camy="-160" color="#003315" isPlayer="false" holdTime="6.1" sprite="parasite">
+	<anim x="322" loop="true" y="140" fps="24" anim="idle" name="idle"/>
+	<anim x="171" loop="false" y="191" fps="24" anim="up" name="singUP"/>
+	<anim x="412" loop="false" y="29" fps="24" anim="left" name="singLEFT"/>
+	<anim x="67" loop="false" y="-1" fps="24" anim="right" name="singRIGHT"/>
+	<anim x="187" loop="false" y="-110" fps="24" anim="down" name="singDOWN"/>
+</character>
