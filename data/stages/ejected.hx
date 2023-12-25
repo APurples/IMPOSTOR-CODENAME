@@ -24,7 +24,6 @@ function postCreate(){
 }
 
 function update(elapsed){
-    //FlxTween.tween(trail, {y: boyfriend.y + 750}, .5, {ease: FlxEase.cubeOut});
     for (i in [boyfriend, gf, dad]){
         i.angle = Math.sin((Conductor.songPosition / 1200) * (Conductor.bpm / 60) * -1.0) * 1.2;
         i.y = Math.sin((Conductor.songPosition / 1000) * (Conductor.bpm / 60) * 1.0) * 30;

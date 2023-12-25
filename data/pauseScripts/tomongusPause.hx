@@ -107,24 +107,21 @@ function update(elapsed) {
 	if (controls.ACCEPT) {
 		var option = menuItems[curSelected];
 
-        if (option == "Exit to menu") cancel.play();
-        else confirm.play();
-
+        canDoShit = false;
         FlxTween.tween(Framerate.offset, {y: 0}, .5, {ease: FlxEase.cubeOut});
-		if (option == "Resume" || option == "Restart Song" || option == "Skip Song") {
-			canDoShit = false;
-            FlxTween.tween(pauseCam, {alpha: 0, zoom: 1.25}, .5, {ease: FlxEase.cubeOut});
-            new FlxTimer().start(.65, function(tmr:FlxTimer){
-                selectOption();
-            });
-		}else if (option == "Exit to menu" || option == "Change Options"){
-            canDoShit = false;
-            FlxTween.tween(pauseCam, {zoom: 1.25}, .5, {ease: FlxEase.cubeOut});
+
+        FlxTween.tween(pauseCam, {zoom: 1.25}, .5, {ease: FlxEase.cubeOut});
+        if (option == "Exit to menu" || option == "Change Options"){
             pauseCam.fade(FlxColor.BLACK, .5);
-            new FlxTimer().start(.65, function(tmr:FlxTimer){
-                selectOption();
-            });
-        }else selectOption();
+            cancel.play();
+        }else{
+            FlxTween.tween(pauseCam, {alpha: 0}, .5, {ease: FlxEase.cubeOut});
+            confirm.play();
+        }
+
+        new FlxTimer().start(.65, function(tmr:FlxTimer){
+            selectOption();
+        });
 	}
 }
 
