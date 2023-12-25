@@ -10,9 +10,8 @@ public var isSpooky = false;
 var oldStageQuality = FlxG.game.stage.quality;
 static var daPixelZoom = 6;
 
-/**
- * UI
- */
+function onPostNoteCreation(event) event.note.splash = "pixel";
+
 function onNoteCreation(event) {
 	if (event.note.strumLine == playerStrums && !pixelNotesForBF) return;
 	if (event.note.strumLine == cpuStrums && !pixelNotesForDad) return;

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-splashes>
-<splashes sprite="splashes/impostorSplashes" alpha="0.6" scale="0.85"> 
+<splashes sprite="splashes/pixelSplashes" alpha="0.6" scale="0.85" antialiasing="false"> 
 	<strum id="0"> <!-- LEFT -->
 		<anim name="splash purple1" anim="note splash purple 1" fps="24" x="-19.25" y="10" />
 		<anim name="splash purple2" anim="note splash purple 2" fps="24" x="-19.25" y="10" />
