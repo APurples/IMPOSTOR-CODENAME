@@ -117,9 +117,7 @@ function update(elapsed) {
             confirm.play();
         }
 
-        new FlxTimer().start(.65, function(tmr:FlxTimer){
-            selectOption();
-        });
+        new FlxTimer().start(.65, function(tmr:FlxTimer) {selectOption();});
 	}
 }
 
