@@ -99,8 +99,6 @@ function update(elapsed) {
 	hamster.x -= hamster.x % 6;
 	hamster.y -= hamster.y % 6;
 
-	if (!canDoShit) return;
-	var oldSec = curSelected;
 	if (controls.DOWN_P) changeSelection(1, false);
 	if (controls.UP_P) changeSelection(-1);
 
