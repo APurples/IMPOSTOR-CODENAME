@@ -120,25 +120,24 @@ function beatHit(){
 }
 
 function onPlayerHit(event){
-    if (FlxG.save.data.scoreZoom){
-        if (FlxG.save.data.psychUi){
-            if (event.note.isSustainNote) return;
-                if(hudTxtTween != null) hudTxtTween.cancel();
-                hudTxt.scale.x = 1.1;
-                hudTxt.scale.y = 1.1;
-                hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
-                    onComplete: function(twn:FlxTween) {
-                        hudTxtTween = null;
-                    }
-                });
-        }
+    if (FlxG.save.data.psychUi){
+        if (event.note.isSustainNote) return;
+            if(hudTxtTween != null) hudTxtTween.cancel();
+            hudTxt.scale.x = 1.1 * FlxG.save.data.scoreZoom;
+            hudTxt.scale.y = 1.1 * FlxG.save.data.scoreZoom;
+            hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {
+                onComplete: function(twn:FlxTween) {
+                    hudTxtTween = null;
+                }
+            });
     }
 }
 
 function postCreate(){
-    if (FlxG.save.data.coloredScore)
+    if (FlxG.save.data.psychUi && FlxG.save.data.coloredScore){
         if (!PlayState.opponentMode) hudTxt.color = dadColor;
         else hudTxt.color = bfColor;
+    }
 
     if (FlxG.save.data.psychUi) for (i in [missesTxt, accuracyTxt, scoreTxt]) i.visible = false;
 

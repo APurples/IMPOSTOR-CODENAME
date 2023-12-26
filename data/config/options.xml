@@ -1,51 +1,34 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Impostor" desc="Options for Vs Impostor.">
-	<menu name="gameplay" desc="Change gameplay options for VS Impostor such as middlescroll, camera movement, hitsounds...">
+	<menu name="gameplay" desc="Change gameplay options for VS Impostor">
 		<menu name="double note ghosts" desc="Options for double note ghost trails.">
-			<checkbox id="doubleTrails" name="Double Note Trails" desc="If checked, a ghost will appear everytime you hit double notes."/>
-			<checkbox id="trailZoom" name="Zoom on Double Note Hit" desc="If checked, the camera and hud will zoom in everytime you hit double notes"/>
-		</menu>
-		<menu name="underlays" desc="Change options for underlays.">
-			<number id="playerUnderlay" name="BF Underlay Alpha" desc="Changes the transparency of the underlay for the player." change="0.05" min="0" max="1"/>
-			<number id="opponentUnderlay" name="Dad Underlay Alpha" desc="Changes the transparency of the underlay for the opponent/second player." change="0.05" min="0" max="1"/>
+			<checkbox id="doubleTrails" name="Character Trails" desc="If checked, a ghost will appear everytime you hit more than 1 note at the same time."/>
+			<number id="trailZoom" name="Zoom Multipier" desc="Multiplier for how much the camera zooms in when hitting more than 1 note at the same time." min="0" max="2" change="0.1" />
 		</menu>
 		<checkbox id="camMove" name="Camera Movement" desc="If checked, the camera will move with the notes' direction." />
 		<checkbox id="middlescroll" name="Middlescroll" desc="If checked, centers the player's strums to the middle." />
-		<checkbox id="noMoreSplashes" name="Hide Note Splashes" desc="If checked, the note splashes will be hidden."/>
-		<checkbox id="opponentNotes" name="Hide opponent notes" desc="If checked, will make the opponent's notes invisible." />
-		<checkbox id="hitsound" name="Hitsounds" desc="If checked, a tick sound will occur on every note hit." />
 	</menu>
-	<menu name="visuals" desc="Change visuals options for VS Impostor such as flashing lights, jumpscares, screen shaking...">
-		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs. (MAY BE SENSITIVE FOR PEOPLE WITH EPILEPSY)" />
+	<menu name="appearance" desc="Change appearance options for VS Impostor">
+		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs." />
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
 		<checkbox id="windowShake" name="Window Shake" desc="If checked, window shaking will occur in some songs and in some menus." />
 		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
 	</menu>
-	<menu name="ui" desc="Change how the ui looks!">
-		<menu name="game hud" desc="Change the HUD up when playing a song!">
-			<menu name="psych hud" desc="Options for the Psych HUD">
-				<checkbox id="psychUi" name="Psych HUD" desc="If checked, the ui will look like psych engine's hud." />
-				<checkbox id="scoreZoom" name="Score Text Zoom on Hit" desc="If checked, the score text will zoom on every note hit. (Only works if Psych HUD is on.)" />
-			</menu>
-			<menu name="impostor hud" desc="Options for the Impostor HUD">
-				<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
-				<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
-			</menu>
-			<menu name="Vertical Healthbar" desc="Options for the Vertical Healthbar">
-				<checkbox id="verticalHealthbar" name="Vertical Healthbar" desc="If checked, the healthbar will be vertical instead of horizontal."/>
-				<number id="verticalHealthbarAlignment" name="Alignment" desc="The alignment for the vertical healthbar. 1 is left, and 2 is right." change="1" min="1" max="2"/>
-			</menu>
-			<checkbox id="hideIcons" name="Hide Icons" desc="If checked, the icons will be hidden."/>
+	<menu name="ui" desc="Change UI options for VS Impostor">
+		<menu name="psych hud" desc="Options for the Psych HUD">
+			<checkbox id="psychUi" name="Psych HUD" desc="If checked, the hud ingame will look like psych engine's hud." />
+			<number id="scoreZoom" name="Zoom Multiplier" desc="Multiplier for how much the score text zooms when hitting a note." min="0" max="1.5" change="0.025" />
 		</menu>
-		<checkbox id="flixelCursor" name="Haxeflixel Cursor" desc="If checked, the haxeflixel cursor will override your system's cursor. (Offsets may not be accurate)" />
+		<menu name="impostor hud" desc="Options for the Impostor HUD">
+			<checkbox id="iconLerp" name="Original Icon Lerp" desc="If checked, the icons will lerp just like how it does in VS Impostor V4"/>
+			<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
+			<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
+		</menu>
 	</menu>	
-	<menu name="languages" desc="Change the current game's language. Leave all blank for english. (ALPHA)">
+	<menu name="languages" desc="Change the current game's language. Recommended to not select more than one. Leave all blank for English (USA). (ALPHA)">
 		<checkbox id="englishUK" name="UK English" desc="Changes the game's language to English (UK)." />
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />
-		<!--checkbox id="swedish" name="Swedish" desc="Changes the game's language to Swedish." />
-		<checkbox id="indonesian" name="Indonesian" desc="Changes the game's language to Indonesian." /-->
 	</menu>
-	<checkbox id="uncappedFPS" name="Uncap Framerate" desc="If checked, your framerate will be uncapped! (You may need to restart the game in order for this option to take effect.)"/>
 	<checkbox id="warningState" name="Warning on bootup" desc="If checked, a warning will ALWAYS pop up when launching the port. Turn off if it gets annoying."/>
 	<checkbox id="devMode" name="Developer Mode" desc="If checked, you get access to developer tools and editors. (Look at songs/devStuff.hx in the files for the tools you can use)" />
 </menu>

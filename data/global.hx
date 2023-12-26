@@ -2,39 +2,32 @@ import lime.graphics.Image;
 
 static var initialized:Bool = false;
 
-if (FlxG.save.data.uncappedFPS) FlxG.updateFramerate = FlxG.drawFramerate = 999;
-
 function new() {
     // makes all of these options automatically set to their default values
     // gameplay options
     if (FlxG.save.data.camMove == null) FlxG.save.data.camMove = true;
     if (FlxG.save.data.doubleTrails == null) FlxG.save.data.doubleTrails = true;
-    if (FlxG.save.data.trailZoom == null) FlxG.save.data.trailZoom = true;
+    if (FlxG.save.data.trailZoom == null) FlxG.save.data.trailZoom = 1;
 
     // visual options
-    if (FlxG.save.data.midVidCutscene == null) FlxG.save.data.midVidCutscene = true;
     if (FlxG.save.data.flashingLights == null) FlxG.save.data.flashingLights = true;
     if (FlxG.save.data.screenShake == null) FlxG.save.data.screenShake = true;
     if (FlxG.save.data.windowShake == null) FlxG.save.data.windowShake = true;
     if (FlxG.save.data.jumpscares == null) FlxG.save.data.jumpscares = true;
 
     // ui/hud options
+    if (FlxG.save.data.scoreZoom == null) FlxG.save.data.scoreZoom = 1;
+    if (FlxG.save.data.iconLerp == null) FlxG.save.data.iconLerp = true;
     if (FlxG.save.data.timebar == null) FlxG.save.data.timebar = true;
     if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
-    if (FlxG.save.data.iconLerp == null) FlxG.save.data.iconLerp = true;
-    if (FlxG.save.data.verticalHealthbarAlignment == null) FlxG.save.data.verticalHealthbarAlignment = 1;
-    if (FlxG.save.data.playerUnderlay == null) FlxG.save.data.playerUnderlay = 0;
-    if (FlxG.save.data.opponentUnderlay == null) FlxG.save.data.opponentUnderlay = 0;
-    if (FlxG.save.data.tomongusPause == null) FlxG.save.data.tomongusPause = true;
 
     // Language options
-    // if (FlxG.save.data.indonesian == null) indonesian == false;
-    // if (FlxG.save.data.swedish == null) swedish == false;
+    /*if (FlxG.save.data.indonesian == null) indonesian == false;
+    if (FlxG.save.data.swedish == null) swedish == false;*/
     if (FlxG.save.data.arabic == null) FlxG.save.data.arabic = false;
 
     // other options
     if (FlxG.save.data.warningState == null) FlxG.save.data.warningState = true;
-
 
     if (!FlxG.save.data.flixelCursor) FlxG.mouse.useSystemCursor = true;
     else{

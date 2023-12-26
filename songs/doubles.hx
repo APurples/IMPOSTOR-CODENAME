@@ -27,13 +27,13 @@ function onNoteHit(event:NoteHitEvent) {
 			if (character.visible) doGhostAnim(character, target.colors[event.characters.indexOf(character)]).playAnim(character.getAnimName(), true);
 }
 
+var zoomShit = FlxG.save.data.trailZoom;
 function doGhostAnim(char:Character, color:FlxColor) {
-	if (FlxG.save.data.trailZoom) {camGame.zoom += .015; camHUD.zoom += .03;}
+	camGame.zoom += .015 * zoomShit;
+	camHUD.zoom += .03 * zoomShit;
 
-	var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer); // ez fix (u forgot char.isPlayer)
+	var trail:Character = new Character(char.x, char.y, char.curCharacter, char.isPlayer);
 	trail.color = color;
-	trail.blend = 0;
-	trail.active = false;
 	insert(members.indexOf(char), trail);
 	FlxTween.tween(trail, {alpha: 0}, .75).onComplete = function() {
 		trail.kill();
