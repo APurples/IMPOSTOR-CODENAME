@@ -1,0 +1,1 @@
+PauseSubState.script = "data/scripts/pause/tomongusPause";

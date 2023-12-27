@@ -63,17 +63,6 @@ function measureHit(){
     }
 }
 
-function stepHit(){
-    if (curSong == "sabotage"){
-        switch(curStep){
-            case 816:
-                gf.alpha = 1;
-                gf.playAnim("fadein", true);
-            case 820: dad.playAnim("look", true);
-        }
-    }
-}
-
 function beatHit(){
     for (i in [deadGfspeaker, crowd]) i.animation.play("bop");
 

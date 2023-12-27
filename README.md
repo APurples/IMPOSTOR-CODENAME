@@ -3,8 +3,6 @@
 
 *Do not expect this to have perfect code, optimization, etc. This is just a project that we thought would be fun.*
 
-*Some of you guys may know Clowfoe, and there's a chance you know he did some controversial stuff before. We will not say what he did, but just know that we are still crediting him for creating VS Impostor, but we do **NOT** support his actions. Just because we credit him doesn't mean we support his decisions.*
-
 # VS Impostor: Codename Engine Port
 An unoffical VS Impostor codename engine port! (W.I.P)
 
@@ -36,9 +34,9 @@ APurples - Owner, Main Coder and Main Charter for Impostor CNE Port
 
 MAZ - Coder and Arabian translator.
 
-Credits to Clowfoe and Impostorom for making the VS Impostor Mod.
+Impostorom - Creators of VS Impostor Mod.
 
-Credits to Denasu for making the D'lowing mod!
+Denasu - Creators of D'lowing mod.
 
 There are more credits in the port, go to the credits section in the main menu to check everyone else out.
 

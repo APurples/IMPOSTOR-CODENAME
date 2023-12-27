@@ -17,28 +17,23 @@ function create(){
     FlxG.mouse.visible = true;
     disableAutoPlay = true;
 
-	starsBG = new FlxBackdrop(Paths.image('menus/starBG'), 1, 1, true, true);
-	starsBG.setPosition(111.3, 67.95);
-	starsBG.antialiasing = true;
-	starsBG.updateHitbox();
-	starsBG.scrollFactor.set();
-    insert(members.indexOf(bg), starsBG);
-    add(starsBG);
+    starBG = new FlxBackdrop(Paths.image('menus/starBG'));
+	starBG.antialiasing = true;
+	starBG.updateHitbox();
+	starBG.scrollFactor.set();
+    insert(0, starBG);
 
-	starsFG = new FlxBackdrop(Paths.image('menus/starFG'), 1, 1, true, true);
-	starsFG.setPosition(54.3, 59.45);
-	starsFG.updateHitbox();
-	starsFG.antialiasing = true;
-	starsFG.scrollFactor.set();
-    insert(members.indexOf(bg), starsFG);
-	add(starsFG);
+    starFG = new FlxBackdrop(Paths.image('menus/starFG'));
+	starFG.updateHitbox();
+	starFG.antialiasing = true;
+	starFG.scrollFactor.set();
+    insert(0, starFG);
 
     porGlow = new FlxSprite(-11.1, -12.65).loadGraphic(Paths.image('menus/freeplay/backGlow'));
     porGlow.antialiasing = true;
 	porGlow.updateHitbox();
 	porGlow.scrollFactor.set();
-    insert(members.indexOf(bg), porGlow);
-	add(porGlow);
+    insert(0, porGlow);
 
     portrait = new FlxSprite();
     portrait.frames = Paths.getSparrowAtlas('menus/freeplay/portraits');
@@ -54,15 +49,13 @@ function create(){
     portrait.antialiasing = true;
     portrait.alpha = 0;
     portrait.setPosition(304.65, -100);
-    insert(members.indexOf(bg), portrait);
-    add(portrait);
+    insert(3, portrait);
 
     upperBar = new FlxSprite(-2, -1.4).loadGraphic(Paths.image('menus/freeplay/topBar'));
     upperBar.antialiasing = true;
     upperBar.updateHitbox();
     upperBar.scrollFactor.set();
     insert(members.indexOf(scoreBG), upperBar);
-    add(upperBar);
 
     crossImage = new FlxSprite(12.50, 8.05).loadGraphic(Paths.image('menus/freeplay/menuBack'));
     crossImage.antialiasing = true;
@@ -79,17 +72,14 @@ function create(){
     changePortrait();
 }
 
-function postCreate(){
-    bg.destroy(); // fuck you bg
-    diffText.alpha = 0;
-}
+function postCreate() diffText.alpha = 0;
 
 function update(){
     porGlow.color = interpColor.color;
 
     // moves the stars to the left
-    starsFG.x -= 0.06;
-	starsBG.x -= 0.03;
+    starFG.x -= 0.06;
+	starBG.x -= 0.03;
 }
 
 function postUpdate(){
@@ -104,7 +94,7 @@ function postUpdate(){
         case "ejected": portrait.animation.play('para');
         case "sauces moogus": portrait.animation.play('chef');
         case "monochrome":
-            FlxTween.tween(portrait, {alpha: 0}, 0.35);
+            FlxTween.tween(portrait, {alpha: 0}, 0.25);
             FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
             if (FlxG.save.data.windowShake) window.move(window.x + FlxG.random.int(-1, 1), window.y + FlxG.random.int(-1, 1));
             if (FlxG.save.data.screenShake) FlxG.camera.shake(0.0015, .1);

@@ -65,7 +65,7 @@ function onPlayerHit(event:NoteHitEvent) {
 }
 
 function postCreate() {
-	PauseSubState.script = "data/scripts/pause/tomongusPause";
+	PauseSubState.script = "data/scripts/pause/tomongusPixelPause";
 
 	if (enableCameraHacks) {
 		camGame.pixelPerfectRender = true;

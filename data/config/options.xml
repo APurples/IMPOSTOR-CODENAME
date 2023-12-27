@@ -9,12 +9,6 @@
 		<checkbox id="middlescroll" name="Middlescroll" desc="If checked, centers the player's strums to the middle." />
 	</menu>
 	<menu name="appearance" desc="Change appearance options for VS Impostor">
-		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs." />
-		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
-		<checkbox id="windowShake" name="Window Shake" desc="If checked, window shaking will occur in some songs and in some menus." />
-		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
-	</menu>
-	<menu name="ui" desc="Change UI options for VS Impostor">
 		<menu name="psych hud" desc="Options for the Psych HUD">
 			<checkbox id="psychUi" name="Psych HUD" desc="If checked, the hud ingame will look like psych engine's hud." />
 			<number id="scoreZoom" name="Zoom Multiplier" desc="Multiplier for how much the score text zooms when hitting a note." min="0" max="1.5" change="0.025" />
@@ -24,7 +18,11 @@
 			<checkbox id="timebar" name="Timebar" desc="If checked, there will be a timebar based on how much there is left in the song." />
 			<checkbox id="coloredScore" name="Colored Score Text" desc="If checked, the score text will be colored by the opponent's icon color." />
 		</menu>
-	</menu>	
+		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs." />
+		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
+		<checkbox id="windowShake" name="Window Shake" desc="If checked, window shaking will occur in some songs and in some menus." />
+		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
+	</menu>
 	<menu name="languages" desc="Change the current game's language. Recommended to not select more than one. Leave all blank for English (USA). (ALPHA)">
 		<checkbox id="englishUK" name="UK English" desc="Changes the game's language to English (UK)." />
 		<checkbox id="arabic" name="Arabic" desc="Changes the game's language to Arabic." />

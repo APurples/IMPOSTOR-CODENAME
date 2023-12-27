@@ -46,7 +46,7 @@ function create(event) {
     FlxTween.tween(songPlayingText, {y: 680}, .5, {ease: FlxEase.cubeOut});
 	add(songPlayingText);
 
-    musicIco = new FlxSprite().loadGraphic(Paths.image('menus/pause/pixel/musicIcon'));
+    musicIco = new FlxSprite().loadGraphic(Paths.image('menus/pause/musicIcon'));
     musicIco.x = songPlayingText.x - 25;
     musicIco.y = 750;
     FlxTween.tween(musicIco, {y: 685}, .5, {ease: FlxEase.cubeOut});
@@ -72,7 +72,9 @@ function create(event) {
 		i++;
 	}
 
-    hamster = new FlxSprite().loadGraphic(Paths.image('menus/pause/tomongus/pixel/hamster'));
+    hamster = new FlxSprite();
+    if (game.curSong == "chewmate" || game.curSong == "rivals" && game.curStep >= 1033) hamster.loadGraphic(Paths.image('menus/pause/tomongus/pixel/hamster'));
+    else hamster.loadGraphic(Paths.image('menus/pause/tomongus/pixel/tomongus'));
 	add(hamster);
 
 	cameras = [pauseCam];
@@ -81,6 +83,7 @@ function create(event) {
 function confText(text) {
 	text.scale.set(5.25, 5.25);
 	text.updateHitbox();
+	text.borderStyle = FlxTextBorderStyle.OUTLINE;
 }
 
 function destroy() FlxG.cameras.remove(pauseCam);
@@ -92,13 +95,13 @@ function update(elapsed) {
 
     var curText = texts[curSelected];
 	hamster.setPosition(curText.x - hamster.width - 18 + (Math.sin(time * Math.PI * 2) * 12), curText.y + (text.height - hamster.height) + 12);
-	hamster.x -= hamster.x % 1;
+	hamster.x -= hamster.x % 6;
 	hamster.y -= hamster.y % 6;
 
-	if (controls.DOWN_P && canDoShit) changeSelection(1, false);
-	if (controls.UP_P && canDoShit) changeSelection(-1);
+	if (controls.DOWN_P) changeSelection(1, false);
+	if (controls.UP_P) changeSelection(-1);
 
-	if (controls.ACCEPT && canDoShit) {
+	if (controls.ACCEPT) {
 		var option = menuItems[curSelected];
         canDoShit = false;
         framerateTween = FlxTween.tween(Framerate.offset, {y: 0}, .5, {ease: FlxEase.cubeOut});
@@ -127,6 +130,7 @@ function update(elapsed) {
 
 function changeSelection(change){
     FlxG.sound.play(Paths.sound('menu/scroll'), .15);
+
 	curSelected += change;
 
 	if (curSelected < 0) curSelected = menuItems.length - 1;
