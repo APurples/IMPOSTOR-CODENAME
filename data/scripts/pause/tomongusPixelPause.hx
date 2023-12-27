@@ -106,7 +106,7 @@ function update(elapsed) {
         canDoShit = false;
         framerateTween = FlxTween.tween(Framerate.offset, {y: 0}, .5, {ease: FlxEase.cubeOut});
 
-        // sorry if this looks painful to look at
+        // sorry if this looks painful to look at idk how else i can improve it
         if (option == "Exit to menu"){
             FlxG.sound.play(Paths.sound('menu/cancel'), .3);
             for (i in [game.camGame, game.camHUD, pauseCam]) i.fade(FlxColor.BLACK, .5);
@@ -119,7 +119,7 @@ function update(elapsed) {
             Framerate.offset.y = 60;
             FlxG.sound.play(Paths.sound('menu/cancel'), .3);
             for (i in [game.camGame, game.camHUD]) i.fade(FlxColor.BLACK, .5);
-            FlxTween.tween(pauseCam, {x: -1250}, .75, {ease: FlxEase.cubeOut, onComplete: function() {selectOption();}});
+            FlxTween.tween(pauseCam, {x: -1250}, .75, {ease: FlxEase.quartIn, onComplete: function() {selectOption();}});
         }else{
             selectOption();
             canDoShit = true;
