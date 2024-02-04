@@ -76,15 +76,25 @@ function beatHit(){
 }
 
 function onPlayerHit(event){
-    if (FlxG.save.data.psychUi){
+    if (FlxG.save.data.psychUi)
         if (event.note.isSustainNote) return;
             if(hudTxtTween != null) hudTxtTween.cancel();
             hudTxt.scale.x = hudTxt.scale.y = 1.1 * FlxG.save.data.scoreZoom;
             hudTxtTween = FlxTween.tween(hudTxt.scale, {x: 1, y: 1}, 0.2, {onComplete: function(twn:FlxTween) {hudTxtTween = null;}});
-    }
 }
 
 function postCreate(){
-    if (FlxG.save.data.psychUi) for (i in [missesTxt, accuracyTxt, scoreTxt]) i.visible = false;
-    if (Options.downscroll && FlxG.save.data.psychUi) hudTxt.y = 605;
+    if (FlxG.save.data.psychUi)
+        for (i in [missesTxt, accuracyTxt, scoreTxt])i.visible = false;
+    if (Options.downscroll && FlxG.save.data.psychUi)
+        hudTxt.y = 605;
+    if (FlxG.save.data.coloredScore)
+        var bfColor = (boyfriend != null && boyfriend.xml != null && boyfriend.xml.exists("color")) ? CoolUtil.getColorFromDynamic(boyfriend.xml.get("color")) : 0xFF66FF33;
+        var dadColor = (dad != null && dad.xml != null && dad.xml.exists("color")) ? CoolUtil.getColorFromDynamic(dad.xml.get("color")) : 0xFFFF0000;
+        for (i in [missesTxt, accuracyTxt, scoreTxt, hudTxt]){
+            if (PlayState.opponentMode)
+                i.color = bfColor;
+            else
+                i.color = dadColor;
+        }
 }

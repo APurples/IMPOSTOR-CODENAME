@@ -11,5 +11,5 @@ function bfShoot(){
 	strumLines.members[1].characters[0].visible = false;
 	strumLines.members[1].characters[1].visible = true;
 	if (FlxG.save.data.flashingLights) camGame.flash(FlxColor.WHITE, 1);
-	FlxG.sound.play(Paths.sound('tomongus_Shot'));
+	FlxG.sound.play(Paths.sound('game/tomongus_Shot'));
 }

@@ -15,7 +15,7 @@ var menuItems:FlxTypedGroup<FlxSprite> = new FlxTypedGroup();
 
 var confirm, cancel, locked:FlxSound;
 
-var shopTxtTween:FlxTween;
+var shopTxtTween, shakeTweenX, shakeTweenY, shakeTweenAngle:FlxTween;
 
 var curSelected:Int = 0;
 
@@ -137,48 +137,56 @@ function update(elapsed){
 		});
 	}
 
-	if (FlxG.save.data.devMode){
-		if (FlxG.keys.justPressed.Q) FlxG.camera.zoom -= .1;
-		if (FlxG.keys.justPressed.E) FlxG.camera.zoom += .1;
-	}
-
 	if (!selectedSomethin){
-		for (i in menuItems.members) {
+		for (i in menuItems.members){
 			if (FlxG.mouse.overlaps(i)){
 				curSelected = menuItems.members.indexOf(i);
 				updateItems();
-			}
-		}
 
-		if (FlxG.mouse.justPressed){
-			if (optionShit[curSelected] == 'Innersloth') FlxG.openURL('https://www.innersloth.com/');
-			else if (optionShit[curSelected] == "Shop"){
-				locked.play();
-				if (FlxG.save.data.screenShake) FlxG.camera.shake(0.01, 0.1);
-				shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 1.5, y: 1.5}, .25, {ease: FlxEase.bounceOut});
-				new FlxTimer().start(7.5, function(tmr:FlxTimer){
-					shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 0, y: 0}, .5, {ease: FlxEase.elasticInOut});
-				});
-			}else selectItem();
+				if (FlxG.mouse.justPressed) selectItem();
+			}
 		}
 	}
 }
 
 function selectItem(){
-	selectedSomethin = true;
-	confirm.play();
-	greenImpostor.animation.play('select');
-	redImpostor.animation.play('select');
+	var option = optionShit[curSelected];
+	if (option == "Innersloth") FlxG.openURL('https://www.innersloth.com/');
+	else if (option == "Shop"){
+		locked.play();
 
-	FlxTween.tween(starFG, {y: starFG.y + 500}, 0.7, {ease: FlxEase.quadInOut});
-	FlxTween.tween(starBG, {y: starBG.y + 500}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.2});
-	FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
-	FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
-	FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
+		// my own custom shake thingy :)
+		if (FlxG.save.data.screenShake){
+			shakeTweenX = FlxTween.tween(FlxG.camera, {x: FlxG.camera.x + 4}, .02, {ease: FlxEase.sineOut, type: 4});
+			shakeTweenY = FlxTween.tween(FlxG.camera, {y: FlxG.camera.y + 8}, .04, {ease: FlxEase.sineOut, type: 4});
+			shakeTweenAngle = FlxTween.tween(FlxG.camera, {angle: FlxG.camera.angle + 1}, .0325, {ease: FlxEase.quartOut, type: 4});
+			new FlxTimer().start(.375, function(tmr:FlxTimer){
+				FlxG.camera.setPosition(0, 0);
+				FlxG.camera.angle = 0;
+				for (i in [shakeTweenX, shakeTweenY, shakeTweenAngle]) i.cancel();
+			});
+		}
 
-	new FlxTimer().start(1, function(tmr:FlxTimer){
-		switchState();
-	});
+		shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 1.5, y: 1.5}, .25, {ease: FlxEase.bounceOut});
+		new FlxTimer().start(7.5, function(tmr:FlxTimer){
+			shopTxtTween = FlxTween.tween(shopTxt.scale, {x: 0, y: 0}, .5, {ease: FlxEase.elasticInOut});
+		});
+	}else{
+		selectedSomethin = true;
+		confirm.play();
+		greenImpostor.animation.play('select');
+		redImpostor.animation.play('select');
+	
+		FlxTween.tween(starFG, {y: starFG.y + 500}, 0.7, {ease: FlxEase.quadInOut});
+		FlxTween.tween(starBG, {y: starBG.y + 500}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.2});
+		FlxTween.tween(greenImpostor, {y: greenImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.24});
+		FlxTween.tween(redImpostor, {y: redImpostor.y + 800}, 0.7, {ease: FlxEase.quadInOut, startDelay: 0.3});
+		FlxG.camera.fade(FlxColor.BLACK, 0.7, false);
+		
+		new FlxTimer().start(1, function(tmr:FlxTimer){
+			switchState();
+		});
+	}
 }
 
 function updateItems() {

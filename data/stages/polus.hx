@@ -20,13 +20,6 @@ function create(){
     crowd.scrollFactor.set(1.5, 1.5);
 }
 
-function postCreate(){
-    if (curSong == "meltdown"){
-        meltdownShit = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
-        });
-    }
-}
-
 function update(){
     switch (curSong){
         case "sussus moogus", "top ten": remove(deadGfspeaker);
@@ -76,15 +69,6 @@ function beatHit(){
 }
 
 // hscript call stuff
-
-function playVid(){
-    persistentUpdate = false;
-    meltdownShit.skippable = false;
-    inCutscene = true;
-    openSubState(meltdownShit);
-    persistentDraw = false;
-    for (i in [camGame, camHUD]) i.alpha = 0;
-}
 
 function flashBeat2() flashBeat2 = true;
 

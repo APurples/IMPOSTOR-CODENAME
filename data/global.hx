@@ -1,3 +1,4 @@
+import funkin.backend.utils.NativeAPI;
 import lime.graphics.Image;
 
 static var initialized:Bool = false;
@@ -22,8 +23,8 @@ function new() {
     if (FlxG.save.data.coloredScore == null) FlxG.save.data.coloredScore = true;
 
     // Language options
-    /*if (FlxG.save.data.indonesian == null) indonesian == false;
-    if (FlxG.save.data.swedish == null) swedish == false;*/
+    /*if (FlxG.save.data.indonesian == null) FlxG.save.data.indonesian == false;
+    if (FlxG.save.data.swedish == null) FlxG.save.data.swedish == false;*/
     if (FlxG.save.data.arabic == null) FlxG.save.data.arabic = false;
 
     // other options
@@ -45,7 +46,13 @@ static var redirectStates:Map<FlxState, String> = [
     // FreeplayState => "customStates/AmongFreeplayState",
 ];
 
-function update() if (FlxG.keys.justPressed.F5 && FlxG.save.data.devMode) FlxG.resetState();
+function update(){
+    if (FlxG.save.data.devMode)
+        if (FlxG.keys.justPressed.F5)
+            FlxG.resetState();
+        if (FlxG.keys.justPressed.F6)
+            NativeAPI.allocConsole();
+}
 
 function preStateSwitch() {
     FlxG.camera.bgColor = 0xFF000000;
@@ -59,4 +66,5 @@ function preStateSwitch() {
 				FlxG.game._requestedState = new ModState(redirectStates.get(redirectState));
 }
 
-function onDestroy() FlxG.camera.bgColor = 0xFF000000;
+function onDestroy()
+    FlxG.camera.bgColor = 0xFF000000;

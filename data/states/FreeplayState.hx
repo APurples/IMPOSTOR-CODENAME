@@ -55,7 +55,7 @@ function create(){
     upperBar.antialiasing = true;
     upperBar.updateHitbox();
     upperBar.scrollFactor.set();
-    insert(members.indexOf(scoreBG), upperBar);
+    add(4, upperBar);
 
     crossImage = new FlxSprite(12.50, 8.05).loadGraphic(Paths.image('menus/freeplay/menuBack'));
     crossImage.antialiasing = true;
@@ -67,7 +67,7 @@ function create(){
     coopText.y = scoreText.y + 36;
     diffText.y = scoreText.y + 36;
 
-    scoreBG.alpha = 0; // destroying the scoreBG makes the game kill itself for some reason
+    scoreBG.visible = false;
 
     changePortrait();
 }
