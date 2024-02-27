@@ -20,7 +20,6 @@
 		</menu>
 		<checkbox id="flashingLights" name="Flashing Lights" desc="If checked, there will be flashing lights in some songs." />
 		<checkbox id="screenShake" name="Screen Shake" desc="If checked, screen shaking will occur in some songs." />
-		<checkbox id="windowShake" name="Window Shake" desc="If checked, window shaking will occur in some songs and in some menus." />
 		<checkbox id="jumpscares" name="Jumpscares" desc="If checked, there will be jumpscares in certain songs." />
 	</menu>
 	<menu name="languages" desc="Change the current game's language. Recommended to not select more than one. Leave all blank for English (USA). (ALPHA)">

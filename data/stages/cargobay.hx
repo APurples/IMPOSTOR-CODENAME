@@ -2,6 +2,7 @@ import flixel.addons.display.FlxBackdrop;
 import funkin.game.cutscenes.VideoCutscene;
 //import openfl.display.BlendMode;
 
+var blackScreen:FlxSprite = null;
 var endingVid:VideoCutscene;
 
 var chaseModchart:Bool = false;
@@ -9,7 +10,6 @@ var chaseCamPos:Bool = false;
 var buildUpCamPos:Bool = false;
 var focusOnBf:Bool = false;
 
-camGame.alpha = 0;
 camHUD.alpha = 0;
 camHUD.x -= 100;
 camHUD.y -= 100;
@@ -65,16 +65,22 @@ function create() {
 	cargo = new FlxSprite(50, 50).loadGraphic(Paths.image('stages/cargo bay/cargo'));
 	cargo.alpha = 0;
 	insert(members.indexOf(dad), cargo);
+
+	blackScreen = new FlxSprite(0, 0).makeSolid(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+	blackScreen.scrollFactor.set(0, 0);
+    blackScreen.screenCenter();
+    add(blackScreen);
 }
 
+var swing:Bool = false;
 function update() {
 	if (swing) camHUD.angle = Math.sin((Conductor.songPosition / 500) * (Conductor.bpm / 60) * 1.0);
 
 	if (focusOnBf) {
         switch(strumLines.members[curCameraTarget].characters[0].getAnimName()) {
-			case "singLEFT": camGame.angle = (lerp(camGame.angle, -1, 0.35));
-			case "idle", "singDOWN", "singUP": camGame.angle = (lerp(camGame.angle, 0, 0.35));
-			case "singRIGHT": camGame.angle = (lerp(camGame.angle, 1, 0.35));
+			case "singLEFT": camGame.angle = (lerp(camGame.angle, -1, 1));
+			case "idle", "singDOWN", "singUP": camGame.angle = (lerp(camGame.angle, 0, 1));
+			case "singRIGHT": camGame.angle = (lerp(camGame.angle, 1, 1));
 		}
 	}
 
@@ -131,10 +137,11 @@ function beatHit(){
 	}
 }
 
+// this is a fucking mess holy shit
 function stepHit() {
 	if (curSong == "double kill vtwo") {
 		switch (curStep) {
-			case 4: FlxTween.tween(camGame, {alpha: 1}, 1.75);
+			case 4: FlxTween.tween(blackScreen, {alpha: 0}, 1.75);
 			case 16:
 				defaultCamZoom = 1;
 				camGame.alpha = 1;
@@ -196,7 +203,7 @@ function stepHit() {
 				if (FlxG.save.data.flashingLights) camGame.flash(0xFFFFFF, .5);
 			case 1788: FlxTween.tween(camGame, {zoom: 1.2}, 1.6, {ease: FlxEase.circIn});
 			case 1936:
-				for (i in [mainoverlayDK, lightoverDK]) FlxTween.tween(i, {alpha: 0}, 8.5);
+				for (i in [mainoverlayDK, lightoverlayDK]) FlxTween.tween(i, {alpha: 0}, 8.5);
 				FlxTween.tween(flashback, {alpha: .5}, 8.5);
 			case 2082: FlxTween.tween(camHUD, {alpha: 1}, 1);
 			case 2096:

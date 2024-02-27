@@ -46,7 +46,7 @@ function create(event) {
     FlxTween.tween(songPlayingText, {y: 680}, .5, {ease: FlxEase.cubeOut});
 	add(songPlayingText);
 
-    musicIco = new FlxSprite().loadGraphic(Paths.image('menus/pause/musicIcon'));
+    musicIco = new FlxSprite().loadGraphic(Paths.image('menus/pause/pixel/musicIcon'));
     musicIco.x = songPlayingText.x - 25;
     musicIco.y = 750;
     FlxTween.tween(musicIco, {y: 685}, .5, {ease: FlxEase.cubeOut});

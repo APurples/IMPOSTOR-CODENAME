@@ -1,16 +1,17 @@
 {
+	"beatsPerMeasure": 3,
 	"opponentModeAllowed": true,
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
-	"beatsPerMesure": 3,
 	"bpm": 165,
 	"difficulties": [
 		"HARD"
 	],
 	"needsVoices": true,
-	"parsedColor": -7572995,
+	"parsedColor": -7769603,
 	"displayName": "TOMONGUS TUESDAY",
 	"icon": "face",
 	"name": "tomongus tuesday",
-	"color": "#8C71FD"
+	"color": "#8971FD",
+	"customValues": {}
 }

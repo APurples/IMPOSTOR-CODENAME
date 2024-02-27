@@ -143,8 +143,10 @@ function update(elapsed){
 				curSelected = menuItems.members.indexOf(i);
 				updateItems();
 
-				if (FlxG.mouse.justPressed) selectItem();
-			}
+				if (FlxG.mouse.justPressed)
+					selectItem();
+			}else
+				i.animation.play("idle", true);
 		}
 	}
 }

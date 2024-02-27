@@ -52,7 +52,7 @@ function create(event) {
     FlxTween.tween(musicIco, {y: 685}, .5, {ease: FlxEase.cubeOut});
 	musicIco.scale.set(2.5, 2.5);
     musicIco.antialiasing = false;
-	add(musicIco);
+	//add(musicIco);
 
 	songText = new FlxText(25, -50, 0, "GAME PAUSED", 42, true);
     FlxTween.tween(songText, {y: 5}, .5, {ease: FlxEase.cubeOut});
