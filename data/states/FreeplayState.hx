@@ -86,6 +86,7 @@ function postUpdate(){
             portrait.animation.play('red');
             portrait.alpha = 1;
             FlxG.sound.music.volume = 1;
+            FlxG.camera.shake(0, .001);
         case "sussus toogus" | "lights down" | "reactor":
             portrait.animation.play('green');
         case "ejected":
@@ -95,6 +96,7 @@ function postUpdate(){
         case "monochrome":
             FlxTween.tween(portrait, {alpha: 0}, 0.25);
             FlxTween.tween(FlxG.sound.music, {volume: 0.15}, 0.35);
+            if (FlxG.save.data.screenShake) FlxG.camera.shake(0.001, 9999999);
         case "drippypop":
             portrait.animation.play('pop');
         case "yarlow" | "dlowing":
@@ -103,6 +105,7 @@ function postUpdate(){
             portrait.alpha = 1;
             portrait.animation.play('black');
             FlxG.sound.music.volume = 1;
+            FlxG.camera.shake(0, .001);
     }
 }
 
