@@ -21,7 +21,7 @@ function create() {
 	lightoverlayDK.antialiasing = true;
 	lightoverlayDK.scrollFactor.set(1, 1);
 	lightoverlayDK.active = false;
-	//lightoverlayDK.blend = ADD;
+	lightoverlayDK.blend = 1;
 	lightoverlayDK.alpha = 0.51;
 	if (!Options.lowMemoryMode) add(lightoverlayDK);
 
@@ -29,7 +29,7 @@ function create() {
 	mainoverlayDK.antialiasing = true;
 	mainoverlayDK.scrollFactor.set(1, 1);
 	mainoverlayDK.active = false;
-	//mainoverlayDK.blend == ADD;
+	mainoverlayDK.blend == 1;
 	mainoverlayDK.alpha = 0.6;
 	if (!Options.lowMemoryMode) add(mainoverlayDK);
 
@@ -37,7 +37,7 @@ function create() {
 	defeatDKoverlay.antialiasing = true;
 	defeatDKoverlay.scrollFactor.set(1, 1);
 	defeatDKoverlay.active = false;
-	//defeatDKoverlay.blend = ADD;
+	defeatDKoverlay.blend = 1;
 	defeatDKoverlay.alpha = 0;
 	if (!Options.lowMemoryMode) add(defeatDKoverlay);
 
@@ -97,6 +97,7 @@ function postCreate() {
 	strumLines.members[0].characters[2].y = strumLines.members[0].characters[1].y - 60;
 	strumLines.members[1].characters[1].x = strumLines.members[1].characters[2].x - 147.25;
 	strumLines.members[1].characters[1].y = strumLines.members[1].characters[2].y + 95;
+	strumLines.members[2].characters[0].x -= 65;
 
 	for (e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]) e.alpha = 0;
 
