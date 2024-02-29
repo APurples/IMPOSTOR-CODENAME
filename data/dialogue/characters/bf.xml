@@ -1,4 +1,11 @@
 <!DOCTYPE codename-engine-dialogue-character>
-<character x="215" y="65">
-	<anim name="normal" anim="normal" fps="24" />
+<character sprite="boyfriend" x="215" y="65" textSound="dialogue/bfD">
+	<anim name="normal" anim="BF neutral" fps="24" />
+	<anim name="angry" anim="BF angry" fps="24" />
+	<anim name="happy" anim="BF happy" fps="24" />
+	<anim name="mad" anim="BF mad" fps="24"/>
+	<anim name="q" anim="BF q" fps="24"/>
+	<anim name="realize" anim="BF realization" fps="24"/>
+	<anim name="sad" anim="BF sad" fps="24"/>
+	<anim name="uwu" anim="BF uwu" fps="24"/>
 </character>
