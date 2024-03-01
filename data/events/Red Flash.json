@@ -1,9 +1,0 @@
-{
-	"params": [
-		{
-			"name": "Duration",
-			"type": "String",
-			"defaultValue": "0.35"
-		}
-	]
-}

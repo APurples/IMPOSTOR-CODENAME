@@ -1,13 +1,5 @@
 // i got lazy lol
 
-var wall:FlxSprite;
-var floor:FlxSprite;
-var backshit:FlxSprite;
-var oven:FlxSprite;
-var gray:FlxSprite;
-var saster:FlxSprite;
-var frontable:FlxSprite;
-
 function create(){
     wall = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/kitchen/Back Wall Kitchen'));
     wall.antialiasing = true;
@@ -28,7 +20,6 @@ function create(){
     backshit.antialiasing = true;
     backshit.scrollFactor.set(1, 1);
     backshit.setGraphicSize(Std.int(backshit.width * 0.8));
-    backshit.active = false;
     insert(members.indexOf(dad), backshit);
     add(backshit);
 
@@ -36,7 +27,6 @@ function create(){
     oven.antialiasing = true;
     oven.scrollFactor.set(1, 1);
     oven.setGraphicSize(Std.int(oven.width * 0.8));
-    oven.active = false;
     insert(members.indexOf(dad), oven);
     add(oven);
 
@@ -47,7 +37,6 @@ function create(){
     gray.antialiasing = true;
     gray.scrollFactor.set(1, 1);
     gray.setGraphicSize(Std.int(gray.width * 0.8));
-    gray.active = true;
     insert(members.indexOf(dad), gray);
     add(gray);
     if (!Options.lowMemoryMode) add(gray);
@@ -59,27 +48,23 @@ function create(){
     saster.antialiasing = true;
     saster.scrollFactor.set(1, 1);
     saster.setGraphicSize(Std.int(saster.width * 1.2));
-    saster.active = true;
     insert(members.indexOf(dad), saster);
     if (!Options.lowMemoryMode) add(saster);
 
     frontable = new FlxSprite(800, 700).loadGraphic(Paths.image('stages/kitchen/Kitchen Counter'));
     frontable.antialiasing = true;
     frontable.scrollFactor.set(1, 1);
-    frontable.active = false;
     insert(members.indexOf(dad), frontable);
     add(frontable);
 
     chefBluelight = new FlxSprite(0, -300).loadGraphic(Paths.image('stages/kitchen/bluelight'));
     chefBluelight.antialiasing = true;
     chefBluelight.scrollFactor.set(1, 1);
-    chefBluelight.active = false;
     if (!Options.lowMemoryMode) add(chefBluelight);
 
     chefBlacklight = new FlxSprite(0, -300).loadGraphic(Paths.image('stages/kitchen/black_overhead_shadow'));
     chefBlacklight.antialiasing = true;
     chefBlacklight.scrollFactor.set(1, 1);
-    chefBlacklight.active = false;
     if (!Options.lowMemoryMode) add(chefBlacklight);
 }
 
