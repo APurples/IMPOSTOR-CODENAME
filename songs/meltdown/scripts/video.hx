@@ -1,9 +1,18 @@
-import hxvlc.flixel.FlxVideo;
+import funkin.game.cutscenes.VideoCutscene;
+
+var newVideo:FlxVideo = null;
 
 function postCreate(){
-    video = new FlxVideo();
-    video.onEndReached.add(video.dispose);
-    video.load(Paths.video("midsong/meltdown"));
+    newVideo = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
+        newVideo.skippable = false;
+        canPause = false;
+        persistentUpdate = false;
+        persistentDraw = false;
+	});
 }
 
-function stepHit() if (curStep == 1152) video.play();
+function stepHit()
+    if (curStep == 1152){
+        openSubState(newVideo);
+        camGame.visible = camHUD.visible = false;
+    }
