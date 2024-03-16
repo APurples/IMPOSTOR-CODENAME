@@ -1,3 +1,5 @@
+public var disableGhosts:Bool = false;
+
 var data:Map<Int, {colors:Array<FlxColor>, lastNote:{time:Float, id:Int}}> = [];
 
 function postCreate()
@@ -22,7 +24,7 @@ function onNoteHit(event:NoteHitEvent) {
 	target.lastNote.time = event.note.strumTime;
 	target.lastNote.id = event.note.noteData;
 
-	if(doDouble && FlxG.save.data.doubleTrails)
+	if(doDouble && !disableGhosts && FlxG.save.data.doubleTrails)
 		for (character in event.characters)
 			if (character.visible) doGhostAnim(character, target.colors[event.characters.indexOf(character)]).playAnim(character.getAnimName(), true);
 }

@@ -8,3 +8,6 @@ function onCountdown(event:CountdownEvent)
                 for (i in playerStrums.members) i.x -= 5000;
                 for (i in cpuStrums.members) i.x += 320;
             }
+
+function postCreate()
+    disableGhosts = true;

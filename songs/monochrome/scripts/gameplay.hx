@@ -1,15 +1,12 @@
-boyfriend.alpha = 0;
-dad.alpha = 0;
-camHUD.alpha = 0;
+boyfriend.alpha = 0.0001;
+dad.alpha = 0.0001;
+camHUD.alpha = 0.0001;
 
-function onSongStart(){
-    dad.playAnim("hi");
-}
+function onSongStart()
+    dad.alpha = 1;
 
 function stepHit(){
-    switch(curStep){
-        case 1:
-            dad.alpha = 1;
+    switch(curStep){           
         case 120:
             if (PlayState.opponentMode || PlayState.coopMode){
                 FlxTween.tween(camHUD, {alpha: 1}, .75);
