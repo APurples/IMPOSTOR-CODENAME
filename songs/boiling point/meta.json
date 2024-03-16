@@ -1,0 +1,15 @@
+{
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"HARD"
+	],
+	"icon": "face",
+	"parsedColor": -7179779,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "boiling point",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 200,
+	"name": "boiling point"
+}
