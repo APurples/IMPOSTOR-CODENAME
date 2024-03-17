@@ -7,6 +7,7 @@ import funkin.menus.MainMenuState;
 import funkin.menus.credits.CreditsMain;
 import funkin.options.OptionsMenu;
 import funkin.backend.scripting.Script;
+import openfl.ui.Mouse;
 
 var portVer:Int = 0.1;
 
@@ -99,13 +100,20 @@ function create(){
 		menuItem.antialiasing = true;
 
 		switch(optionShit[i]){
-			case "Story Mode": menuItem.setPosition(400, 475);
-			case "Freeplay": menuItem.setPosition(633, 475);
-			case "Credits": menuItem.setPosition(633, 580);
-			case "Gallery": menuItem.setPosition(400, 580);
-			case "Options": menuItem.setPosition(455, 640);
-			case "Innersloth": menuItem.setPosition(725, 640);
-			case "Shop": menuItem.setPosition(590, 640);
+			case "Story Mode":
+				menuItem.setPosition(400, 475);
+			case "Freeplay":
+				menuItem.setPosition(633, 475);
+			case "Credits":
+				menuItem.setPosition(633, 580);
+			case "Gallery":
+				menuItem.setPosition(400, 580);
+			case "Options":
+				menuItem.setPosition(455, 640);
+			case "Innersloth":
+				menuItem.setPosition(725, 640);
+			case "Shop":
+				menuItem.setPosition(590, 640);
 		}
 	}
 
@@ -115,8 +123,10 @@ function create(){
 }
 
 var selectedSomethin:Bool = false;
-
+var cursor:String = null;
 function update(elapsed){
+	cursor = null;
+	
 	if (FlxG.sound.music.volume < 0.8) FlxG.sound.music.volume += 0.5 * elapsed;
 
     if (FlxG.keys.justPressed.SEVEN){
@@ -140,6 +150,8 @@ function update(elapsed){
 	if (!selectedSomethin){
 		for (i in menuItems.members){
 			if (FlxG.mouse.overlaps(i)){
+				cursor = "button";
+
 				curSelected = menuItems.members.indexOf(i);
 				updateItems();
 
@@ -149,6 +161,8 @@ function update(elapsed){
 				i.animation.play("idle", true);
 		}
 	}
+
+	Mouse.cursor = cursor ?? "arrow";
 }
 
 function selectItem(){
@@ -209,13 +223,20 @@ function switchState() {
 	var daChoice:String = optionShit[curSelected];
 
 	switch (daChoice) {
-		case 'Story Mode': FlxG.switchState(new StoryMenuState());
-		case 'Freeplay': FlxG.switchState(new FreeplayState());
-		case 'Credits': FlxG.switchState(new CreditsMain());
-		case 'Options': FlxG.switchState(new OptionsMenu());
-		case 'Gallery': FlxG.switchState(new ModState('customStates/GalleryState'));
-		// case 'Shop': FlxG.switchState(new ModState('customStates/ShopState'));
+		case 'Story Mode':
+			FlxG.switchState(new StoryMenuState());
+		case 'Freeplay':
+			FlxG.switchState(new FreeplayState());
+		case 'Credits':
+			FlxG.switchState(new CreditsMain());
+		case 'Options':
+			FlxG.switchState(new OptionsMenu());
+		case 'Gallery':
+			FlxG.switchState(new ModState('impostor/GalleryState'));
+		// case 'Shop':
+			// FlxG.switchState(new ModState('customStates/ShopState'));
 	}
 }
 
-function beatHit() logo.animation.play("bump");
+function beatHit()
+	logo.animation.play("bump");

@@ -41,9 +41,9 @@ function new() {
 }
 
 static var redirectStates:Map<FlxState, String> = [
-    MainMenuState => "customStates/AmongMainMenuState",
-    TitleState => "customStates/AmongTitleState",
-    // FreeplayState => "customStates/AmongFreeplayState",
+    MainMenuState => "impostor/AmongMainMenuState",
+    TitleState => "impostor/AmongTitleState",
+    // FreeplayState => "impostor/AmongFreeplayState",
 ];
 
 function update(){
@@ -59,7 +59,7 @@ function preStateSwitch() {
 
 	if (!initialized) {
 		initialized = true;
-		FlxG.game._requestedState = new ModState('customStates/WarningState');
+		FlxG.game._requestedState = new ModState('impostor/WarningState');
 	} else
 		for (redirectState in redirectStates.keys())
 			if (FlxG.game._requestedState is redirectState)
