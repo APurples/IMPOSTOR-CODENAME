@@ -20,10 +20,10 @@ public function playVideo(camerasVisible:Bool = false, stepsTillEnd:Int = null){
     camGame.visible = camHUD.visible = camerasVisible;
     newVideo.play();
 
-    if (stepsTillEnd != null && curStep == stepsTillEnd){
+    if (stepsTillEnd != null) new FlxTimer().start(Conductor.stepCrochet * stepsTillEnd / 1000, function(){
         camVideos.visible = false;
         camGame.visible = camHUD.visible = true;
-    }
+    });
 }
 
 function postUpdate()
