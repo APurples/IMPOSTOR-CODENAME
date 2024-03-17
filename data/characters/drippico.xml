@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="0" icon="pico" y="0" isGF="false" color="#FFD409" isPlayer="false" antialiasing="false" sprite="drippico">
+<character x="0" icon="pico" y="0" isGF="false" camx="-125" camy="-125" color="#FFD409" isPlayer="false" antialiasing="false" sprite="drippico">
 	<anim x="-1" loop="false" y="-111" fps="24" anim="mongo" name="idle"/>
 	<anim x="-3" loop="true" y="172" fps="24" anim="idleshit" name="idle-alt"/>
 	<anim x="291" loop="false" y="415" fps="24" anim="picomongo" name="kill"/>
