@@ -1,18 +1,11 @@
-import funkin.game.cutscenes.VideoCutscene;
-
-var newVideo:FlxVideo = null;
+importScript("data/scripts/videosprite");
 
 function postCreate(){
-    newVideo = new VideoCutscene(Paths.video('midsong/meltdown'), function() {
-        newVideo.skippable = false;
-        canPause = false;
-        persistentUpdate = false;
-        persistentDraw = false;
-	});
+    newVideo.scale.set(0.7, 0.7);
+    newVideo.x -= 300;
+    newVideo.y -= 200;
 }
 
 function stepHit()
-    if (curStep == 1152){
-        openSubState(newVideo);
-        camGame.visible = camHUD.visible = false;
-    }
+    if (curStep == 1152)
+        playVideo(false);

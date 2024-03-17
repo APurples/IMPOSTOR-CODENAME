@@ -1,6 +1,5 @@
 import flixel.addons.display.FlxBackdrop;
 import funkin.game.cutscenes.VideoCutscene;
-//import openfl.display.BlendMode;
 
 var blackScreen:FlxSprite = null;
 var endingVid:VideoCutscene;
@@ -100,9 +99,6 @@ function postCreate() {
 	strumLines.members[2].characters[0].x -= 65;
 
 	for (e in [iconP1, iconP2, healthBar, healthBarBG, scoreTxt, missesTxt, accuracyTxt, hudTxt]) e.alpha = 0;
-
-	endingVid = new VideoCutscene(Paths.video('midsong/double kill v2'), function() {
-	});
 }
 
 function postUpdate() {
@@ -125,9 +121,11 @@ function postUpdate() {
 	}
 }
 
-function onSongStart() FlxTween.tween(camGame, {zoom: 1.1}, 1.25, {ease: FlxEase.circIn});
+function onSongStart()
+	FlxTween.tween(camGame, {zoom: 1.1}, 1.25, {ease: FlxEase.circIn});
 
-function measureHit() defeat.animation.play("bop");
+function measureHit()
+	defeat.animation.play("bop");
 
 function beatHit(){
 	if (chaseModchart){
@@ -270,15 +268,6 @@ function stepHit() {
 }
 
 // hscript call stuff
-
-function playEnding() {
-    persistentUpdate = false;
-    endingVid.skippable = false;
-    inCutscene = true;
-    openSubState(endingVid);
-    persistentDraw = false;
-    for (i in [camGame, camHUD]) i.alpha = 0;
-}
 
 function focusOnBf() {
 	focusOnBf = true;
